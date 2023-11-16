@@ -1,0 +1,47 @@
+:root {
+    --primaryGradient: #3F51B5;
+    /*Primo gradiente*/
+    --secondaryGradient: #757de8;
+    /*Secondo gradiente*/
+    --primaryText: #dedeff;
+    /*Testi importanti vari*/
+    --primaryIconBg: #2196F3;
+    --secondaryIconBG: #003f8f;
+    --text-100: #333333;
+    /*Testo primario*/
+    --text-200: #5c5c5c;
+    /*testo secondario*/
+    --bg: #F9F9F9;
+    --bgDiv: #f5f5f5;
+    font-family: sans-serif;
+}
+
+[data-theme="darkMode"] {
+    --primaryGradient: #1F3A5F;
+    /*primo colore gradiente*/
+    --secondaryGradient: #4d648d;
+    /*Secondo colore gradiente*/
+    --primaryText: #acc2ef;
+    /*testi importanti vari*/
+    --primaryIconBG: #3D5A80;
+    /*background e colore icone*/
+    --secondaryIconBG: #cee8ff;
+    --text-100: #F9F9F9;
+    /*Testo primario*/
+    --text-200: #030303;
+    /*testo secondario*/
+    --bg: #0F1C2E;
+    --bgDiv: #1f2b3e;
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-color: var(--bg);
+    text-align: center;
+}
