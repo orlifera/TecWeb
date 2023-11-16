@@ -1,3 +1,18 @@
+@font-face {
+    font-family: "Prompt";
+    src: url(../../assets/fonts/Prompt/Prompt-Regular.ttf);
+    font-weight: normal;
+    font-display: swap;
+    font-style: normal;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Prompt", sans-serif;
+}
+
 :root {
     --primaryGradient: #3F51B5;
     /*Primo gradiente*/
@@ -13,8 +28,9 @@
     /*testo secondario*/
     --bg: #F9F9F9;
     --bgDiv: #f5f5f5;
-    font-family: sans-serif;
 }
+
+
 
 [data-theme="darkMode"] {
     --primaryGradient: #1F3A5F;
@@ -32,16 +48,137 @@
     /*testo secondario*/
     --bg: #0F1C2E;
     --bgDiv: #1f2b3e;
-}
-
-
-
-* {
-    margin: 0;
-    padding: 0;
+    font-family: "Promopt", sans-serif;
 }
 
 html {
+    font-size: 100%;
     background-color: var(--bg);
+    margin: auto;
+    line-height: 1.5em;
+}
+
+header {
+    padding: 1em;
+    background: linear-gradient(to right, var(--primaryGradient), var(--secondaryGradient));
+}
+
+#logo {
+    text-indent: -999em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../../assets/images/logoNoBg.png);
+    filter: invert(1);
+    font-size: 6em;
+    line-height: 1.5em;
+
+}
+
+
+nav {
+    background-color: var(--secondaryIconBG);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primaryText);
+}
+
+.active {
+    text-decoration: underline;
+}
+
+nav#menu ul {
+    /* margin: auto; */
+    padding: 1em;
+    max-width: 1024px;
+    /* text-align: center; */
+}
+
+nav#menu ul li {
+    display: inline-block;
+    list-style-type: none;
+    width: 15%;
+    margin: 0 .5em;
+    color: var(--primaryText);
+}
+
+#breadcrumb {
+    display: block;
+}
+
+.sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    width: 1px !important;
+    position: absolute !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    padding: 0 !important;
+    margin: -1px !important;
+}
+
+footer {
+    background: linear-gradient(to right, var(--primaryGradient), var(--secondaryGradient));
+}
+
+footer dl#footdef {
+    display: flex;
+    /* Flex container for the whole list */
+    justify-content: space-evenly;
+    /* Adjusts the spacing between the flex items */
+    padding-top: 1em;
+}
+
+footer dl#footdef div {
+    display: flex;
+    /* Flex container for each group */
+    flex-direction: column;
+    /* Stacks dt and dd vertically */
     text-align: center;
+
+}
+
+footer dl#footdef dt {
+    color: var(--primaryText);
+}
+
+footer dl#footdef dd a {
+    color: var(--text-100)
+}
+
+footer ul#footunor {
+    margin-top: 2em;
+}
+
+footer ul#footunor li {
+    display: inline;
+    margin: auto;
+    padding: auto;
+}
+
+footer ul#footunor li a {
+    color: var(--text-100)
+}
+
+#rights {
+    display: block;
+}
+
+#account {
+    border-left: 1px solid #f9f9f9;
+    border-right: 1px solid #f9f9f9;
+    padding-left: 5em;
+    padding-right: 5em;
+}
+
+/*Catlog*/
+
+.spacer {
+    width: 50em;
+    height: 50em;
+    background-color: #003f8f;
 }
