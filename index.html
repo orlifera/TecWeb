@@ -13,8 +13,8 @@
     </head>
     <body>
         <header>
-            <h1><a href="index.html">ML Tech</a></h1>
-            <nav>
+            <h1 id="logo"><a href="index.html">ML Tech</a></h1>
+            <nav id="menu">
                 <ul>
                     <li><a href="index.html" lang="en">Home</a></li>
                     <li><a href="src/pages/catalog.html" lang="en">Shop</a></li>
@@ -23,28 +23,95 @@
                     <li><a href="src/pages/profile"></a></li>
                 </ul>
             </nav>
+            <nav id="breadcrumb" class="sr_only">
+                <p>Ti trovi in: <span lang="en">Home</span></p>
+            </nav>
         </header>
-        <main></main>
+        <main>
+            <div id="prsentation">
+                <h2 class="title">ML Tech</h2>
+                <p class="subtitle">Rivoluzionario (o some shit)</p>
+            </div>
+            <div id="info">
+                <dl>
+                    <div class="info_col">
+                        <img class="icon" src="">
+                        <dt>ORDINI CUSTOM</dt>
+                        <dd>Se vuoi un computer ma niente del catalogo ti soddisfa, inviami una mail o un messaggio su discord e ti manderò un preventivo personalizzato.</dd>
+                    </div>
+                    <div class="info_col">
+                        <img class="icon" src="">
+                        <dt>SPEDIZIONE TRACCIABILE</dt>
+                        <dd>So quanto può essere stressante non sapere quando il proprio pacco arriverà, quindi mi impegno a garantire spedizioni tracciabili su tutto il territorio nazionale.</dd>
+                    </div>
+                    <div class="info_col">
+                        <img class="icon" src="">
+                        <dt>PERCHE' ML TECH</dt>
+                        <dd>A differenza delle grandi aziende non ho una produzione propria di componenti, cosa che mi permette di utilizzare marche diverse abbattendo i prezzi e alzando la qualità del prodotto finale.</dd>
+                    </div>
+                </dl>
+            </div>
+            <div id="products" class="gallery">
+                <dl>
+                    <a class="products_cols">
+                        <dt>PRODOTTO 1</dt>
+                        <dd>&euro;2000</dd>
+                    </a>
+                    <a class="products_cols">
+                        <dt>PRODOTTO 2</dt>
+                        <dd>&euro;2000</dd>
+                    </a>
+                    <a class="products_cols">
+                        <dt>PRODOTTO 3</dt>
+                        <dd>&euro;2000</dd>
+                    </a>
+                </dl>
+            </div>
+            <div id="about">
+                <h2 class="title">ABOUT US</h2>
+                <p>Orlando Virgilio Maria voleva spanarsi il culo e così decise di diventare un comunista gay</p>
+            </div>
+            <div id="review">
+                <dl>
+                    <div class="review_col">
+                        <img class="profile_img" src="">
+                        <dt>NICK PELLE</dt>
+                        <dd>Sono deuteronomio e questo sito è bellissimo</dd>
+                    </div>
+                    <div class="review_col">
+                        <img class="profile_img" src="">
+                        <dt>PIETRO MAGAZZINO DIEGO BAR PADOVA</dt>
+                        <dd>Comunisti</dd>
+                    </div>
+                    <div class="review_col">
+                        <img class="profile_img" src="">
+                        <dt>AMMIRAGLIO DONITZ</dt>
+                        <dd>I tritonefobici non mi piacciono, sono chromosessuale</dd>
+                    </div>
+                </dl>
+            </div>
+            <div id="last"></div>
+        </main>
         <footer>
             <dl> 
                 <dt>CONTATTI</dt>
-                <dd><a href="src/pages/contacts.html">Azienda</a></dd>
+                <dd><a href="#about">Azienda</a></dd>
                 <dd><a href="src/pages/contacts.html">Contattaci</a></dd>
                 <dd><a href="src/pages/contacts.html">Assistenza</a></dd>
-                <dd><a href="src/pages/contacts.html">FAQ</a></dd>
+                <dd><a href="src/pages/contacts.html" lang="en" abbr="Frequently Asked Questions">FAQ</a></dd>
 
                 <dt>ACCOUNT</dt>
                 <dd><a href="src/pages/profile.html">Gestisci il tuo account</a></dd>
 
                 <dt lang="en">SHOP</dt>
-                <dd><a href="src/pages/catalog.html" lang="en">PC</a></dd>
+                <dd><a href="src/pages/catalog.html" lang="en" abbr="Personal Computer">PC</a></dd>
                 <dd><a href="src/pages/catalog.html">Tastiere</a></dd>
             </dl>
             <ul>
                 <li>ML Tech 2022: Tutti i diritti riservati</li>
                 <li><a href="">Termini e Condizioni</a></li>
                 <li><a href="">Informativa sulla <span lang="en">privacy</span></a></li>
-                <li><a href="">Gestisci coockies</a></li>
+                <li><a href="">Gestisci <span lang="en">cookies</span></a></li>
             </ul>
         </footer>
     </body>
