@@ -45,3 +45,13 @@ html {
     background-color: var(--bg);
     text-align: center;
 }
+
+/*****
+PROFILE
+*****/
+.profileCard {
+    width: max-content;
+    margin: 5px 0 0 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
