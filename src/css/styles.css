@@ -60,7 +60,7 @@ html {
 
 header {
     padding: 1em;
-    background: linear-gradient(to right, var(--primaryGradient), var(--secondaryGradient));
+    background-color: var(--primaryText);
 }
 
 #logo {
@@ -69,14 +69,13 @@ header {
     background-repeat: no-repeat;
     background-position: center;
     background-image: url(../../assets/images/logoNoBg.png);
-    filter: invert(1);
     font-size: 6em;
     line-height: 1.5em;
 }
 
 
 nav {
-    background-color: var(--secondaryIconBG);
+    background: linear-gradient(to top right, var(--primaryGradient), var(--secondaryGradient));
     height: 100%;
     justify-content: center;
     align-items: center;
