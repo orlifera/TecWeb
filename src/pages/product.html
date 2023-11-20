@@ -13,50 +13,30 @@
 
 <body>
     <header>
-        <h1><a href="index.html">ML Tech</a></h1>
-        <nav>
-            <ul>
-                <li><a href="index.html" lang="en">Home</a></li>
-                <li><a href="src/pages/catalog.html" lang="en">Shop</a></li>
-                <li><a href="src/pages/contacts.html">Contatti</a></li>
-                <li><a href="src/pages/cart"></a></li>
-                <li><a href="src/pages/profile"></a></li>
-            </ul>
-        </nav>
-        <nav id="breadcrumb" class="sr_only">
-            <p>Ti trovi in: <span lang="en">Home</span></p>
-        </nav>
+        <h1 id="logo"><a href="index.html">ML Tech</a></h1>
     </header>
-
-
-    <img src="img/pc.jpg" alt="pc" class="center">
-    <div>
-        <h3>Vertigo</h3>
-        <h4>€1234</h4>
-    </div>
-    <div>
-        <p>Quantità</p>
-        <div class="plus-minus">
-
+    <nav id="menu">
+        <div id="left">
+            <ul>
+                <li><a href="../../index.html" lang="en">Home</a></li>
+                <li><a class="active" href="catalog.html" lang="en">Shop</a></li>
+                <li><a href="contacts.html">Contatti</a></li>
+            </ul>
         </div>
-        <div class="quantity">
-
+        <div id="right">
+            <ul>
+                <li><a id="cart" href="cart.html">Carrello</a></li>
+                <li><a id="profile" href="profile.html">Profilo</a></li>
+            </ul>
         </div>
-        <div class="plus-minus">
+    </nav>
+    <nav id="breadcrumb" class="sr-only">
+        <p>Ti trovi in: <span lang="en"><a href="../../index.html">Home</a> &gt; &gt; Product</span></p>
+    </nav>
 
-        </div>
-    </div>
-
-    <div class="cart">
-        <a href="cart.html">Aggiungi al carrello</a>
-    </div>
-    <div class="accessories">
-        <a href="accessories.html">Accessori</a>
-    </div>
-    <div class="description">
-        <h3>Descrizione</h3>
-        <p>pc da gaming creato dal colione di orlando assieme al mangiacappelle 24/7 di dona</p>
-    </div>
+    <main>
+        <div class="spacer"></div>
+    </main>
     <footer>
         <dl id="footdef">
             <div id="contatti">
