@@ -97,35 +97,8 @@ nav#menu {
     padding: 1em;
 }
 
-#left,
-#right {
+#left, #right {
     display: flex;
-}
-
-#right {
-    text-indent: -999em;
-}
-
-#right a {
-    display: block;
-}
-
-#right a#cart {
-    background-image: url(../../assets/images/white-cart.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 2em;
-    height: 2em;
-}
-
-#right a#profile {
-    background-image: url(../../assets/images/white-profile.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 2em;
-    height: 2em;
 }
 
 nav#menu ul {
@@ -157,8 +130,79 @@ nav#menu li {
     margin: -1px !important;
 }
 
+#presentation {
+    width: 100%;
+    background: linear-gradient(-45deg, var(--primaryText), var(--secondaryGradient));
+    height: 100vh;
+}
+
+.title {
+    font-size: 3em;
+    padding-bottom: 0.5em;
+}
+
+.subtitle {
+    font-size: 1.5em;
+}
+
+.title, .subtitle {
+    margin: auto;
+    text-align: center;
+}
+
+#presentation .title, #presentation .subtitle {
+    position: relative;
+    top: 45vh;
+}
+
+#info {
+    width: 100%;
+    margin-top: 4em;
+}
+
+.icon {
+    width: 2em;
+    height: 2em;
+}
+
+#info .icon, #icons .icon {
+    filter: invert(1);
+}
+
+#info dl {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#info dt {
+    font-weight: bold;
+    color: #f9f9f9;
+}
+
+#info dd {
+    text-align: justify;
+    color: #f9f9f9;
+}
+
+#info div {
+    text-align: center;
+    width: 20%;
+    padding: 1em 2em;
+    border: 1px solid #030303;
+    background: linear-gradient(45deg, var(--primaryGradient), var(--secondaryGradient));
+}
+
 footer {
     background: linear-gradient(to right, var(--primaryGradient), var(--secondaryGradient));
+}
+
+#icons {
+    padding: 2em 0 1em 2em;
+}
+
+#icons li {
+    display: inline-block;
+    padding-inline: 1em;
 }
 
 footer dl#footdef {
@@ -175,19 +219,27 @@ footer dl#footdef div {
     flex-direction: column;
     /* Stacks dt and dd vertically */
     text-align: center;
+    width: 25%
 
 }
 
 footer dl#footdef dt {
-    color: var(--primaryText);
+    font-weight: bolder;
+
 }
 
-footer dl#footdef dd a {
-    color: var(--text-100)
+footer dl#footdef dt {
+    color: var(--primaryText)
+}
+
+#footdef dd {
+    font-size: 0.8em;
 }
 
 footer ul#footunor {
+    padding: 1em 0 1em 3em;
     margin-top: 2em;
+    font-size: 0.8em;
 }
 
 footer ul#footunor li {
@@ -196,8 +248,8 @@ footer ul#footunor li {
     padding: auto;
 }
 
-footer ul#footunor li a {
-    color: var(--text-100)
+footer ul#footunor li {
+    color: var(--primaryText);
 }
 
 #rights {
@@ -205,10 +257,12 @@ footer ul#footunor li a {
 }
 
 #account {
-    border-left: 1px solid #f9f9f9;
     border-right: 1px solid #f9f9f9;
-    padding-left: 5em;
-    padding-right: 5em;
+    border-left: 1px solid #f9f9f9;
+}
+
+#comunity {
+    border-left: 1px solid #f9f9f9;
 }
 
 /*Catlog*/
