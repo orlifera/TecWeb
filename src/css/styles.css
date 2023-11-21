@@ -1,3 +1,4 @@
+/* Import del font utilizzato */
 @font-face {
     font-family: "Prompt";
     src: url(../../assets/fonts/Prompt/Prompt-Regular.ttf);
@@ -13,6 +14,7 @@
     font-family: "Prompt", sans-serif;
 }
 
+/* Palette chiara */
 :root {
     --primaryGradient: #3F51B5;
     /*Primo gradiente*/
@@ -30,8 +32,7 @@
     --bgDiv: #f5f5f5;
 }
 
-
-
+/* Palette scura */
 [data-theme="darkMode"] {
     --primaryGradient: #1F3A5F;
     /*primo colore gradiente*/
@@ -63,6 +64,7 @@ header {
     background-color: var(--primaryText);
 }
 
+/* Text replacement */
 #logo {
     text-indent: -999em;
     background-size: contain;
@@ -72,7 +74,6 @@ header {
     font-size: 6em;
     line-height: 1.5em;
 }
-
 
 nav {
     background: linear-gradient(to top right, var(--primaryGradient), var(--secondaryGradient));
@@ -84,38 +85,47 @@ nav {
 a {
     text-decoration: none;
     color: var(--primaryText);
+    
 }
 
+/* Sottolineatura al passare del mouse sopra i link */
+a:hover:not(.examples-col,#examples-link) {
+    text-decoration: underline;
+}
+
+/* Sottolineatura nella navbar della pagina corrente */
 .active {
     text-decoration: underline;
 }
 
+/* Flexbox per il menù */
 nav#menu {
     display: flex;
     justify-content: space-between;
     padding: 1em;
 }
 
-#left, #right {
-    display: flex;
-}
-
-nav#menu ul {
-    list-style-type: none;
-    display: flex;
-    padding: 0;
-    margin: 0;
-}
-
 nav#menu li {
     margin-left: 1em;
     margin-right: 1em;
+    display: inline-block;
+    list-style-type: none;
 }
+
+/* NON CANCELLARE: NAVBAR FISSA DOPO L'HEADER */
+/* #menu.fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 2em;
+  z-index: 1;
+} */
 
 #breadcrumb {
     display: block;
 }
 
+/* Selettore per screen-reader-only */
 .sr-only {
     border: 0 !important;
     clip: rect(1px, 1px, 1px, 1px) !important;
@@ -136,27 +146,32 @@ nav#menu li {
 }
 
 .title {
-    font-size: 3em;
-    padding-bottom: 0.5em;
-}
-
-.subtitle {
-    font-size: 1.5em;
-}
-
-.title, .subtitle {
+    font-size: 2.5em;
     margin: auto;
     text-align: center;
 }
 
-#presentation .title, #presentation .subtitle {
+.subtitle {
+    font-size: 1.5em;
+    padding-top: 1em;
+    margin: auto;
+    text-align: center;
+}
+
+#presentation .title {
+    position: relative;
+    top: 45vh;
+    font-size: 3em;
+}
+
+#presentation .subtitle {
     position: relative;
     top: 45vh;
 }
 
 #info {
     width: 100%;
-    margin-top: 4em;
+    margin: 10em 0;
 }
 
 .icon {
@@ -164,8 +179,15 @@ nav#menu li {
     height: 2em;
 }
 
-#info .icon, #icons .icon {
+/* Filtro che inverte il colore delle icone */
+#icons .icon {
     filter: invert(1);
+}
+
+#info p {
+    text-align: center;
+    margin-bottom: 3em;
+    font-size: 2em;
 }
 
 #info dl {
@@ -175,20 +197,212 @@ nav#menu li {
 
 #info dt {
     font-weight: bold;
-    color: #f9f9f9;
+    color: var(--text-100);
 }
 
 #info dd {
     text-align: justify;
-    color: #f9f9f9;
+    color: var(--text-100);
+    padding: 1em;
 }
 
-#info div {
+#info .info-col {
     text-align: center;
     width: 20%;
     padding: 1em 2em;
-    border: 1px solid #030303;
-    background: linear-gradient(45deg, var(--primaryGradient), var(--secondaryGradient));
+    background-color: var(--bgDiv);
+    border-radius: 10%;
+    /* Ombra interna */
+    box-shadow: inset 1px 1px 0.5em #d5d5d5, inset -1px -1px 0.5em #d5d5d5;
+}
+
+#examples {
+    width: 100%;
+    height: 100vh;
+    margin-bottom: 5em;
+    padding: 1em 0;
+}
+
+#examples .title {
+    padding: 1em 0;
+}
+
+#examples dl{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#examples .examples-col {
+    text-align: center;
+    width: 20%;
+    padding: 2em 2em;
+    margin: 2em;
+    background-color: var(--bgDiv);
+    border-radius: 1%;
+    color: #030303;
+}
+
+.examples-col img {
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+.examples-col dt {
+    font-weight: bold;
+    padding-bottom: 1em;
+}
+
+.examples-col dd {
+    width: 5em;
+    margin: auto;
+    padding: 0.5em;
+}
+
+#examples p {
+    text-align: center;
+    color: var(--text-100);
+    padding-top: 0.5em;
+    font-size: 1.2em;
+    text-decoration: underline;
+}
+
+#about {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(-45deg, var(--primaryText), var(--secondaryGradient));
+    color: #030303;
+}
+
+#about .title {
+    padding: 3em 0 2em 0;
+}
+
+#about p {
+    width: 50%;
+    margin: auto;
+    text-align: justify;
+}
+
+#review {
+    padding: 8em 5em 5em 5em;
+}
+
+#flex-review {
+    margin-top: 5em;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.quote {
+    width: 30%;
+    height: 40vh;
+    background-color: var(--primaryText);
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.15));
+    color: #030303;
+    margin-bottom: 5em;
+}
+
+.quote::before {
+    border-left: 3em solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 5em solid var(--primaryText);
+    position: absolute;
+    top: 15em;
+    left: 5em;
+    content: "";
+    transform: rotate(-150deg);
+}
+
+.quote-head {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2em 1em 0 2em;
+}
+
+.unit-left {
+    width: 10%;
+}
+
+.unit-body {
+    padding-left: 1em;
+}
+
+.quote-link, .quote-name a { 
+    color: #030303;
+}
+
+.quote-name {
+    font-size: 1.2em;
+}
+
+.quote-status {
+    color: #003f8f;
+}
+
+.quote-img {
+    border-radius: 50%;
+    width: 100%;
+}
+
+.quote-text {
+    padding: 1em 2em 2em 2em;
+}
+
+.q {
+    font-size: 0.8em;
+}
+
+#last {
+    display: flex;
+    justify-content: center;
+    gap: 6em;
+    padding: 3em 0 2em 0;
+    background: linear-gradient(to right, var(--primaryGradient), var(--secondaryGradient));
+    color: var(--bg);
+    border-bottom: 1px solid #f9f9f9;
+}
+
+/* PER QUALCHE MOTIVO NON MI ALLINEA IL TESTO A SINISTRA */
+#last div {
+    width: 30%;
+    text-align: left;
+}
+
+#last .title {
+    font-size: 2em;
+}
+
+#last .subtitle {
+    font-size: 1em;
+}
+
+#newsletter {
+    text-align: center;
+}
+
+#newsletter #form-email{
+    font-size: 1em;
+    width: 100%;
+    padding: 2px;
+}
+
+/* NON MI PIACE QUESTO FLEX PERCHE' DOVREBBE FARSI SENZA MA NON SO PERCHE' NON MI VA 
+   NE USANDO DISPLAY INLINE NE ALTRI METODI - VA RIVISTO PERCHE' LEI NON VUOLE FLEX A CASO */
+#newsletter #label-form-terms {
+    display: flex;
+    align-items: center;
+    font-size: 0.7em;
+    margin-top: 0.5em;
+}
+
+#newsletter #button {
+    margin-top: 0.5em;
+    padding: 2px;
+    width: 20%;
 }
 
 footer {
@@ -196,7 +410,11 @@ footer {
 }
 
 #icons {
-    padding: 2em 0 1em 2em;
+    padding: 1em 0 1em 2em;
+}
+
+#icons ul {
+    padding-top: 1em;
 }
 
 #icons li {
@@ -204,27 +422,22 @@ footer {
     padding-inline: 1em;
 }
 
+/* Flexbox per il footer */
 footer dl#footdef {
     display: flex;
-    /* Flex container for the whole list */
     justify-content: space-evenly;
-    /* Adjusts the spacing between the flex items */
     padding-top: 1em;
 }
 
 footer dl#footdef div {
     display: flex;
-    /* Flex container for each group */
     flex-direction: column;
-    /* Stacks dt and dd vertically */
     text-align: center;
     width: 25%
-
 }
 
 footer dl#footdef dt {
     font-weight: bolder;
-
 }
 
 footer dl#footdef dt {
