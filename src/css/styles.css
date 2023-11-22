@@ -85,18 +85,17 @@ nav {
 a {
     text-decoration: none;
     color: var(--primaryText);
-    
 }
 
 /* Sottolineatura al passare del mouse sopra i link */
-a:hover:not(.examples-col,#examples-link) {
-    text-decoration: underline;
-}
+/* nav a:hover {
+    
+} */
 
 /* Sottolineatura nella navbar della pagina corrente */
-.active {
-    text-decoration: underline;
-}
+/* .active {
+    da fare
+} */
 
 /* Flexbox per il menù */
 nav#menu {
@@ -228,7 +227,7 @@ nav#menu li {
     padding: 1em 0;
 }
 
-#examples dl{
+#examples dl {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -321,7 +320,8 @@ nav#menu li {
     padding-left: 1em;
 }
 
-.quote-link, .quote-name a { 
+.quote-link,
+.quote-name a {
     color: #030303;
 }
 
@@ -374,7 +374,7 @@ nav#menu li {
     text-align: center;
 }
 
-#newsletter #form-email{
+#newsletter #form-email {
     font-size: 1em;
     width: 100%;
     padding: 2px;
@@ -507,4 +507,42 @@ footer ul#footunor li {
 
 .question:hover {
     background-color: #ddd;
+}
+
+
+/*ToS*/
+
+.ToS {
+    text-align: justify;
+    width: 70%;
+    margin: 2em auto;
+    color: var(--text-100);
+}
+
+p.ToS {
+    font-style: italic;
+    color: var(--text-100);
+}
+
+#deflist {
+    text-align: justify;
+    width: 70%;
+    margin: 2em auto;
+    color: var(--text-100);
+    padding-bottom: 2em;
+}
+
+.dl-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    padding-top: 1em;
+}
+
+.dl-description {
+    margin: .5em;
+}
+
+.int-list {
+    padding-left: 1em;
+    list-style: inside;
 }
