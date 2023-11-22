@@ -570,3 +570,11 @@ p.heading {
 #foot {
     font-size: .5em;
 }
+
+#mail {
+    color: var(--text-100);
+}
+
+ul#contacts .icon {
+    filter: invert(0);
+}
