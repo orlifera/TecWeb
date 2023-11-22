@@ -467,10 +467,44 @@ footer ul#footunor li {
     border-left: 1px solid #f9f9f9;
 }
 
-/*Catlog*/
+/* Catlog */
 
 .spacer {
     width: 50em;
     height: 50em;
     background-color: #f9f9f9;
+}
+
+/* FAQ */
+
+#faq {
+    font-size: 2em;
+    margin: 3em auto 1em;
+    text-align: center;
+}
+
+.dropdown {
+    /* position: relative; */
+    display: block;
+    width: 50%;
+    margin: auto;
+}
+
+.dropdown-content {
+    display: none;
+    background-color: #f9f9f9;
+    padding: 10px;
+}
+
+.question {
+    cursor: pointer;
+    padding: 8px;
+}
+
+.answer {
+    padding: 8px;
+}
+
+.question:hover {
+    background-color: #ddd;
 }

@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="../css/print.css" media="print">
         <link rel="stylesheet" href="../css/mini.css" media="screen and (max-width: 600px)">
     </head>
+
     <body>
         <header>
             <a href="../../index.html"><h1 id="logo">ML Tech</h1></a>
@@ -33,10 +34,34 @@
         </nav>
 
         <main>
-            <div class="spacer"></div>
+            <h2 id="faq">FAQs</h1>
+            <div class="dropdown">
+                <div class="question" onclick="toggleAnswer(this)"><h4>What is Lorem Ipsum?</h4></div>
+                <div class="dropdown-content">
+                    <div class="answer"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p></div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <div class="question"><h4>What is Lorem Ipsum?</h4></div>
+                <div class="dropdown-content">
+                    <div class="answer"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p></div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <div class="question"><h4>What is Lorem Ipsum?</h4></div>
+                <div class="dropdown-content">
+                    <div class="answer"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p></div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <div class="question"><h4>What is Lorem Ipsum?</h4></div>
+                <div class="dropdown-content">
+                    <div class="answer"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p></div>
+                </div>
+            </div>
         </main>
         <footer>
-            <!-- Icone per account social dell'azienda -->
+            <!-- Icone diver account social dell'azienda -->
             <div id="icons">
                 <ul>
                     <li><a href=""><img class="icon" src="../../assets/images/facebook.png"></a></li>
@@ -81,5 +106,18 @@
                 <li><a href="">Gestisci <span lang="en">cookie</span></a></li>
             </ul>
         </footer>
+        <script>
+            function toggleAnswer(question) {
+                // Find the next sibling, which should be the corresponding answer
+                var answer = question.nextElementSibling;
+
+                // Toggle the 'display' property of the answer element
+                if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+                } else {
+                answer.style.display = 'block';
+                }
+            }
+        </script>
     </body>
 </html>
