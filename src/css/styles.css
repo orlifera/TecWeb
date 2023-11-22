@@ -512,14 +512,14 @@ footer ul#footunor li {
 
 /*ToS*/
 
-.ToS {
+.heading {
     text-align: justify;
     width: 70%;
     margin: 2em auto;
     color: var(--text-100);
 }
 
-p.ToS {
+p.heading {
     font-style: italic;
     color: var(--text-100);
 }
@@ -532,10 +532,15 @@ p.ToS {
     padding-bottom: 2em;
 }
 
+#deflist a {
+    color: blue;
+    text-decoration: underline;
+}
+
 .dl-title {
     font-size: 1.3em;
     font-weight: bold;
-    padding-top: 1em;
+    padding-top: 2em;
 }
 
 .dl-description {
@@ -545,4 +550,23 @@ p.ToS {
 .int-list {
     padding-left: 1em;
     list-style: inside;
+}
+
+
+.intdef .dl-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    padding-top: 1em;
+}
+
+.intdef .dl-description {
+    margin: .5em;
+}
+
+.first {
+    padding-top: 1em;
+}
+
+#foot {
+    font-size: .5em;
 }
