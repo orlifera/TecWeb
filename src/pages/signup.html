@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <title>ML-TECH PRODUCT</title>
+        <meta name="keywords" content="ML-TECH products, gaming, workstation, technology ">
+        <meta name="description" content="Sito ufficiale ml-tech, gruppo fondato da Orlando Ferazzani">
+        <link rel="stylesheet" href="../css/styles.css" media="screen">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <link rel="stylesheet" href="../css/mini.css" media="screen and (max-width: 600px)">
+    </head>
+    <body>
+        <h1>Sign up</h1>
+
+        <form action="php/connessionedb.php" method="post">
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" placeholder="Inserisci il tuo nome" required>
+            </div>
+            <div class="form-group">
+                <label for="cognome">Cognome</label>
+                <input type="text" name="cognome" id="cognome" placeholder="Inserisci il tuo cognome" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Inserisci la tua email" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Nome utente</label>
+                <input type="text" name="username" id="username" placeholder="Inserisci il tuo nome utente" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Inserisci la tua password" required>
+            </div>
+            <div class="form-group">
+                <label for="password-confirm">Conferma password</label>
+                <input type="password" name="password-confirm" id="password-confirm" placeholder="Conferma la tua password" required>
+            </div>
+            <button type="submit">Registrati</button>
+        </form>
+    </body>
+</html>
