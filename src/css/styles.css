@@ -85,18 +85,17 @@ nav {
 a {
     text-decoration: none;
     color: var(--primaryText);
-    
 }
 
 /* Sottolineatura al passare del mouse sopra i link */
-a:hover:not(.examples-col,#examples-link) {
-    text-decoration: underline;
-}
+/* nav a:hover {
+    
+} */
 
 /* Sottolineatura nella navbar della pagina corrente */
-.active {
-    text-decoration: underline;
-}
+/* .active {
+    da fare
+} */
 
 /* Flexbox per il menù */
 nav#menu {
@@ -228,7 +227,7 @@ nav#menu li {
     padding: 1em 0;
 }
 
-#examples dl{
+#examples dl {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -321,7 +320,8 @@ nav#menu li {
     padding-left: 1em;
 }
 
-.quote-link, .quote-name a { 
+.quote-link,
+.quote-name a {
     color: #030303;
 }
 
@@ -374,7 +374,7 @@ nav#menu li {
     text-align: center;
 }
 
-#newsletter #form-email{
+#newsletter #form-email {
     font-size: 1em;
     width: 100%;
     padding: 2px;
@@ -467,10 +467,114 @@ footer ul#footunor li {
     border-left: 1px solid #f9f9f9;
 }
 
-/*Catlog*/
+/* Catlog */
 
 .spacer {
     width: 50em;
     height: 50em;
     background-color: #f9f9f9;
+}
+
+/* FAQ */
+
+#faq {
+    font-size: 2em;
+    margin: 3em auto 1em;
+    text-align: center;
+}
+
+.dropdown {
+    /* position: relative; */
+    display: block;
+    width: 50%;
+    margin: auto;
+}
+
+.dropdown-content {
+    display: none;
+    background-color: #f9f9f9;
+    padding: 10px;
+}
+
+.question {
+    cursor: pointer;
+    padding: 8px;
+}
+
+.answer {
+    padding: 8px;
+}
+
+.question:hover {
+    background-color: #ddd;
+}
+
+
+/*ToS*/
+
+.heading {
+    text-align: justify;
+    width: 70%;
+    margin: 2em auto;
+    color: var(--text-100);
+}
+
+p.heading {
+    font-style: italic;
+    color: var(--text-100);
+}
+
+#deflist {
+    text-align: justify;
+    width: 70%;
+    margin: 2em auto;
+    color: var(--text-100);
+    padding-bottom: 2em;
+}
+
+#deflist a {
+    color: blue;
+    text-decoration: underline;
+}
+
+.dl-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    padding-top: 2em;
+}
+
+.dl-description {
+    margin: .5em;
+}
+
+.int-list {
+    padding-left: 1em;
+    list-style: inside;
+}
+
+
+.intdef .dl-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    padding-top: 1em;
+}
+
+.intdef .dl-description {
+    margin: .5em;
+}
+
+.first {
+    padding-top: 1em;
+}
+
+#foot {
+    font-size: .5em;
+}
+
+#mail {
+    color: var(--text-100);
+}
+
+ul#contacts .icon {
+    filter: invert(0);
 }
