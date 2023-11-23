@@ -1,0 +1,27 @@
+footer {
+    display: none;
+}
+
+header {
+    padding: unset;
+}
+
+#logo {
+    font-size: 4em;
+}
+
+nav#menu {
+    display: none;
+}
+
+#presentation .title {
+    font-size: 2em;
+}
+
+#presentation .subtitle {
+    font-size: 1em;
+}
+
+#info-p {
+    font-size: 1em;
+}

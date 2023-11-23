@@ -98,13 +98,13 @@ a {
 } */
 
 /* Flexbox per il menù */
-nav#menu {
+#menu {
     display: flex;
     justify-content: space-between;
     padding: 1em;
 }
 
-nav#menu li {
+#menu li {
     margin-left: 1em;
     margin-right: 1em;
     display: inline-block;
