@@ -183,7 +183,7 @@ nav#menu li {
     filter: invert(1);
 }
 
-#info p {
+#info-p {
     text-align: center;
     margin-bottom: 3em;
     font-size: 2em;
@@ -205,12 +205,12 @@ nav#menu li {
     padding: 1em;
 }
 
-#info .info-col {
+.info-col {
     text-align: center;
     width: 20%;
     padding: 1em 2em;
     background-color: var(--bgDiv);
-    border-radius: 10%;
+    border-radius: 30px;
     /* Ombra interna */
     box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15), inset -1px -1px 2px rgba(0, 0, 0, 0.15);
     /* filter: drop-shadow(-1px -1px 2px rgba(0, 0, 0, 0.15)); */
@@ -488,17 +488,27 @@ footer ul#footunor li {
     display: block;
     width: 50%;
     margin: auto;
+    padding-bottom: 1em;
+    border-bottom: 2px solid #030303;
+}
+
+.dropdown:last-child {
+    margin-bottom: 5em;
+    border-bottom: none;
 }
 
 .dropdown-content {
     display: none;
     background-color: #f9f9f9;
     padding: 10px;
+    border-top: 1px solid #030303;
 }
 
 .question {
     cursor: pointer;
-    padding: 8px;
+    padding: 1em;
+    margin-top: 1em;
+    background-color: #f9f9f9;
 }
 
 .answer {
@@ -575,6 +585,70 @@ p.heading {
     color: var(--text-100);
 }
 
+#contact-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 5em;
+}
+
+.info-col ul {
+    font-size: 120%;
+}
+
+.info-col ul li {
+    list-style: none;
+}
+
 ul#contacts .icon {
     filter: invert(0);
+}
+
+#contact-info p {
+    display: block;
+    font-size: 2em;
+}
+
+.info-col p {
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 130%;
+    padding-bottom: 1em;
+}
+
+.info-col a {
+    color: var(--text-100);
+    text-decoration: underline;
+}
+
+#info p {
+    text-align: center;
+    font-size: 2em;
+}
+
+#contacts {
+    padding-top: 1em;
+}
+
+#contacts li {
+    display: inline-block;
+    padding-inline: 1em;
+    padding-top: 1em;
+}
+
+#icons-list .icon {
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    padding-right: .5em;
+}
+
+#hours li {
+    padding-top: .5em;
+}
+
+#icons-list {
+    padding-top: 1em;
 }
