@@ -146,8 +146,9 @@ a {
 
 .title {
     font-size: 2.5em;
-    margin: auto;
+    margin-top: auto;
     text-align: center;
+
 }
 
 .subtitle {
@@ -170,7 +171,7 @@ a {
 
 #info {
     width: 100%;
-    margin: 10em 0;
+    margin: 5em 0;
 }
 
 .icon {
@@ -577,6 +578,11 @@ p.heading {
     padding-top: 1em;
 }
 
+#info.info2 {
+    margin-bottom: 0;
+}
+
+
 #foot {
     font-size: .5em;
 }
@@ -589,7 +595,7 @@ p.heading {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 5em;
+    padding: 5em 5em 0 5em;
 }
 
 .info-col ul {
@@ -602,15 +608,6 @@ p.heading {
 
 ul#contacts .icon {
     filter: invert(0);
-}
-
-#contact-info p {
-    display: block;
-    font-size: 2em;
-}
-
-.info-col p {
-    font-weight: bold;
 }
 
 h4 {
@@ -651,4 +648,51 @@ h4 {
 
 #icons-list {
     padding-top: 1em;
+}
+
+#form {
+    width: 40em;
+    height: 40em;
+    margin: 5em;
+    background: linear-gradient(to bottom right, var(--primaryGradient), var(--secondaryGradient));
+    color: var(--primaryText);
+    border-radius: 30px;
+}
+
+form {
+    width: 100%;
+    height: 100%;
+}
+
+#form h2,
+#form p {
+    text-align: center;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+#form h2 {
+    padding: 1em;
+}
+
+#form p {
+    padding-bottom: 1em;
+}
+
+label {
+    display: block;
+    margin: .5rem 0;
+}
+
+#map {
+    width: 40em;
+    height: 40em;
+    margin: 5em;
+    background: linear-gradient(to bottom right, var(--primaryGradient), var(--secondaryGradient));
+    color: var(--primaryText)
+}
+
+.container {
+    display: inline-flex;
+    justify-content: space-evenly;
 }

@@ -40,12 +40,12 @@
     </nav>
 
     <main>
-        <div id="info">
+        <div id="info" class="info2">
 
             <p>Hai bisogno di una mano?</p>
             <div id="contact-info">
                 <div class="info-col">
-                    <p>Contatti</p>
+                    <h2 id="cTitle">Contatti</h2>
                     <ul id="icons-list">
                         <li lang="en"><a id="mail" target="_blank" href=""><img class="icon"
                                     src="../../assets/images/email.png">Email</a></li>
@@ -82,19 +82,65 @@
             </div>
         </div>
 
-
-        <div id="form"></div>
-        <div id="map"></div>
+        <div class="container">
+            <!--FORM-->
+            <div id="form">
+                <h2>Hai ancora bisogno?</h2>
+                <p>Fatti sentire! Scrivici per qualsiasi cosa per cui ti serva aiuto. Saremo più che lieti di
+                    risponderti.Sono graditi anche feedback che ci aiuteranno a migliorare il servizio.</p>
+                <form id="contact-form" action="emailJS" method="POST">
+                    <div id="name">
+                        <label for="firstname">Nome</label>
+                        <input id="firstname" name="firstname" type="text" placeholder="Mario" required>
+                        <label for="lastname">Cognome</label>
+                        <input id="lastname" name="lastname" type="text" placeholder="Rossi" required>
+                    </div>
+                    <div id="email-phone">
+                        <label for="email" lang="en">Email</label>
+                        <input id="email" name="email" type="text" placeholder="mario.rossi@esempio.com" required>
+                        <label for="phone">Numero di
+                            Telefono</label>
+                        <input id="phone" name="phone" type="tel" placeholder="+39 1234567890">
+                    </div>
+                    <label for="order">Numero Ordine &#40;se presente&#41;:</label>
+                    <input id="order" name="order" type="text" placeholder="#1234">
+                    <label for="problem">Scegli una categoria</label>
+                    <select id="problem" name="problem">
+                        <option value="">Scegli una opzione</option>
+                        <option value="1">Stato Ordine</option>
+                        <option value="2">Dove è il mio Ordine</option>
+                        <option value="3"><span lang="en">Login</span>/Registrazione</option>
+                        <option value="4">Problema Tecnico</option>
+                        <option value="5" lang="en">Feedback</option>
+                    </select>
+                    <label for="file">Allega File</label>
+                    <input id="file" name="file" type="file">
+                    <label for="additional">Informazioni Aggiuntive</label>
+                    <textarea id="additional" name="additional" rows="10" cols="40"
+                        placeholder="Siete grandi nel webdevelopment dc..."></textarea>
+                    <label for="terms">
+                        <input id="terms" class="inline" type="checkbox" name="terms" required> I Accept the <a
+                            href="tos.html"> Terms and Conditions</a>
+                    </label>
+                    <input id="submit" type="submit" value="Invia">
+                </form>
+            </div>
+            <div id="map"></div>
+        </div>
     </main>
 
+
+    <!--FOOTER-->
     <footer>
         <!-- Icone per account social dell'azienda -->
         <div id="icons">
             <ul>
                 <li><a href="" target="_blank"><img class="icon" src="../../assets/images/facebook.png"></a></li>
-                <li><a href="instagram.com/ml__tech" target="_blank"><img class="icon" src="../../assets/images/instagram.png"></a></li>
+                <li><a href="instagram.com/ml__tech" target="_blank"><img class="icon"
+                            src="../../assets/images/instagram.png"></a></li>
                 <li><a href="" target="_blank"><img class="icon" src="../../assets/images/tik-tok.png"></a></li>
-                <li><a href="https://discord.gg/2w7mYbJmy2" target="_blank"><img class="icon" src="../../assets/images/discord.png"></a></li>
+                <li><a href="https://discord.gg/2w7mYbJmy2" target="_blank"><img class="icon"
+                            src="../../assets/images/discord.png"></a></li>
             </ul>
         </div>
 
@@ -108,7 +154,7 @@
             </div>
 
             <div id="comunity">
-                <dt lang="em">COMUNITY</dt>
+                <dt lang="en">COMMUNITY</dt>
                 <dd><a href="https://discord.gg/2w7mYbJmy2" target="_blank" lang="en">Discord</a></dd>
                 <dd><a href="news.html" lang="en">News</a></dd>
             </div>
