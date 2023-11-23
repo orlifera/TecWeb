@@ -12,11 +12,11 @@
       $username = $_POST['username'];
       $password = md5($_POST['password']);
 
-      // Connetti al database
+      // Richiedi la connessione al database
       require_once("connessionedb.php");
 
       // Esegui la query di inserimento
-      $sql = "INSERT INTO utenti (username, nome, cognome, email, password) VALUES ('$username', '$nome', '$cognome', '$email', '$password')";
+      $sql = "INSERT INTO utente (username, nome, cognome, email, password) VALUES ('$username', '$nome', '$cognome', '$email', '$password')";
       $conn->query($sql);
 
       // Chiude la connessione al database
