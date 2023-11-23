@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 12pt;
+    font-family: "Times New Roman", Times, serif;
+    line-height: 1.5em;
+    margin: auto;
+}
+
+/***********************************
+
+                HOME
+
+***********************************/
+/*Logo in header*/
+header #logo {
+    content: url("/assets/images/logo.png");
+    width: 5cm;
+    height: 4cm;
+    margin: auto;
+}
+
+#menu {
+    display: none;
+}
+
+/*Breadcrumb*/
+#breadcrumb {
+    padding: 0.5em 0 0.5em 0;
+    margin-top: 0.5em;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    font-weight: bold;
+}
+
+#breadcrumb p {
+    margin-left: 0.5em;
+}
+
+#presentation {
+    display: none;
+}
+
+/*Seconda sezione*/
+#info {
+    width: 100%;
+    height: 100%;
+}
+
+
+dl .info-col {
+    text-align: center;
+    width: 25%;
+    /* height: 25%; */
+    padding: 1.5em 1.5em;
+    background-color: var(--bgDiv);
+    border-radius: 10%;
+    /* Ombra interna */
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15), inset -1px -1px 2px rgba(0, 0, 0, 0.15);
+}
+
+#info .icon {
+    width: 15%;
+    height: 15%;
+}
+
+.info-col dd {
+    text-align: center;
+    color: var(--text-100);
+
+}
+
+.info-col dt {
+    font-weight: bold;
+    color: var(--text-100);
+}
+
+#info dl {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#info p {
+    text-align: center;
+    margin: 1em;
+}
+
+
+#examples {
+    display: none;
+}
+
+/*Quarta sezione, Azienda*/
+#about {
+    margin: 0.5em;
+}
+
+.title {
+    padding: 1em 0;
+}
+
+/*Quinta sezione, recensioni clienti*/
+#review {
+    display: none;
+}
+
+/*Sesta sezione*/
+#last {
+    display: none;
+}
+
+/*Footer, aggiungo anche contatto*/
+footer {
+    margin-top: 20%;
+    background: linear-gradient(to right, var(--primaryGradient), var(--secondaryGradient));
+}
+
+#icons {
+    width: 100%;
+    height: 100%;
+    margin-top: 5%;
+    margin-inline: auto;
+    margin-left: 10%;
+}
+
+#icons ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+
+footer .icon {
+    width: 15%;
+    height: 15%;
+}
+
+
+#footdef {
+    display: none;
+}
+
+footer #footunor {
+    text-align: center;
+}
+
+footer ul#footunor {
+    margin-top: 2%;
+}
+
+footer ul#footunor li {
+    display: inline;
+    margin: auto;
+    padding: auto;
+}
+
+footer ul#footunor li {
+    color: var(--primaryText);
+}
+
+#rights {
+    display: block;
+}
+
+/***********************************
+
+                
+
+***********************************/
