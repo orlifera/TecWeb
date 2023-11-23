@@ -488,6 +488,11 @@ footer ul#footunor li {
     display: block;
     width: 50%;
     margin: auto;
+    padding-bottom: 1em;
+}
+
+.dropdown:last-child {
+    padding-bottom: 5em;
 }
 
 .dropdown-content {
