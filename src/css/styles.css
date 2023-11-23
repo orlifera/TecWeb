@@ -183,7 +183,7 @@ nav#menu li {
     filter: invert(1);
 }
 
-#info p {
+#info-p {
     text-align: center;
     margin-bottom: 3em;
     font-size: 2em;
@@ -489,21 +489,26 @@ footer ul#footunor li {
     width: 50%;
     margin: auto;
     padding-bottom: 1em;
+    border-bottom: 2px solid #030303;
 }
 
 .dropdown:last-child {
-    padding-bottom: 5em;
+    margin-bottom: 5em;
+    border-bottom: none;
 }
 
 .dropdown-content {
     display: none;
     background-color: #f9f9f9;
     padding: 10px;
+    border-top: 1px solid #030303;
 }
 
 .question {
     cursor: pointer;
-    padding: 8px;
+    padding: 1em;
+    margin-top: 1em;
+    background-color: #f9f9f9;
 }
 
 .answer {
