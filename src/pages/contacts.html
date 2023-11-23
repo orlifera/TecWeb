@@ -84,43 +84,71 @@
 
         <div class="container">
             <!--FORM-->
+            <script type="text/javascript"
+                src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+            <script type="text/javascript">
+                (function () {
+                    // https://dashboard.emailjs.com/admin/account
+                    emailjs.init('iNdbzp60ZWw2gITAZ');
+                })();
+            </script>
+            <script type="text/javascript">
+                window.onload = function () {
+                    document.getElementById('contact-form').addEventListener('submit', function (event) {
+                        event.preventDefault();
+                        // generate a five digit number for the contact_number variable
+                        this.contact_number.value = Math.random() * 100000 | 0;
+                        // these IDs from the previous steps
+                        emailjs.sendForm('contact_service', 'contact_form', this)
+                            .then(function () {
+                                console.log('SUCCESS!');
+                            }, function (error) {
+                                console.log('FAILED...', error);
+                            });
+                    });
+                }
+            </script>
             <div id="form">
                 <h2>Hai ancora bisogno?</h2>
                 <p>Fatti sentire! Scrivici per qualsiasi cosa per cui ti serva aiuto. Saremo più che lieti di
                     risponderti.Sono graditi anche feedback che ci aiuteranno a migliorare il servizio.</p>
-                <form id="contact-form" action="emailJS" method="POST">
-                    <div id="name">
-                        <label for="firstname">Nome</label>
+                <form id="contact-form" method="post">
+                    <label for="firstname">Nome<span class="star">*</span>
                         <input id="firstname" name="firstname" type="text" placeholder="Mario" required>
-                        <label for="lastname">Cognome</label>
-                        <input id="lastname" name="lastname" type="text" placeholder="Rossi" required>
-                    </div>
-                    <div id="email-phone">
-                        <label for="email" lang="en">Email</label>
+                    </label>
+                    <label for="lastname">Cognome<span class="star">*</span>
+                        <input id="lastname" name="lastname" type="text" placeholder="Rossi" required></label>
+                    <label for="email" lang="en">Email<span class="star">*</span>
                         <input id="email" name="email" type="text" placeholder="mario.rossi@esempio.com" required>
-                        <label for="phone">Numero di
-                            Telefono</label>
+                    </label>
+                    <label for="phone">Numero di
+                        Telefono<span class="star">*</span>
                         <input id="phone" name="phone" type="tel" placeholder="+39 1234567890">
-                    </div>
-                    <label for="order">Numero Ordine &#40;se presente&#41;:</label>
-                    <input id="order" name="order" type="text" placeholder="#1234">
-                    <label for="problem">Scegli una categoria</label>
-                    <select id="problem" name="problem">
-                        <option value="">Scegli una opzione</option>
-                        <option value="1">Stato Ordine</option>
-                        <option value="2">Dove è il mio Ordine</option>
-                        <option value="3"><span lang="en">Login</span>/Registrazione</option>
-                        <option value="4">Problema Tecnico</option>
-                        <option value="5" lang="en">Feedback</option>
-                    </select>
-                    <label for="file">Allega File</label>
-                    <input id="file" name="file" type="file">
-                    <label for="additional">Informazioni Aggiuntive</label>
-                    <textarea id="additional" name="additional" rows="10" cols="40"
-                        placeholder="Siete grandi nel webdevelopment dc..."></textarea>
+                    </label>
+                    <label for="order">Numero Ordine &#40;se presente&#41;:
+                        <input id="order" name="order" type="text" placeholder="#1234">
+                    </label>
+                    <label for="problem">Scegli una categoria
+                        <select id="problem" name="problem">
+                            <option value="">Scegli una opzione<span class="star">*</span></option>
+                            <option value="1">Stato Ordine</option>
+                            <option value="2">Dove è il mio Ordine</option>
+                            <option value="3"><span lang="en">Login</span>/Registrazione</option>
+                            <option value="4">Problema Tecnico</option>
+                            <option value="5" lang="en">Feedback</option>
+                        </select>
+                    </label>
+                    <label for="additional" id="additional-info">Informazioni Aggiuntive<span class="star">*</span>
+                        <textarea id="additional" name="additional" rows="10" cols="40"
+                            placeholder="Siete grandi nel webdevelopment dc..." required></textarea>
+                    </label>
+                    <label for="file" id="file-label">Allega File
+                        <input id="file" name="file" type="file">
+                    </label>
                     <label for="terms">
                         <input id="terms" class="inline" type="checkbox" name="terms" required> I Accept the <a
-                            href="tos.html"> Terms and Conditions</a>
+                            href="tos.html" required>
+                            Terms and Conditions</a><span class="star">*</span>
                     </label>
                     <input id="submit" type="submit" value="Invia">
                 </form>

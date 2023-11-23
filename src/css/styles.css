@@ -650,18 +650,15 @@ h4 {
     padding-top: 1em;
 }
 
-#form {
-    width: 40em;
-    height: 40em;
+#form,
+#map {
+    width: 45em;
+    height: 45em;
     margin: 5em;
-    background: linear-gradient(to bottom right, var(--primaryGradient), var(--secondaryGradient));
-    color: var(--primaryText);
+    background-color: var(--bgDiv);
+    color: var(--text-100);
     border-radius: 30px;
-}
-
-form {
-    width: 100%;
-    height: 100%;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15), inset -1px -1px 2px rgba(0, 0, 0, 0.15);
 }
 
 #form h2,
@@ -679,20 +676,58 @@ form {
     padding-bottom: 1em;
 }
 
+
+
+.star {
+    color: red;
+}
+
+#contact-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+input {
+    display: block;
+}
+
+select {
+    display: block;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+}
+
+#additional-info,
+#file-label {
+    width: 90%;
+
+}
+
 label {
     display: block;
     margin: .5rem 0;
 }
 
-#map {
-    width: 40em;
-    height: 40em;
-    margin: 5em;
-    background: linear-gradient(to bottom right, var(--primaryGradient), var(--secondaryGradient));
-    color: var(--primaryText)
+
+
+.inline {
+    display: inline;
+}
+
+input[type="submit"] {
+    display: block;
+    width: 60%;
+    height: 2em;
+    font-size: 1.1rem;
+    min-width: 300px;
+    background: linear-gradient(to right, var(--primaryGradient), var(--secondaryGradient));
 }
 
 .container {
-    display: inline-flex;
+    display: flex;
     justify-content: space-evenly;
 }
