@@ -668,6 +668,11 @@ h4 {
     padding-right: 2em;
 }
 
+form a {
+    color: var(--text-100);
+    text-decoration: underline;
+}
+
 #form h2 {
     padding: 1em;
 }
@@ -694,6 +699,7 @@ input {
 
 select {
     display: block;
+    width: 130%;
 }
 
 textarea {
@@ -712,8 +718,6 @@ label {
     margin: .5rem 0;
 }
 
-
-
 .inline {
     display: inline;
 }
@@ -730,4 +734,11 @@ input[type="submit"] {
 .container {
     display: flex;
     justify-content: space-evenly;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    padding: .5em;
 }
