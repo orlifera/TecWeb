@@ -424,7 +424,7 @@ footer dl#footdef div {
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 25%
+    width: 25%;
 }
 
 footer dl#footdef dt {

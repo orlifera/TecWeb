@@ -17,7 +17,7 @@ html {
 ***********************************/
 /*Logo in header*/
 header #logo {
-    content: url("/assets/images/logo.png");
+    content: url("../../assets/images/logo.png");
     width: 5cm;
     height: 4cm;
     margin: auto;
@@ -49,7 +49,6 @@ header #logo {
     width: 100%;
     height: 100%;
 }
-
 
 dl .info-col {
     text-align: center;
@@ -83,11 +82,11 @@ dl .info-col {
     justify-content: space-evenly;
 }
 
-#info p {
-    text-align: center;
+#info #info-p {
+    display: flex;
+    justify-content: center;
     margin: 1em;
 }
-
 
 #examples {
     display: none;
@@ -114,7 +113,7 @@ dl .info-col {
 
 /*Footer, aggiungo anche contatto*/
 footer {
-    margin-top: 20%;
+    margin-top: 10%;
     background: linear-gradient(to right, var(--primaryGradient), var(--secondaryGradient));
 }
 
@@ -168,6 +167,70 @@ footer ul#footunor li {
 
 /***********************************
 
-                
+              CONTACTS
 
 ***********************************/
+#info p {
+    display: none;
+}
+
+#contact-info .info-col {
+    display: inline;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#icons-list a {
+    margin-top: 4em;
+}
+
+#icons-list {
+    list-style-type: none;
+    display: flex;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+#icons-list li {
+    padding-inline: 1cm;
+    padding-top: 1cm;
+}
+
+#icons-list .icon {
+    width: 1.5cm;
+    height: 1.5cm;
+}
+
+
+#icons-list {
+    padding-top: 1em;
+}
+
+#icons-contacts {
+    display: none;
+}
+
+.info-col h4 {
+    padding-top: 10%;
+}
+
+#hours {
+    list-style-type: none;
+    padding: 0;
+}
+
+.info-col #cTitle {
+    display: none;
+}
+
+
+/***********************************
+
+              PRIVACY
+
+***********************************/
+
+.heading {
+    margin-top: 2%;
+}
