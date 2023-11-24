@@ -653,7 +653,7 @@ h4 {
 #form,
 #map {
     width: 45em;
-    height: 45em;
+    height: 50em;
     margin: 5em;
     background-color: var(--bgDiv);
     color: var(--text-100);
@@ -722,7 +722,7 @@ label {
     display: inline;
 }
 
-input[type="submit"] {
+#submit-form {
     display: block;
     width: 60%;
     height: 2em;

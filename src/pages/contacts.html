@@ -112,14 +112,14 @@
                         <label for="order">Numero Ordine &#40;se presente&#41;:
                             <input id="order" name="order" type="text" placeholder="#1234">
                         </label>
-                        <label for="problem" id="problems">Scegli una categoria
+                        <label for="problem" id="problems">Scegli una categoria<span class="star">*</span>
                             <select id="problem" name="problem">
-                                <option value="">Scegli una opzione<span class="star">*</span></option>
-                                <option value="1">Stato Ordine</option>
-                                <option value="2">Dove è il mio Ordine</option>
-                                <option value="3"><span lang="en">Login</span>/Registrazione</option>
-                                <option value="4">Problema Tecnico</option>
-                                <option value="5" lang="en">Feedback</option>
+                                <option value="">Scegli una opzione</option>
+                                <option value="Stato Ordine">Stato Ordine</option>
+                                <option value="Dove Ordine">Dove è il mio Ordine</option>
+                                <option value="Login/SingUp"><span lang="en">Login</span>/Registrazione</option>
+                                <option value="TechProblem">Problema Tecnico</option>
+                                <option value="Feedback" lang="en">Feedback</option>
                             </select>
                         </label>
                     </div>
@@ -135,13 +135,34 @@
                             href="tos.html" required>
                             Terms and Conditions</a><span class="star">*</span>
                     </label>
-                    <input id="submit" type="submit" value="Invia">
+                    <!-- <label for="captcha">
+                        <div class="g-recaptcha" data-sitekey="your_site_key"></div>
+                        <br />
+                        <input type="submit" value="Submit">
+                    </label> -->
+                    <input id="submit-form" type="submit" value="Invia">
                 </form>
             </div>
             <!--MAPPA-->
             <!-- <div id="map">
                 <h2>Dove Trovarci!</h2>
             </div> -->
+        </div>
+
+
+        <div id="team">
+            <div class="teammember"><img src="../../assets/images/" alt="">
+                <p></p>
+            </div>
+            <div class="teammember"><img src="../../assets/images/" alt="">
+                <p></p>
+            </div>
+            <div class="teammember"><img src="../../assets/images/" alt="">
+                <p></p>
+            </div>
+            <div class="teammember"><img src="../../assets/images/" alt="">
+                <p></p>
+            </div>
         </div>
     </main>
 
