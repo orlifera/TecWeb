@@ -98,13 +98,13 @@ a {
 } */
 
 /* Flexbox per il menù */
-nav#menu {
+#menu {
     display: flex;
     justify-content: space-between;
     padding: 1em;
 }
 
-nav#menu li {
+#menu li {
     margin-left: 1em;
     margin-right: 1em;
     display: inline-block;
@@ -146,8 +146,9 @@ nav#menu li {
 
 .title {
     font-size: 2.5em;
-    margin: auto;
+    margin-top: auto;
     text-align: center;
+
 }
 
 .subtitle {
@@ -170,7 +171,7 @@ nav#menu li {
 
 #info {
     width: 100%;
-    margin: 10em 0;
+    margin: 5em 0;
 }
 
 .icon {
@@ -577,6 +578,11 @@ p.heading {
     padding-top: 1em;
 }
 
+#info.info2 {
+    margin-bottom: 0;
+}
+
+
 #foot {
     font-size: .5em;
 }
@@ -589,7 +595,7 @@ p.heading {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 5em;
+    padding: 5em 5em 0 5em;
 }
 
 .info-col ul {
@@ -602,15 +608,6 @@ p.heading {
 
 ul#contacts .icon {
     filter: invert(0);
-}
-
-#contact-info p {
-    display: block;
-    font-size: 2em;
-}
-
-.info-col p {
-    font-weight: bold;
 }
 
 h4 {
@@ -651,4 +648,86 @@ h4 {
 
 #icons-list {
     padding-top: 1em;
+}
+
+#form,
+#map {
+    width: 45em;
+    height: 45em;
+    margin: 5em;
+    background-color: var(--bgDiv);
+    color: var(--text-100);
+    border-radius: 30px;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15), inset -1px -1px 2px rgba(0, 0, 0, 0.15);
+}
+
+#form h2,
+#form p {
+    text-align: center;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+#form h2 {
+    padding: 1em;
+}
+
+#form p {
+    padding-bottom: 1em;
+}
+
+
+
+.star {
+    color: red;
+}
+
+#contact-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+input {
+    display: block;
+}
+
+select {
+    display: block;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+}
+
+#additional-info,
+#file-label {
+    width: 90%;
+
+}
+
+label {
+    display: block;
+    margin: .5rem 0;
+}
+
+
+
+.inline {
+    display: inline;
+}
+
+input[type="submit"] {
+    display: block;
+    width: 60%;
+    height: 2em;
+    font-size: 1.1rem;
+    min-width: 300px;
+    background: linear-gradient(to right, var(--primaryGradient), var(--secondaryGradient));
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
 }
