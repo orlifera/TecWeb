@@ -742,3 +742,15 @@ label {
     width: 70%;
     padding: .5em;
 }
+
+#titolo {
+    text-align: center;
+    font-size: 3em;
+    padding-top: 1em;
+}
+
+#para {
+    text-align: center;
+    font-size: 1.5em;
+    padding: 1em;
+}
