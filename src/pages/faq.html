@@ -21,30 +21,31 @@
     <link rel="stylesheet" href="../css/mini.css" media="screen and (max-width: 600px)">
 </head>
 
-    <body>
-        <header>
-            <a href="../../index.html">
-                <h1 id="logo">ML Tech</h1></a>
-        </header>
-        <nav id="menu">
-            <div id="left">
-                <ul>
-                    <li><a href="../../index.html" lang="en">Home</a></li>
-                    <li><a href="catalog.html" lang="en">Shop</a></li>
-                    <li><a href="contacts.html">Contatti</a></li>
-                </ul>
-            </div>
-            <div id="right">
-                <ul>
-                    <li><a href="cart.html"><img class="icon" src="../../assets/images/white-cart.svg"></a></li>
-                    <li><a href="profile.html"><img class="icon" src="../../assets/images/white-profile.svg"></a></li>
-                </ul>
-            </div>
-        </nav>
-        <nav id="breadcrumb" class="sr-only">
-            <p>Ti trovi in: <span lang="en"><a href="../../index.html">Home</a> &gt; &gt; Product</span></p>
-        </nav>
-
+<body>
+    <header>
+        <a href="../../index.html">
+            <h1 id="logo">ML Tech</h1>
+        </a>
+    </header>
+    <nav id="menu">
+        <div id="left">
+            <ul>
+                <li><a href="../../index.html" lang="en">Home</a></li>
+                <li><a href="catalog.html" lang="en">Shop</a></li>
+                <li><a href="contacts.html">Contatti</a></li>
+            </ul>
+        </div>
+        <div id="right">
+            <ul>
+                <li><a href="cart.html"><img class="icon" src="../../assets/images/white-cart.svg"></a></li>
+                <li><a href="profile.html"><img class="icon" src="../../assets/images/white-profile.svg"></a></li>
+            </ul>
+        </div>
+    </nav>
+    <nav id="breadcrumb" class="sr-only">
+        <p>Ti trovi in: <span lang="en"><a href="../../index.html">Home</a> &gt; &gt; Product</span></p>
+    </nav>
+    <script type="text/javascript" src="../JS/faq-handler.js"></script>
     <main>
         <h2 id="faq">FAQs</h1>
             <div class="dropdown">
@@ -281,19 +282,7 @@
             <li><a href="cookies.html">Gestisci <span lang="en">cookie</span></a></li>
         </ul>
     </footer>
-    <script>
-        function toggleAnswer(question) {
-            // Find the next sibling, which should be the corresponding answer
-            var answer = question.nextElementSibling;
-
-            // Toggle the 'display' property of the answer element
-            if (answer.style.display === 'block') {
-                answer.style.display = 'none';
-            } else {
-                answer.style.display = 'block';
-            }
-        }
-    </script>
+    <script type="text/javascrip" src="../JS/faq-handler.js"></script>
 </body>
 
 </html>

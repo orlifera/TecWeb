@@ -653,7 +653,7 @@ h4 {
 #form,
 #map {
     width: 45em;
-    height: 45em;
+    height: 50em;
     margin: 5em;
     background-color: var(--bgDiv);
     color: var(--text-100);
@@ -722,7 +722,7 @@ label {
     display: inline;
 }
 
-input[type="submit"] {
+#submit-form {
     display: block;
     width: 60%;
     height: 2em;
@@ -741,4 +741,16 @@ input[type="submit"] {
     justify-content: space-between;
     width: 70%;
     padding: .5em;
+}
+
+#titolo {
+    text-align: center;
+    font-size: 3em;
+    padding-top: 1em;
+}
+
+#para {
+    text-align: center;
+    font-size: 1.5em;
+    padding: 1em;
 }

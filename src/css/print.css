@@ -48,6 +48,7 @@ header #logo {
 #info {
     width: 100%;
     height: 100%;
+    /* border: 1px solid black; */
 }
 
 dl .info-col {
@@ -118,11 +119,11 @@ footer {
 }
 
 #icons {
-    width: 100%;
-    height: 100%;
-    margin-top: 5%;
-    margin-inline: auto;
-    margin-left: 10%;
+    /* border: 1px solid black; */
+    width: 60%;
+    height: auto;
+    margin: auto;
+
 }
 
 #icons ul {
@@ -130,6 +131,12 @@ footer {
     align-items: center;
     justify-content: center;
     list-style: none;
+}
+
+#icons li {
+    text-align: center;
+    padding: auto;
+    margin: auto;
 }
 
 
@@ -170,6 +177,7 @@ footer ul#footunor li {
               CONTACTS
 
 ***********************************/
+
 #info p {
     display: none;
 }
@@ -179,6 +187,7 @@ footer ul#footunor li {
     align-items: center;
     justify-content: center;
     text-align: center;
+
 }
 
 #icons-list a {
@@ -186,25 +195,24 @@ footer ul#footunor li {
 }
 
 #icons-list {
+    justify-content: center;
     list-style-type: none;
     display: flex;
-    margin-left: 10%;
-    margin-top: 5%;
+    width: 90%;
+    height: auto;
+    margin: auto;
+    margin-top: 2em;
+    padding-left: 6em;
 }
 
 #icons-list li {
-    padding-inline: 1cm;
-    padding-top: 1cm;
+    padding: 0em 3em;
 }
 
 #icons-list .icon {
     width: 1.5cm;
     height: 1.5cm;
-}
-
-
-#icons-list {
-    padding-top: 1em;
+    margin-left: 4em;
 }
 
 #icons-contacts {
@@ -212,7 +220,7 @@ footer ul#footunor li {
 }
 
 .info-col h4 {
-    padding-top: 10%;
+    padding-top: 6%;
 }
 
 #hours {
@@ -224,6 +232,139 @@ footer ul#footunor li {
     display: none;
 }
 
+.contact-link {
+    height: auto;
+    width: 45%;
+}
+
+#text-mail {
+    visibility: hidden;
+}
+
+#text-mail::after {
+    white-space: nowrap;
+    visibility: visible;
+    content: "tecweb2023@gmail.com";
+}
+
+#text-tel {
+    visibility: hidden;
+}
+
+#text-tel::after {
+    visibility: visible;
+    content: "+39 1234567890";
+    white-space: nowrap;
+}
+
+#text-ds {
+    visibility: hidden;
+}
+
+#text-ds::after {
+    visibility: visible;
+    content: "link discord";
+    white-space: nowrap;
+}
+
+#whs {
+    visibility: hidden;
+}
+
+/****** FORM CONTATTI *******/
+
+#problems {
+    display: none;
+}
+
+#form {
+    width: 70%;
+    height: auto;
+    margin: 2em;
+    background-color: var(--bgDiv);
+    color: var(--text-100);
+    border-radius: 30px;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15), inset -1px -1px 2px rgba(0, 0, 0, 0.15);
+}
+
+#form h2,
+#form p {
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+#form h2 {
+    margin-top: 1em;
+}
+
+#form a {
+    color: var(--text-100);
+    text-decoration: underline;
+}
+
+.star {
+    color: red;
+}
+
+#contact-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+input {
+    display: block;
+}
+
+select {
+    display: block;
+    width: 130%;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+}
+
+
+#file-label {
+    display: none;
+
+}
+
+label {
+    display: block;
+    margin: 0.1em;
+}
+
+.inline {
+    display: inline;
+}
+
+#submit-form {
+    display: none;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    padding: .5em;
+}
+
+#additional-info {
+    width: 90%;
+}
+
+#terms {
+    margin-bottom: 1em;
+}
 
 /***********************************
 
