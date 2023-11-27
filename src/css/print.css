@@ -48,6 +48,7 @@ header #logo {
 #info {
     width: 100%;
     height: 100%;
+    /* border: 1px solid black; */
 }
 
 dl .info-col {
@@ -118,11 +119,11 @@ footer {
 }
 
 #icons {
-    width: 100%;
-    height: 100%;
-    margin-top: 5%;
-    margin-inline: auto;
-    margin-left: 10%;
+    /* border: 1px solid black; */
+    width: 60%;
+    height: auto;
+    margin: auto;
+
 }
 
 #icons ul {
@@ -130,6 +131,12 @@ footer {
     align-items: center;
     justify-content: center;
     list-style: none;
+}
+
+#icons li{
+    text-align: center;
+    padding: auto;
+    margin: auto;
 }
 
 
@@ -180,6 +187,7 @@ footer ul#footunor li {
     align-items: center;
     justify-content: center;
     text-align: center;
+
 }
 
 #icons-list a {
@@ -187,25 +195,24 @@ footer ul#footunor li {
 }
 
 #icons-list {
+    justify-content: center;
     list-style-type: none;
     display: flex;
-    margin-left: 10%;
-    margin-top: 0.5em;
+    width: 90%;
+    height: auto;
+    margin: auto;
+    margin-top: 2em;
+    padding-left: 6em;
 }
 
 #icons-list li {
-    padding-inline: 1cm;
-    padding-top: 1cm;
+    padding: 0em 3em;
 }
 
 #icons-list .icon {
     width: 1.5cm;
     height: 1.5cm;
-}
-
-
-#icons-list {
-    padding-top: 1em;
+    margin-left: 4em;
 }
 
 #icons-contacts {
@@ -225,7 +232,46 @@ footer ul#footunor li {
     display: none;
 }
 
-/****** FORM *******/
+.contact-link {
+    height: auto;
+    width: 45%;
+}
+
+#text-mail {
+    visibility: hidden;
+}
+
+#text-mail::after {
+    white-space: nowrap; 
+    visibility: visible;
+    content: "tecweb2023@gmail.com";
+}
+
+#text-tel {
+    visibility: hidden;
+}
+
+#text-tel::after {
+    visibility: visible;
+    content: "+39 1234567890";
+    white-space: nowrap; 
+}
+
+#text-ds {
+    visibility: hidden;
+}
+
+#text-ds::after {
+    visibility: visible;
+    content: "link discord";
+    white-space: nowrap; 
+}
+
+#whs {
+    visibility: hidden;
+}
+
+/****** FORM CONTATTI *******/
 
 #problems {
     display: none;
