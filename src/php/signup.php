@@ -11,7 +11,6 @@ function registrazione() {
         if ($_POST['password'] != $_POST['password-confirm']) {
             echo '<p class="error">Le password non corrispondono.</p>';
         } else {
-            
             // salva i dati dell'utente nel database
             $username = htmlentities(substr($_POST['username'], 0, 255));
             $nome = htmlentities(substr($_POST['nome'], 0, 255));
@@ -41,11 +40,11 @@ function registrazione() {
                 
                 // se la query ha avuto successo, reindirizza l'utente alla pagina di consultazione della partita IVA
                 if ($result) {
-                    header('Location: tos.html');
+                    header('Location: pages/login.html');
                     die();
                 } else {
                     // Commento: se la query non ha avuto successo, mostra un messaggio di errore
-                    echo '<div class="nonsuccesso">Errore durante la registrazione</div>';
+                    echo '<div class="nonsuccesso">Errore durante la registrazione: ' . $connessione->error . '</div>';
                 }
             }
         }
