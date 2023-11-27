@@ -170,6 +170,7 @@ footer ul#footunor li {
               CONTACTS
 
 ***********************************/
+
 #info p {
     display: none;
 }
@@ -189,7 +190,7 @@ footer ul#footunor li {
     list-style-type: none;
     display: flex;
     margin-left: 10%;
-    margin-top: 5%;
+    margin-top: 0.5em;
 }
 
 #icons-list li {
@@ -212,7 +213,7 @@ footer ul#footunor li {
 }
 
 .info-col h4 {
-    padding-top: 10%;
+    padding-top: 6%;
 }
 
 #hours {
@@ -224,6 +225,100 @@ footer ul#footunor li {
     display: none;
 }
 
+/****** FORM *******/
+
+#problems {
+    display: none;
+}
+
+#form {
+    width: 70%;
+    height: auto;
+    margin: 2em;
+    background-color: var(--bgDiv);
+    color: var(--text-100);
+    border-radius: 30px;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15), inset -1px -1px 2px rgba(0, 0, 0, 0.15);
+}
+
+#form h2,
+#form p {
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+#form h2 {
+    margin-top: 1em;
+}
+
+#form a {
+    color: var(--text-100);
+    text-decoration: underline;
+}
+
+.star {
+    color: red;
+}
+
+#contact-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+input {
+    display: block;
+}
+
+select {
+    display: block;
+    width: 130%;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+}
+
+
+#file-label {
+    display: none;
+
+}
+
+label {
+    display: block;
+    margin: 0.1em;
+}
+
+.inline {
+    display: inline;
+}
+
+#submit-form {
+    display: none;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    padding: .5em;
+}
+
+#additional-info {
+    width: 90%;
+}
+
+#terms {
+    margin-bottom: 1em;
+}
 
 /***********************************
 
