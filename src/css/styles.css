@@ -672,8 +672,7 @@ h4 {
     padding-top: 1em;
 }
 
-#form,
-#map {
+#form {
     width: 45em;
     height: 50em;
     margin: 5em;
