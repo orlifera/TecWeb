@@ -12,10 +12,16 @@
     margin: 0;
     padding: 0;
     font-family: "Prompt", sans-serif;
+    transition: var(--default-transition);
+}
+
+:root {
+    --default-transition: color .1s ease-in-out, background-color .3s ease-in-out, fill .1s ease-in-out,
+        border-color .3s ease-in-out, transform .3s ease-in-out;
 }
 
 /* Palette chiara */
-:root {
+:root[data-theme="light"] {
     --primaryGradient: #3F51B5;
     /*Primo gradiente*/
     --secondaryGradient: #757de8;
@@ -30,10 +36,15 @@
     /*testo secondario*/
     --bg: #F9F9F9;
     --bgDiv: #f5f5f5;
+    --switch-bg-icon: #ffd371;
+    --muted-text: #b1b0b5;
+    --icon-sun: #ee8e44;
+    --icon-moon: #b7b7b7;
+    --switch-pos: .25em;
 }
 
 /* Palette scura */
-[data-theme="darkMode"] {
+[data-theme="dark"] {
     --primaryGradient: #1F3A5F;
     /*primo colore gradiente*/
     --secondaryGradient: #4d648d;
@@ -49,7 +60,11 @@
     /*testo secondario*/
     --bg: #0F1C2E;
     --bgDiv: #1f2b3e;
-    font-family: "Promopt", sans-serif;
+    --switch-bg-icon: #081d32;
+    --muted-text: #77757E;
+    --icon-sun: var(--muted-text);
+    --icon-moon: #b7b7b7;
+    --switch-pos: 2.7em;
 }
 
 html {
@@ -80,6 +95,7 @@ nav {
     height: 100%;
     justify-content: center;
     align-items: center;
+    z-index: 0;
 }
 
 a {
@@ -642,6 +658,12 @@ h4 {
     padding-right: .5em;
 }
 
+#cart,
+#profile {
+    fill: var(--primaryText);
+    z-index: 1;
+}
+
 #hours li {
     padding-top: .5em;
 }
@@ -753,4 +775,43 @@ label {
     text-align: center;
     font-size: 1.5em;
     padding: 1em;
+}
+
+/*Theme Switcher*/
+#theme-switcher {
+    background-color: var(--bgDiv);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    cursor: pointer;
+    padding: .5em;
+    position: relative;
+    transition: var(--default-transition);
+}
+
+#theme-switcher::before {
+    content: '';
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    background-color: var(--switch-bg-icon);
+    border-radius: 50px;
+    z-index: 0;
+    left: 0;
+    transform: translateX(var(--switch-pos));
+    transition: var(--default-transition);
+}
+
+#theme-switcher svg {
+    z-index: 1;
+    transition: var(--default-transition);
+}
+
+#sun {
+    fill: var(--icon-sun);
+}
+
+#moon {
+    fill: var(--icon-moon);
 }
