@@ -92,7 +92,6 @@ header {
 
 nav {
     background: linear-gradient(to top right, var(--primaryGradient), var(--secondaryGradient));
-    height: 100%;
     justify-content: center;
     align-items: center;
     z-index: 0;
@@ -127,12 +126,10 @@ a {
     list-style-type: none;
 }
 
-/* NON CANCELLARE: NAVBAR FISSA DOPO L'HEADER */
 /* #menu.fixed {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 2em;
   z-index: 1;
 } */
 
@@ -202,13 +199,15 @@ a {
 
 #info-p {
     text-align: center;
-    margin-bottom: 3em;
+    padding-top: 1em;
+    margin-bottom: 2em;
     font-size: 2em;
 }
 
 #info dl {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 #info dt {
@@ -224,8 +223,9 @@ a {
 
 .info-col {
     text-align: center;
-    width: 20%;
-    padding: 1em 2em;
+    width: 18em;
+    margin: 1em;
+    padding: 1.5em 2em;
     background-color: var(--bgDiv);
     border-radius: 30px;
     /* Ombra interna */
@@ -235,7 +235,6 @@ a {
 
 #examples {
     width: 100%;
-    height: 100vh;
     margin-bottom: 5em;
     padding: 1em 0;
 }
@@ -252,7 +251,7 @@ a {
 
 #examples .examples-col {
     text-align: center;
-    width: 20%;
+    width: 18em;
     padding: 2em 2em;
     margin: 2em;
     background-color: var(--bgDiv);
@@ -287,17 +286,17 @@ a {
 
 #about {
     width: 100%;
-    height: 100vh;
+    padding: 4em 0 10em 0;
     background: linear-gradient(-45deg, var(--primaryText), var(--secondaryGradient));
     color: #030303;
 }
 
 #about .title {
-    padding: 3em 0 2em 0;
+    padding: 2em 0;
 }
 
 #about p {
-    width: 50%;
+    width: 70%;
     margin: auto;
     text-align: justify;
 }
@@ -309,13 +308,13 @@ a {
 #flex-review {
     margin-top: 5em;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
 .quote {
-    width: 30%;
-    height: 40vh;
+    width: 25em;
+    /* height: 40vh; */
     background-color: var(--primaryText);
     filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.15));
     color: #030303;
@@ -366,6 +365,7 @@ a {
 #last {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 6em;
     padding: 3em 0 2em 0;
     background: linear-gradient(to right, var(--primaryGradient), var(--secondaryGradient));
