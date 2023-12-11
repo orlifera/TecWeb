@@ -24,9 +24,9 @@ function registrazione() {
             // controlla se esiste già un utente con quel nome utente
             $stmt = $connessione->prepare("SELECT * FROM utente WHERE username = ? LIMIT 1");
             $stmt->bind_param("s", $username);
-            $result = $stmt->execute();
+            // $result = $stmt->execute(); // non serve perchè viene già eseguita dal get_result sotto
             
-            $result = $stmt->get_result(); // ->fetch_assoc()
+            $result = $stmt->get_result()->fetch_assoc();
             
             // se esiste già un utente con quel nome utente, mostra un messaggio di errore
             if ($result->num_rows > 0) {
@@ -50,8 +50,7 @@ function registrazione() {
                 }
             }
         }
-    }
-    
+    } 
 }
 
 
