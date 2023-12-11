@@ -1,6 +1,6 @@
 <?php
 
-require_once('connessionedb.php');
+// require_once('connessionedb.php');
 
 function registrazione() {
 
@@ -32,11 +32,13 @@ function registrazione() {
             if ($result->num_rows > 0) {
                 echo '<div class="nonsuccesso">C\'è già un account con quel nome utente</div>';
             } else {
-                
                 // inserisce il nuovo utente nel database
                 $stmt = $connessione->prepare("INSERT INTO utente (username, nome, cognome, email, password) VALUES (?, ?, ?, ?, ?)");
                 $stmt->bind_param("sssss", $username, $nome, $cognome, $email, $password);
+                // $stmt = $connessione->prepare("INSERT INTO utente (username, nome, cognome, email, password) VALUES ('$username', '$nome', '$cognome', '$email', '$password'");
                 $result = $stmt->execute();
+                // $sql = "INSERT INTO utente (username, nome, cognome, email, password) VALUES ('$username', '$nome', '$cognome', '$email', '$password'";
+                // $result = mysqli_query($sql);
                 
                 // se la query ha avuto successo, reindirizza l'utente alla pagina di consultazione della partita IVA
                 if ($result) {
