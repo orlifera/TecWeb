@@ -143,21 +143,24 @@
                 <p>Fatti sentire! Scrivici per qualsiasi cosa per cui ti serva aiuto. Saremo più che lieti di
                     risponderti.Sono graditi anche feedback che ci aiuteranno a migliorare il servizio.</p>
                 <form id="contact-form" method="post">
-                    <div class="input-row">
+                    <fieldset id="personal">
                         <label for="firstname">Nome<span class="star">*</span>
                             <input id="firstname" name="firstname" type="text" placeholder="Mario" required>
                         </label>
-                        <label for="file" id="file-label">Allega File
-                            <input id="file" name="file" type="file">
+                        <label for="lastname">Cognome<span class="star">*</span>
+                            <input id="lastname" name="lastname" type="text" placeholder="Rossi" required>
                         </label>
-                        <label for="terms">
-                            <input id="terms" class="inline" type="checkbox" name="terms" required> I Accept the <a
-                                href="tos.html" required>
-                                Terms and Conditions</a><span class="star">*</span>
+                    </fieldset>
+                    <fieldset id="personal-contacts">
+                        <label for="email" lang="en">Email<span class="star">*</span>
+                            <input id="email" name="email" type="text" placeholder="mario.rossi@esempio.com" required>
                         </label>
-                    </div>
-                    <div class="input-row">
-                        <label for="order">Numero Ordine &#40;se presente&#41;:
+                        <label for="phone">Numero di Telefono<span class="star">*</span>
+                            <input id="phone" name="phone" type="tel" placeholder="+39 1234567890">
+                        </label>
+                    </fieldset>
+                    <fieldset id="order-category">
+                        <label for="order">Numero Ordine &#40; se presente&#41;:
                             <input id="order" name="order" type="text" placeholder="#1234">
                         </label>
                         <label for="problem" id="problems">Scegli una categoria<span class="star">*</span>
@@ -170,24 +173,22 @@
                                 <option value="Feedback" lang="en">Feedback</option>
                             </select>
                         </label>
-                    </div>
-                    <label for="additional" id="additional-info">Informazioni Aggiuntive<span class="star">*</span>
+                    </fieldset>
+                    <fieldset id="text">
+                        <label for="additional" id="additional-info">Informazioni Aggiuntive<span
+                                class="star">*</span></label>
                         <textarea id="additional" name="additional" rows="10" cols="40"
                             placeholder="Siete grandi nel webdevelopment dc..." required></textarea>
-                    </label>
-                    <label for="file" id="file-label">Allega File
-                        <input id="file" name="file" type="file">
-                    </label>
-                    <label id="terms" for="terms">
-                        <input class="inline" type="checkbox" name="terms" required> I Accept the <a href="tos.html"
-                            required>
+
+                        <label for="file" id="file-label">Allega File
+                            <input id="file" name="file" type="file">
+                        </label>
+                    </fieldset>
+                    <label for="terms">
+                        <input id="terms" class="inline" type="checkbox" name="terms" required /> I Accept the <a
+                            href="tos.html" required>
                             Terms and Conditions</a><span class="star">*</span>
                     </label>
-                    <!-- <label for="captcha">
-                        <div class="g-recaptcha" data-sitekey="your_site_key"></div>
-                        <br />
-                        <input type="submit" value="Submit">
-                    </label> -->
                     <input id="submit-form" type="submit" value="Invia">
                 </form>
             </div>
@@ -219,8 +220,6 @@
             <!-- Icone per account social dell'azienda -->
             <div id="icons">
                 <ul>
-                    <li><a href="" target="_blank"><img class="icon" src="../../assets/images/facebook.png"></a></li>
-                    =======
                     <li><a href="" target="_blank"><img class="icon" src="../../assets/images/facebook.png"></a>
                     </li>
 

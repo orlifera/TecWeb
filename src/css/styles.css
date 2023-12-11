@@ -41,6 +41,7 @@
     --icon-sun: #ee8e44;
     --icon-moon: #b7b7b7;
     --switch-pos: .25em;
+    --input-bg: #f2f2f8;
 }
 
 /* Palette scura */
@@ -65,6 +66,7 @@
     --icon-sun: var(--muted-text);
     --icon-moon: #b7b7b7;
     --switch-pos: 2.7em;
+    --input-bg: #6B6E73;
 }
 
 html {
@@ -195,6 +197,12 @@ a {
 /* Filtro che inverte il colore delle icone */
 #icons .icon {
     filter: invert(1);
+}
+
+#cart,
+#profile {
+    fill: var(--primaryText);
+    z-index: 1;
 }
 
 #info-p {
@@ -603,8 +611,14 @@ p.heading {
     font-size: .5em;
 }
 
+/*CONTACTS*/
+
 #mail {
     color: var(--text-100);
+}
+
+#contact-info .info-col {
+    background-color: var(--primaryText);
 }
 
 #contact-info {
@@ -658,12 +672,6 @@ h4 {
     padding-right: .5em;
 }
 
-#cart,
-#profile {
-    fill: var(--primaryText);
-    z-index: 1;
-}
-
 #hours li {
     padding-top: .5em;
 }
@@ -672,109 +680,131 @@ h4 {
     padding-top: 1em;
 }
 
-#form-container {
-    width: 45em;
-    height: 50em;
-    margin: 5em auto;
-    background-color: var(--bgDiv);
-    color: var(--text-100);
-    border-radius: 30px;
-    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15), inset -1px -1px 2px rgba(0, 0, 0, 0.15);
-}
-
-#form-container h2,
-#form-container p {
-    text-align: center;
-    padding-left: 2em;
-    padding-right: 2em;
-}
-
-form a {
-    color: var(--text-100);
-    text-decoration: underline;
-}
-
-#form-container h2 {
-    padding: 1em;
-}
-
-#form-container p {
-    padding-bottom: 1em;
-}
-
-
+/*contact form*/
 
 .star {
     color: red;
 }
 
-#contact-form {
+#form-container {
+    margin: 5em auto;
+    width: 50em;
+    height: 65em;
+    background-color: var(--primaryText);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+    border-radius: 30px;
+    padding: 0 4em;
+}
+
+#form-container h2,
+#form-container p {
+    text-align: center;
+    padding: 1.5em 0 1em 0;
+}
+
+#form-container h2 {
+    font-size: 2em;
+}
+
+fieldset {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    width: 100%;
+    border: none;
+    padding: 2em 0;
+    border-bottom: 1px solid var(--text-100);
 }
 
-input {
-    display: block;
+#contact-form label {
+    width: 20em;
+    text-align: center;
+    margin: auto;
 }
 
-select {
-    display: block;
-    width: 130%;
+#contact-form a {
+    color: var(--text-100);
+    text-decoration: underline;
+
 }
 
-textarea {
+#contact-form input,
+#contact-form select {
     display: block;
+    text-align: center;
+    margin: auto;
+    width: 15em;
+    border-radius: 30px;
+    border: 1px solid var(--input-bg);
+    background-color: var(--input-bg);
+    color: var(--text-100);
+    resize: none;
+}
+
+#contact-form input::placeholder {
+    color: var(--text-100);
+    text-align: center;
+}
+
+#contact-form select {
+    border-radius: 30px;
+    border: 1px solid var(--input-bg);
+    background-color: var(--input-bg);
+    color: var(--text-100);
+}
+
+
+#text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#additional-info {
+    text-align: center;
     width: 100%;
 }
 
-#additional-info,
-#file-label {
-    width: 90%;
-
+#additional {
+    width: 80%;
+    border-radius: 30px;
+    border: 1px solid var(--input-bg);
+    background-color: var(--input-bg);
+    color: var(--text-100);
+    resize: none;
+    margin: 1em;
 }
 
-label {
-    display: block;
-    margin: .5rem 0;
+#contact-form textarea::placeholder {
+    color: var(--text-100);
+    text-align: center;
 }
 
-.inline {
+#contact-form input[type="file"] {
+    background-color: transparent;
+    border: none;
+    border-radius: 0px;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    outline: none;
+    border: 1px solid var(--primaryGradient);
+}
+
+#contact-form input[type="checkbox"] {
     display: inline;
+    align-items: center;
+    justify-content: center;
+    width: 1em;
+    height: 1em;
+    margin: auto;
+    padding: 0;
+    border: none;
+    background-color: var(--input-bg);
 }
 
-#submit-form {
-    display: block;
-    width: 60%;
-    height: 2em;
-    font-size: 1.1rem;
-    min-width: 300px;
-    background: linear-gradient(to right, var(--primaryGradient), var(--secondaryGradient));
-}
 
-.container {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.input-row {
-    display: flex;
-    justify-content: space-between;
-    width: 70%;
-    padding: .5em;
-}
-
-#titolo {
-    text-align: center;
-    font-size: 3em;
-    padding-top: 1em;
-}
-
-#para {
-    text-align: center;
-    font-size: 1.5em;
-    padding: 1em;
-}
 
 /*Theme Switcher*/
 #theme-switcher {
