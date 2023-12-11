@@ -17,7 +17,7 @@ html {
 ***********************************/
 /*Logo in header*/
 header #logo {
-    content: url("/assets/images/logo.png");
+    content: url("../../assets/images/logo.png");
     width: 5cm;
     height: 4cm;
     margin: auto;
