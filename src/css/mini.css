@@ -25,10 +25,6 @@ nav#menu {
     z-index: 1;
 }
 
-nav#menu #switch {
-    padding-right: 2em;
-}
-
 nav#menu #right ul {
     font-size: 0.7em;
 }
