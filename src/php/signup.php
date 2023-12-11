@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 // require_once('connessionedb.php');
 
 function registrazione() {
@@ -24,38 +24,40 @@ function registrazione() {
             // controlla se esiste già un utente con quel nome utente
             $stmt = $connessione->prepare("SELECT * FROM utente WHERE username = ? LIMIT 1");
             $stmt->bind_param("s", $username);
-            // $result = $stmt->execute(); // non serve perchè viene già eseguita dal get_result sotto
+            $result = $stmt->execute();
             
             $result = $stmt->get_result()->fetch_assoc();
             
             // se esiste già un utente con quel nome utente, mostra un messaggio di errore
-            if ($result->num_rows > 0) {
-                echo '<div class="nonsuccesso">C\'è già un account con quel nome utente</div>';
+            if ($result >= 1) {
+                echo '<p class="error">E\' già presente questo nome utente.</p>';
             } else {
                 // inserisce il nuovo utente nel database
                 $stmt = $connessione->prepare("INSERT INTO utente (username, nome, cognome, email, password) VALUES (?, ?, ?, ?, ?)");
                 $stmt->bind_param("sssss", $username, $nome, $cognome, $email, $password);
-                // $stmt = $connessione->prepare("INSERT INTO utente (username, nome, cognome, email, password) VALUES ('$username', '$nome', '$cognome', '$email', '$password'");
                 $result = $stmt->execute();
-                // $sql = "INSERT INTO utente (username, nome, cognome, email, password) VALUES ('$username', '$nome', '$cognome', '$email', '$password'";
-                // $result = mysqli_query($sql);
                 
-                // se la query ha avuto successo, reindirizza l'utente alla pagina di consultazione della partita IVA
+                // se la query ha avuto successo, reindirizza l'utente alla pagina di login
                 if ($result) {
-                    header('Location: pages/login.html');
+                    header('Location: ../pages/login.html');
                     die();
                 } else {
                     // Commento: se la query non ha avuto successo, mostra un messaggio di errore
-                    echo '<div class="nonsuccesso">Errore durante la registrazione: ' . $connessione->error . '</div>';
+                    echo '<p class="error">Errore durante la registrazione: ' . $connessione->error . '</p>';
                 }
             }
         }
-    } 
+    }
 }
 
 
 // Inizia una sessione
 session_start();
+
+if(isset($_SESSION['username'])) {
+    header('Location: ../../index.html');
+    die();
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     registrazione();
