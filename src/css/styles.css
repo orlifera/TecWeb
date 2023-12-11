@@ -16,52 +16,52 @@
 
 /* Palette chiara */
 :root {
-    --primaryGradient: #3F51B5;
+    --primary-100: #3F51B5;
     /*Primo gradiente*/
-    --secondaryGradient: #757de8;
+    --primary-200: #757de8;
     /*Secondo gradiente*/
-    --primaryText: #dedeff;
+    --primary-300: #dedeff;
     /*Testi importanti vari*/
-    --primaryIconBg: #2196F3;
-    --secondaryIconBG: #003f8f;
+    --accent-100: #2196F3;
+    --accent-200: #003f8f;
     --text-100: #333333;
     /*Testo primario*/
     --text-200: #5c5c5c;
     /*testo secondario*/
-    --bg: #F9F9F9;
-    --bgDiv: #f5f5f5;
+    --bg-100: #F9F9F9;
+    --bg-200: #f5f5f5;
+    --bg-300: #cccccc;
 }
 
 /* Palette scura */
 [data-theme="darkMode"] {
-    --primaryGradient: #1F3A5F;
+    --primary-100: #1F3A5F;
     /*primo colore gradiente*/
-    --secondaryGradient: #4d648d;
+    --primary-200: #4d648d;
     /*Secondo colore gradiente*/
-    --primaryText: #acc2ef;
+    --primary-300: #acc2ef;
     /*testi importanti vari*/
-    --primaryIconBG: #3D5A80;
+    --accent-100: #3D5A80;
     /*background e colore icone*/
-    --secondaryIconBG: #cee8ff;
+    --accent-200: #cee8ff;
     --text-100: #F9F9F9;
     /*Testo primario*/
     --text-200: #030303;
     /*testo secondario*/
-    --bg: #0F1C2E;
-    --bgDiv: #1f2b3e;
-    font-family: "Promopt", sans-serif;
+    --bg-100: #0F1C2E;
+    --bg-200: #1f2b3e;
 }
 
 html {
     font-size: 100%;
-    background-color: var(--bg);
+    background-color: var(--bg-100);
     margin: auto;
     line-height: 1.5em;
 }
 
 header {
     padding: 1em;
-    background-color: var(--primaryText);
+    background-color: var(--primary-300);
 }
 
 /* Text replacement */
@@ -76,7 +76,7 @@ header {
 }
 
 nav {
-    background: linear-gradient(to top right, var(--primaryGradient), var(--secondaryGradient));
+    background: linear-gradient(to top right, var(--primary-100), var(--primary-200));
     height: 100%;
     justify-content: center;
     align-items: center;
@@ -84,7 +84,7 @@ nav {
 
 a {
     text-decoration: none;
-    color: var(--primaryText);
+    color: var(--primary-300);
 }
 
 /* Sottolineatura al passare del mouse sopra i link */
@@ -140,7 +140,7 @@ a {
 
 #presentation {
     width: 100%;
-    background: linear-gradient(-45deg, var(--primaryText), var(--secondaryGradient));
+    background: linear-gradient(-45deg, var(--primary-300), var(--primary-200));
     height: 100vh;
 }
 
@@ -210,7 +210,7 @@ a {
     text-align: center;
     width: 20%;
     padding: 1em 2em;
-    background-color: var(--bgDiv);
+    background-color: var(--bg-200);
     border-radius: 30px;
     /* Ombra interna */
     box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15), inset -1px -1px 2px rgba(0, 0, 0, 0.15);
@@ -239,7 +239,7 @@ a {
     width: 20%;
     padding: 2em 2em;
     margin: 2em;
-    background-color: var(--bgDiv);
+    background-color: var(--bg-200);
     border-radius: 1%;
     color: #030303;
 }
@@ -272,7 +272,7 @@ a {
 #about {
     width: 100%;
     height: 100vh;
-    background: linear-gradient(-45deg, var(--primaryText), var(--secondaryGradient));
+    background: linear-gradient(-45deg, var(--primary-300), var(--primary-200));
     color: #030303;
 }
 
@@ -300,7 +300,7 @@ a {
 .quote {
     width: 30%;
     height: 40vh;
-    background-color: var(--primaryText);
+    background-color: var(--primary-300);
     filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.15));
     color: #030303;
     margin-bottom: 5em;
@@ -352,8 +352,8 @@ a {
     justify-content: center;
     gap: 6em;
     padding: 3em 0 2em 0;
-    background: linear-gradient(to right, var(--primaryGradient), var(--secondaryGradient));
-    color: var(--bg);
+    background: linear-gradient(to right, var(--primary-100), var(--primary-200));
+    color: var(--bg-100);
     border-bottom: 1px solid #f9f9f9;
 }
 
@@ -397,7 +397,7 @@ a {
 }
 
 footer {
-    background: linear-gradient(to right, var(--primaryGradient), var(--secondaryGradient));
+    background: linear-gradient(to right, var(--primary-100), var(--primary-200));
 }
 
 #icons {
@@ -432,7 +432,7 @@ footer dl#footdef dt {
 }
 
 footer dl#footdef dt {
-    color: var(--primaryText)
+    color: var(--primary-300)
 }
 
 #footdef dd {
@@ -452,7 +452,7 @@ footer ul#footunor li {
 }
 
 footer ul#footunor li {
-    color: var(--primaryText);
+    color: var(--primary-300);
 }
 
 #rights {
@@ -650,19 +650,88 @@ h4 {
     padding-top: 1em;
 }
 
-#form,
-#map {
+/* #contact-form {
+    width: 70%;
+    height: 70%;
+    margin: auto;
+    max-width: 500px;
+    min-width: 300px;
+}
+
+#contact-form label {
+    display: inline-block;
+    margin: .5em;
+    width: 100%;
+    color: var(--text-100)
+}
+
+#contact-form fieldset {
+    border: none;
+    text-align: center;
+    display: block;
+}
+
+#personal label {
+    display: inline;
+    margin: .5em;
+    width: 100%;
+}
+
+#contact-form input,
+#contact-form textarea {
+    display: block;
+    width: 100%;
+    margin: 1em;
+    padding: .5em;
+    border-radius: 30px;
+    border: 1px solid var(--bg-100);
+    background-color: var(--bg-100);
+    color: var(--text-100);
+    resize: none;
+}
+
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+    margin: auto 0;
+    color: var(--text-100);
+    opacity: .85;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    outline: none;
+    border: 1px solid var(--primary-100);
+}
+
+
+#contact-form input[type="submit"] {
+    width: 50%;
+    margin: 1em auto;
+    padding: .75em;
+    border-radius: 30px;
+    border: 1px solid var(--bg-100);
+    background-color: var(--bg-100);
+    color: var(--text-100);
+    cursor: pointer;
+}
+
+#contact-form input[type="submit"]:hover {
+    background-color: var(--primary-100);
+    color: var(--bg-100);
+} */
+
+#form-container {
     width: 45em;
     height: 50em;
-    margin: 5em;
-    background-color: var(--bgDiv);
+    margin: 5em auto;
+    background-color: var(--accent-100);
     color: var(--text-100);
     border-radius: 30px;
     box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15), inset -1px -1px 2px rgba(0, 0, 0, 0.15);
 }
 
-#form h2,
-#form p {
+#form-container h2,
+#form-container p {
     text-align: center;
     padding-left: 2em;
     padding-right: 2em;
@@ -673,11 +742,11 @@ form a {
     text-decoration: underline;
 }
 
-#form h2 {
+#form-container h2 {
     padding: 1em;
 }
 
-#form p {
+#form-container p {
     padding-bottom: 1em;
 }
 
@@ -723,12 +792,11 @@ label {
 }
 
 #submit-form {
-    display: block;
     width: 60%;
     height: 2em;
     font-size: 1.1rem;
     min-width: 300px;
-    background: linear-gradient(to right, var(--primaryGradient), var(--secondaryGradient));
+    background: linear-gradient(to right, var(--primary-100), var(--primary-200));
 }
 
 .container {
