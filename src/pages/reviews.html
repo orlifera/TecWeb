@@ -2,14 +2,10 @@
 <html lang="it" data-theme="light">
 
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Contatti - ML Tech</title> <!-- da cambiare nei vari file -->
-        <meta name="keywords"
-            content="Computer assemblati, pc da gaming assemblati, tastiere meccaniche, tastiere custom, pc gaming economici">
-        <!-- da cambiare nei vari file -->
-        <meta name="description" content="Catalogo PC ML Tech, catalogo Tastiere ML Tech">
-        <!-- da cambiare nei vari file -->
+        <meta charset="UTF-8">
+        <title>ML-TECH PRODUCT</title>
+        <meta name="keywords" content="ML-TECH products, gaming, workstation, technology ">
+        <meta name="description" content="Sito ufficiale ml-tech, gruppo fondato da Orlando Ferazzani">
         <link rel="stylesheet" href="../css/styles.css" media="screen">
         <link rel="stylesheet" href="../css/print.css" media="print">
         <link rel="stylesheet" href="../css/mini.css" media="screen and (max-width: 600px)">
@@ -29,17 +25,18 @@
         </script>
     </head>
 
-
     <body>
         <header>
-            <h1 id="logo"><a href="../../index.html">ML Tech</a></h1>
+            <a href="../../index.html">
+                <h1 id="logo">ML Tech</h1>
+            </a>
         </header>
         <nav id="menu">
             <div id="left">
                 <ul>
                     <li><a href="../../index.html" lang="en">Home</a></li>
                     <li><a href="catalog.html" lang="en">Shop</a></li>
-                    <li><a class="active" href="contacts.html">Contatti</a></li>
+                    <li><a href="contacts.html">Contatti</a></li>
                 </ul>
             </div>
             <div id="right">
@@ -84,134 +81,16 @@
             </div>
         </nav>
         <nav id="breadcrumb" class="sr-only">
-            <p>Ti trovi in: <span lang="en"><a href="../../index.html">Home</a> &gt; &gt; Contatti</span></p>
+            <p>Ti trovi in: <span lang="en"><a href="../../index.html">Home</a> &gt; &gt; Product</span></p>
         </nav>
 
         <main>
-            <div id="info" class="info2">
-
-                <p>Hai bisogno di una mano?</p>
-                <div id="contact-info">
-                    <div class="info-col">
-                        <h2 id="heading">Contatti</h2>
-                        <ul id="icons-list">
-                            <li lang="en"><a id="contact-link" target="_blank" href=""><img class="icon"
-                                        src="../../assets/images/email.png"><span id="text-mail">Email</span></a>
-                            </li>
-                            <li><a id="contact-link" href="tel:+393927958165"><img class="icon"
-                                        src="../../assets/images/phone.png"><span id="text-tel">Telefono</span></a>
-                            </li>
-                            <!--Da aggiungere un popup per far vedere il numero a chi è da pc-->
-                            <li lang="en"><a id="contact-link" href=""><img class="icon"
-                                        src="../../assets/images/discord.png"><span id="text-ds">Discord</span></a>
-                            </li>
-                            <li lang="en"><a id="whs" href="https://wa.me/+393927958165"><img class="icon"
-                                        src="../../assets/images/wa.png"><span id="text-ws">Whatsapp</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="info-col">
-                        <h2 id="heading">Orari</h2>
-                        <h4>Dal Lunedì al Venerdì</h4>
-                        <ul id="hours">
-                            <li>Mattina: <time datetime="08:00">08.00</time> &minus; <time datetime="13:00">13.00</time>
-                            </li>
-                            <li>Pomeriggio: <time datetime="15:00">15.00</time> &minus; <time
-                                    datetime="20:00">20.00</time>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="info-col">
-                        <h2 id="heading">Seguici sui social!</h2>
-                        <div id="icons-contacts">
-                            <ul id="contacts">
-                                <li><a href=""><img class="icon" src="../../assets/images/facebook.png"></a></li>
-                                <li><a href=""><img class="icon" src="../../assets/images/instagram.png"></a></li>
-                                <li><a href=""><img class="icon" src="../../assets/images/tik-tok.png"></a></li>
-                                <li><a href=""><img class="icon" src="../../assets/images/discord.png"></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!--FORM-->
-            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
-            </script>
-            <script src="../JS/form-handler.js" type="text/javascript"></script>
-            <div id="form-container">
-                <h2>Hai ancora bisogno?</h2>
-                <p>Fatti sentire! Scrivici per qualsiasi cosa per cui ti serva aiuto. Saremo più che lieti di
-                    risponderti.Sono graditi anche feedback che ci aiuteranno a migliorare il servizio.</p>
-                <form id="contact-form" method="post">
-                    <div class="input-row">
-                        <label for="firstname">Nome<span class="star">*</span>
-                            <input id="firstname" name="firstname" type="text" placeholder="Mario" required>
-                        </label>
-                        <label for="file" id="file-label">Allega File
-                            <input id="file" name="file" type="file">
-                        </label>
-                        <label for="terms">
-                            <input id="terms" class="inline" type="checkbox" name="terms" required> I Accept the <a
-                                href="tos.html" required>
-                                Terms and Conditions</a><span class="star">*</span>
-                        </label>
-                    </div>
-                    <div class="input-row">
-                        <label for="order">Numero Ordine &#40;se presente&#41;:
-                            <input id="order" name="order" type="text" placeholder="#1234">
-                        </label>
-                        <label for="problem" id="problems">Scegli una categoria<span class="star">*</span>
-                            <select id="problem" name="problem">
-                                <option value="">Scegli una opzione</option>
-                                <option value="Stato Ordine">Stato Ordine</option>
-                                <option value="Dove Ordine">Dove è il mio Ordine</option>
-                                <option value="Login/SingUp"><span lang="en">Login</span>/Registrazione</option>
-                                <option value="TechProblem">Problema Tecnico</option>
-                                <option value="Feedback" lang="en">Feedback</option>
-                            </select>
-                        </label>
-                    </div>
-                    <label for="additional" id="additional-info">Informazioni Aggiuntive<span class="star">*</span>
-                        <textarea id="additional" name="additional" rows="10" cols="40"
-                            placeholder="Siete grandi nel webdevelopment dc..." required></textarea>
-                    </label>
-                    <label for="file" id="file-label">Allega File
-                        <input id="file" name="file" type="file">
-                    </label>
-                    <label id="terms" for="terms">
-                        <input class="inline" type="checkbox" name="terms" required> I Accept the <a href="tos.html"
-                            required>
-                            Terms and Conditions</a><span class="star">*</span>
-                    </label>
-                    <!-- <label for="captcha">
-                        <div class="g-recaptcha" data-sitekey="your_site_key"></div>
-                        <br />
-                        <input type="submit" value="Submit">
-                    </label> -->
-                    <input id="submit-form" type="submit" value="Invia">
-                </form>
-            </div>
-
-
-
-            </div>
-
-
-            <div id="team">
-                <div class="teammember"><img src="../../assets/images/" alt="">
-                    <p></p>
-                </div>
-                <div class="teammember"><img src="../../assets/images/" alt="">
-                    <p></p>
-                </div>
-                <div class="teammember"><img src="../../assets/images/" alt="">
-                    <p></p>
-                </div>
-                <div class="teammember"><img src="../../assets/images/" alt="">
-                    <p></p>
-                </div>
-            </div>
+            <h2 id="titolo">Cosa dicono di noi</h2>
+            <p id="para">Guarda cosa le persone hanno da dire su ML Tech e decidi tu stesso.</p>
+            <div class='sk-ww-google-reviews' data-embed-id='232489'></div>
+            <script src='https://widgets.sociablekit.com/google-reviews/widget.js' async defer></script>
         </main>
+
 
 
         <!--FOOTER-->
@@ -220,10 +99,6 @@
             <div id="icons">
                 <ul>
                     <li><a href="" target="_blank"><img class="icon" src="../../assets/images/facebook.png"></a></li>
-                    =======
-                    <li><a href="" target="_blank"><img class="icon" src="../../assets/images/facebook.png"></a>
-                    </li>
-
                     <li><a href="instagram.com/ml__tech" target="_blank"><img class="icon"
                                 src="../../assets/images/instagram.png"></a></li>
                     <li><a href="" target="_blank"><img class="icon" src="../../assets/images/tik-tok.png"></a></li>
@@ -267,9 +142,7 @@
                 <li><a href="cookies.html">Gestisci <span lang="en">cookie</span></a></li>
             </ul>
         </footer>
-        <script src="../JS/switch-handler.js">
-        </script>
-
+        <script src="../JS/switch-handler.js"></script>
     </body>
 
 </html>
