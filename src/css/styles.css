@@ -118,9 +118,12 @@ a {
 #menu {
     display: flex;
     justify-content: space-between;
-    padding: 1em;
     width: 100%;
+    padding: 1em 0;
 }
+
+
+
 
 nav#menu #switch {
     padding-right: 2em;
@@ -134,9 +137,9 @@ nav#menu #switch {
 }
 
 #menu.fixed {
-  position: fixed;
-  top: 0;
-  z-index: 1;
+    position: fixed;
+    top: 0;
+    z-index: 1;
 }
 
 #breadcrumb {
@@ -693,7 +696,7 @@ h4 {
 #form-container {
     margin: 5em auto;
     width: 50em;
-    height: 65em;
+    height: 70em;
     background-color: var(--primaryText);
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
     border-radius: 30px;
@@ -735,8 +738,9 @@ fieldset {
     display: block;
     text-align: center;
     margin: auto;
-    width: 15em;
-    border-radius: 30px;
+    width: 20em;
+    height: 2em;
+    border-radius: 10px;
     border: 1px solid var(--input-bg);
     background-color: var(--input-bg);
     color: var(--text-100);
@@ -746,10 +750,15 @@ fieldset {
 #contact-form input::placeholder {
     color: var(--text-100);
     text-align: center;
+    font-size: 1em;
+}
+
+#contact-form input:focus::placeholder,
+#contact-form textarea:focus::placeholder {
+    color: transparent;
 }
 
 #contact-form select {
-    border-radius: 30px;
     border: 1px solid var(--input-bg);
     background-color: var(--input-bg);
     color: var(--text-100);
@@ -771,17 +780,20 @@ fieldset {
 
 #additional {
     width: 80%;
-    border-radius: 30px;
+    border-radius: 10px;
     border: 1px solid var(--input-bg);
     background-color: var(--input-bg);
     color: var(--text-100);
     resize: none;
-    margin: 1em;
+    margin: auto;
+    padding: 1em;
+
 }
 
 #contact-form textarea::placeholder {
     color: var(--text-100);
     text-align: center;
+    padding: .5em;
 }
 
 #contact-form input[type="file"] {
@@ -790,10 +802,23 @@ fieldset {
     border-radius: 0px;
 }
 
-#contact-form input:focus,
+#contact-form input:focus:not(input[type="file"]),
 #contact-form textarea:focus {
     outline: none;
     border: 1px solid var(--primaryGradient);
+}
+
+fieldset:last-of-type {
+    border: none;
+    display: block;
+    margin: auto;
+}
+
+#tos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 1.5em 0;
 }
 
 #contact-form input[type="checkbox"] {
@@ -803,11 +828,25 @@ fieldset {
     width: 1em;
     height: 1em;
     margin: auto;
-    padding: 0;
     border: none;
     background-color: var(--input-bg);
+    cursor: pointer;
 }
 
+#contact-form input[type="checkbox"]:focus {
+    outline: none;
+}
+
+#contact-form input[type="submit"] {
+    width: 10em;
+    height: 3em;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--primaryGradient);
+    color: var(--primaryText);
+    font-size: 1em;
+    cursor: pointer;
+}
 
 
 /*Theme Switcher*/
