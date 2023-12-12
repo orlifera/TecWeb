@@ -80,3 +80,11 @@ div#presentation {
 #deflist {
     padding-bottom: 5em;
 }
+
+.dropdown {
+    width: 70%;
+}
+
+#contact-info {
+    padding-top: 2em;
+}
