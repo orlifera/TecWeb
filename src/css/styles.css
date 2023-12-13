@@ -92,7 +92,7 @@ header {
     line-height: 1.5em;
 }
 
-nav {
+#menu {
     background: linear-gradient(to top right, var(--primaryGradient), var(--secondaryGradient));
     justify-content: center;
     align-items: center;
@@ -134,9 +134,9 @@ nav#menu #switch {
 }
 
 #menu.fixed {
-  position: fixed;
-  top: 0;
-  z-index: 1;
+    position: fixed;
+    top: 0;
+    z-index: 1;
 }
 
 #breadcrumb {
