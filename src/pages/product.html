@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="it" data-theme="light">
 
-    <head>
-        <meta charset="UTF-8">
-        <title>ML-TECH PRODUCT</title>
-        <meta name="keywords" content="ML-TECH products, gaming, workstation, technology ">
-        <meta name="description" content="Sito ufficiale ml-tech, gruppo fondato da Orlando Ferazzani">
-        <link rel="stylesheet" href="../css/styles.css" media="screen">
-        <link rel="stylesheet" href="../css/print.css" media="print">
-        <link rel="stylesheet" href="../css/mini.css" media="screen and (max-width: 600px)">
-        <script>
-            //check local storage for theme and OS preference
-            let localS = localStorage.getItem('theme'),
-                themeToSet = localS
+<head>
+    <meta charset="UTF-8">
+    <title>ML-TECH PRODUCT</title>
+    <meta name="keywords" content="ML-TECH products, gaming, workstation, technology ">
+    <meta name="description" content="Sito ufficiale ml-tech, gruppo fondato da Orlando Ferazzani">
+    <link rel="stylesheet" href="../css/styles.css" media="screen">
+    <link rel="stylesheet" href="../css/print.css" media="print">
+    <link rel="stylesheet" href="../css/mini.css" media="screen and (max-width: 600px)">
+    <script>
+        //check local storage for theme and OS preference
+        let localS = localStorage.getItem('theme'),
+            themeToSet = localS
 
-            //if LS not set => check OS preference
-            if (!localS) {
-                //media query with JS
-                themeToSet = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-            }
+        //if LS not set => check OS preference
+        if (!localS) {
+            //media query with JS
+            themeToSet = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        }
 
-            //set correct theme
-            document.documentElement.setAttribute('data-theme', themeToSet)
-        </script>
-    </head>
+        //set correct theme
+        document.documentElement.setAttribute('data-theme', themeToSet)
+    </script>
+</head>
 
     <body>
         <header>
@@ -51,7 +51,7 @@
                             </svg>
                         </a>
                     </li>
-                    <li><a href="src/pages/profile.html"><svg id="profile" xmlns="http://www.w3.org/2000/svg"
+                    <li><a href="src/pages/profile.html"><svg class="icon" id="profile" xmlns="http://www.w3.org/2000/svg"
                                 version="1.0" width="30" height="30" viewBox="0 0 128.000000 128.000000"
                                 preserveAspectRatio="xMidYMid meet">
 
@@ -61,6 +61,7 @@
                                     <path
                                         d="M296 645 c-53 -19 -102 -69 -136 -140 -35 -74 -50 -153 -50 -265 0 -110 23 -161 95 -205 l48 -30 363 -3 c240 -2 377 1 404 8 51 14 108 63 131 115 48 105 5 357 -78 456 -31 37 -115 79 -158 79 -16 0 -71 -20 -121 -46 -77 -39 -99 -46 -150 -46 -64 -1 -120 18 -195 64 -51 31 -93 35 -153 13z m154 -101 c57 -37 144 -57 219 -51 51 4 84 15 151 49 72 37 90 43 120 37 81 -17 143 -135 156 -297 7 -97 -8 -147 -55 -179 -34 -23 -35 -23 -400 -23 -349 0 -367 1 -399 20 -50 31 -66 78 -59 180 10 135 53 244 111 280 53 34 84 30 156 -16z" />
                                 </g>
+                            </svg>
                         </a>
                     </li>
                     <li id="switch">
@@ -84,58 +85,104 @@
             <p>Ti trovi in: <span lang="en"><a href="../../index.html">Home</a> &gt; &gt; Product</span></p>
         </nav>
 
-        <main>
-            <div class="spacer"></div>
-        </main>
-        <footer>
-            <!-- Icone per account social dell'azienda -->
-            <div id="icons">
-                <ul>
-                    <li><a href="" target="_blank"><img class="icon" src="../../assets/images/facebook.png"></a></li>
-                    <li><a href="instagram.com/ml__tech" target="_blank"><img class="icon"
-                                src="../../assets/images/instagram.png"></a></li>
-                    <li><a href="" target="_blank"><img class="icon" src="../../assets/images/tik-tok.png"></a></li>
-                    <li><a href="https://discord.gg/2w7mYbJmy2" target="_blank"><img class="icon"
-                                src="../../assets/images/discord.png"></a></li>
-                </ul>
+    <main>
+        <!-- <div class="spacer"></div> -->
+        <!-- Devono essere inseriti qui le cose -->
+        <div class="">
+            <dl id="">
+                <!-- <dt>Nome computer</dt> -->
+                <dd>
+                    <img src="" alt="computer photo"> <!--non serve l'alt -->
+                    <dl class="">
+                        <dt>Nome computer</dt>
+                        <dt>€2.500,00</dt>
+
+                        <dt>Scelta colore</dt>
+                        <select>
+                            <option>Bianco</option>
+                            <option>Nero</option>
+                        </select>
+
+
+                        <dt>Disponibilità</dt>
+                        <dt>Colore disponibilità</dt>
+
+                        <div class="amount-group">
+                            <dt>Quantità</dt>
+                            <!-- Crei con css -->
+                            <div class="quantity-control" data-increase="true">
+                                <i class=""> + </i>
+                            </div>
+                            <div class="amount">
+                                <input class="hide" value="1" data-amount="true">
+                            </div>
+                            <!-- Crei con css -->
+                            <div class="quantity-control" data-decrease="true">
+                                <i class=""> - </i>
+                            </div>
+                        </div>
+
+                        <button id="">Aggiungi al carrello</button>
+                        <!-- <dt>Bottone aggiunta al carrello</dt> -->
+                        <button id="">Accessori</button>
+                        <!-- <dt>Bottone Accessori</dt> -->
+                        <dt>Descrizione prodotto</dt>
+                        <dd> <strong>Donanzan</strong> coglione dei
+                            Pinguini Tattici Nucleari. </dd>
+                    </dl>
+                </dd>
+            </dl>
+        </div>
+    </main>
+    <footer>
+        <!-- Icone per account social dell'azienda -->
+        <div id="icons">
+            <ul>
+                <li><a href="" target="_blank"><img class="icon" src="../../assets/images/facebook.png"></a></li>
+                <li><a href="instagram.com/ml__tech" target="_blank"><img class="icon"
+                            src="../../assets/images/instagram.png"></a></li>
+                <li><a href="" target="_blank"><img class="icon" src="../../assets/images/tik-tok.png"></a></li>
+                <li><a href="https://discord.gg/2w7mYbJmy2" target="_blank"><img class="icon"
+                            src="../../assets/images/discord.png"></a></li>
+            </ul>
+        </div>
+
+        <dl id="footdef">
+            <div id="contatti">
+                <dt>CONTATTI</dt>
+                <dd><a href="../../index.html#about">Azienda</a></dd>
+                <dd><a href="contacts.html">Contattaci</a></dd>
+                <dd><a href="mailto:tecweb2023@gmail.com">Assistenza</a></dd>
+                <dd><a href="faq.html" lang="en" abbr="Frequently Asked Question">FAQ</a></dd>
             </div>
 
-            <dl id="footdef">
-                <div id="contatti">
-                    <dt>CONTATTI</dt>
-                    <dd><a href="../../index.html#about">Azienda</a></dd>
-                    <dd><a href="contacts.html">Contattaci</a></dd>
-                    <dd><a href="mailto:tecweb2023@gmail.com">Assistenza</a></dd>
-                    <dd><a href="faq.html" lang="en" abbr="Frequently Asked Question">FAQ</a></dd>
-                </div>
+            <div id="comunity">
+                <dt lang="en">COMMUNITY</dt>
+                <dd><a href="https://discord.gg/2w7mYbJmy2" target="_blank" lang="en">Discord</a></dd>
+                <dd><a href="news.html" lang="en">News</a></dd>
+            </div>
 
-                <div id="comunity">
-                    <dt lang="en">COMMUNITY</dt>
-                    <dd><a href="https://discord.gg/2w7mYbJmy2" target="_blank" lang="en">Discord</a></dd>
-                    <dd><a href="news.html" lang="en">News</a></dd>
-                </div>
+            <div id="account">
+                <dt>ACCOUNT</dt>
+                <dd><a href="profile.html">Gestisci il tuo account</a></dd>
+            </div>
 
-                <div id="account">
-                    <dt>ACCOUNT</dt>
-                    <dd><a href="profile.html">Gestisci il tuo account</a></dd>
-                </div>
+            <div id="shop">
+                <dt lang="en">SHOP</dt>
+                <dd><a href="catalog.html">Tastiere</a></dd>
+                <dd><a href="catalog.html" lang="en">Computer</a></dd>
+            </div>
+        </dl>
 
-                <div id="shop">
-                    <dt lang="en">SHOP</dt>
-                    <dd><a href="catalog.html">Tastiere</a></dd>
-                    <dd><a href="catalog.html" lang="en">Computer</a></dd>
-                </div>
-            </dl>
-
-            <!-- Termini, informative, cookies e marchio -->
-            <ul id="footunor">
-                <li><span id="rights">ML Tech 2022:</span> Tutti i diritti riservati</li>
-                <li><a href="tos.html">Termini e Condizioni</a></li>
-                <li><a href="privacy.html">Informativa sulla <span lang="en">privacy</span></a></li>
-                <li><a href="cookies.html">Gestisci <span lang="en">cookie</span></a></li>
-            </ul>
-        </footer>
-        <script src="../JS/switch-handler.js"></script>
-    </body>
+        <!-- Termini, informative, cookies e marchio -->
+        <ul id="footunor">
+            <li><span id="rights">ML Tech 2022:</span> Tutti i diritti riservati</li>
+            <li><a href="tos.html">Termini e Condizioni</a></li>
+            <li><a href="privacy.html">Informativa sulla <span lang="en">privacy</span></a></li>
+            <li><a href="cookies.html">Gestisci <span lang="en">cookie</span></a></li>
+        </ul>
+    </footer>
+    <script src="../JS/switch-handler.js"></script>
+</body>
 
 </html>

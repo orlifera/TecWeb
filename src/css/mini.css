@@ -25,6 +25,14 @@ nav#menu {
     z-index: 1;
 }
 
+#menu #left li {
+    font-size: 1em;
+}
+
+#switch {
+    font-size: 0.7em;
+}
+
 nav#menu #right ul {
     font-size: 0.7em;
 }
@@ -74,5 +82,31 @@ div#presentation {
 }
 
 #button {
+    margin: auto;
+}
+
+#deflist {
+    padding-bottom: 5em;
+}
+
+.dropdown {
+    width: 70%;
+}
+
+#contact-info {
+    padding-top: 2em;
+}
+
+.sk-ww-google-reviews {
+    padding-bottom: 4em;
+}
+
+#form-container {
+    width: unset;
+    margin: 5em 2em;
+}
+
+#additional {
+    width: 90%;
     margin: auto;
 }
