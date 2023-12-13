@@ -1,7 +1,11 @@
 <?php
 
-function login() {
+if (isset($_SESSION['username']) && $_SESSION['username'] !== '') {
+    header('Location: ../../index.html');
+    exit();
+}
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['submit'])) {
         require_once("connessionedb.php");
 
@@ -10,39 +14,30 @@ function login() {
 
         $stmt = $connessione->prepare("SELECT * FROM utente WHERE username = ?");
         $stmt->bind_param("s", $username);
-        $result = $stmt->execute();
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-        if($result === TRUE) {
-            $result = $stmt->get_result()->fetch_assoc();
-
-            if($result >= 1) {
-                if(password_verify($password, $result["password"])) {
-                    $_SESSION["username"] = $result["username"];
-                    $_SESSION["password"] = $result["password"];
-                    header('Location: ../../index.html');
-                }
+        if ($result->num_rows > 0) {
+            $user_data = $result->fetch_assoc();
+            if (password_verify($password, $user_data["password"])) {
+                session_start();
+                session_regenerate_id();
+                $_SESSION["username"] = $user_data["username"];
+                $_SESSION["password"] = $user_data["password"];
+                header('Location: ../../index.html');
+                exit();
             } else {
-                echo '<p class="error">password errati</p>'; //Nome utente o 
+                $error = "Password errata";
             }
         } else {
-            echo '<p class ="error">Nome utente errato</p>'; //o password errati
+            $error = "Nome utente non trovato";
         }
+        $connessione->close();
     }
 }
 
-// Inizia una sessione
-session_start();
+// UTILIZZO QUESTO PER VEDERE L'ID DELLA SESSIONE SALVATO NEL COOKIE
+// document.cookie
+// document.cookie.split(';')
 
-if(isset($_SESSION['username'])) {
-    header('Location: ../../index.html');
-    die();
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    login();
-}
-
-// Chiudi la connessione solo dopo che tutte le operazioni sono state eseguite
-$connessione->close();
-    
 ?>

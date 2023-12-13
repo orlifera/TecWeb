@@ -1,13 +1,14 @@
 <?php
-ob_start();
-// require_once('connessionedb.php');
+    
+if (isset($_SESSION['username']) && $_SESSION['username'] !== '') {
+    header('Location: ../../index.html');
+    exit();
+}
 
-function registrazione() {
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    // Controlla se la form è stata inviata
-    if (isset($_POST['submit'])) {
+    if (isset($_POST['submit'])) { 
         
-        // controlla che le password corrispondano
         if ($_POST['password'] != $_POST['password-confirm']) {
             echo '<p class="error">Le password non corrispondono.</p>';
         } else {
@@ -29,7 +30,7 @@ function registrazione() {
             $result = $stmt->get_result()->fetch_assoc();
             
             // se esiste già un utente con quel nome utente, mostra un messaggio di errore
-            if ($result >= 1) {
+            if ($result > 0) {
                 echo '<p class="error">E\' già presente questo nome utente.</p>';
             } else {
                 // inserisce il nuovo utente nel database
@@ -48,22 +49,7 @@ function registrazione() {
             }
         }
     }
+    $connessione->close();
 }
 
-
-// Inizia una sessione
-session_start();
-
-if(isset($_SESSION['username'])) {
-    header('Location: ../../index.html');
-    die();
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    registrazione();
-}
-
-// Chiudi la connessione solo dopo che tutte le operazioni sono state eseguite
-$connessione->close();
-    
 ?>

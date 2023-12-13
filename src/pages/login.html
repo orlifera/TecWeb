@@ -15,13 +15,14 @@
         <form action="../php/login.php" method="post">
             <div class="form-group">
                 <label for="username">Nome utente</label>
-                <input type="text" name="username" id="username" placeholder="Inserisci il tuo nome utente" required>
+                <input type="text" name="username" id="username" placeholder="Inserisci il tuo nome utente" autocomplete="username" required>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" placeholder="Inserisci la tua password" required>
             </div>
             <button type="submit" name="submit">Accedi</button>
+            <p>Non hai un account? <a href="signup.html">Registrati</a></p>
         </form>
     </body>
 </html>
