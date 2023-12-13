@@ -32,7 +32,9 @@
 
     <body>
         <header>
-            <h1 id="logo"><a href="../../index.html">ML Tech</a></h1>
+            <a href="../../index.html">
+                <h1 id="logo">ML Tech</h1>
+            </a>
         </header>
         <nav id="menu">
             <div id="left">
@@ -54,7 +56,7 @@
                             </svg>
                         </a>
                     </li>
-                    <li><a href="src/pages/profile.html"><svg id="profile" xmlns="http://www.w3.org/2000/svg"
+                    <li><a href="src/pages/profile.html"><svg class="icon" id="profile" xmlns="http://www.w3.org/2000/svg"
                                 version="1.0" width="30" height="30" viewBox="0 0 128.000000 128.000000"
                                 preserveAspectRatio="xMidYMid meet">
 
@@ -89,9 +91,9 @@
         </nav>
 
         <main>
-            <div id="info" class="info2">
+            <div id="info">
 
-                <p>Hai bisogno di una mano?</p>
+                <h2 class="title info-title">Hai bisogno di una mano?</h2>
                 <div id="contact-info">
                     <div class="info-col">
                         <h2 id="heading">Contatti</h2>
@@ -161,7 +163,8 @@
                         </label>
                     </fieldset>
                     <fieldset id="order-category">
-                        <label for="order">Numero Ordine &#40; se presente&#41;:
+                        <label for="order">Numero Ordine &#40;se presente&#41;:
+
                             <input id="order" name="order" type="text" placeholder="#1234">
                         </label>
                         <label for="problem" id="problems">Scegli una categoria<span class="star">*</span>

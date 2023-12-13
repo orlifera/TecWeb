@@ -122,11 +122,17 @@ a {
     padding: 1em 0;
 }
 
-
-
-
 nav#menu #switch {
     padding-right: 2em;
+}
+
+#left ul {
+    padding-left: 2em;
+}
+
+#left li {
+    font-size: 1.2em;
+    text-transform: uppercase;
 }
 
 #menu li {
@@ -193,7 +199,7 @@ nav#menu #switch {
 
 #info {
     width: 100%;
-    margin: 5em 0;
+    margin: 2em 0 5em;
 }
 
 .icon {
@@ -212,11 +218,15 @@ nav#menu #switch {
     z-index: 1;
 }
 
-#info-p {
+.info-p {
     text-align: center;
-    padding-top: 1em;
+    padding-top: 2em;
     margin-bottom: 2em;
     font-size: 2em;
+}
+#ref-rew {
+    font-size: 1em;
+    color: #003f8f
 }
 
 #info dl {
@@ -314,9 +324,10 @@ nav#menu #switch {
     width: 70%;
     margin: auto;
     text-align: justify;
+    padding-bottom: 1em;
 }
 
-#review {
+/* #review {
     padding: 8em 5em 5em 5em;
 }
 
@@ -329,7 +340,6 @@ nav#menu #switch {
 
 .quote {
     width: 25em;
-    /* height: 40vh; */
     background-color: var(--primaryText);
     filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.15));
     color: #030303;
@@ -375,7 +385,7 @@ nav#menu #switch {
 
 .q {
     font-size: 0.8em;
-}
+} */
 
 #last {
     display: flex;
@@ -507,6 +517,12 @@ footer ul#footunor li {
     background-color: #f9f9f9;
 }
 
+/* Review */
+
+#review {
+    padding: 3em;
+}
+
 /* FAQ */
 
 #faq {
@@ -609,11 +625,6 @@ p.heading {
     padding-top: 1em;
 }
 
-#info.info2 {
-    margin-bottom: 0;
-}
-
-
 #foot {
     font-size: .5em;
 }
@@ -630,7 +641,7 @@ p.heading {
 
 #contact-info {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     padding: 5em 5em 0 5em;
 }
@@ -689,6 +700,11 @@ h4 {
 
 /*contact form*/
 
+.info-title {
+    font-size: 2em;
+    padding-top: 1em;
+}
+
 .star {
     color: red;
 }
@@ -696,7 +712,6 @@ h4 {
 #form-container {
     margin: 5em auto;
     width: 50em;
-    height: 70em;
     background-color: var(--primaryText);
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
     border-radius: 30px;
@@ -710,11 +725,12 @@ h4 {
 }
 
 #form-container h2 {
-    font-size: 2em;
+    font-size: 1.8em;
 }
 
 fieldset {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     border: none;
     padding: 2em 0;
@@ -725,6 +741,7 @@ fieldset {
     width: 20em;
     text-align: center;
     margin: auto;
+    padding: 1em 0;
 }
 
 #contact-form a {
@@ -738,7 +755,7 @@ fieldset {
     display: block;
     text-align: center;
     margin: auto;
-    width: 20em;
+    width: 100%;
     height: 2em;
     border-radius: 10px;
     border: 1px solid var(--input-bg);
@@ -812,6 +829,7 @@ fieldset:last-of-type {
     border: none;
     display: block;
     margin: auto;
+    padding-top: 1em;
 }
 
 #tos {
