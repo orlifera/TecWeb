@@ -42,6 +42,7 @@
     --icon-moon: #b7b7b7;
     --switch-pos: .25em;
     --input-bg: #f2f2f8;
+    --hover: #dedeff73;
 }
 
 /* Palette scura */
@@ -97,6 +98,9 @@ html {
     justify-content: center;
     align-items: center;
     z-index: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 a {
@@ -114,21 +118,11 @@ a {
     da fare
 } */
 
-/* Flexbox per il menù */
-#menu {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 1em 0;
-}
 
 nav#menu #switch {
     padding-right: 2em;
 }
 
-#left ul {
-    padding-left: 2em;
-}
 
 #left li {
     font-size: 1.2em;
@@ -136,11 +130,65 @@ nav#menu #switch {
 }
 
 #menu li {
-    margin-left: 1em;
-    margin-right: 1em;
     display: inline-block;
     list-style-type: none;
+    position: relative;
 }
+
+#menu li a:not(ul.dropdown-list a),
+#drop-p {
+    display: block;
+    margin: 1em 1em;
+}
+
+/*DROPDOWN*/
+
+#drop-p {
+    text-align: center;
+    color: var(--primaryText);
+    cursor: pointer;
+}
+
+#dropdown-icon {
+    fill: var(--primaryText);
+}
+
+ul li ul.dropdown-list li {
+    width: 5.51em;
+    display: block;
+    text-align: center;
+}
+
+ul li ul.dropdown-list li:hover {
+    background-color: var(--hover);
+}
+
+ul li ul.dropdown-list {
+    width: 100%;
+    position: absolute;
+    z-index: 999;
+    background-color: var(--primaryGradient);
+    display: none;
+}
+
+ul li ul.dropdown-list#profile-drop {
+    width: 300%;
+    left: -4em;
+}
+
+ul li ul.dropdown-list#profile-drop li {
+    width: 100%;
+}
+
+ul.dropdown-list a {
+    display: block;
+    margin: .5em .5em;
+}
+
+ul li:hover ul.dropdown-list {
+    display: block;
+}
+
 
 #menu.fixed {
     position: fixed;
@@ -151,6 +199,25 @@ nav#menu #switch {
 #breadcrumb {
     display: block;
 }
+
+#profile-drop a svg {
+    display: inline;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+#login,
+#settings {
+    fill: var(--primaryText);
+}
+
+#signup path {
+    stroke: var(--primaryText);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
 
 /* Selettore per screen-reader-only */
 .sr-only {
@@ -224,6 +291,7 @@ nav#menu #switch {
     margin-bottom: 2em;
     font-size: 2em;
 }
+
 #ref-rew {
     font-size: 1em;
     color: #003f8f
