@@ -171,6 +171,16 @@ ul li ul.dropdown-list {
     display: none;
 }
 
+/* State when dropdown is active */
+ul.dropdown-list.visible {
+    display: block;
+}
+
+ul.dropdown-list.hide:not(ul li:hover ul.dropdown-list),
+ul.dropdown-list li.hide {
+    height: 0;
+}
+
 ul li ul.dropdown-list#profile-drop {
     width: 300%;
     left: -4em;
@@ -183,12 +193,20 @@ ul li ul.dropdown-list#profile-drop li {
 ul.dropdown-list a {
     display: block;
     margin: .5em .5em;
+
 }
 
 ul li:hover ul.dropdown-list {
     display: block;
 }
 
+/* .visible {
+    display: block;
+}
+
+.hide {
+    height: 0;
+} */
 
 #menu.fixed {
     position: fixed;

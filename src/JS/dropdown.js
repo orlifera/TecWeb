@@ -1,103 +1,73 @@
-// document.addEventListener('DOMContentLoaded', function () {
-
-//     // Handle focus on the dropdown button
-//     const dropButton = document.getElementById('drop-p');
-//     dropButton.addEventListener('keydown', function (event) {
-//         if (event.key === 'Enter' || event.key === ' ') {
-//             // Toggle dropdown visibility
-//             const dropdownList = this.nextElementSibling;
-//             const isVisible = dropdownList.style.display === 'block';
-//             dropdownList.style.display = isVisible ? 'none' : 'block';
-//         }
-//     });
-
-//     // Get all dropdown links
-//     const dropdownLinks = document.querySelectorAll('ul.dropdown-list a');
-//     if (dropdownLinks.length > 0) {
-//         // Close dropdown when focus moves away from the last link
-//         const lastDropdownLink = dropdownLinks[dropdownLinks.length - 1];
-//         lastDropdownLink.addEventListener('blur', function (event) {
-//             const nextActiveElement = event.relatedTarget;
-//             if (!nextActiveElement || !nextActiveElement.closest('.dropdown-list')) {
-//                 this.closest('ul.dropdown-list').style.display = 'none';
-//             }
-//         });
-
-//         // Handle Shift+Tab on the first dropdown link
-//         const firstDropdownLink = dropdownLinks[0];
-//         firstDropdownLink.addEventListener('keydown', function (event) {
-//             if (event.key === 'Tab' && event.shiftKey) {
-//                 this.closest('ul.dropdown-list').style.display = 'none';
-//             }
-//         });
-//     }
-
-//     // Close dropdown when clicking outside
-//     document.addEventListener('click', function (event) {
-//         if (!event.target.matches('#drop-p, .dropdown-list *')) {
-//             document.querySelectorAll('.dropdown-list').forEach(menu => {
-//                 menu.style.display = 'none';
-//             });
-//         }
-//     });
-
-//     // Close dropdown when mouse clicks outside
-//     document.addEventListener('click', function (event) {
-//         if (!event.target.matches('#drop-p, .dropdown-list *')) {
-//             document.querySelectorAll('.dropdown-list').forEach(menu => {
-//                 menu.style.display = 'none';
-//             });
-//         }
-//     });
-
-// });
-
-
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Function to toggle dropdown visibility
-    function toggleDropdown(dropdownTrigger) {
-        const dropdownList = dropdownTrigger.nextElementSibling;
-        if (dropdownList && dropdownList.classList.contains('dropdown-list')) {
-            const isVisible = dropdownList.style.display === 'block';
-            dropdownList.style.display = isVisible ? 'none' : 'block';
+    // Function to open or close a specific dropdown
+    function toggleDropdown(dropdownList, open = null) {
+        const isHidden = dropdownList.classList.contains('hide');
+        if (open === true || (open === null && isHidden)) {
+            // Open the dropdown
+            dropdownList.classList.remove('hide');
+            dropdownList.classList.add('visible');
+        } else if (open === false || (open === null && !isHidden)) {
+            // Close the dropdown
+            dropdownList.classList.add('hide');
+            dropdownList.classList.remove('visible');
         }
     }
 
-    // Function to close dropdown
-    function closeDropdown(dropdownList) {
-        if (dropdownList) {
-            dropdownList.style.display = 'none';
-        }
+    // Close all dropdowns
+    function closeAllDropdowns() {
+        document.querySelectorAll('.dropdown-list.visible').forEach(dropdown => {
+            dropdown.classList.remove('visible');
+            dropdown.classList.add('hide');
+        });
     }
 
-    // Handle keydown and focus events for all dropdown triggers
+    // Handle keydown events for dropdown triggers
     const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
     dropdownTriggers.forEach(trigger => {
         trigger.addEventListener('keydown', function (event) {
             if (event.key === 'Enter' || event.key === ' ') {
-                toggleDropdown(this);
+                event.preventDefault(); // Prevent the default action
+                const dropdownList = this.nextElementSibling;
+                toggleDropdown(dropdownList);
             }
         });
 
-        //handles focus on tab
-        // trigger.addEventListener('focus', function () {
-        //     toggleDropdown(this);
-        // });
+        // Close dropdown when reverse tabbing from the trigger
+        trigger.addEventListener('keydown', function (event) {
+            if (event.key === 'Tab' && event.shiftKey) {
+                const dropdownList = this.nextElementSibling;
+                if (dropdownList.classList.contains('visible')) {
+                    toggleDropdown(dropdownList, false);
+                }
+            }
+        });
     });
 
-    // Close dropdown when clicking outside
+    // Close dropdowns when clicking outside
     document.addEventListener('click', function (event) {
-        if (!event.target.matches('.dropdown-trigger, .dropdown-list *')) {
-            document.querySelectorAll('.dropdown-list').forEach(closeDropdown);
+        if (!event.target.matches('.dropdown-trigger, .dropdown-list, .dropdown-list *')) {
+            closeAllDropdowns();
         }
     });
 
-    // Handle focus change within dropdown
+    // Manage focus within dropdown lists
     document.querySelectorAll('.dropdown-list').forEach(function (list) {
-        list.addEventListener('focusout', function (event) {
-            if (!this.contains(event.relatedTarget)) {
-                closeDropdown(this);
+        list.addEventListener('keydown', function (event) {
+            if (event.key === 'Tab') {
+                const focusableElements = 'a[href], button:not([disabled])';
+                const visibleElements = Array.from(this.querySelectorAll(focusableElements));
+                const firstElement = visibleElements[0];
+                const lastElement = visibleElements[visibleElements.length - 1];
+
+                if (event.shiftKey && document.activeElement === firstElement) {
+                    // Close dropdown and move focus to the dropdown trigger
+                    toggleDropdown(this, false);
+                    this.previousElementSibling.focus();
+                } else if (!event.shiftKey && document.activeElement === lastElement) {
+                    // Close dropdown when tabbing forward from the last element
+                    toggleDropdown(this, false);
+                }
             }
         });
     });
