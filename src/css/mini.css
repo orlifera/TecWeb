@@ -1,3 +1,11 @@
+:root[data-theme="light"] {
+    --switch-pos: 0.55em;
+}
+
+[data-theme="dark"] {
+    --switch-pos: 3.7em;
+}
+
 footer {
     display: none;
 }
@@ -11,7 +19,26 @@ header {
 }
 
 nav#menu {
-    display: none;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+#menu #left li {
+    font-size: 1em;
+}
+
+#switch {
+    font-size: 0.7em;
+}
+
+nav#menu #right ul {
+    font-size: 0.7em;
+}
+
+div#presentation {
+    height: 85vh;
 }
 
 #presentation .title {
@@ -22,6 +49,64 @@ nav#menu {
     font-size: 1em;
 }
 
-#info-p {
-    font-size: 1em;
+#info #info-p {
+    font-size: 1.5em;
+    width: 18em;
+    margin: auto;
+    padding-bottom: 1em;
+}
+
+#examples .title, #about .title, #review .title {
+    font-size: 2em;
+}
+
+#examples .examples-col {
+    width: 15em;
+}
+
+#flex-review {
+    margin-top: 3em;
+}
+
+.quote {
+    margin-bottom: 2em;
+}
+
+#last {
+    padding: 4em 0 6em 0;
+    gap: 2em;
+}
+
+#last div {
+    width: 70%;
+}
+
+#button {
+    margin: auto;
+}
+
+#deflist {
+    padding-bottom: 5em;
+}
+
+.dropdown {
+    width: 70%;
+}
+
+#contact-info {
+    padding-top: 2em;
+}
+
+.sk-ww-google-reviews {
+    padding-bottom: 4em;
+}
+
+#form-container {
+    width: unset;
+    margin: 5em 2em;
+}
+
+#additional {
+    width: 90%;
+    margin: auto;
 }
