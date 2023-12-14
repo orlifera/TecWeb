@@ -80,9 +80,10 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        trigger.addEventListener('focus', function () {
-            toggleDropdown(this);
-        });
+        //handles focus on tab
+        // trigger.addEventListener('focus', function () {
+        //     toggleDropdown(this);
+        // });
     });
 
     // Close dropdown when clicking outside
