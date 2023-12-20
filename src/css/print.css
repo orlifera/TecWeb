@@ -1,0 +1,377 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 12pt;
+    font-family: "Times New Roman", Times, serif;
+    line-height: 1.5em;
+    margin: auto;
+}
+
+/***********************************
+
+                HOME
+
+***********************************/
+/*Logo in header*/
+header #logo {
+    content: url("../../assets/images/logo.png");
+    width: 5cm;
+    height: 4cm;
+    margin: auto;
+}
+
+#menu {
+    display: none;
+}
+
+/*Breadcrumb*/
+#breadcrumb {
+    padding: 0.5em 0 0.5em 0;
+    margin-top: 0.5em;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    font-weight: bold;
+}
+
+#breadcrumb p {
+    margin-left: 0.5em;
+}
+
+#presentation {
+    display: none;
+}
+
+/*Seconda sezione*/
+#info {
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid black; */
+}
+
+dl .info-col {
+    text-align: center;
+    width: 25%;
+    /* height: 25%; */
+    padding: 1.5em 1.5em;
+    background-color: var(--bgDiv);
+    border-radius: 10%;
+    /* Ombra interna */
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15), inset -1px -1px 2px rgba(0, 0, 0, 0.15);
+}
+
+#info .icon {
+    width: 15%;
+    height: 15%;
+}
+
+.info-col dd {
+    text-align: center;
+    color: var(--text-100);
+
+}
+
+.info-col dt {
+    font-weight: bold;
+    color: var(--text-100);
+}
+
+#info dl {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#info #info-p {
+    display: flex;
+    justify-content: center;
+    margin: 1em;
+}
+
+#examples {
+    display: none;
+}
+
+/*Quarta sezione, Azienda*/
+#about {
+    margin: 0.5em;
+}
+
+.title {
+    padding: 1em 0;
+}
+
+/*Quinta sezione, recensioni clienti*/
+#review {
+    display: none;
+}
+
+/*Sesta sezione*/
+#last {
+    display: none;
+}
+
+/*Footer, aggiungo anche contatto*/
+footer {
+    margin-top: 10%;
+    background: linear-gradient(to right, var(--primaryGradient), var(--secondaryGradient));
+}
+
+#icons {
+    /* border: 1px solid black; */
+    width: 60%;
+    height: auto;
+    margin: auto;
+
+}
+
+#icons ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+#icons li {
+    text-align: center;
+    padding: auto;
+    margin: auto;
+}
+
+
+footer .icon {
+    width: 15%;
+    height: 15%;
+}
+
+
+#footdef {
+    display: none;
+}
+
+footer #footunor {
+    text-align: center;
+}
+
+footer ul#footunor {
+    margin-top: 2%;
+}
+
+footer ul#footunor li {
+    display: inline;
+    margin: auto;
+    padding: auto;
+}
+
+footer ul#footunor li {
+    color: var(--primaryText);
+}
+
+#rights {
+    display: block;
+}
+
+/***********************************
+
+              CONTACTS
+
+***********************************/
+
+#info p {
+    display: none;
+}
+
+#contact-info .info-col {
+    display: inline;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+#icons-list a {
+    margin-top: 4em;
+}
+
+#icons-list {
+    justify-content: center;
+    list-style-type: none;
+    display: flex;
+    width: 90%;
+    height: auto;
+    margin: auto;
+    margin-top: 2em;
+    padding-left: 6em;
+}
+
+#icons-list li {
+    padding: 0em 3em;
+}
+
+#icons-list .icon {
+    width: 1.5cm;
+    height: 1.5cm;
+    margin-left: 4em;
+}
+
+#icons-contacts {
+    display: none;
+}
+
+.info-col h4 {
+    padding-top: 6%;
+}
+
+#hours {
+    list-style-type: none;
+    padding: 0;
+}
+
+.info-col #cTitle {
+    display: none;
+}
+
+.contact-link {
+    height: auto;
+    width: 45%;
+}
+
+#text-mail {
+    visibility: hidden;
+}
+
+#text-mail::after {
+    white-space: nowrap;
+    visibility: visible;
+    content: "tecweb2023@gmail.com";
+}
+
+#text-tel {
+    visibility: hidden;
+}
+
+#text-tel::after {
+    visibility: visible;
+    content: "+39 1234567890";
+    white-space: nowrap;
+}
+
+#text-ds {
+    visibility: hidden;
+}
+
+#text-ds::after {
+    visibility: visible;
+    content: "link discord";
+    white-space: nowrap;
+}
+
+#whs {
+    visibility: hidden;
+}
+
+/****** FORM CONTATTI *******/
+
+#problems {
+    display: none;
+}
+
+#form {
+    width: 70%;
+    height: auto;
+    margin: 2em;
+    background-color: var(--bgDiv);
+    color: var(--text-100);
+    border-radius: 30px;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15), inset -1px -1px 2px rgba(0, 0, 0, 0.15);
+}
+
+#form h2,
+#form p {
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+#form h2 {
+    margin-top: 1em;
+}
+
+#form a {
+    color: var(--text-100);
+    text-decoration: underline;
+}
+
+.star {
+    color: red;
+}
+
+#contact-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+input {
+    display: block;
+}
+
+select {
+    display: block;
+    width: 130%;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+}
+
+
+#file-label {
+    display: none;
+
+}
+
+label {
+    display: block;
+    margin: 0.1em;
+}
+
+.inline {
+    display: inline;
+}
+
+#submit-form {
+    display: none;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    padding: .5em;
+}
+
+#additional-info {
+    width: 90%;
+}
+
+#terms {
+    margin-bottom: 1em;
+}
+
+/***********************************
+
+              PRIVACY
+
+***********************************/
+
+.heading {
+    margin-top: 2%;
+}
