@@ -1,7 +1,7 @@
 <?php
     
 if (isset($_SESSION['username']) && $_SESSION['username'] !== '') {
-    header('Location: ../../index.html');
+    header('Location: ../pages/profile.html');
     exit();
 }
 

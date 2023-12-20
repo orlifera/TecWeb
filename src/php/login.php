@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_SESSION['username']) && $_SESSION['username'] !== '') {
-    header('Location: ../../index.html');
+    header('Location: ../../pages/profile.html');
     exit();
 }
 
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 session_regenerate_id();
                 $_SESSION["username"] = $user_data["username"];
                 $_SESSION["password"] = $user_data["password"];
-                header('Location: ../../index.html');
+                header('Location: ../../pages/profile.html');
                 exit();
             } else {
                 $error = "Password errata";
