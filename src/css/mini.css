@@ -25,12 +25,12 @@ nav#menu {
     z-index: 1;
 }
 
-#menu #left li {
-    font-size: 1em;
+#menu li {
+    font-size: 0.8em;
 }
 
 #switch {
-    font-size: 0.7em;
+    font-size: 0.5em;
 }
 
 nav#menu #right ul {
@@ -49,11 +49,10 @@ div#presentation {
     font-size: 1em;
 }
 
-#info #info-p {
+#info .info-p {
     font-size: 1.5em;
-    width: 18em;
     margin: auto;
-    padding-bottom: 1em;
+    padding: 1em;
 }
 
 #examples .title, #about .title, #review .title {
@@ -62,14 +61,6 @@ div#presentation {
 
 #examples .examples-col {
     width: 15em;
-}
-
-#flex-review {
-    margin-top: 3em;
-}
-
-.quote {
-    margin-bottom: 2em;
 }
 
 #last {
@@ -104,9 +95,17 @@ div#presentation {
 #form-container {
     width: unset;
     margin: 5em 2em;
+    padding: 1em;
 }
 
-#additional {
-    width: 90%;
-    margin: auto;
+#form-container p {
+    padding: 0 1em;
+}
+
+#form-container h2, #info .header {
+    font-size: 1.5em;
+}
+
+#info .info-title {
+    font-size: 1.8em;
 }

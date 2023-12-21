@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var navbar = document.getElementById('menu');
     var header = document.querySelector('header');
     var headerHeight = header.clientHeight;
-    var widt
     // aggiunge classe fixed a menu
     function toggleNavbar() {
         if (window.innerWidth > 600 && window.scrollY >= headerHeight) {
