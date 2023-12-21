@@ -2,15 +2,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to open or close a specific dropdown
     function toggleDropdown(dropdownList, open = null) {
+        console.log("dropdown function")
         const isHidden = dropdownList.classList.contains('hide');
-        if (open === true || (open === null && isHidden)) {
+        if (open === true || (open === null && !isHidden)) {
             // Open the dropdown
             dropdownList.classList.remove('hide');
             dropdownList.classList.add('visible');
-        } else if (open === false || (open === null && !isHidden)) {
+            console.log("dropdown open")
+        } else if (open === false || (open === null && isHidden)) {
             // Close the dropdown
             dropdownList.classList.add('hide');
             dropdownList.classList.remove('visible');
+            console.log("dropdown close")
         }
     }
 
@@ -25,17 +28,22 @@ document.addEventListener('DOMContentLoaded', function () {
     // Handle keydown events for dropdown triggers
     const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
     dropdownTriggers.forEach(trigger => {
+        console.log("primo trigger");
         trigger.addEventListener('keydown', function (event) {
             if (event.key === 'Enter' || event.key === ' ') {
+                console.log("primo if")
                 event.preventDefault(); // Prevent the default action
                 const dropdownList = this.nextElementSibling;
                 toggleDropdown(dropdownList);
+                console.log("dropdown call")
             }
         });
 
         // Close dropdown when reverse tabbing from the trigger
         trigger.addEventListener('keydown', function (event) {
+            console.log("secondo trigger")
             if (event.key === 'Tab' && event.shiftKey) {
+                console.log("secondo if")
                 const dropdownList = this.nextElementSibling;
                 if (dropdownList.classList.contains('visible')) {
                     toggleDropdown(dropdownList, false);
@@ -54,7 +62,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Manage focus within dropdown lists
     document.querySelectorAll('.dropdown-list').forEach(function (list) {
         list.addEventListener('keydown', function (event) {
+            console.log("keydown function")
             if (event.key === 'Tab') {
+                console.log("keydown if")
                 const focusableElements = 'a[href], button:not([disabled])';
                 const visibleElements = Array.from(this.querySelectorAll(focusableElements));
                 const firstElement = visibleElements[0];
