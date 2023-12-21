@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
     <head>
         <meta charset="UTF-8">
         <title>ML-TECH PRODUCT</title>
@@ -9,36 +10,37 @@
         <link rel="stylesheet" href="../css/print.css" media="print">
         <link rel="stylesheet" href="../css/mini.css" media="screen and (max-width: 600px)">
     </head>
-    <body>
-        <h1>Sign up</h1>
 
-        <form action="../php/signup.php" method="post">
-            <div class="form-group">
-                <label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome" placeholder="Inserisci il tuo nome" required>
-            </div>
-            <div class="form-group">
-                <label for="cognome">Cognome</label>
-                <input type="text" name="cognome" id="cognome" placeholder="Inserisci il tuo cognome" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="Inserisci la tua email" autocomplete="email" required>
-            </div>
-            <div class="form-group">
-                <label for="username">Nome utente</label>
-                <input type="text" name="username" id="username" placeholder="Inserisci il tuo nome utente" autocomplete="username" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" placeholder="Inserisci la tua password" required>
-            </div>
-            <div class="form-group">
-                <label for="password-confirm">Conferma password</label>
-                <input type="password" name="password-confirm" id="password-confirm" placeholder="Conferma la tua password" required>
-            </div>
-            <button type="submit" name="submit">Registrati</button>
-            <p>Hai già un account? <a href="login.html">Fai il login</a></p>
-        </form>
+    <body>
+        <header id="main-header" class="login-header">
+            <h1 id="logo"><a href="../../index.html">ML Tech</a></h1>
+        </header>
+        <div id="login-container">
+
+            <form id="login-form" action="../php/signup.php" method="post">
+                <fieldset>
+                    <legend>Sign up</legend>
+                    <label class="hidden-label" for="nome">Nome</label>
+                    <input type="text" name="nome" id="nome" placeholder="Inserisci il tuo nome" required>
+                    <label class="hidden-label" for="cognome">Cognome</label>
+                    <input type="text" name="cognome" id="cognome" placeholder="Inserisci il tuo cognome" required>
+                    <label class="hidden-label" for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Inserisci la tua email"
+                        autocomplete="email" required>
+                    <label class="hidden-label" for="username">Nome utente</label>
+                    <input type="text" name="username" id="username" placeholder="Inserisci il tuo nome utente"
+                        autocomplete="username" required>
+                    <label class="hidden-label" for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Inserisci la tua password"
+                        required>
+                    <label class="hidden-label" for="password-confirm">Conferma password</label>
+                    <input type="password" name="password-confirm" id="password-confirm"
+                        placeholder="Conferma la tua password" required>
+                    <input type="submit" name="submit" value="Registrati">
+                    <p>Hai già un account? <a href="login.html">Fai il login</a></p>
+                </fieldset>
+            </form>
+        </div>
     </body>
+
 </html>
