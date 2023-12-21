@@ -9,3 +9,5 @@ function toggleAnswer(question) {
     answer.style.display = "block";
   }
 }
+
+// da cambiare

@@ -12,8 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
     date = date.toUTCString();
 
     function hidePopUp() {
-        console.log('hide');
-        console.log("creato")
         let popUp = document.getElementById('cookie-section');
         popUp.style.display = 'none';
     }
@@ -29,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function setCookie(name, value, days) {
-    console.log('called')
     let expires = "";
     if (days) {
         let date = new Date();
