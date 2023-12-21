@@ -17,10 +17,10 @@ document.addEventListener('DOMContentLoaded', function () {
     if (answer) {
       // Toggle the 'display' property of the answer element
       var answerDisplay = getComputedStyle(answer).display;
-      if (answerDisplay === "none" || answerDisplay === "") {
-        answer.style.display = "block";
-      } else {
+      if (answerDisplay === "block" || answerDisplay === "") {
         answer.style.display = "none";
+      } else {
+        answer.style.display = "block";
       }
     }
   }
