@@ -12,35 +12,147 @@
     </head>
 
     <body>
-        <header id="main-header" class="login-header">
-            <h1 id="logo"><a href="../../index.html">ML Tech</a></h1>
-        </header>
-        <div id="login-container">
+        <main id="login-main">
+            <div class="container">
+                <div class="login-link">
+                    <div class="logo">
+                        <img id="login-logo" src="../../assets/images/logoNoBg.png" alt="logo ML Tech">
+                    </div>
+                    <p class="side-big-heading">Sei gi&agrave; registrato&quest;</p>
+                    <p class="primary-bg-text">Accedi per visualizzare il tuo profilo e continuare con gli acquisti.</p>
+                    <a href="login.html" class="login-btn">Accedi</a>
+                </div>
+                <form action="../php/signup.php" method="post" class="signup-container">
+                    <p class="big-h">Crea Il Tuo Account</p>
+                    <div class="progress-bar">
+                        <div class="stage">
+                            <p class="tool-tip">Generalità</p>
+                            <p class="stageno stageno-1">1</p>
+                        </div>
+                        <div class="stage">
+                            <p class="tool-tip">Contatti</p>
+                            <p class="stageno stageno-2">2</p>
+                        </div>
+                        <div class="stage">
+                            <p class="tool-tip">Indirizzo</p>
+                            <p class="stageno stageno-3">3</p>
+                        </div>
+                    </div>
+                    <div class="signup-content">
+                        <div class="stage1-content">
+                            <div class="button-container">
+                                <div class="text-fields fname">
+                                    <label for="fname"><svg class="login-icon" xmlns="http://www.w3.org/2000/svg"
+                                            version="1.0" width="24" height="24" viewBox="0 0 128.000000 128.000000"
+                                            preserveAspectRatio="xMidYMid meet">
 
-            <form id="login-form" action="../php/signup.php" method="post">
-                <fieldset>
-                    <legend>Sign up</legend>
-                    <label class="hidden-label" for="nome">Nome</label>
-                    <input type="text" name="nome" id="nome" placeholder="Inserisci il tuo nome" required>
-                    <label class="hidden-label" for="cognome">Cognome</label>
-                    <input type="text" name="cognome" id="cognome" placeholder="Inserisci il tuo cognome" required>
-                    <label class="hidden-label" for="email">Email</label>
-                    <input type="email" name="email" id="email" placeholder="Inserisci la tua email"
-                        autocomplete="email" required>
-                    <label class="hidden-label" for="username">Nome utente</label>
-                    <input type="text" name="username" id="username" placeholder="Inserisci il tuo nome utente"
-                        autocomplete="username" required>
-                    <label class="hidden-label" for="password">Password</label>
-                    <input type="password" name="password" id="password" placeholder="Inserisci la tua password"
-                        required>
-                    <label class="hidden-label" for="password-confirm">Conferma password</label>
-                    <input type="password" name="password-confirm" id="password-confirm"
-                        placeholder="Conferma la tua password" required>
-                    <input type="submit" name="submit" value="Registrati">
-                    <p>Hai già un account? <a href="login.html">Fai il login</a></p>
-                </fieldset>
-            </form>
-        </div>
+                                            <g transform="translate(0.000000,128.000000) scale(0.100000,-0.100000)"
+                                                stroke="none">
+                                                <path
+                                                    d="M543 1266 c-199 -63 -281 -290 -167 -462 122 -184 390 -183 512 1 36 55 57 141 48 202 -26 189 -216 314 -393 259z m214 -100 c63 -42 96 -99 101 -173 5 -76 -10 -124 -57 -176 -86 -96 -229 -104 -323 -19 -124 111 -98 302 52 383 55 30 171 23 227 -15z" />
+                                                <path
+                                                    d="M296 645 c-53 -19 -102 -69 -136 -140 -35 -74 -50 -153 -50 -265 0 -110 23 -161 95 -205 l48 -30 363 -3 c240 -2 377 1 404 8 51 14 108 63 131 115 48 105 5 357 -78 456 -31 37 -115 79 -158 79 -16 0 -71 -20 -121 -46 -77 -39 -99 -46 -150 -46 -64 -1 -120 18 -195 64 -51 31 -93 35 -153 13z m154 -101 c57 -37 144 -57 219 -51 51 4 84 15 151 49 72 37 90 43 120 37 81 -17 143 -135 156 -297 7 -97 -8 -147 -55 -179 -34 -23 -35 -23 -400 -23 -349 0 -367 1 -399 20 -50 31 -66 78 -59 180 10 135 53 244 111 280 53 34 84 30 156 -16z" />
+                                            </g>
+                                        </svg></label>
+                                    <input type="text" name="fname" id="fname" placeholder="Inserisci il tuo nome">
+                                </div>
+
+                                <div class="text-fields lname">
+                                    <label for="lname"><svg class="login-icon" xmlns="http://www.w3.org/2000/svg"
+                                            version="1.0" width="24" height="24" viewBox="0 0 128.000000 128.000000"
+                                            preserveAspectRatio="xMidYMid meet">
+
+                                            <g transform="translate(0.000000,128.000000) scale(0.100000,-0.100000)"
+                                                stroke="none">
+                                                <path
+                                                    d="M543 1266 c-199 -63 -281 -290 -167 -462 122 -184 390 -183 512 1 36 55 57 141 48 202 -26 189 -216 314 -393 259z m214 -100 c63 -42 96 -99 101 -173 5 -76 -10 -124 -57 -176 -86 -96 -229 -104 -323 -19 -124 111 -98 302 52 383 55 30 171 23 227 -15z" />
+                                                <path
+                                                    d="M296 645 c-53 -19 -102 -69 -136 -140 -35 -74 -50 -153 -50 -265 0 -110 23 -161 95 -205 l48 -30 363 -3 c240 -2 377 1 404 8 51 14 108 63 131 115 48 105 5 357 -78 456 -31 37 -115 79 -158 79 -16 0 -71 -20 -121 -46 -77 -39 -99 -46 -150 -46 -64 -1 -120 18 -195 64 -51 31 -93 35 -153 13z m154 -101 c57 -37 144 -57 219 -51 51 4 84 15 151 49 72 37 90 43 120 37 81 -17 143 -135 156 -297 7 -97 -8 -147 -55 -179 -34 -23 -35 -23 -400 -23 -349 0 -367 1 -399 20 -50 31 -66 78 -59 180 10 135 53 244 111 280 53 34 84 30 156 -16z" />
+                                            </g>
+                                        </svg>
+                                    </label>
+                                    <input type="text" name="lname" id="lname" placeholder="Inserisci il tuo cognome"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="button-container">
+                                <div class="text-fields dob">
+                                    <label for="dob">
+                                        <!-- <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M19 5H13V2H11V5H5C3.346 5 2 6.346 2 8V18C2 19.103 2.897 20 4 20H20C21.103 20 22 19.103 22 18V8C22 6.346 20.654 5 19 5ZM5 7H19C19.2652 7 19.5196 7.10536 19.7071 7.29289C19.8946 7.48043 20 7.73478 20 8L20.001 11.12C19.105 11.348 18.532 11.854 18.085 12.252C17.578 12.702 17.243 13 16.497 13C15.752 13 15.417 12.702 14.91 12.253C14.315 11.724 13.501 11 11.995 11C10.49 11 9.676 11.724 9.081 12.253C8.574 12.703 8.24 13 7.495 13C6.752 13 6.418 12.703 5.913 12.253C5.466 11.855 4.895 11.348 4 11.12V8C4 7.73478 4.10536 7.48043 4.29289 7.29289C4.48043 7.10536 4.73478 7 5 7ZM4 18V13.286C4.191 13.409 4.374 13.56 4.583 13.747C5.178 14.276 5.991 15 7.495 15C9 15 9.814 14.276 10.409 13.747C10.916 13.297 11.25 13 11.995 13C12.74 13 13.075 13.298 13.582 13.747C14.177 14.276 14.991 15 16.497 15C18.003 15 18.818 14.276 19.413 13.747C19.624 13.559 19.808 13.407 20.001 13.283L20.002 18H4Z"
+                                                fill="#84848D" />
+                                        </svg> -->
+                                    </label>
+                                    <input type="date" name="dob" class="dob" required>
+                                </div>
+                                <div class="gender">
+                                    <p class="field-heading">Genere: </p>
+                                    <label for="male">
+                                        <input type="radio" name="gender" id="gender"> Maschio
+                                    </label>
+                                    <label for="female">
+                                        <input type="radio" name="gender" id="gender"> Femmina
+                                    </label>
+                                    <label for="other">
+                                        <input type="radio" name="gender" id="gender"> Altro
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="page-btns">
+                                <input type="button" value="Indietro" class="previous stagebtn1a">
+                                <input type="button" value="Avanti" class="next stagebtn1b">
+                            </div>
+                        </div>
+                        <div class="stage2-content">
+                            <div class="page-btns">
+                                <input type="button" value="Indietro" class="previous stagebtn2a">
+                                <input type="button" value="Avanti" class="next stagebtn2b">
+                            </div>
+                        </div>
+                        <div class="stage3-content">
+                            <div class="page-btns">
+                                <input type="button" value="Indietro" class="previous stagebtn3a">
+                                <input type="button" value="Avanti" class="next stagebtn3b">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <script src="../JS/signup.js"></script>
     </body>
 
 </html>
+
+
+
+
+<!-- <div id="login-container">
+        
+                    <form id="login-form" action="../php/signup.php" method="post">
+                        <fieldset>
+                            <legend>Sign up</legend>
+                            <label class="hidden-label" for="nome">Nome</label>
+                            <input type="text" name="nome" id="nome" placeholder="Inserisci il tuo nome" required>
+                            <label class="hidden-label" for="cognome">Cognome</label>
+                            <input type="text" name="cognome" id="cognome" placeholder="Inserisci il tuo cognome" required>
+                            <label class="hidden-label" for="email">Email</label>
+                            <input type="email" name="email" id="email" placeholder="Inserisci la tua email"
+                                autocomplete="email" required>
+                            <label class="hidden-label" for="username">Nome utente</label>
+                            <input type="text" name="username" id="username" placeholder="Inserisci il tuo nome utente"
+                                autocomplete="username" required>
+                            <label class="hidden-label" for="password">Password</label>
+                            <input type="password" name="password" id="password" placeholder="Inserisci la tua password"
+                                required>
+                            <label class="hidden-label" for="password-confirm">Conferma password</label>
+                            <input type="password" name="password-confirm" id="password-confirm"
+                                placeholder="Conferma la tua password" required>
+                            <input type="submit" name="submit" value="Registrati">
+                            <p>Hai già un account? <a href="login.html">Fai il login</a></p>
+                        </fieldset>
+                    </form>
+                </div> -->
