@@ -1189,6 +1189,7 @@ a.login-btn:hover {
     background-color: var(--progessBg);
 }
 
+
 .button-container {
     width: 100%;
     display: flex;
@@ -1232,7 +1233,7 @@ a.login-btn:hover {
 }
 
 .page-btns input {
-    margin: 3em auto;
+    margin: 1em auto;
     outline: none;
     border: none;
     background: inherit;
@@ -1292,6 +1293,9 @@ input.previous:hover {
     border: 1px solid var(--background-link);
 }
 
+#terms {
+    margin: 0 1em;
+}
 
 
 .hidden-label {
@@ -1306,129 +1310,24 @@ input.previous:hover {
     display: block;
 }
 
-/* #login {
-    margin-top: 7em;
-    background-color: var(--loginBg);
-}
-
-#main-header.login-header {
-    height: 8em;
-    text-align: center;
-    font-size: 2em;
-    padding: 0;
-    margin: 0;
-}
-
-#login-container {
-    width: 40em;
-    height: 20em;
-    margin: auto;
-}
-
-#login-form fieldset input {
-    display: block;
-    margin: 2em auto;
-    height: 3em;
-    width: 20em;
-    border-radius: 10px;
-    border: 1px solid black;
-    text-align: center;
-     animation: shake 0.5s 2s ease-in-out; 
-}
-
-#login-form fieldset input:focus {
-    border: 1px solid var(--primaryGradient);
-}
-
-#login-form fieldset input::placeholder {
-    text-align: center;
-    font-size: 1em;
-}
-
-#login-form fieldset input:focus::placeholder {
-    color: transparent;
-}
-
-#login-form fieldset input[type="submit"] {
-    width: 10em;
-    height: 3em;
-    border-radius: 10px;
-    border: none;
-    background-color: var(--loginSbmt);
+.completed {
+    background-color: var(--background-link);
     color: var(--textP-login);
-    font-size: 1em;
-    cursor: pointer;
-
-}
-
-#login-form fieldset legend {
+    display: flex;
+    margin: 1em;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
     text-align: center;
-    font-size: 2em;
-    font-weight: bolder;
+    border-radius: 9999px;
 }
 
-#login-form fieldset p {
-    text-align: center;
+#tosLink {
+    color: var(--background-link);
+    margin: 0 .5em;
 }
 
-#login-form fieldset a {
-    text-decoration: underline;
-    color: blue;
-
-} */
-
-/* @keyframes shake {
-    0% {
-        transform: translate(1px, 1px) rotate(0deg);
-    }
-
-    10% {
-        transform: translate(-1px, -2px) rotate(-1deg);
-        border-color: var(--error);
-    }
-
-    20% {
-        transform: translate(-3px, 0px) rotate(1deg);
-        border-color: var(--error);
-    }
-
-    30% {
-        transform: translate(3px, 2px) rotate(0deg);
-        border-color: var(--error);
-    }
-
-    40% {
-        transform: translate(1px, -1px) rotate(1deg);
-        border-color: var(--error);
-    }
-
-    50% {
-        transform: translate(-1px, 2px) rotate(-1deg);
-        border-color: var(--error);
-    }
-
-    60% {
-        transform: translate(-3px, 1px) rotate(0deg);
-        border-color: var(--error);
-    }
-
-    70% {
-        transform: translate(3px, 1px) rotate(-1deg);
-        border-color: var(--error);
-    }
-
-    80% {
-        transform: translate(-1px, -1px) rotate(1deg);
-        border-color: var(--error);
-    }
-
-    90% {
-        transform: translate(1px, 2px) rotate(0deg);
-        border-color: var(--error);
-    }
-
-    100% {
-        transform: translate(1px, -2px) rotate(-1deg);
-        border-color: var(--error);
-    }
-} */
+.loginH {
+    margin-top: 3.5em;
+}

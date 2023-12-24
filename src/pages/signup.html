@@ -18,12 +18,12 @@
                     <div class="logo">
                         <img id="login-logo" src="../../assets/images/logoNoBg.png" alt="logo ML Tech">
                     </div>
-                    <p class="side-big-heading">Sei gi&agrave; registrato&quest;</p>
+                    <h2 class="side-big-heading">Sei gi&agrave; registrato&quest;</h2>
                     <p class="primary-bg-text">Accedi per visualizzare il tuo profilo e continuare con gli acquisti.</p>
                     <a href="login.html" class="login-btn">Accedi</a>
                 </div>
                 <form action="../php/signup.php" method="post" class="signup-container">
-                    <p class="big-h">Crea Il Tuo Account</p>
+                    <h1 class="big-h">Crea Il Tuo Account</h1>
                     <div class="progress-bar">
                         <div class="stage">
                             <p class="tool-tip">Generalità</p>
@@ -212,6 +212,19 @@
                                         <input type="phone" name="phone" id="phone" placeholder="Il tuo Telefono"
                                             required>
                                     </div>
+
+                                    <div class="text-fields city">
+                                        <?xml version="1.0" ?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                                        <svg width="24px" height="24px" viewBox="0 0 128 128" data-name="Layer 4"
+                                            id="Layer_4" xmlns="http://www.w3.org/2000/svg">
+                                            <path class="cls-1"
+                                                d="M64,30.17,96.64,62.81V102H31.36V62.81L64,30.17M64,16,21.36,58.67V112h85.28V58.67L64,16Z" />
+                                            <rect class="cls-1" height="38.37" width="19.19" x="54.41" y="73.59" />
+                                        </svg>
+                                        <label class="hidden-label" for="city">Indirizzo</label>
+                                        <input type="text" name="city" id="city" placeholder="La tua città, provincia"
+                                            required>
+                                    </div>
                                 </div>
                                 <div class="button-container">
                                     <div class="text-fields address">
@@ -222,12 +235,29 @@
                                                 d="M64,30.17,96.64,62.81V102H31.36V62.81L64,30.17M64,16,21.36,58.67V112h85.28V58.67L64,16Z" />
                                             <rect class="cls-1" height="38.37" width="19.19" x="54.41" y="73.59" />
                                         </svg>
+                                        <label class="hidden-label" for="address">Indirizzo</label>
+                                        <input type="text" name="address" id="address" placeholder="Il tuo indirizzo"
+                                            required>
+                                    </div>
+                                    <div class="text-fields cap">
+                                        <?xml version="1.0" ?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                                        <svg width="24px" height="24px" viewBox="0 0 128 128" data-name="Layer 4"
+                                            id="Layer_4" xmlns="http://www.w3.org/2000/svg">
+                                            <path class="cls-1"
+                                                d="M64,30.17,96.64,62.81V102H31.36V62.81L64,30.17M64,16,21.36,58.67V112h85.28V58.67L64,16Z" />
+                                            <rect class="cls-1" height="38.37" width="19.19" x="54.41" y="73.59" />
+                                        </svg>
+                                        <label class="hidden-label" for="cap"></label>
+                                        <input type="text" name="cap" id="cap" placeholder="Il tuo CAP" required>
                                     </div>
                                 </div>
-
+                                <label id="tos" for="terms">
+                                    <input class="loginTos" id="terms" type="checkbox" name="terms" required />
+                                    Accetto i <a id="tosLink" href="tos.html"> Termini e le Condizioni</a>
+                                </label>
                                 <div class="page-btns">
                                     <input type="button" value="Indietro" class="previous stagebtn3a">
-                                    <input type="submit" value="Avanti" class="next stagebtn3b">
+                                    <input type="submit" value="Invia" class="next stagebtn3b">
                                 </div>
                             </div>
                         </fieldset>
@@ -240,33 +270,3 @@
     </body>
 
 </html>
-
-
-
-
-<!-- <div id="login-container">
-        
-                    <form id="login-form" action="../php/signup.php" method="post">
-                        <fieldset>
-                            <legend>Sign up</legend>
-                            <label class="hidden-label" for="nome">Nome</label>
-                            <input type="text" name="nome" id="nome" placeholder="Inserisci il tuo nome" required>
-                            <label class="hidden-label" for="cognome">Cognome</label>
-                            <input type="text" name="cognome" id="cognome" placeholder="Inserisci il tuo cognome" required>
-                            <label class="hidden-label" for="email">Email</label>
-                            <input type="email" name="email" id="email" placeholder="Inserisci la tua email"
-                                autocomplete="email" required>
-                            <label class="hidden-label" for="username">Nome utente</label>
-                            <input type="text" name="username" id="username" placeholder="Inserisci il tuo nome utente"
-                                autocomplete="username" required>
-                            <label class="hidden-label" for="password">Password</label>
-                            <input type="password" name="password" id="password" placeholder="Inserisci la tua password"
-                                required>
-                            <label class="hidden-label" for="password-confirm">Conferma password</label>
-                            <input type="password" name="password-confirm" id="password-confirm"
-                                placeholder="Conferma la tua password" required>
-                            <input type="submit" name="submit" value="Registrati">
-                            <p>Hai già un account? <a href="login.html">Fai il login</a></p>
-                        </fieldset>
-                    </form>
-                </div> -->
