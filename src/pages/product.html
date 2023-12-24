@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="it" data-theme="light">
 
-<head>
-    <meta charset="UTF-8">
-    <title>ML-TECH PRODUCT</title>
-    <meta name="keywords" content="ML-TECH products, gaming, workstation, technology ">
-    <meta name="description" content="Sito ufficiale ml-tech, gruppo fondato da Orlando Ferazzani">
-    <link rel="stylesheet" href="../css/styles.css" media="screen">
-    <link rel="stylesheet" href="../css/print.css" media="print">
-    <link rel="stylesheet" href="../css/mini.css" media="screen and (max-width: 600px)">
-    <script>
-        //check local storage for theme and OS preference
-        let localS = localStorage.getItem('theme'),
-            themeToSet = localS
+    <head>
+        <meta charset="UTF-8">
+        <title>Prodotto - ML Tech</title>
+        <meta name="keywords" content="ML-TECH products, gaming, workstation, technology ">
+        <meta name="description" content="Sito ufficiale ml-tech, gruppo fondato da Orlando Ferazzani">
+        <link rel="stylesheet" href="../css/styles.css" media="screen">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <link rel="stylesheet" href="../css/mini.css" media="screen and (max-width: 600px)">
+        <script>
+            //check local storage for theme and OS preference
+            let localS = localStorage.getItem('theme'),
+                themeToSet = localS
 
-        //if LS not set => check OS preference
-        if (!localS) {
-            //media query with JS
-            themeToSet = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-        }
+            //if LS not set => check OS preference
+            if (!localS) {
+                //media query with JS
+                themeToSet = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+            }
 
-        //set correct theme
-        document.documentElement.setAttribute('data-theme', themeToSet)
-    </script>
-</head>
+            //set correct theme
+            document.documentElement.setAttribute('data-theme', themeToSet)
+        </script>
+    </head>
 
     <body>
-        <header>
+        <header id="main-header">
             <a href="../../index.html">
                 <h1 id="logo">ML Tech</h1>
             </a>
@@ -51,9 +51,9 @@
                             </svg>
                         </a>
                     </li>
-                    <li><a href="src/pages/profile.html"><svg class="icon" id="profile" xmlns="http://www.w3.org/2000/svg"
-                                version="1.0" width="30" height="30" viewBox="0 0 128.000000 128.000000"
-                                preserveAspectRatio="xMidYMid meet">
+                    <li><a href="src/pages/profile.html"><svg class="icon" id="profile"
+                                xmlns="http://www.w3.org/2000/svg" version="1.0" width="30" height="30"
+                                viewBox="0 0 128.000000 128.000000" preserveAspectRatio="xMidYMid meet">
 
                                 <g transform="translate(0.000000,128.000000) scale(0.100000,-0.100000)" stroke="none">
                                     <path
@@ -85,104 +85,104 @@
             <p>Ti trovi in: <span lang="en"><a href="../../index.html">Home</a> &gt; &gt; Product</span></p>
         </nav>
 
-    <main>
-        <!-- <div class="spacer"></div> -->
-        <!-- Devono essere inseriti qui le cose -->
-        <div class="">
-            <dl id="">
-                <!-- <dt>Nome computer</dt> -->
-                <dd>
-                    <img src="" alt="computer photo"> <!--non serve l'alt -->
-                    <dl class="">
-                        <dt>Nome computer</dt>
-                        <dt>€2.500,00</dt>
+        <main>
+            <!-- <div class="spacer"></div> -->
+            <!-- Devono essere inseriti qui le cose -->
+            <div class="">
+                <dl id="">
+                    <!-- <dt>Nome computer</dt> -->
+                    <dd>
+                        <img src="" alt="computer photo"> <!--non serve l'alt -->
+                        <dl class="">
+                            <dt>Nome computer</dt>
+                            <dt>€2.500,00</dt>
 
-                        <dt>Scelta colore</dt>
-                        <select>
-                            <option>Bianco</option>
-                            <option>Nero</option>
-                        </select>
+                            <dt>Scelta colore</dt>
+                            <select>
+                                <option>Bianco</option>
+                                <option>Nero</option>
+                            </select>
 
 
-                        <dt>Disponibilità</dt>
-                        <dt>Colore disponibilità</dt>
+                            <dt>Disponibilità</dt>
+                            <dt>Colore disponibilità</dt>
 
-                        <div class="amount-group">
-                            <dt>Quantità</dt>
-                            <!-- Crei con css -->
-                            <div class="quantity-control" data-increase="true">
-                                <i class=""> + </i>
+                            <div class="amount-group">
+                                <dt>Quantità</dt>
+                                <!-- Crei con css -->
+                                <div class="quantity-control" data-increase="true">
+                                    <i class=""> + </i>
+                                </div>
+                                <div class="amount">
+                                    <input class="hide" value="1" data-amount="true">
+                                </div>
+                                <!-- Crei con css -->
+                                <div class="quantity-control" data-decrease="true">
+                                    <i class=""> - </i>
+                                </div>
                             </div>
-                            <div class="amount">
-                                <input class="hide" value="1" data-amount="true">
-                            </div>
-                            <!-- Crei con css -->
-                            <div class="quantity-control" data-decrease="true">
-                                <i class=""> - </i>
-                            </div>
-                        </div>
 
-                        <button id="">Aggiungi al carrello</button>
-                        <!-- <dt>Bottone aggiunta al carrello</dt> -->
-                        <button id="">Accessori</button>
-                        <!-- <dt>Bottone Accessori</dt> -->
-                        <dt>Descrizione prodotto</dt>
-                        <dd> <strong>Donanzan</strong> coglione dei
-                            Pinguini Tattici Nucleari. </dd>
-                    </dl>
-                </dd>
+                            <button id="">Aggiungi al carrello</button>
+                            <!-- <dt>Bottone aggiunta al carrello</dt> -->
+                            <button id="">Accessori</button>
+                            <!-- <dt>Bottone Accessori</dt> -->
+                            <dt>Descrizione prodotto</dt>
+                            <dd> <strong>Donanzan</strong> coglione dei
+                                Pinguini Tattici Nucleari. </dd>
+                        </dl>
+                    </dd>
+                </dl>
+            </div>
+        </main>
+        <footer>
+            <!-- Icone per account social dell'azienda -->
+            <div id="icons">
+                <ul>
+                    <li><a href="" target="_blank"><img class="icon" src="../../assets/images/facebook.png"></a></li>
+                    <li><a href="instagram.com/ml__tech" target="_blank"><img class="icon"
+                                src="../../assets/images/instagram.png"></a></li>
+                    <li><a href="" target="_blank"><img class="icon" src="../../assets/images/tik-tok.png"></a></li>
+                    <li><a href="https://discord.gg/2w7mYbJmy2" target="_blank"><img class="icon"
+                                src="../../assets/images/discord.png"></a></li>
+                </ul>
+            </div>
+
+            <dl id="footdef">
+                <div id="contatti">
+                    <dt>CONTATTI</dt>
+                    <dd><a href="../../index.html#about">Azienda</a></dd>
+                    <dd><a href="contacts.html">Contattaci</a></dd>
+                    <dd><a href="mailto:tecweb2023@gmail.com">Assistenza</a></dd>
+                    <dd><a href="faq.html" lang="en" abbr="Frequently Asked Question">FAQ</a></dd>
+                </div>
+
+                <div id="comunity">
+                    <dt lang="en">COMMUNITY</dt>
+                    <dd><a href="https://discord.gg/2w7mYbJmy2" target="_blank" lang="en">Discord</a></dd>
+                    <dd><a href="news.html" lang="en">News</a></dd>
+                </div>
+
+                <div id="account">
+                    <dt>ACCOUNT</dt>
+                    <dd><a href="profile.html">Gestisci il tuo account</a></dd>
+                </div>
+
+                <div id="shop">
+                    <dt lang="en">SHOP</dt>
+                    <dd><a href="catalog.html">Tastiere</a></dd>
+                    <dd><a href="catalog.html" lang="en">Computer</a></dd>
+                </div>
             </dl>
-        </div>
-    </main>
-    <footer>
-        <!-- Icone per account social dell'azienda -->
-        <div id="icons">
-            <ul>
-                <li><a href="" target="_blank"><img class="icon" src="../../assets/images/facebook.png"></a></li>
-                <li><a href="instagram.com/ml__tech" target="_blank"><img class="icon"
-                            src="../../assets/images/instagram.png"></a></li>
-                <li><a href="" target="_blank"><img class="icon" src="../../assets/images/tik-tok.png"></a></li>
-                <li><a href="https://discord.gg/2w7mYbJmy2" target="_blank"><img class="icon"
-                            src="../../assets/images/discord.png"></a></li>
+
+            <!-- Termini, informative, cookies e marchio -->
+            <ul id="footunor">
+                <li><span id="rights">ML Tech 2022:</span> Tutti i diritti riservati</li>
+                <li><a href="tos.html">Termini e Condizioni</a></li>
+                <li><a href="privacy.html">Informativa sulla <span lang="en">privacy</span></a></li>
+                <li><a href="cookies.html">Gestisci <span lang="en">cookie</span></a></li>
             </ul>
-        </div>
-
-        <dl id="footdef">
-            <div id="contatti">
-                <dt>CONTATTI</dt>
-                <dd><a href="../../index.html#about">Azienda</a></dd>
-                <dd><a href="contacts.html">Contattaci</a></dd>
-                <dd><a href="mailto:tecweb2023@gmail.com">Assistenza</a></dd>
-                <dd><a href="faq.html" lang="en" abbr="Frequently Asked Question">FAQ</a></dd>
-            </div>
-
-            <div id="comunity">
-                <dt lang="en">COMMUNITY</dt>
-                <dd><a href="https://discord.gg/2w7mYbJmy2" target="_blank" lang="en">Discord</a></dd>
-                <dd><a href="news.html" lang="en">News</a></dd>
-            </div>
-
-            <div id="account">
-                <dt>ACCOUNT</dt>
-                <dd><a href="profile.html">Gestisci il tuo account</a></dd>
-            </div>
-
-            <div id="shop">
-                <dt lang="en">SHOP</dt>
-                <dd><a href="catalog.html">Tastiere</a></dd>
-                <dd><a href="catalog.html" lang="en">Computer</a></dd>
-            </div>
-        </dl>
-
-        <!-- Termini, informative, cookies e marchio -->
-        <ul id="footunor">
-            <li><span id="rights">ML Tech 2022:</span> Tutti i diritti riservati</li>
-            <li><a href="tos.html">Termini e Condizioni</a></li>
-            <li><a href="privacy.html">Informativa sulla <span lang="en">privacy</span></a></li>
-            <li><a href="cookies.html">Gestisci <span lang="en">cookie</span></a></li>
-        </ul>
-    </footer>
-    <script src="../JS/switch-handler.js"></script>
-</body>
+        </footer>
+        <script src="../JS/switch-handler.js"></script>
+    </body>
 
 </html>

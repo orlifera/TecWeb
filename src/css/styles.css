@@ -5,12 +5,12 @@
     font-weight: normal;
     font-display: swap;
     font-style: normal;
-
 }
 
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: "Prompt", sans-serif;
     transition: var(--default-transition);
 }
@@ -18,6 +18,16 @@
 :root {
     --default-transition: color .1s ease-in-out, background-color .3s ease-in-out, fill .1s ease-in-out,
         border-color .3s ease-in-out, transform .3s ease-in-out;
+    --loginBg: #f9f9f9;
+    --progessBg: #cfcfcf;
+    --loginSbmt: #3F51B5;
+    --text-login: #333333;
+    --text1-login: #5c5c5c;
+    --textP-login: #ededff;
+    --error: #E94646;
+    --white: #FFFFFF;
+    --background-link: #696cff;
+    --border: #adacac;
 }
 
 /* Palette chiara */
@@ -171,6 +181,16 @@ ul li ul.dropdown-list {
     display: none;
 }
 
+/* State when dropdown is active */
+ul.dropdown-list.visible {
+    display: block;
+}
+
+ul.dropdown-list.hide:not(ul li:hover ul.dropdown-list),
+ul.dropdown-list li.hide {
+    height: 0;
+}
+
 ul li ul.dropdown-list#profile-drop {
     width: 300%;
     left: -4em;
@@ -183,12 +203,20 @@ ul li ul.dropdown-list#profile-drop li {
 ul.dropdown-list a {
     display: block;
     margin: .5em .5em;
+
 }
 
 ul li:hover ul.dropdown-list {
     display: block;
 }
 
+/* .visible {
+    display: block;
+}
+
+.hide {
+    height: 0;
+} */
 
 #menu.fixed {
     position: fixed;
@@ -580,8 +608,8 @@ footer ul#footunor li {
 /* Catlog */
 
 .spacer {
-    width: 50em;
-    height: 50em;
+    width: 100%;
+    height: 100vh;
     background-color: #f9f9f9;
 }
 
@@ -674,7 +702,6 @@ p.heading {
 
 .int-list {
     padding-left: 1em;
-    list-style: inside;
     justify-content: left;
 }
 
@@ -790,10 +817,6 @@ h4 {
 #form-container p {
     text-align: center;
     padding: 1.5em 0 1em 0;
-}
-
-#form-container h2 {
-    font-size: 1.8em;
 }
 
 fieldset {
@@ -1031,3 +1054,397 @@ fieldset:last-of-type {
     color: var(--primaryText);
     cursor: pointer;
 }
+
+
+/*LOGIN*/
+
+main#login-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--loginBg);
+}
+
+.logo {
+    width: 15em;
+    margin: auto;
+}
+
+#login-logo {
+    width: 100%;
+    filter: invert(.9);
+}
+
+.container {
+    width: 80%;
+    display: flex;
+    margin: 3% auto;
+    height: 40em;
+    box-shadow: 0 12px 18px rgba(54, 176, 138, .05);
+    border-radius: 10px;
+    background-color: var(--white);
+}
+
+.login-link {
+    background-color: var(--background-link);
+    width: 30%;
+    padding: .5em;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.signup-container {
+    width: 70%;
+    padding: 3% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.side-big-heading {
+    font-weight: 800;
+    font-size: 1.5em;
+    width: 80%;
+    margin: .5em auto;
+    color: var(--textP-login);
+}
+
+.primary-bg-text {
+    color: var(--textP-login);
+    font-weight: 500;
+    text-align: center;
+}
+
+a.login-btn {
+    text-decoration: none;
+    color: var(--textP-login);
+    width: 80%;
+    display: inline-block;
+    margin: 3em 2em;
+    font-size: 1em;
+    text-align: center;
+    border: 2px solid var(--loginBg);
+    border-radius: 10px;
+    padding: 3% 0;
+}
+
+a.login-btn:hover {
+    background-color: var(--loginBg);
+    color: var(--background-link);
+}
+
+.big-h {
+    font-weight: 900;
+    font-size: 2em;
+    color: var(--background-link);
+}
+
+.progress-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin: 4% 0;
+}
+
+.progress-bar .stage {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.progress-bar .tool-tip {
+    color: var(--background-link);
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.stageno {
+    width: 30px;
+    text-align: center;
+    margin: 6% 0;
+    padding: 2% 7%;
+    border-radius: 9999px;
+    background-color: var(--progessBg);
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    margin: 4% 0;
+}
+
+.text-fields {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    padding: 2%;
+    margin: 0 2%;
+    width: 46%;
+    border-radius: 10px;
+}
+
+.text-fields input,
+.page-btns input {
+    margin-left: 5%;
+    outline: none;
+    border: none;
+    background: inherit;
+    width: 17em;
+    font-size: 1em;
+    color: var(--text1-login);
+}
+
+.signup-content {
+    width: 100%;
+    padding: 0 3%;
+}
+
+::-webkit-datetime-edit-month-field,
+::-webkit-datetime-edit-day-field,
+::-webkit-datetime-edit-year-field,
+input::placeholder {
+    background-color: var(--white);
+    color: var(--text1-login);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: black;
+    opacity: 1;
+    display: block;
+    background: url("../../assets/images/cake.svg") no-repeat;
+    height: 20px;
+    width: 20px;
+}
+
+.text-fields.fname::after {
+    content: "Nome";
+    position: relative;
+    padding: 0 4%;
+    background-color: var(--white);
+    left: -220px;
+    top: -1.9em;
+    width: 15em;
+    text-align: center;
+    color: var(--loginSbmt);
+}
+
+
+.text-fields.lname::after {
+    content: "Cognome";
+    position: relative;
+    padding: 0 4%;
+    background-color: var(--white);
+    left: -220px;
+    top: -1.9em;
+    width: 15em;
+    text-align: center;
+    color: var(--loginSbmt);
+}
+
+.text-fields.dob {
+    position: relative;
+}
+
+.text-fields.dob::after {
+    content: "Data di nascita";
+    position: absolute;
+    top: -1em;
+    left: .7em;
+    padding: 0 4%;
+    background-color: var(--white);
+    text-align: center;
+    color: var(--loginSbmt);
+}
+
+.gender {
+    display: block;
+    align-items: center;
+    margin-left: 4%;
+    width: 100%;
+}
+
+.field-heading {
+    color: var(--loginSbmt);
+    width: 20%;
+}
+
+.gender label {
+    margin: 0 2%;
+    display: flex;
+    align-items: center;
+    color: var(--text1-login);
+    width: 20%;
+}
+
+
+div.page-btns {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.page-btns input.next,
+.page-btns input.previous {
+    background-color: var(--background-link);
+    color: var(--textP-login);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: 2%;
+    font-weight: 500;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+input.next:hover,
+input.previous:hover {
+    background-color: var(--loginBg);
+    color: var(--background-link);
+    outline: 1px solid var(--background-link);
+    border: 1px solid var(--background-link);
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+/* #login {
+    margin-top: 7em;
+    background-color: var(--loginBg);
+}
+
+#main-header.login-header {
+    height: 8em;
+    text-align: center;
+    font-size: 2em;
+    padding: 0;
+    margin: 0;
+}
+
+#login-container {
+    width: 40em;
+    height: 20em;
+    margin: auto;
+}
+
+#login-form fieldset input {
+    display: block;
+    margin: 2em auto;
+    height: 3em;
+    width: 20em;
+    border-radius: 10px;
+    border: 1px solid black;
+    text-align: center;
+     animation: shake 0.5s 2s ease-in-out; 
+}
+
+#login-form fieldset input:focus {
+    border: 1px solid var(--primaryGradient);
+}
+
+#login-form fieldset input::placeholder {
+    text-align: center;
+    font-size: 1em;
+}
+
+#login-form fieldset input:focus::placeholder {
+    color: transparent;
+}
+
+#login-form fieldset input[type="submit"] {
+    width: 10em;
+    height: 3em;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--loginSbmt);
+    color: var(--textP-login);
+    font-size: 1em;
+    cursor: pointer;
+
+}
+
+#login-form fieldset legend {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+.hidden-label {
+    display: none;
+}
+
+#login-form fieldset p {
+    text-align: center;
+}
+
+#login-form fieldset a {
+    text-decoration: underline;
+    color: blue;
+
+} */
+
+/* @keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+        border-color: var(--error);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+        border-color: var(--error);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+        border-color: var(--error);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+        border-color: var(--error);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+        border-color: var(--error);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+        border-color: var(--error);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+        border-color: var(--error);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+        border-color: var(--error);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+        border-color: var(--error);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+        border-color: var(--error);
+    }
+} */
