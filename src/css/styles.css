@@ -1087,6 +1087,10 @@ main#login-main {
     background-color: var(--white);
 }
 
+.container svg {
+    fill: var(--text1-login);
+}
+
 .login-link {
     background-color: var(--background-link);
     width: 30%;
@@ -1106,6 +1110,7 @@ main#login-main {
 .side-big-heading {
     font-weight: 800;
     font-size: 1.5em;
+    text-align: center;
     width: 80%;
     margin: .5em auto;
     color: var(--textP-login);
@@ -1142,11 +1147,11 @@ a.login-btn:hover {
 }
 
 .progress-bar {
+    margin: 1em auto;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 70%;
-    margin: 4% 0;
 }
 
 .progress-bar .stage {
@@ -1164,10 +1169,13 @@ a.login-btn:hover {
 }
 
 .stageno {
+    display: flex;
+    margin: 1em;
+    justify-content: center;
+    align-items: center;
     width: 30px;
+    height: 30px;
     text-align: center;
-    margin: 6% 0;
-    padding: 2% 7%;
     border-radius: 9999px;
     background-color: var(--progessBg);
 }
@@ -1183,88 +1191,52 @@ a.login-btn:hover {
     align-items: center;
     border: 1px solid var(--border);
     padding: 2%;
-    margin: 0 2%;
-    width: 46%;
+    margin: auto;
+    width: 35%;
     border-radius: 10px;
 }
 
-.text-fields input,
-.page-btns input {
-    margin-left: 5%;
+.text-fields input {
+    margin: auto;
     outline: none;
     border: none;
     background: inherit;
-    width: 17em;
+    text-align: center;
+    width: 100%;
     font-size: 1em;
     color: var(--text1-login);
 }
 
+.text-fields input:focus::placeholder {
+    color: transparent;
+}
+
 .signup-content {
     width: 100%;
-    padding: 0 3%;
-}
-
-::-webkit-datetime-edit-month-field,
-::-webkit-datetime-edit-day-field,
-::-webkit-datetime-edit-year-field,
-input::placeholder {
-    background-color: var(--white);
-    color: var(--text1-login);
-}
-
-input[type="date"]::-webkit-calendar-picker-indicator {
-    color: black;
-    opacity: 1;
-    display: block;
-    background: url("../../assets/images/cake.svg") no-repeat;
-    height: 20px;
-    width: 20px;
-}
-
-.text-fields.fname::after {
-    content: "Nome";
-    position: relative;
-    padding: 0 4%;
-    background-color: var(--white);
-    left: -220px;
-    top: -1.9em;
-    width: 15em;
-    text-align: center;
-    color: var(--loginSbmt);
-}
-
-
-.text-fields.lname::after {
-    content: "Cognome";
-    position: relative;
-    padding: 0 4%;
-    background-color: var(--white);
-    left: -220px;
-    top: -1.9em;
-    width: 15em;
-    text-align: center;
-    color: var(--loginSbmt);
 }
 
 .text-fields.dob {
     position: relative;
+    margin-left: 3.55em;
+    width: 67%;
 }
 
-.text-fields.dob::after {
-    content: "Data di nascita";
-    position: absolute;
-    top: -1em;
-    left: .7em;
-    padding: 0 4%;
-    background-color: var(--white);
-    text-align: center;
-    color: var(--loginSbmt);
+
+
+.page-btns input {
+    margin: 3em auto;
+    outline: none;
+    border: none;
+    background: inherit;
+    width: 12em;
+    font-size: 1em;
+    color: var(--text1-login);
 }
 
 .gender {
     display: block;
     align-items: center;
-    margin-left: 4%;
+    margin-left: 5em;
     width: 100%;
 }
 
@@ -1286,6 +1258,7 @@ div.page-btns {
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 
@@ -1308,6 +1281,12 @@ input.previous:hover {
     color: var(--background-link);
     outline: 1px solid var(--background-link);
     border: 1px solid var(--background-link);
+}
+
+
+
+.hidden-label {
+    display: none;
 }
 
 .hidden {
@@ -1377,10 +1356,6 @@ input.previous:hover {
     text-align: center;
     font-size: 2em;
     font-weight: bolder;
-}
-
-.hidden-label {
-    display: none;
 }
 
 #login-form fieldset p {
