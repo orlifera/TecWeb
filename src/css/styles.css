@@ -1087,6 +1087,19 @@ main#login-main {
     background-color: var(--white);
 }
 
+fieldset#stage1,
+fieldset#stage2,
+fieldset#stage3 {
+    padding: 0;
+}
+
+.stage1-content,
+.stage2-content,
+.stage3-content {
+    width: 100%;
+
+}
+
 .container svg {
     fill: var(--text1-login);
 }
@@ -1144,6 +1157,7 @@ a.login-btn:hover {
     font-weight: 900;
     font-size: 2em;
     color: var(--background-link);
+    padding: 1em;
 }
 
 .progress-bar {
@@ -1181,6 +1195,7 @@ a.login-btn:hover {
 }
 
 .button-container {
+    width: 100%;
     display: flex;
     align-items: center;
     margin: 4% 0;
@@ -1221,8 +1236,6 @@ a.login-btn:hover {
     width: 67%;
 }
 
-
-
 .page-btns input {
     margin: 3em auto;
     outline: none;
@@ -1234,9 +1247,10 @@ a.login-btn:hover {
 }
 
 .gender {
-    display: block;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    margin-left: 5em;
+    align-items: center;
     width: 100%;
 }
 
