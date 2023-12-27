@@ -628,7 +628,6 @@ footer ul#footunor li {
 }
 
 .dropdown {
-    display: block;
     width: 50%;
     margin: auto;
     padding-bottom: 1em;
@@ -652,10 +651,6 @@ footer ul#footunor li {
     padding: 1em;
     margin-top: 1em;
     background-color: #f9f9f9;
-}
-
-.answer {
-    padding: 8px;
 }
 
 .question:hover {
