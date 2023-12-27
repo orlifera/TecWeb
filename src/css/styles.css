@@ -1199,12 +1199,22 @@ a.login-btn:hover {
 
 .text-fields {
     display: flex;
+    position: relative;
     align-items: center;
     border: 1px solid var(--border);
     padding: 2%;
     margin: auto;
-    width: 35%;
+    width: 45%;
     border-radius: 10px;
+}
+
+.text-fields label {
+    position: absolute;
+    width: 30%;
+    background-color: var(--white);
+    color: var(--background-link);
+    top: -0.7em;
+    text-align: center;
 }
 
 .text-fields input {
@@ -1226,10 +1236,13 @@ a.login-btn:hover {
     width: 100%;
 }
 
+
 .text-fields.dob {
     position: relative;
-    margin-left: 3.55em;
-    width: 67%;
+}
+
+.text-fields.dob label {
+    width: 8em;
 }
 
 .page-btns input {
@@ -1242,26 +1255,23 @@ a.login-btn:hover {
     color: var(--text1-login);
 }
 
-.gender {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-items: center;
-    width: 100%;
-}
-
 .field-heading {
     color: var(--loginSbmt);
     width: 20%;
 }
 
-.gender label {
-    margin: 0 2%;
-    display: flex;
-    align-items: center;
-    color: var(--text1-login);
-    width: 20%;
+#gender {
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: center;
 }
+
+#gender:focus {
+    border: 1px solid var(--background-link);
+}
+
+
 
 
 div.page-btns {
@@ -1270,7 +1280,6 @@ div.page-btns {
     justify-content: center;
     align-items: center;
 }
-
 
 .page-btns input.next,
 .page-btns input.previous {
@@ -1293,10 +1302,17 @@ input.previous:hover {
     border: 1px solid var(--background-link);
 }
 
+input.next:focus,
+input.previous:focus {
+    background-color: var(--loginBg);
+    color: var(--background-link);
+    outline: 1px solid var(--background-link);
+    border: 1px solid var(--background-link);
+}
+
 #terms {
     margin: 0 1em;
 }
-
 
 .hidden-label {
     display: none;
@@ -1329,5 +1345,5 @@ input.previous:hover {
 }
 
 .loginH {
-    margin-top: 3.5em;
+    margin-top: 1.5em;
 }
