@@ -1267,6 +1267,10 @@ a.login-btn:hover {
     text-align: center;
 }
 
+#gender:focus {
+    border: 1px solid var(--background-link);
+}
+
 
 
 
@@ -1276,7 +1280,6 @@ div.page-btns {
     justify-content: center;
     align-items: center;
 }
-
 
 .page-btns input.next,
 .page-btns input.previous {
@@ -1293,6 +1296,14 @@ div.page-btns {
 
 input.next:hover,
 input.previous:hover {
+    background-color: var(--loginBg);
+    color: var(--background-link);
+    outline: 1px solid var(--background-link);
+    border: 1px solid var(--background-link);
+}
+
+input.next:focus,
+input.previous:focus {
     background-color: var(--loginBg);
     color: var(--background-link);
     outline: 1px solid var(--background-link);
