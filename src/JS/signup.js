@@ -28,7 +28,21 @@ function hideStage(...contents) {
     });
 }
 
-function switchStage(toHide, toShow) {
+function areFieldsCompleted(stageContent) {
+    let inputs = stageContent.querySelectorAll('input');
+    for (let input of inputs) {
+        if (input.type !== 'submit' && input.type !== 'button' && input.value.trim() === '') {
+            return false; // Found an empty field, return false.
+        }
+    }
+    return true; // All fields are filled.
+}
+
+function switchStage(toHide, toShow, forward = true) {
+    if (forward && !areFieldsCompleted(toHide)) {
+        alert('Please fill all fields before proceeding.');
+        return;
+    }
     hideStage(toHide);
     showStage(toShow);
 }
@@ -40,25 +54,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     stagebtn1b.addEventListener('click', function () {
-        switchStage(signupContent1, signupContent2);
+        switchStage(signupContent1, signupContent2, true);
         stageno1.classList.remove("stageno");
         stageno1.classList.add("completed");
     });
 
     stagebtn2a.addEventListener('click', function () {
-        switchStage(signupContent2, signupContent1);
+        switchStage(signupContent2, signupContent1, false);
         stageno1.classList.remove("completed");
         stageno1.classList.add("stageno");
     });
 
     stagebtn2b.addEventListener('click', function () {
-        switchStage(signupContent2, signupContent3);
+        switchStage(signupContent2, signupContent3, true);
         stageno2.classList.remove("stageno");
         stageno2.classList.add("completed");
     });
 
     stagebtn3a.addEventListener('click', function () {
-        switchStage(signupContent3, signupContent2);
+        switchStage(signupContent3, signupContent2, false);
         stageno2.classList.remove("completed");
         stageno2.classList.add("stageno");
     });
