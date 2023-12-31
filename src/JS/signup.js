@@ -39,24 +39,39 @@ function areFieldsCompleted(stageContent) {
 }
 
 function switchStage(toHide, toShow, forward = true) {
-    if (forward && !areFieldsCompleted(toHide)) {
-        alert('Please fill all fields before proceeding.');
+
+    if (toHide === signupContent2 && forward) {
+        var emailInput = signupContent2.querySelector('input[type="email"]');
+        if (emailInput && !emailInput.checkValidity()) {
+            alert('Per favore, inserie un indirizzo email valido.');
+            return; // Prevents moving to the next stage if email is invalid
+        }
+    }
+    if (toHide === signupContent1 && areFieldsCompleted(toHide)) {
+        stageno1.classList.remove("stageno");
+        stageno1.classList.add("completed");
+    }
+    else if (toHide === signupContent2 && areFieldsCompleted(toHide)) {
+        stageno2.classList.remove("stageno");
+        stageno2.classList.add("completed");
+    }
+    else if (forward && !areFieldsCompleted(toHide)) {
+        alert('Per favore, compila tutti i campi prima di procedere al prossimo stage.');
         return;
     }
+
+
     hideStage(toHide);
     showStage(toShow);
+
 }
 
 document.addEventListener('DOMContentLoaded', function () {
     showStage(signupContent1);
     hideStage(signupContent2, signupContent3);
 
-
-
     stagebtn1b.addEventListener('click', function () {
         switchStage(signupContent1, signupContent2, true);
-        stageno1.classList.remove("stageno");
-        stageno1.classList.add("completed");
     });
 
     stagebtn2a.addEventListener('click', function () {
@@ -67,8 +82,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     stagebtn2b.addEventListener('click', function () {
         switchStage(signupContent2, signupContent3, true);
-        stageno2.classList.remove("stageno");
-        stageno2.classList.add("completed");
     });
 
     stagebtn3a.addEventListener('click', function () {
@@ -76,7 +89,5 @@ document.addEventListener('DOMContentLoaded', function () {
         stageno2.classList.remove("completed");
         stageno2.classList.add("stageno");
     });
-
-
 });
 

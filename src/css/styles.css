@@ -995,12 +995,12 @@ fieldset:last-of-type {
 
 /*COOKIE POPUP*/
 
-.container {
+.cookie-container {
     width: 100%;
     height: 100%;
 }
 
-.subcontainer {
+.cookie-subcontainer {
     width: 85%;
     margin: auto;
 }
@@ -1344,4 +1344,15 @@ input.previous:focus {
 
 .loginH {
     margin-top: 1.5em;
+}
+
+.link-to-home {
+    text-align: center;
+    color: var(--textP-login);
+}
+
+.link-to-home a {
+    color: var(--textP-login);
+    text-decoration: underline;
+    font-weight: 500;
 }
