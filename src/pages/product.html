@@ -43,6 +43,7 @@
         }
     </script>
 
+
 </head>
 
 <body>
@@ -109,28 +110,23 @@
         <!-- <div class="spacer"></div> -->
         <form action="../php/getProduct.php" method="post">
             <dl>
+
                 <img src="download1.jpg">
-                <dt>{nomePC}</dt>
-                <dt>{tipo}</dt>
-                <dt>{prezzo}</dt>
-                <label for="name">Colore:</label>
-                {Bianco}
-                <dt>{Disponibilità}</dt>
-                <dt>Quantità</dt>
-                <dd>
-                    <input type="button" value="-" id="minus">
-                    <input type="number" value="1" inputmode="numeric" disabled>
-                    <input type="button" value="+" id="plus">
-                </dd>
+                {nomePC}
+                {tipo}
+                {prezzo}
+                {colore}
+                {Disponibilità}
+                {quantita}
 
                 <dt>Descrizione:</dt>
-                <dd>{descrizione}</dd>
+                {descrizione}
             </dl>
             <input type="button" name="accessories" id="accessories" value="Accessori">
         </form>
 
-
-        <input type="button" name="addToCart" id="addToCart" value="Aggiungi al carrello">
+        <input type="button" name="addToCart" id="addToCart" value="Aggiungi al carrello"
+            data-path="../../assets/images/pc/P1.jpg">
 
         <input type="button" name="showCart" id="showCart" value="Mostra il carrello">
 
@@ -171,8 +167,8 @@
 
             <div id="shop">
                 <dt lang="en">SHOP</dt>
-                <dd><a href="catalog.html">Tastiere</a></dd>
-                <dd><a href="catalog.html" lang="en">Computer</a></dd>
+                <dd><a href="catalog.html?categoria=kbd">Tastiere</a></dd>
+                <dd><a href="catalog.html?categoria=pc" lang="en">Computer</a></dd>
             </div>
         </dl>
 
@@ -185,9 +181,10 @@
         </ul>
     </footer>
     <script src="../JS/switch-handler.js"></script>
-    <script src="../js/accessories.js"></script>
+    <script src="../js/accessoriesHandler.js"></script>
     <script src="../js/cart.js"></script>
     <script src="../js/productHandler.js"></script>
+
 </body>
 
 </html>

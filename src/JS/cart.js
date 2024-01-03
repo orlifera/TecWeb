@@ -1,81 +1,53 @@
-//crei variabili carello e prodotto prendendo da php
-
-let carrello = document.getElementById("addToCart");
+let addCart = document.getElementById("addToCart");
 let mostra = document.getElementById("showCart");
 
 function displayCart() {
-  // Recupera i dati del carrello dalla sessione
-  var cart = JSON.parse(sessionStorage.getItem("cart"));
-
-  // Se il carrello è vuoto, mostra un messaggio appropriato
-  if (!cart || cart.length === 0) {
-    document.write("<p>Il tuo carrello è vuoto.</p>");
-    return;
-  }
-
-  // Altrimenti, crea una tabella con i prodotti nel carrello
-  var table = '<table border="1"><tr><th>Prodotto</th><th>Prezzo</th></tr>';
-
-  for (var i = 0; i < cart.length; i++) {
-    table +=
-      "<tr><td>" +
-      cart[i].name +
-      "</td><td>" +
-      cart[i].price.toFixed(2) +
-      "</td></tr>";
-  }
-
-  table += "</table>";
-
-  // Inserisce la tabella nella pagina HTML
-  document.write(table);
+  window.location.href = "../php/cart.php";
 }
 
 function addToCart() {
-  var productName = "Prodotto";
-  var productPrice = 20.0;
-
-  // Crea un oggetto prodotto
-  var product = {
-    name: productName,
-    price: productPrice,
-  };
-
-  // Controlla se il carrello è già presente nella sessione
-  if (sessionStorage.getItem("cart") === null) {
-    // Se il carrello non esiste, crea un nuovo carrello
-    var cart = [];
-  } else {
-    // Se il carrello esiste, recupera il carrello esistente dalla sessione
-    var cart = JSON.parse(sessionStorage.getItem("cart"));
+  var scriptTag = document.querySelector('script[src$="cart.js"]');
+  var id = scriptTag.getAttribute("data-id");
+  var categoria = scriptTag.getAttribute("data-categoria");
+  var nomeProdotto = document.getElementById("nome").innerText;
+  var tipologiaProdotto = document.getElementById("tipo").innerText;
+  var descrProdotto = document.getElementById("descrizione").innerText;
+  var prezzoProdotto = document.getElementById("prezzo").innerText;
+  var disponibilita = document.getElementById("disponibilita").innerText;
+  if (disponibilita === "Non disponibile") {
+    alert("Prodotto non disponibile, ci scusiamo per il disagio!");
+    return;
   }
+  var quantity = document.getElementById("quantity").value;
+  var coloreProdotto = document.getElementById("colore").value;
+  var splitValori = prezzoProdotto.split("€");
+  var prezzo = splitValori[1];
+  splitValori = disponibilita.split(":");
+  var url =
+    "../php/addToCart.php?id=" +
+    id +
+    "&nome=" +
+    nomeProdotto +
+    "&tipo=" +
+    tipologiaProdotto +
+    "&descrizione=" +
+    descrProdotto +
+    "&prezzo=" +
+    prezzo +
+    "&colore=" +
+    coloreProdotto +
+    "&quantita=" +
+    quantity +
+    "&path=" +
+    imageFilePath +
+    "&categoria=" +
+    categoria;
 
-  // Aggiungi il prodotto al carrello
-  cart.push(product);
-
-  // Salva il carrello aggiornato nella sessione
-  sessionStorage.setItem("cart", JSON.stringify(cart));
-
-  // Notifica all'utente che il prodotto è stato aggiunto al carrello (puoi personalizzare questo messaggio)
+  window.location.href = url;
   alert("Prodotto aggiunto al carrello!");
-}
-
-function removeFromCart(index) {
-  // Recupera i dati del carrello dalla sessione
-  var cart = JSON.parse(sessionStorage.getItem("cart"));
-
-  // Rimuovi il prodotto dal carrello
-  cart.splice(index, 1);
-
-  // Salva il carrello aggiornato nella sessione
-  sessionStorage.setItem("cart", JSON.stringify(cart));
-  alert("Prodotto eliminato dal carrello!");
-
-  // Aggiorna la visualizzazione del carrello
-  displayCart();
 }
 
 document.addEventListener("DOMContentLoaded", function () {
   mostra.addEventListener("click", displayCart);
-  carrello.addEventListener("click", addToCart);
+  addCart.addEventListener("click", addToCart);
 });

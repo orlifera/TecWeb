@@ -2,14 +2,10 @@
 <html lang="it" data-theme="light">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalogo - ML Tech</title> <!-- da cambiare nei vari file -->
-    <meta name="keywords"
-        content="Computer assemblati, pc da gaming assemblati, tastiere meccaniche, tastiere custom, pc gaming economici">
-    <!-- da cambiare nei vari file -->
-    <meta name="description" content="Catalogo PC ML Tech, catalogo Tastiere ML Tech">
-    <!-- da cambiare nei vari file -->
+    <meta charset="UTF-8">
+    <title>Prodotto - ML Tech</title>
+    <meta name="keywords" content="ML-TECH products, gaming, workstation, technology ">
+    <meta name="description" content="Sito ufficiale ml-tech, gruppo fondato da Orlando Ferazzani">
     <link rel="stylesheet" href="../css/styles.css" media="screen">
     <link rel="stylesheet" href="../css/print.css" media="print">
     <link rel="stylesheet" href="../css/mini.css" media="screen and (max-width: 600px)">
@@ -27,17 +23,39 @@
         //set correct theme
         document.documentElement.setAttribute('data-theme', themeToSet)
     </script>
+
+    <script>
+        function incrementValue() {
+            var value = document.querySelector("input[type='number']").value;
+            value++;
+            document.querySelector("input[type='number']").value = value;
+        }
+
+
+        function decrementValue() {
+
+            var value = document.querySelector("input[type='number']").value;
+            if (value > 1)
+                value--;
+            else
+                value = 1;
+            document.querySelector("input[type='number']").value = value;
+        }
+    </script>
+
 </head>
 
 <body>
     <header id="main-header">
-        <h1 id="logo"><a href="../../index.html">ML Tech</a></h1>
+        <a href="../../index.html">
+            <h1 id="logo">ML Tech</h1>
+        </a>
     </header>
     <nav id="menu">
         <div id="left">
             <ul>
                 <li><a href="../../index.html" lang="en">Home</a></li>
-                <li><a class="active" href="catalog.html" lang="en">Shop</a></li>
+                <li><a href="catalog.html" lang="en">Shop</a></li>
                 <li><a href="contacts.html">Contatti</a></li>
             </ul>
         </div>
@@ -84,40 +102,11 @@
         </div>
     </nav>
     <nav id="breadcrumb" class="sr-only">
-        <p>Ti trovi in: <span lang="en"><a href="../../index.html">Home</a> &gt; &gt; Shop</span></p>
+        <p>Ti trovi in: <span lang="en"><a href="../../index.html">Home</a> &gt; &gt; Product</span></p>
     </nav>
 
-
-    <main id="infoAcc">
-        <form action="src/php/getProduct.php" method="post">
-            <dl>
-                <img src="download1.jpg">
-                <dt>{nomeAcc}</dt>
-                <dt>{tipo}</dt>
-                <dt>{prezzo}</dt>
-                <label for="name">Colore:</label>
-                {Bianco}
-                <dt>{Disponibilità}</dt>
-                <dt>Quantità</dt>
-                <dd>
-                    <input type="button" value="-" id="minus">
-                    <input type="number" value="1" inputmode="numeric" disabled>
-                    <input type="button" value="+" id="plus">
-                </dd>
-
-                <dt>Descrizione:</dt>
-                <dd>{descrizione}</dd>
-            </dl>
-
-        </form>
-
-
-        <input type="button" name="addToCart" id="addToCart" value="Aggiungi al carrello">
-
-        <input type="button" name="showCart" id="showCart" value="Mostra il carrello">
-
-
-        </form>
+    <main>
+        {ciao}
     </main>
 
     <footer>
@@ -155,8 +144,8 @@
 
             <div id="shop">
                 <dt lang="en">SHOP</dt>
-                <dd><a href="catalog.html">Tastiere</a></dd>
-                <dd><a href="catalog.html" lang="en">Computer</a></dd>
+                <dd><a href="catalog.html?categoria=kbd">Tastiere</a></dd>
+                <dd><a href="catalog.html?categoria=pc" lang="en">Computer</a></dd>
             </div>
         </dl>
 
@@ -169,9 +158,9 @@
         </ul>
     </footer>
     <script src="../JS/switch-handler.js"></script>
-    <script src="../js/accessories.js"></script>
     <script src="../js/cart.js"></script>
-    <script src="../js/productHandler.js"></script>
+    <script src="../js/removeCart.js"></script>
+
 </body>
 
 </html>

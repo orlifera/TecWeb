@@ -1,10 +1,5 @@
 <?php
 
-//manca: 
-// 1) Nome prodotti da database
-// 2) collegamento al carrello
-// 3) collegamento agli accessori
-
 require_once "DBAccess.php";
 
 use DB\DBAccess;
@@ -24,60 +19,57 @@ $disponibilita = "";
 $path_image = "";
 $tipoPC = "";
 $descrizione = "";
+$quantita = "";
+$riferimento = "";
+$categoria = $_GET['categoria'];
 $sku = $_GET['id'];
+$i = 0;
 
 $colori = "";
-
-
-// function pulisciInput($value){
-//     //elimina gli spazi
-//     $value = trim($value);
-//     //rimuove tag html, a volte è rischioso perchè rischi di perdere tutta la pagina. 
-//     $value = strip_tags($value);// di può mettere , + tutta la lista dei tag consentiti
-//     //converte i caratteri speciali in entità html
-//     $value = htmlentities($value);
-//     return $value;
-// }
 
 $connection = new DBAccess();
 $connectionOk = $connection->openDBConnection();
 
 if ($connectionOk) {
-    $listaPC = $connection->getPc($sku);
+    $listaPC = $connection->getProduct($categoria, $sku);
     if ($listaPC != null) {
-        //caso in cui l'album esiste
-        $stringaPC = "<dt> Nome: " . $listaPC[1] . "</dt>";
-        $tipoPC = "<dt> Tipo: " . $listaPC[2] . "</dt>";
-        $descrizione = "<dt>" . $listaPC[3] . "</dt>";
-        $prezzoPc = "<dt> Prezzo: €" . $listaPC[4] . "</dt>";
+        $stringaPC = "<dt id=\"nome\">" . $listaPC[1] . "</dt>";
+        $tipoPC = "<dt id=\"tipo\"> Tipologia: " . $listaPC[2] . "</dt>";
+        $descrizione = "<dd id=\"descrizione\">" . $listaPC[3] . "</dd>";
+        $prezzoPc = "<dt id=\"prezzo\"> Prezzo: €" . $listaPC[4] . "</dt>";
 
-        if ($listaPC[5] != null) {
+        if (!empty($listaPC[5]) && !empty($listaPC[6])) {
             $colorePc = explode(",", $listaPC[5]);
 
-            $colori = "<select>";
+            $colori = " <label id='productColor' for='colore'>Colore:</label><select id=\"colore\">";
 
             while (!empty($colorePc)) {
+
                 $color = array_shift($colorePc);
-                $colori = $colori . "<option>" . $color . "</option>";
+                $selected = ($color == 'nero') ? 'selected' : '';
+                $colori = $colori . "<option $selected tabindex=\"$i\">" . $color . "</option>";
+                $i = $i + 1;
             }
 
             $colori = $colori . "</select>";
         } else {
-            $colori = "<label for='name'>Colore:</label>
-                          <select>
-                            <option>Valore predefinito o vuoto</option>
-                          </select>";
-
-            echo ($colori);
         }
 
-        $disponibilita = "<dt> Disponibilità: " . $listaPC[6] . "</dt>";
-        $path_image =  $listaPC[7];
+        $disponibilita = "<dt id=\"disponibilita\"> " . ($listaPC[6] > 0 ? "Disponibilità: "  .  $listaPC[6] : "Non disponibile") . "</dt>";
+
+        $quantita = $listaPC[6] > 0 ? "<dt>Quantità</dt><dd>
+            <input type='button' value='-' id='minus'>
+            <input type='number' value='" . ($listaPC[6] > 0 ? 1 : 0) . "' inputmode='numeric' id='quantity' disabled>
+
+            <input type='button' value='+' id='plus'>
+            </dd>" : "";
+
+        $path_image = $listaPC[7];
+        $riferimento = $listaPC[8];
     } else {
         $stringaPC = "<p>Errore</p>";
     }
 } else {
-
     $stringaPC = "<p>I sistemi sono momentaneamente fuori servizio, ci scusiamo per il disagio</p>";
 }
 $connection->closeDBConnection();
@@ -86,10 +78,28 @@ $connection->closeDBConnection();
 $paginaHTML = str_replace('{nomePC}', $stringaPC, $paginaHTML);
 $paginaHTML = str_replace('{tipo}', $tipoPC, $paginaHTML);
 $paginaHTML = str_replace('{prezzo}', $prezzoPc, $paginaHTML);
-$paginaHTML = str_replace('{Bianco}', $colori, $paginaHTML);
+$paginaHTML = str_replace('{colore}', $colori, $paginaHTML);
 $paginaHTML = str_replace('{Disponibilità}', $disponibilita, $paginaHTML);
+$paginaHTML = str_replace('{quantita}', $quantita, $paginaHTML);
 $paginaHTML = str_replace('{descrizione}', $descrizione, $paginaHTML);
 $paginaHTML = str_replace('download1.jpg', $path_image, $paginaHTML);
 $paginaHTML = str_replace('src/php/getProduct.php', 'getProduct.php', $paginaHTML);
+$paginaHTML = str_replace('contacts.html', '../pages/contacts.html', $paginaHTML);
+
+$paginaHTML = str_replace('src/pages/cart.html', 'cart.php', $paginaHTML);
+$paginaHTML = str_replace('catalog.html?categoria=kbd', 'getCatalog.php?categoria=kbd&riferimento=', $paginaHTML);
+$paginaHTML = str_replace('catalog.html?categoria=pc', 'getCatalog.php?categoria=pc&riferimento=', $paginaHTML);
+$paginaHTML = str_replace('faq.html', '../pages/faq.html', $paginaHTML);
+$paginaHTML = str_replace('news.html', '../pages/news.html', $paginaHTML);
+$paginaHTML = str_replace('profile.html', '../pages/profile.html', $paginaHTML);
+$paginaHTML = str_replace('tos.html', '../pages/tos.html', $paginaHTML);
+$paginaHTML = str_replace('privacy.html', '../pages/privacy.html', $paginaHTML);
+$paginaHTML = str_replace('cookies.html', '../pages/cookies.html', $paginaHTML);
+
+
+$paginaHTML = str_replace('<script src="../js/accessoriesHandler.js">', '<script src="../js/accessoriesHandler.js" data-categoria="' . $_GET['categoria'] . '" data-riferimento="' . $riferimento . '" >', $paginaHTML);
+
+$paginaHTML = str_replace('<script src="../js/cart.js">', '<script src="../js/cart.js" data-id="' . $_GET['id'] . '" data-categoria="' . $_GET['categoria'] . '">', $paginaHTML);
+
 
 echo ($paginaHTML);
