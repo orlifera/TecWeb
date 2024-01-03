@@ -9,6 +9,10 @@ create table utente (
     primary key(username)
 ) Engine = InnoDB default charset = utf8mb4; 
 
+INSERT INTO utente VALUES 
+( "admin", "admin", "admin", "admin1234@gmail.com", "admin", "A"),
+( "user", "user", "user", "user1234@gmail.com", "user", "U");
+
 
 drop table if exists Carrello;
 CREATE TABLE Carrello (
