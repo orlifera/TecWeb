@@ -19,22 +19,30 @@ header {
 }
 
 nav#menu {
-    position: fixed;
-    bottom: 0;
+    display: none;
+}
+
+#mobile {
+    display: block;
     width: 100%;
-    z-index: 1;
+    bottom: 0;
+    position: fixed;
+    background: linear-gradient(to top right, var(--primaryGradient), var(--secondaryGradient));;
 }
 
-#menu li {
-    font-size: 0.8em;
+#mobile ul {
+    margin: auto;
+    text-align: center;
+    width: 100%;
 }
 
-#switch {
-    font-size: 0.5em;
+#mobile li {
+    display: inline-block;
+    padding: 0 1.5em;
 }
 
-nav#menu #right ul {
-    font-size: 0.7em;
+#mobile svg {
+    fill: var(--primaryText)
 }
 
 div#presentation {
