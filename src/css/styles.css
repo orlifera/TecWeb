@@ -118,17 +118,6 @@ a {
     color: var(--primaryText);
 }
 
-/* Sottolineatura al passare del mouse sopra i link */
-/* nav a:hover {
-    
-} */
-
-/* Sottolineatura nella navbar della pagina corrente */
-/* .active {
-    da fare
-} */
-
-
 nav#menu #switch {
     padding-right: 2em;
 }
@@ -137,6 +126,18 @@ nav#menu #switch {
 #left li {
     font-size: 1.2em;
     text-transform: uppercase;
+}
+
+#left {
+    padding-left: 3em;
+}
+
+#right {
+    padding-right: 3em;
+}
+
+#mobile {
+    display: none;
 }
 
 #menu li {
@@ -994,12 +995,12 @@ fieldset:last-of-type {
 
 /*COOKIE POPUP*/
 
-.container {
+.cookie-container {
     width: 100%;
     height: 100%;
 }
 
-.subcontainer {
+.cookie-subcontainer {
     width: 85%;
     margin: auto;
 }
@@ -1271,9 +1272,6 @@ a.login-btn:hover {
     border: 1px solid var(--background-link);
 }
 
-
-
-
 div.page-btns {
     width: 100%;
     display: flex;
@@ -1346,4 +1344,15 @@ input.previous:focus {
 
 .loginH {
     margin-top: 1.5em;
+}
+
+.link-to-home {
+    text-align: center;
+    color: var(--textP-login);
+}
+
+.link-to-home a {
+    color: var(--textP-login);
+    text-decoration: underline;
+    font-weight: 500;
 }
