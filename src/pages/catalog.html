@@ -152,76 +152,13 @@
         </nav>
 
 
-        <main id="catalog">
-            <form action="src/php/getCatalog.php" method="post">
-                <div class="grid">
-                    <div class="cell" id="A1">
-                        <a class="" href="getProduct.php?id=A1">
-                            <img src="pc1.jpg" alt="image">
-                            <dt>{PRODOTTO1}</dt>
-                            <dd>&euro;{PREZZO1}</dd>
-                        </a>
-                    </div>
-                    <div class="cell">
-                        <a class="" href="getProduct.php?id=A2">
-                            <img src="pc2.jpg" alt="image">
-                            <dt>{PRODOTTO2}</dt>
-                            <dd>&euro;{PREZZO2}</dd>
-                        </a>
-                    </div>
-                    <div class="cell">
-                        <a class="" href="getProduct.php?id=A3">
-                            <img src="pc3.jpg" alt="image">
-                            <dt>{PRODOTTO3}</dt>
-                            <dd>&euro;{PREZZO3}</dd>
-                        </a>
-                    </div>
-                    <div class="cell">
-                        <a class="" href="getProduct.php?id=A4">
-                            <img src="pc4.jpg" alt="image">
-                            <dt>{PRODOTTO4}</dt>
-                            <dd>&euro;{PREZZO4}</dd>
-                        </a>
-                    </div>
-                    <div class="cell">
-                        <a class="" href="getProduct.php?id=A5">
-                            <img src="pc5.jpg" alt="image">
-                            <dt>{PRODOTTO5}</dt>
-                            <dd>&euro;{PREZZO5}</dd>
-                        </a>
-                    </div>
-                    <div class="cell">
-                        <a class="" href="getProduct.php?id=A6">
-                            <img src="pc6.jpg" alt="image">
-                            <dt>{PRODOTTO6}</dt>
-                            <dd>&euro;{PREZZO6}</dd>
-                        </a>
-                    </div>
-                    <div class="cell">
-                        <a class="" href="getProduct.php?id=A7">
-                            <img src="pc7.jpg" alt="image">
-                            <dt>{PRODOTTO7}</dt>
-                            <dd>&euro;{PREZZO7}</dd>
-                        </a>
-                    </div>
-                    <div class="cell">
-                        <a class="" href="getProduct.php?id=A8">
-                            <img src="pc8.jpg" alt="image">
-                            <dt>{PRODOTTO8}</dt>
-                            <dd>&euro;{PREZZO8}</dd>
-                        </a>
-                    </div>
-                    <div class="cell">
-                        <a class="" href="getProduct.php?id=A9">
-                            <img src="pc9.jpg" alt="image">
-                            <dt>{PRODOTTO9}</dt>
-                            <dd>&euro;{PREZZO9}</dd>
-                        </a>
-                    </div>
-                </div>
-
-            </form>
-        </main>
+    <main id="catalog">
+        <form action="src/php/getCatalog.php" method="post">
+            <div class="grid">
+                {prodotto}
+            </div>
+        </form>
+    </main>
 
         <footer>
             <!-- Icone per account social dell'azienda -->
@@ -256,12 +193,12 @@
                     <dd><a href="profile.html">Gestisci il tuo account</a></dd>
                 </div>
 
-                <div id="shop">
-                    <dt lang="en">SHOP</dt>
-                    <dd><a href="catalog.html">Tastiere</a></dd>
-                    <dd><a href="catalog.html" lang="en">Computer</a></dd>
-                </div>
-            </dl>
+            <div id="shop">
+                <dt lang="en">SHOP</dt>
+                <dd><a href="catalog.html?categoria=kbd">Tastiere</a></dd>
+                <dd><a href="catalog.html?categoria=pc" lang="en">Computer</a></dd>
+            </div>
+        </dl>
 
             <!-- Termini, informative, cookies e marchio -->
             <ul id="footunor">

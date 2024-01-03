@@ -43,7 +43,8 @@
             }
         </script>
 
-    </head>
+
+</head>
 
     <body>
         <header id="main-header">
@@ -169,32 +170,27 @@
             <p>Ti trovi in: <span lang="en"><a href="../../index.html">Home</a> &gt; &gt; Product</span></p>
         </nav>
 
-        <main>
-            <!-- <div class="spacer"></div> -->
-            <form action="../php/getProduct.php" method="post">
-                <dl>
-                    <img src="download1.jpg">
-                    <dt>{nomePC}</dt>
-                    <dt>{tipo}</dt>
-                    <dt>{prezzo}</dt>
-                    <label for="name">Colore:</label>
-                    {Bianco}
-                    <dt>{Disponibilità}</dt>
-                    <dt>Quantità</dt>
-                    <dd>
-                        <input type="button" value="-" id="minus">
-                        <input type="number" value="1" inputmode="numeric" disabled>
-                        <input type="button" value="+" id="plus">
-                    </dd>
+    <main>
+        <!-- <div class="spacer"></div> -->
+        <form action="../php/getProduct.php" method="post">
+            <dl>
 
-                    <dt>Descrizione:</dt>
-                    <dd>{descrizione}</dd>
-                </dl>
-                <input type="button" name="accessories" id="accessories" value="Accessori">
-            </form>
+                <img src="download1.jpg">
+                {nomePC}
+                {tipo}
+                {prezzo}
+                {colore}
+                {Disponibilità}
+                {quantita}
 
+                <dt>Descrizione:</dt>
+                {descrizione}
+            </dl>
+            <input type="button" name="accessories" id="accessories" value="Accessori">
+        </form>
 
-            <input type="button" name="addToCart" id="addToCart" value="Aggiungi al carrello">
+        <input type="button" name="addToCart" id="addToCart" value="Aggiungi al carrello"
+            data-path="../../assets/images/pc/P1.jpg">
 
             <input type="button" name="showCart" id="showCart" value="Mostra il carrello">
 
@@ -233,26 +229,26 @@
                     <dd><a href="profile.html">Gestisci il tuo account</a></dd>
                 </div>
 
-                <div id="shop">
-                    <dt lang="en">SHOP</dt>
-                    <dd><a href="catalog.html">Tastiere</a></dd>
-                    <dd><a href="catalog.html" lang="en">Computer</a></dd>
-                </div>
-            </dl>
+            <div id="shop">
+                <dt lang="en">SHOP</dt>
+                <dd><a href="catalog.html?categoria=kbd">Tastiere</a></dd>
+                <dd><a href="catalog.html?categoria=pc" lang="en">Computer</a></dd>
+            </div>
+        </dl>
 
-            <!-- Termini, informative, cookies e marchio -->
-            <ul id="footunor">
-                <li><span id="rights">ML Tech 2022:</span> Tutti i diritti riservati</li>
-                <li><a href="tos.html">Termini e Condizioni</a></li>
-                <li><a href="privacy.html">Informativa sulla <span lang="en">privacy</span></a></li>
-                <li><a href="cookies.html">Gestisci <span lang="en">cookie</span></a></li>
-            </ul>
-        </footer>
-        <script src="../JS/switch-handler.js"></script>
-        <script src="../js/accessories.js"></script>
-        <script src="../js/cart.js"></script>
-        <script src="../js/productHandler.js"></script>
-        <script src="src/JS/dropdown.js"></script>
-    </body>
+        <!-- Termini, informative, cookies e marchio -->
+        <ul id="footunor">
+            <li><span id="rights">ML Tech 2022:</span> Tutti i diritti riservati</li>
+            <li><a href="tos.html">Termini e Condizioni</a></li>
+            <li><a href="privacy.html">Informativa sulla <span lang="en">privacy</span></a></li>
+            <li><a href="cookies.html">Gestisci <span lang="en">cookie</span></a></li>
+        </ul>
+    </footer>
+    <script src="../JS/switch-handler.js"></script>
+    <script src="../js/accessoriesHandler.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/productHandler.js"></script>
+
+</body>
 
 </html>

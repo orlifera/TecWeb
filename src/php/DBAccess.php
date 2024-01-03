@@ -20,7 +20,8 @@ class DBAccess
         return mysqli_connect_errno() == 0;
     }
 
-    public function getPc($sku)
+    /************ GESTIONE PRODOTTI ************/
+    public function getProduct($categoria, $sku)
     {
         $query = "SELECT SKU, 
                          Nome, 
@@ -29,33 +30,39 @@ class DBAccess
                          Prezzo, 
                          Colore, 
                          Disponibilita,
-                         path_immagine
+                         path_immagine,
+                         riferimento
                          FROM Prodotto 
-                         WHERE SKU = '$sku';
-                ";
+                         WHERE categoria = '$categoria'
+                         AND SKU = '$sku';";
         $queryResult = mysqli_query($this->connection, $query) or die("Errore in DBAccess" . mysqli_error($this->connection));
         if (mysqli_num_rows($queryResult) != 0) {
             // Modo 1 di fare:
             $row = mysqli_fetch_assoc($queryResult);
-            return array($row["SKU"], $row["Nome"], $row["Tipo"], $row["Descrizione"], $row["Prezzo"], $row["Colore"], $row["Disponibilita"], $row["path_immagine"]);
-
-            // Modo 2 di fare:
-            // $pc = array();
-            // while($row = mysqli_fetch_assoc($queryResult)){
-            //     $pc[] = $row;
-            // }
-            // $queryResult -> free();
-            // return $pc;
-
+            return array($row["SKU"], $row["Nome"], $row["Tipo"], $row["Descrizione"], $row["Prezzo"], $row["Colore"], $row["Disponibilita"], $row["path_immagine"], $row["riferimento"]);
         } else {
             return null;
         }
     }
 
-    public function getNamePricePath()
+    public function getDisp($sku)
     {
-        $query = "SELECT Nome, Prezzo, path_immagine FROM Prodotto;";
+        $query = "SELECT Disponibilita
+                         FROM Prodotto 
+                         WHERE SKU = '$sku';";
+        $queryResult = mysqli_query($this->connection, $query) or die("Errore in DBAccess" . mysqli_error($this->connection));
+        if (mysqli_num_rows($queryResult) != 0) {
+            // Modo 1 di fare:
+            $row = mysqli_fetch_assoc($queryResult);
+            return array($row["Disponibilita"]);
+        } else {
+            return null;
+        }
+    }
 
+    public function getNamePricePath($categoria)
+    {
+        $query = "SELECT Nome, Prezzo, path_immagine, SKU FROM Prodotto WHERE categoria = '$categoria';";
         $queryResult = mysqli_query($this->connection, $query) or die("Errore in DBAccess" . mysqli_error($this->connection));
         if (mysqli_num_rows($queryResult) != 0) {
             $rows = array();
@@ -68,10 +75,9 @@ class DBAccess
         }
     }
 
-    public function getNamePricePathAcc()
+    public function getNamePricePath1($categoria, $riferimento)
     {
-        $query = "SELECT Nome, Prezzo, path_immagine FROM Accessori;";
-
+        $query = "SELECT Nome, Prezzo, path_immagine, SKU FROM Prodotto WHERE categoria = '$categoria' AND riferimento = '$riferimento';";
         $queryResult = mysqli_query($this->connection, $query) or die("Errore in DBAccess" . mysqli_error($this->connection));
         if (mysqli_num_rows($queryResult) != 0) {
             $rows = array();
@@ -84,12 +90,57 @@ class DBAccess
         }
     }
 
-    public function insertNewPc($sku, $nome, $prezzo, $descrizione,  $disponibilita, $tipo,  $colore, $path_immagine)
+    public function insertNewPc($sku, $nome, $prezzo, $descrizione,  $quantita, $tipo,  $colore, $path_immagine)
     {
-        $queryInsert = "INSERT INTO Prodotto (sku, nome, tipo, descrizione, prezzo, colore, disponibilita, path_immagine) VALUES (\"$sku\", \"$nome\", \"$tipo\", \"$descrizione\", $prezzo, \"$colore\", $disponibilita, \"$path_immagine\")";
+        $queryInsert = "INSERT INTO Prodotto (sku, nome, tipo, descrizione, prezzo, colore, disponibilita, path_immagine) VALUES (\"$sku\", \"$nome\", \"$tipo\", \"$descrizione\", $prezzo, \"$colore\", $quantita, \"$path_immagine\")";
         mysqli_query($this->connection, $queryInsert) or die("errore in DBaccess" . mysqli_error($this->connection));
         return mysqli_affected_rows($this->connection) > 0;
     }
+    /************ FINE GESTIONE PRODOTTO ************/
+
+
+    /************ PRODOTTI CARRELLO ************/
+    public function getProductCart()
+    {
+        $query = "SELECT sku, nome, tipo, descrizione, prezzo, colore, quantitaScelta, path_immagine, categoria FROM Carrello";
+        $queryResult = mysqli_query($this->connection, $query) or die("Errore in DBAccess" . mysqli_error($this->connection));
+
+        $data = array();
+
+        if (mysqli_num_rows($queryResult) != 0) {
+            while ($row = mysqli_fetch_assoc($queryResult)) {
+                $data[] = $row;
+            }
+        }
+
+        return $data;
+    }
+
+    public function insertToCart($sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_immagine, $categoria)
+    {
+        $queryInsert = "INSERT INTO Carrello (sku, nome, tipo, descrizione, prezzo, colore, quantitaScelta, path_immagine, categoria) VALUES (\"$sku\", \"$nome\", \"$tipo\", \"$descrizione\", $prezzo, \"$colore\", $quantita, \"$path_immagine\", \"$categoria\")";
+        mysqli_query($this->connection, $queryInsert) or die("errore in DBaccess" . mysqli_error($this->connection));
+        return mysqli_affected_rows($this->connection) > 0;
+    }
+
+    public function deleteFromCart($sku)
+    {
+        $queryDelete = "DELETE FROM Carrello WHERE sku = '$sku'";
+        mysqli_query($this->connection, $queryDelete) or die("errore in DBaccess" . mysqli_error($this->connection));
+        return mysqli_affected_rows($this->connection) > 0;
+    }
+    /************ FINE PRODOTTI CARRELLO ************/
+
+    /************ GESTIONE ORDINI ************/
+    //quando procedi all'ordine aggiorni disponibilità presente in tabella prodotto
+    public function updateDisponibilitaProdotto($sku, $quantitaRimanente)
+    {
+        $queryUpdate = "UPDATE Prodotto SET disponibilita = $quantitaRimanente WHERE sku = '$sku'";
+        mysqli_query($this->connection, $queryUpdate) or die("errore in DBaccess" . mysqli_error($this->connection));
+        return mysqli_affected_rows($this->connection) > 0;
+    }
+
+    /************ FINE GESTIONE ORDINI ************/
 
     public function closeDBConnection()
     {
