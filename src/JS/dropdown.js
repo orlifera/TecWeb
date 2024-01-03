@@ -1,19 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     // Function to open or close a specific dropdown
-    function toggleDropdown(dropdownList, open = null) {
-        console.log("dropdown function")
-        const isHidden = dropdownList.classList.contains('hide');
-        if (open === true || (open === null && !isHidden)) {
+    function toggleDropdown(dropdownList) {
+        if (dropdownList.classList.contains('hide')) {
             // Open the dropdown
             dropdownList.classList.remove('hide');
             dropdownList.classList.add('visible');
-            console.log("dropdown open")
-        } else if (open === false || (open === null && isHidden)) {
+            console.log("dropdown open");
+        } else {
             // Close the dropdown
-            dropdownList.classList.add('hide');
             dropdownList.classList.remove('visible');
-            console.log("dropdown close")
+            dropdownList.classList.add('hide');
+            console.log("dropdown close");
         }
     }
 
