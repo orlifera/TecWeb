@@ -1,0 +1,74 @@
+<?php
+
+require_once "DBAccess.php";
+
+use DB\DBAccess;
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+setlocale(LC_ALL, 'it_IT');
+
+$paginaHTML = file_get_contents(__DIR__ . "/../pages/order.html");
+
+$listaPC = "";
+$htmlProdotti = "";
+$sku = $_GET["id"];
+$quantitaOrdinata = $_GET["quantitaOrdinata"];
+$quantitaRimanente = "";
+
+$skuArray = explode(',', $sku);
+$quantitaArray = explode(',', $quantitaOrdinata);
+
+foreach ($skuArray as $i => $id) {
+    $skuProdotto[] = $id;
+}
+
+foreach ($quantitaArray as $i => $id) {
+    $quantita[] = $id;
+}
+
+
+$connection = new DBAccess();
+$connectionOk = $connection->openDBConnection();
+
+if ($connectionOk) {
+    foreach ($skuProdotto as $i => $sku) {
+        $quantitaOrdinata = $quantita[$i];
+        $listaPC = $connection->getDisp($sku);
+        if (!empty($listaPC)) {
+            $quantitaRimanente = $listaPC[0] - $quantitaOrdinata;
+            $listaPC = $connection->updateDisponibilitaProdotto($sku, $quantitaRimanente);
+            $listaPC = $connection->deleteFromCart($sku);
+            $htmlProdotti = "<p>Ordine confermato, il team di ML Tech la ringrazia per la fiducia</p>";
+        } else {
+            $htmlProdotti = "<p>Errore</p>";
+        }
+    }
+} else {
+    $nomeProdottoCompleto = $prezzo = $path = $sku = [];
+    $htmlProdotti = "<p>I sistemi sono momentaneamente fuori servizio, ci scusiamo per il disagio</p>";
+}
+$connection->closeDBConnection();
+
+
+$paginaHTML = str_replace('{ciao}', $htmlProdotti, $paginaHTML);
+
+$paginaHTML = str_replace('src/pages/cart.html', 'cart.php', $paginaHTML);
+
+$paginaHTML = str_replace('catalog.html?categoria=kbd', 'getCatalog.php?categoria=kbd', $paginaHTML);
+$paginaHTML = str_replace('catalog.html?categoria=pc', 'getCatalog.php?categoria=pc', $paginaHTML);
+
+
+$paginaHTML = str_replace('contacts.html', '../pages/contacts.html', $paginaHTML);
+$paginaHTML = str_replace('faq.html', '../pages/faq.html', $paginaHTML);
+$paginaHTML = str_replace('news.html', '../pages/news.html', $paginaHTML);
+$paginaHTML = str_replace('profile.html', '../pages/profile.html', $paginaHTML);
+$paginaHTML = str_replace('tos.html', '../pages/tos.html', $paginaHTML);
+$paginaHTML = str_replace('privacy.html', '../pages/privacy.html', $paginaHTML);
+$paginaHTML = str_replace('cookies.html', '../pages/cookies.html', $paginaHTML);
+
+
+
+//sistemazione tutti collegamenti footer
+echo $paginaHTML;
