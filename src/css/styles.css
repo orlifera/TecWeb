@@ -1087,6 +1087,7 @@ fieldset#stage1,
 fieldset#stage2,
 fieldset#stage3 {
     padding: 0;
+    border: none;
 }
 
 .stage1-content,
