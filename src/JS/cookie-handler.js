@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     else {
         let popUp = document.getElementById('cookie-section');
-        popUp.style.display = 'block';
+        popUp.classList.add('show');
     }
 
     let date = new Date();
@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function hidePopUp() {
         let popUp = document.getElementById('cookie-section');
-        popUp.style.display = 'none';
+        popUp.classList.remove('show');
+        popUp.classList.add('hidden');
     }
 
     document.getElementById('accept').addEventListener('click', function () {

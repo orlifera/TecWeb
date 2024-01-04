@@ -2,24 +2,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to open or close a specific dropdown
     function toggleDropdown(dropdownList) {
-        if (dropdownList.classList.contains('hide')) {
+        if (dropdownList.classList.contains('hidden')) {
             // Open the dropdown
-            dropdownList.classList.remove('hide');
-            dropdownList.classList.add('visible');
+            dropdownList.classList.remove('hidden');
+            dropdownList.classList.add('show');
             console.log("dropdown open");
         } else {
             // Close the dropdown
-            dropdownList.classList.remove('visible');
-            dropdownList.classList.add('hide');
+            dropdownList.classList.remove('show');
+            dropdownList.classList.add('hidden');
             console.log("dropdown close");
         }
     }
 
     // Close all dropdowns
     function closeAllDropdowns() {
-        document.querySelectorAll('.dropdown-list.visible').forEach(dropdown => {
-            dropdown.classList.remove('visible');
-            dropdown.classList.add('hide');
+        document.querySelectorAll('.dropdown-list.show').forEach(dropdown => {
+            dropdown.classList.remove('show');
+            dropdown.classList.add('hidden');
         });
     }
 
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (event.key === 'Tab' && event.shiftKey) {
                 console.log("secondo if")
                 const dropdownList = this.nextElementSibling;
-                if (dropdownList.classList.contains('visible')) {
+                if (dropdownList.classList.contains('show')) {
                     toggleDropdown(dropdownList, false);
                 }
             }
