@@ -1025,7 +1025,6 @@ fieldset:last-of-type {
 #cookie-section {
     /* display: none; */
     width: 20em;
-    height: 12em;
     padding: 2em;
     position: fixed;
     bottom: 1em;
