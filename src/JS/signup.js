@@ -47,23 +47,12 @@ function switchStage(toHide, toShow, forward = true) {
             return; // Prevents moving to the next stage if email is invalid
         }
     }
-    if (toHide === signupContent1 && areFieldsCompleted(toHide)) {
-        stageno1.classList.remove("stageno");
-        stageno1.classList.add("completed");
-    }
-    else if (toHide === signupContent2 && areFieldsCompleted(toHide)) {
-        stageno2.classList.remove("stageno");
-        stageno2.classList.add("completed");
-    }
-    else if (forward && !areFieldsCompleted(toHide)) {
+    if (forward && !areFieldsCompleted(toHide)) {
         alert('Per favore, compila tutti i campi prima di procedere al prossimo stage.');
         return;
     }
-
-
     hideStage(toHide);
     showStage(toShow);
-
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -72,6 +61,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     stagebtn1b.addEventListener('click', function () {
         switchStage(signupContent1, signupContent2, true);
+        stageno1.classList.remove("stageno");
+        stageno1.classList.add("completed");
     });
 
     stagebtn2a.addEventListener('click', function () {
@@ -82,6 +73,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     stagebtn2b.addEventListener('click', function () {
         switchStage(signupContent2, signupContent3, true);
+        stageno2.classList.remove("stageno");
+        stageno2.classList.add("completed");
     });
 
     stagebtn3a.addEventListener('click', function () {
