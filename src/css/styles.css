@@ -1006,15 +1006,14 @@ fieldset:last-of-type {
 }
 
 #cookie-heading {
+    width: 20em;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 .5em;
 }
 
 #cookie-icon {
     width: 2em;
-    height: 2em;
 }
 
 #cookie-desc {
