@@ -37,9 +37,11 @@
             <!-- Parte sinistra della navbar: indirizza alle altre pagine del sito -->
             <div id="left">
                 <ul>
-                    <li><a href="../../index.html" lang="en">Home</a></li>
+                    <li><a href="../../index.html" class="active" lang="en">Home</a></li>
                     <li>
-                        <p id="drop-p" class="dropdown-trigger" tabindex="0" role="button" aria-haspopup="true">Shop
+                        <p id="drop-p" class="dropdown-trigger" tabindex="0" role="button" aria-haspopup="true"
+                            lang="en">
+                            Shop
                             <?xml version="1.0" encoding="utf-8"?>
                             <svg id="dropdown-icon" width="30px" height="30px" viewBox="0 0 30 30"
                                 transform="translate(0, 12)" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -47,19 +49,20 @@
                                     d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z" />
                             </svg>
                         </p>
-                        <ul class="dropdown-list">
-                            <li><a href="src/php/catalog.php?categoria=pc">PC</a></li>
-                            <li><a href="src/php/catalog.php?categoria=kbd">Tastiere</a></li>
+                        <ul class="dropdown-list hide">
+                            <li><a href="../php/getCatalog.php?categoria=pc&riferimento=" lang="en"
+                                    abbr="Personal Computer">PC</a></li>
+                            <li><a href="../php/getCatalog.php?categoria=kbd&riferimento=">Tastiere</a></li>
                         </ul>
                     </li>
-                    <li><a href="src/pages/contacts.html">Contatti</a></li>
+                    <li><a href="contacts.html">Contatti</a></li>
                 </ul>
             </div>
             <!-- Parte destra della navbar: indirizza a pagine personalizzate all'utente -->
             <div id="right">
                 <ul>
                     <li>
-                        <a href="cart.html">
+                        <a href="../php/cart.php">
                             <svg class="icon" id="cart" xmlns="http://www.w3.org/2000/svg" version="1.0" width="30"
                                 height="30" viewBox="0 0 5000 5000" preserveAspectRatio="xMidYMid meet" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -84,7 +87,7 @@
                             <?xml version="1.0" encoding="utf-8"?>
 
                         </p>
-                        <ul id="profile-drop" class="dropdown-list">
+                        <ul id="profile-drop" class="dropdown-list hide">
                             <li>
                                 <a href="login.html">
                                     <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
@@ -116,7 +119,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="sendToLogin.php">
+                                <a href="../php/sendToLogin.php">
                                     <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                                     <svg id="settings" width="30px" height="30px" viewBox="0 0 24 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -152,19 +155,20 @@
         </nav>
 
 
-    <main id="catalog">
-        <form action="src/php/getCatalog.php" method="post">
-            <div class="grid">
-                {prodotto}
-            </div>
-        </form>
-    </main>
+        <main id="catalog">
+            <form action="src/php/getCatalog.php" method="post">
+                <div class="grid">
+                    {prodotto}
+                </div>
+            </form>
+        </main>
 
         <footer>
             <!-- Icone per account social dell'azienda -->
             <div id="icons">
                 <ul>
-                    <li><a href="" target="_blank"><img class="icon" src="../../assets/images/facebook.png"></a></li>
+                    <li><a href="" target="_blank"><img class="icon" src="../../assets/images/facebook.png"></a>
+                    </li>
                     <li><a href="instagram.com/ml__tech" target="_blank"><img class="icon"
                                 src="../../assets/images/instagram.png"></a></li>
                     <li><a href="" target="_blank"><img class="icon" src="../../assets/images/tik-tok.png"></a></li>
@@ -193,12 +197,12 @@
                     <dd><a href="profile.html">Gestisci il tuo account</a></dd>
                 </div>
 
-            <div id="shop">
-                <dt lang="en">SHOP</dt>
-                <dd><a href="catalog.html?categoria=kbd">Tastiere</a></dd>
-                <dd><a href="catalog.html?categoria=pc" lang="en">Computer</a></dd>
-            </div>
-        </dl>
+                <div id="shop">
+                    <dt lang="en">SHOP</dt>
+                    <dd><a href="catalog.html?categoria=kbd">Tastiere</a></dd>
+                    <dd><a href="catalog.html?categoria=pc" lang="en">Computer</a></dd>
+                </div>
+            </dl>
 
             <!-- Termini, informative, cookies e marchio -->
             <ul id="footunor">

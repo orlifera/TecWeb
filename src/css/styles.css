@@ -183,13 +183,13 @@ ul li ul.dropdown-list {
 }
 
 /* State when dropdown is active */
-ul.dropdown-list.visible {
+ul.dropdown-list.show {
     display: block;
 }
 
-ul.dropdown-list.hide:not(ul li:hover ul.dropdown-list),
-ul.dropdown-list li.hide {
-    height: 0;
+ul.dropdown-list.hidden:not(ul li:hover ul.dropdown-list),
+ul.dropdown-list li.hidden {
+    display: none;
 }
 
 ul li ul.dropdown-list#profile-drop {
@@ -210,14 +210,6 @@ ul.dropdown-list a {
 ul li:hover ul.dropdown-list {
     display: block;
 }
-
-/* .visible {
-    display: block;
-}
-
-.hide {
-    height: 0;
-} */
 
 #menu.fixed {
     position: fixed;
@@ -1024,7 +1016,6 @@ fieldset:last-of-type {
 #cookie-section {
     /* display: none; */
     width: 20em;
-    height: 12em;
     padding: 2em;
     position: fixed;
     bottom: 1em;
