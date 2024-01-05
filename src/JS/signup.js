@@ -10,7 +10,8 @@ let signupContent = document.querySelector(".signup-container"),
     stageno3 = document.querySelector(".stageno-3"),
     signupContent1 = document.querySelector(".stage1-content"),
     signupContent2 = document.querySelector(".stage2-content"),
-    signupContent3 = document.querySelector(".stage3-content");
+    signupContent3 = document.querySelector(".stage3-content"),
+    loginLink = document.querySelector(".login-link");
 
 function showStage(...contents) {
     contents.forEach(contents => {
@@ -64,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (switchStage(signupContent1, signupContent2, true)) {
             stageno1.classList.remove("stageno");
             stageno1.classList.add("completed");
+            loginLink.classList.add("hidden");
         }
     });
 
@@ -71,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (switchStage(signupContent2, signupContent1, false)) {
             stageno1.classList.remove("completed");
             stageno1.classList.add("stageno");
+            loginLink.classList.remove("hidden");
         }
     });
 

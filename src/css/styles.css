@@ -1100,6 +1100,7 @@ fieldset#stage3 {
 }
 
 .signup-container {
+    margin: auto;
     width: 70%;
     padding: 3% 0;
     display: flex;
