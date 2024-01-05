@@ -42,17 +42,18 @@ function switchStage(toHide, toShow, forward = true) {
 
     if (toHide === signupContent2 && forward) {
         var emailInput = signupContent2.querySelector('input[type="email"]');
-        if (emailInput && !emailInput.checkValidity()) {
-            alert('Per favore, inserie un indirizzo email valido.');
-            return; // Prevents moving to the next stage if email is invalid
-        }
+        // if (emailInput && !emailInput.checkValidity()) {
+        //     alert('Per favore, inserie un indirizzo email valido.');
+        //     return false; // Prevents moving to the next stage if email is invalid
+        // }
     }
     if (forward && !areFieldsCompleted(toHide)) {
         alert('Per favore, compila tutti i campi prima di procedere al prossimo stage.');
-        return;
+        return false;
     }
     hideStage(toHide);
     showStage(toShow);
+    return true;
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -60,27 +61,31 @@ document.addEventListener('DOMContentLoaded', function () {
     hideStage(signupContent2, signupContent3);
 
     stagebtn1b.addEventListener('click', function () {
-        switchStage(signupContent1, signupContent2, true);
-        stageno1.classList.remove("stageno");
-        stageno1.classList.add("completed");
+        if (switchStage(signupContent1, signupContent2, true)) {
+            stageno1.classList.remove("stageno");
+            stageno1.classList.add("completed");
+        }
     });
 
     stagebtn2a.addEventListener('click', function () {
-        switchStage(signupContent2, signupContent1, false);
-        stageno1.classList.remove("completed");
-        stageno1.classList.add("stageno");
+        if (switchStage(signupContent2, signupContent1, false)) {
+            stageno1.classList.remove("completed");
+            stageno1.classList.add("stageno");
+        }
     });
 
     stagebtn2b.addEventListener('click', function () {
-        switchStage(signupContent2, signupContent3, true);
-        stageno2.classList.remove("stageno");
-        stageno2.classList.add("completed");
+        if (switchStage(signupContent2, signupContent3, true)) {
+            stageno2.classList.remove("stageno");
+            stageno2.classList.add("completed");
+        }
     });
 
     stagebtn3a.addEventListener('click', function () {
-        switchStage(signupContent3, signupContent2, false);
-        stageno2.classList.remove("completed");
-        stageno2.classList.add("stageno");
+        if (switchStage(signupContent3, signupContent2, false)) {
+            stageno2.classList.remove("completed");
+            stageno2.classList.add("stageno");
+        }
     });
 });
 
