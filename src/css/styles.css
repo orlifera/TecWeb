@@ -80,6 +80,34 @@
     --input-bg: #6B6E73;
 }
 
+/*Shake icona carrello quando aggiungi prodotti al carrello */
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-50px) rotate(-50deg);
+    }
+
+    50% {
+        transform: translateX(50px) rotate(50deg);
+    }
+
+    75% {
+        transform: translateX(-50px) rotate(-50deg);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+
 html {
     font-size: 100%;
     background-color: var(--bg);
@@ -1356,4 +1384,23 @@ input.previous:focus {
     color: var(--textP-login);
     text-decoration: underline;
     font-weight: 500;
+}
+
+/*PROVA CARRELLO*/
+.cart-count {
+    position: absolute;
+    top: 1;
+    right: 1;
+    background-color: black;
+    color: white;
+    padding: 2% 14%;
+    border-radius: 50%;
+    font-size: 15px;
+    transform: translate(-60%, -40%);
+    width: 38%;
+    height: 35%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    line-height: 20px;
 }

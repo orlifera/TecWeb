@@ -13,20 +13,6 @@ INSERT INTO utente VALUES
 ( "admin", "admin", "admin", "admin1234@gmail.com", "admin", "A"),
 ( "user", "user", "user", "user1234@gmail.com", "user", "U");
 
-
-drop table if exists Carrello;
-CREATE TABLE Carrello (
-  sku varchar(6) primary key ,
-  nome varchar(256) not null,
-  tipo varchar(256) not null,
-  descrizione varchar(256) not null,
-  prezzo double not null,
-  colore varchar(256) not null,
-  quantitaScelta int not null,
-  path_immagine varchar(256) not null,
-  categoria varchar(6) not null
-) Engine = InnoDB default charset = utf8mb4;
-
 drop table if exists Prodotto;
 CREATE TABLE Prodotto (
   sku varchar(6) primary key ,
@@ -40,6 +26,22 @@ CREATE TABLE Prodotto (
   categoria varchar(6) not null,
   riferimento varchar(6) null
 ) Engine = InnoDB default charset = utf8mb4; 
+
+
+drop table if exists Carrello;
+CREATE TABLE Carrello (
+  sku varchar(6) primary key ,
+  nome varchar(256) not null,
+  tipo varchar(256) not null,
+  descrizione varchar(256) not null,
+  prezzo double not null,
+  colore varchar(256) not null,
+  quantitaScelta int not null,
+  path_immagine varchar(256) not null,
+  categoria varchar(6) not null
+  foreign key (sku) references Prodotto(sku)
+) Engine = InnoDB default charset = utf8mb4;
+
 
 
 
@@ -82,3 +84,20 @@ INSERT INTO Prodotto VALUES
 
 
 
+
+
+/*
+SELECT 
+    Carrello.sku AS carrello_sku,
+    Carrello.nome AS carrello_nome,
+    Carrello.tipo AS carrello_tipo,
+    Carrello.descrizione AS carrello_descrizione,
+    Carrello.prezzo AS carrello_prezzo,
+    Carrello.colore AS carrello_colore,
+    Carrello.quantitaScelta AS carrello_quantitaScelta,
+    Carrello.path_immagine AS carrello_path_immagine,
+    Carrello.categoria AS carrello_categoria,
+    Prodotto.disponibilita AS prodotto_disponibilita
+FROM Carrello
+JOIN Prodotto ON Carrello.sku = Prodotto.sku;
+*/

@@ -5,6 +5,16 @@ function displayCart() {
   window.location.href = "../php/cart.php";
 }
 
+function shakeCartIcon() {
+  const cartIcon = document.getElementById("cart"); // Sostituisci 'cart' con l'id corretto dell'icona del carrello
+  cartIcon.classList.add("shake");
+
+  // Rimuovi la classe di tremolio dopo che l'animazione è completa
+  setTimeout(() => {
+    cartIcon.classList.remove("shake");
+  }, 2500); // Tempo in millisecondi corrispondente alla durata dell'animazione
+}
+
 function addToCart() {
   var scriptTag = document.querySelector('script[src$="cart.js"]');
   var id = scriptTag.getAttribute("data-id");
@@ -18,7 +28,7 @@ function addToCart() {
     alert("Prodotto non disponibile, ci scusiamo per il disagio!");
     return;
   }
-  var quantity = document.getElementById("quantity").value;
+  var quantity = document.querySelector(".quantity").value;
   var coloreProdotto = document.getElementById("colore").value;
   var splitValori = prezzoProdotto.split("€");
   var prezzo = splitValori[1];
@@ -43,8 +53,8 @@ function addToCart() {
     "&categoria=" +
     categoria;
 
+  shakeCartIcon();
   window.location.href = url;
-  alert("Prodotto aggiunto al carrello!");
 }
 
 document.addEventListener("DOMContentLoaded", function () {

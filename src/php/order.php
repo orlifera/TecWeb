@@ -1,6 +1,9 @@
 <?php
 
 require_once "DBAccess.php";
+session_start();
+$cartCounter =  0;
+$_SESSION['cart_counter'] = $cartCounter;
 
 use DB\DBAccess;
 
@@ -58,7 +61,7 @@ $paginaHTML = str_replace('src/pages/cart.html', 'cart.php', $paginaHTML);
 
 $paginaHTML = str_replace('catalog.html?categoria=kbd', 'getCatalog.php?categoria=kbd', $paginaHTML);
 $paginaHTML = str_replace('catalog.html?categoria=pc', 'getCatalog.php?categoria=pc', $paginaHTML);
-
+$paginaHTML = str_replace('{count_cart}', $cartCounter, $paginaHTML);
 
 $paginaHTML = str_replace('contacts.html', '../pages/contacts.html', $paginaHTML);
 $paginaHTML = str_replace('faq.html', '../pages/faq.html', $paginaHTML);

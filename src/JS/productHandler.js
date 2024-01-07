@@ -1,5 +1,5 @@
-let minus = document.getElementById("minus");
-let plus = document.getElementById("plus");
+let minusButtons = document.querySelectorAll(".minus");
+let plusButtons = document.querySelectorAll(".plus");
 let selectColore = document.getElementById("colore");
 let immagine = document.querySelector("img");
 var idValue = getParameterByName("id", window.location.href);
@@ -8,11 +8,24 @@ var categoriaValue = getParameterByName("categoria", window.location.href);
 let imageFilePath =
   "../../assets/images/" + categoriaValue + "/" + idValue + ".jpg";
 
-function incrementValue(disponibilita) {
-  var inputElement = document.getElementById("quantity");
+// function incrementValue(disponibilita) {
+//   var inputElement = document.getElementById("quantity");
+//   var value = parseInt(inputElement.value, 10);
+//   var max = disponibilita;
+//   if (max == 0) {
+//     return;
+//   }
+//   if (value < max) {
+//     value++;
+//   } else {
+//     value = max;
+//   }
+//   document.querySelector("input[type='number']").value = value;
+// }
+function incrementValue(index, disponibilita) {
+  var inputElement = document.querySelectorAll(".quantity")[index];
   var value = parseInt(inputElement.value, 10);
-  var max = disponibilita.split(":")[1].trim(); //elimini spazi
-
+  var max = disponibilita;
   if (max == 0) {
     return;
   }
@@ -21,18 +34,32 @@ function incrementValue(disponibilita) {
   } else {
     value = max;
   }
-  document.querySelector("input[type='number']").value = value;
+  inputElement.value = value;
 }
 
-function decrementValue() {
-  var value = document.querySelector("input[type='number']").value;
+function decrementValue(index) {
+  var inputElement = document.querySelectorAll(".quantity")[index];
+  var value = parseInt(inputElement.value, 10);
   if (value == 0) {
     return;
   }
-  if (value > 1) value--;
-  else value = 1;
-  document.querySelector("input[type='number']").value = value;
+  if (value > 1) {
+    value--;
+  } else {
+    value = 1;
+  }
+  inputElement.value = value;
 }
+
+// function decrementValue() {
+//   var value = document.querySelector("input[type='number']").value;
+//   if (value == 0) {
+//     return;
+//   }
+//   if (value > 1) value--;
+//   else value = 1;
+//   document.querySelector("input[type='number']").value = value;
+// }
 
 function changeColorProductImage() {
   let selectedColor = selectColore.value;
@@ -58,10 +85,20 @@ function getParameterByName(name, url) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  var disponibilita = document.getElementById("disponibilita").innerText;
-  minus.addEventListener("click", decrementValue);
-  plus.addEventListener("click", function () {
-    incrementValue(disponibilita);
+  // var disponibilita = document.getElementById("quantity");
+
+  var quantityInputs = document.querySelectorAll(".quantity");
+
+  minusButtons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      decrementValue(index);
+    });
+  });
+
+  plusButtons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      incrementValue(index, quantityInputs[index].max);
+    });
   });
 
   selectColore.addEventListener("change", function () {

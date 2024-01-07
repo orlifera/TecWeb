@@ -102,7 +102,20 @@ class DBAccess
     /************ PRODOTTI CARRELLO ************/
     public function getProductCart()
     {
-        $query = "SELECT sku, nome, tipo, descrizione, prezzo, colore, quantitaScelta, path_immagine, categoria FROM Carrello";
+        $query = "SELECT 
+        Carrello.sku AS sku,
+        Carrello.nome AS nome,
+        Carrello.tipo AS tipo,
+        Carrello.descrizione AS descrizione,
+        Carrello.prezzo AS prezzo,
+        Carrello.colore AS colore,
+        Carrello.quantitaScelta AS quantitaScelta,
+        Carrello.path_immagine AS path_immagine,
+        Carrello.categoria AS categoria,
+        Prodotto.disponibilita AS disponibilita
+    FROM Carrello
+    JOIN Prodotto ON Carrello.sku = Prodotto.sku; ";
+
         $queryResult = mysqli_query($this->connection, $query) or die("Errore in DBAccess" . mysqli_error($this->connection));
 
         $data = array();

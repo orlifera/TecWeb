@@ -1,6 +1,8 @@
 <?php
 
 require_once "DBAccess.php";
+session_start();
+$cartCounter = isset($_SESSION['cart_counter']) ? $_SESSION['cart_counter'] + 1 : 0;
 
 use DB\DBAccess;
 
@@ -24,6 +26,8 @@ $categoria = $_GET['categoria'];
 $connection = new DBAccess();
 $connectionOk = $connection->openDBConnection();
 
+$_SESSION['cart_counter'] = $cartCounter;
+
 if ($connectionOk) {
     $listaPC = $connection->insertToCart($sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_image, $categoria);
 } else {
@@ -31,4 +35,5 @@ if ($connectionOk) {
 }
 $connection->closeDBConnection();
 
-header("Location: cart.php");
+
+header("Location: getProduct.php?id=$sku&categoria=$categoria");
