@@ -5,17 +5,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     else {
         let popUp = document.getElementById('cookie-section');
-        popUp.style.display = 'block';
+        popUp.classList.add('show');
     }
 
     let date = new Date();
     date = date.toUTCString();
 
     function hidePopUp() {
-        console.log('hide');
-        console.log("creato")
         let popUp = document.getElementById('cookie-section');
-        popUp.style.display = 'none';
+        popUp.classList.remove('show');
+        popUp.classList.add('hidden');
     }
 
     document.getElementById('accept').addEventListener('click', function () {
@@ -29,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function setCookie(name, value, days) {
-    console.log('called')
     let expires = "";
     if (days) {
         let date = new Date();

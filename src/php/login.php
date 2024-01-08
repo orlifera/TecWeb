@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_SESSION['username']) && $_SESSION['username'] !== '') {
-    header('Location: ../../index.html');
+    header('Location: ../../pages/profile.html');
     exit();
 }
 
@@ -9,8 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['submit'])) {
         require_once("connessionedb.php");
 
-        $username = htmlentities(substr($_POST["username"],0,255));
-        $password = substr($_POST["password"],0,255);
+        $username = htmlentities(substr($_POST["username"], 0, 255));
+        $password = substr($_POST["password"], 0, 255);
 
         $stmt = $connessione->prepare("SELECT * FROM utente WHERE username = ?");
         $stmt->bind_param("s", $username);
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 session_regenerate_id();
                 $_SESSION["username"] = $user_data["username"];
                 $_SESSION["password"] = $user_data["password"];
-                header('Location: ../../index.html');
+                header('Location: ../../pages/profile.html');
                 exit();
             } else {
                 $error = "Password errata";
@@ -39,5 +39,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // UTILIZZO QUESTO PER VEDERE L'ID DELLA SESSIONE SALVATO NEL COOKIE
 // document.cookie
 // document.cookie.split(';')
-
-?>

@@ -1,6 +1,6 @@
 <!-- Progetto Tecnologie Web -->
 <!DOCTYPE html>
-<html lang="it" data-theme="light" data-theme="light">
+<html lang="it" data-theme="light">
 
     <head>
         <meta charset="utf-8">
@@ -45,7 +45,9 @@
                 <ul>
                     <li><a href="index.html" class="active" lang="en">Home</a></li>
                     <li>
-                        <p id="drop-p" class="dropdown-trigger" tabindex="0" role="button" aria-haspopup="true">Shop
+                        <p id="drop-p" class="dropdown-trigger" tabindex="0" role="button" aria-haspopup="true"
+                            lang="en">
+                            Shop
                             <?xml version="1.0" encoding="utf-8"?>
                             <svg id="dropdown-icon" width="30px" height="30px" viewBox="0 0 30 30"
                                 transform="translate(0, 12)" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,9 +55,10 @@
                                     d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z" />
                             </svg>
                         </p>
-                        <ul class="dropdown-list">
-                            <li><a href="src/php/catalog.php?categoria=pc">PC</a></li>
-                            <li><a href="src/php/catalog.php?categoria=kbd">Tastiere</a></li>
+                        <ul class="dropdown-list hidden">
+                            <li><a href="src/php/getCatalog.php?categoria=pc&riferimento=" lang="en"
+                                    abbr="Personal Computer">PC</a></li>
+                            <li><a href="src/php/getCatalog.php?categoria=kbd&riferimento=">Tastiere</a></li>
                         </ul>
                     </li>
                     <li><a href="src/pages/contacts.html">Contatti</a></li>
@@ -65,7 +68,7 @@
             <div id="right">
                 <ul>
                     <li>
-                        <a href="src/pages/cart.html">
+                        <a href="src/php/cart.php">
                             <svg class="icon" id="cart" xmlns="http://www.w3.org/2000/svg" version="1.0" width="30"
                                 height="30" viewBox="0 0 5000 5000" preserveAspectRatio="xMidYMid meet" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -90,9 +93,9 @@
                             <?xml version="1.0" encoding="utf-8"?>
 
                         </p>
-                        <ul id="profile-drop" class="dropdown-list">
+                        <ul id="profile-drop" class="dropdown-list hidden">
                             <li>
-                                <a href="#">
+                                <a href="src/pages/login.html">
                                     <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                                     <svg id="login" width="30px" height="30px" viewBox="0 0 24 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -105,7 +108,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="src/pages/signup.html">
                                     <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                                     <svg id="signup" width="30px" height="30px" viewBox="0 0 24 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -122,7 +125,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="src/php/sendToLogin.php">
                                     <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                                     <svg id="settings" width="30px" height="30px" viewBox="0 0 24 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -162,7 +165,7 @@
             <!-- Prima sezione: costituisce la presentazione del sito -->
             <div id="presentation">
                 <h2 class="title">ML Tech</h2>
-                <p class="subtitle">Rivoluzionario (o some shit)</p>
+                <p class="subtitle">Tiozzo fai qualcosa plis (scherxo)</p>
             </div>
             <!-- Seconda sezione: da informazioni sul servizio offerto dal sito -->
             <div id="info">
@@ -171,7 +174,7 @@
                 <dl>
                     <div class="info-col">
                         <img class="icon" src="assets/images/open-box.png" alt="open box">
-                        <dt>ORDINI CUSTOM</dt>
+                        <dt lang="en">ORDINI CUSTOM</dt>
                         <dd>Se vuoi un computer ma niente del catalogo ti soddisfa, inviami una mail o un messaggio su
                             discord e ti manderò un preventivo personalizzato.</dd>
                     </div>
@@ -220,24 +223,30 @@
             <!-- Quarta sezione: informazioni sull'azienda -->
             <div id="about">
                 <h2 class="title">L'Azienda</h2>
-                <p>ML Tech nasce dalla mia passione per il mondo del gaming e per quello dei computer. Ho pensato che
+                <p>ML Tech nasce dalla mia passione per il mondo del <span lang="en">gaming</span> e per quello dei
+                    <span lang="en">computer</span>. Ho pensato che
                     non ci
                     fosse modo migliore di trasmettere queste mie passioni ad altre persone se non unendole. Il mio
                     obiettivo principale è di fare la differenza dalle grandi aziende, offrendoti una qualità maggiore
                     dei
                     servizi e un rapporto amichevole, Non resterai un semplice numero o un anonimo cliente, ma entrerai
                     a
-                    fare parte di una community di appasionati ed esperti. Vorrei insomma che ti sentissi tra amici, in
+                    fare parte di una <span lang="en">comunity</span> di appasionati ed esperti. Vorrei insomma che ti
+                    sentissi tra amici, in
                     un
                     posto dove giocare con gli altri e poter chiedere consigli su qualsiasi argomento dedicato.
                     Il catalogo offre prodotti per tutte le fasce di prezzo, in modo che ognuno possa trovare quello che
                     cerca.
-                    ML Tech nasce anche per essere una community per tutti coloro che condividono queste mie passioni, o
+                    ML Tech nasce anche per essere una <span lang="en">comunity</span> per tutti coloro che condividono
+                    queste mie passioni, o
                     per
-                    chi ci si vuole avvicinare per la prima volta, perciò ti invito ad entrare nel nostro server discord
-                    dove potrai interagire con gli altri, rimanere aggiornato sulle novità del mondo tech e sugli sconti
+                    chi ci si vuole avvicinare per la prima volta, perciò ti invito ad entrare nel nostro server <span
+                        lang="en">discord</span>>
+                    dove potrai interagire con gli altri, rimanere aggiornato sulle novità del mondo <span
+                        lang="en">tech</span> e sugli sconti
                     del
-                    sito.</p>
+                    sito.
+                </p>
             </div>
             <!-- Quinta sezione: brevi recensioni per dare un'idea agli interessati del punto di vista del cliente
             <div id="review">
@@ -344,25 +353,28 @@
                         occasioni su prodotti imperdibili. 5% di sconto alla registrazione</p>
                 </div>
                 <form id="newsletter" method="post">
-                    <input type="email" placeholder="mario.rossi@gmail.com" required id="form-email">
+                    <label for="form-email">Inserisci la tua mail
+                        <input type="email" placeholder="mario.rossi@gmail.com" required id="form-email"></label>
                     <label id="label-form-terms" for="form-terms"><input name="form-terms" type="checkbox" required
                             id="form-terms">Registrandoti acconsenti a: <a href="src/pages/privacy.html">Informativa
                             sulla
-                            <span>Privacy</span></a> e <a href="src/pages/tos.html">Termini e Condizioni</a></label>
+                            <span lang="en">Privacy</span></a> e <a href="src/pages/tos.html">Termini e
+                            Condizioni</a></label>
                     <input id="button" type="submit" value="Avvisami">
                 </form>
             </div>
             <section id="cookie-section">
-                <div class="container">
-                    <div class="subcontainer">
+                <div class="cookie-container">
+                    <div class="cookie-subcontainer">
                         <header id="cookie-heading">
                             <img id="cookie-icon" alt="cookie icon" src="assets/images/Cookies.png">
                             <h2 id="cookie-heading" lang="en">Cookie Policy</h2>
                         </header>
-                        <p id="cookie-desc">Questo sito usa cookie per migliorare le sue funzionalità e la tua
+                        <p id="cookie-desc">Questo sito usa <span lang="en">cookie</span> per migliorare le sue
+                            funzionalità e la tua
                             esperienza di navigazione.
                             Continuando, accetti la
-                            nostra <a id="cookie-link" href="src/pages/cookie.html">cookie policy</a>.
+                            nostra <a id="cookie-link" href="src/pages/cookie.html" lang="en">cookie policy</a>.
                         </p>
                         <button class="cookie-btn" id="accept">Accetto</button>
                         <button class="cookie-btn" id="reject">Rifiuto</button>
@@ -375,12 +387,14 @@
             <!-- Icone per account social dell'azienda -->
             <div id="icons">
                 <ul>
-                    <li><a href="" target="_blank"><img class="icon" src="assets/images/facebook.png"></a></li>
+                    <li><a href="" target="_blank"><img class="icon" src="assets/images/facebook.png"
+                                alt="Facebook icon"></a></li>
                     <li><a href="instagram.com/ml__tech" target="_blank"><img class="icon"
-                                src="assets/images/instagram.png"></a></li>
-                    <li><a href="" target="_blank"><img class="icon" src="assets/images/tik-tok.png"></a></li>
+                                src="assets/images/instagram.png" alt="instagram icon"></a></li>
+                    <li><a href="" target="_blank"><img class="icon" src="assets/images/tik-tok.png"
+                                alt="tiktok icon"></a></li>
                     <li><a href="https://discord.gg/2w7mYbJmy2" target="_blank"><img class="icon"
-                                src="assets/images/discord.png"></a></li>
+                                src="assets/images/discord.png" alt="discord icon"></a></li>
                 </ul>
             </div>
 
@@ -401,13 +415,13 @@
 
                 <div id="account">
                     <dt>ACCOUNT</dt>
-                    <dd><a href="src/pages/profile.html">Gestisci il tuo account</a></dd>
+                    <dd><a href="src/pages/profile.html">Gestisci il tuo <span lang="en">account</span></a></dd>
                 </div>
 
                 <div id="shop">
                     <dt lang="en">SHOP</dt>
-                    <dd><a href="src/pages/catalog.html">Tastiere</a></dd>
-                    <dd><a href="src/pages/catalog.html" lang="en">Computer</a></dd>
+                    <dd><a href="src/php/getCatalog.php?categoria=kbd&riferimento=">Tastiere</a></dd>
+                    <dd><a href="src/php/getCatalog.php?categoria=pc&riferimento=" lang="en">Computer</a></dd>
                 </div>
             </dl>
 
