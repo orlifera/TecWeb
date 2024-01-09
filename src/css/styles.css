@@ -654,6 +654,7 @@ PROFILE
     overflow-y: auto;
     background-color: #f5f5f5;
     z-index: 100;
+    display: block;
 }
 
 .sidenav a {
