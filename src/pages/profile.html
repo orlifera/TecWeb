@@ -1,48 +1,84 @@
 <!DOCTYPE html>
-<html lang="it">
-    
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profilo</title> 
-    <meta name="keywords" content="MLTech">
-    <meta name="description" content=""> 
-    <link rel="stylesheet" href="../css/styles.css" media="screen">
-    <link rel="stylesheet" href="../css/print.css" media="print">
-    <link rel="stylesheet" href="../css/mini.css" media="screen and (max-width: 600px)">
-</head>
+    <html lang="it">
+        <head>
+            <meta charset="UTF-8">
+            <title>Profilo</title>
+            <meta name="keywords" content="ML-TECH products, gaming, workstation, technology ">
+            <meta name="description" content="Sito ufficiale ml-tech, gruppo fondato da Orlando Ferazzani">
+            <link rel="stylesheet" href="../css/styles.css" media="screen">
+            <link rel="stylesheet" href="../css/print.css" media="print">
+            <link rel="stylesheet" href="../css/mini.css" media="screen and (max-width: 600px)">
+        </head>
+        <body>
 
-<body>
+            <nav class="sidenav">
+            <ul>
+                <li><a href="#" data-target="personalInfo">Informazioni Personali</a></li>
+                <li><a href="#" data-target="changepsw">Cambio Password</a></li>
+                <li><a href="#" data-target="address">Indirizzo</a></li>
+                <li><a href="#" data-target="paymentMethod">Metodi di Pagamento</a></li>
+            </ul>
+            </nav>
 
-    <main>
-        <div class="container">
-
-            <div class="profileCard">
-                <nav class="sidenav">
-                    <ul>
-                        <li><a href="#accountGeneral">Informazioni personali</a></li>
-                        <li><a href="#changepsw">Cambio password</a></li>
-                        <li><a href="#">Indirizzo</a></li>
-                        <li><a href="#">Metodi di Pagamento</a></li>
-                    </ul> 
-                </nav>
-                <fieldset class="">
-                    
-                </fieldset>
-                <div class="profileInfo" id="accountGeneral">
-                    <p>Mr. Worldwide</p>
-                    <p>worldwide@mail.it</p>
-                    <p>altro</p>
+            <fieldset class="fieldProfile show" id="personalInfo">
+                <legend>Informazioni personali</legend>
+                <label for="user">Nome</label>
+                <input type="text" name="user" id="user" placeholder="Il tuo Username">
+                <label for="user">Cognome</label>
+                <input type="text" name="user" id="user" placeholder="Il tuo Username">
+                <label for="user">Username</label>
+                <input type="text" name="user" id="user" placeholder="Il tuo Username">
+                <label for="user">Email</label>
+                <input type="text" name="user" id="user" placeholder="Il tuo Username">
+                <label for="user">Telefono</label>
+                <input type="text" name="user" id="user" placeholder="Il tuo Username">
+                <h1>orlando metti le due immagini per il genere grazie</h1>
+                <div class="page-btns">
+                    <input type="submit" value="Aggiorna dati" class="next stagebtn1b">
                 </div>
-                <div class="profileInfo" id="changepsw">
-                    <p>psw</p>
-                    <p>psw</p>
+            </fieldset>
+
+            <fieldset class="fieldProfile hidden" id="changepsw">
+                <legend>Cambia password</legend>
+                <label  for="pwd">Vecchia password</label>
+                <input type="password" name="lname" id="pwd" placeholder="La tua password" required>
+                <label  for="pwd">Nuova password</label>
+                <input type="password" name="lname" id="pwd" placeholder="La tua password" required>
+                <label  for="pwd">Conferma password</label>
+                <input type="password" name="lname" id="pwd" placeholder="La tua password" required>
+                <div class="page-btns">
+                    <input type="submit" value="Aggiorna dati" class="next stagebtn1b">
                 </div>
-            </div>
-            
-        </div>
-    </main>
+            </fieldset>
 
-</body>
+            <fieldset class="fieldProfile hidden" id="address">
+                <legend>Indirizzo</legend>
+                <label for="city">Città</label>
+                <input type="text" name="city" id="city" placeholder="La tua città, provincia">
+                <label for="address">Indirizzo</label>
+                <input type="text" name="address" id="address" placeholder="Il tuo indirizzo">
+                <label for="cap">CAP</label>
+                <input type="text" name="cap" id="cap" placeholder="Il tuo CAP">
+                <div class="page-btns">
+                    <input type="submit" value="Aggiorna dati" class="next stagebtn1b">
+                </div>
+            </fieldset>
 
+            <fieldset class="fieldProfile hidden" id="paymentMethod">
+                <legend>Metodi di pagamento</legend>
+                <label for="intestatario">Intestatario</label>
+                <input type="text" name="intestatario" id="intestatario" placeholder="Mr. Worldwide" disabled>
+                <label for="numCarta">Numero della carta</label>
+                <input type="text" name="numCarta" id="numCarta" placeholder="1111 1111 1111 1111" disabled>
+                <label for="scadenza">Data Scadenza</label>
+                <input type="text" name="scadenza" id="scadenza" placeholder="12/34" disabled>
+                <label for="cvv">CVV</label>
+                <input type="text" name="cvv" id="cvv" placeholder="123" disabled>
+                <div class="page-btns">
+                    <input type="submit" value="Aggiorna dati" class="next stagebtn1b">
+                </div>
+            </fieldset>
+
+            <script src="../JS/profile.js"></script>
+    </body>
 </html>

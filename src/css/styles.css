@@ -636,43 +636,6 @@ footer ul#footunor li {
     background-color: #f9f9f9;
 }
 
-/*****
-PROFILE
-*****/
-.profileCard {
-    width: max-content;
-    margin: 5px 0 0 5px;
-    border: 1px solid black;
-    border-radius: 5px;
-}
-.sidenav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 200px;
-    height: 100vh;
-    overflow-y: auto;
-    background-color: #f5f5f5;
-    z-index: 100;
-    display: block;
-}
-
-.sidenav a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: #4E5155;
-    font-size: 16px;
-}
-
-.sidenav a:hover {
-    background-color: #ccc;
-}
-
-.sidenav a:focus {
-    outline: none;
-    background-color: #bbb;
-}
 /* Review */
 
 #review {
@@ -1526,3 +1489,48 @@ input.previous:focus {
     width: 10em;
     margin: auto;
 }
+
+/*****
+PROFILE
+*****/
+/* Stili per la sidenav */
+.sidenav {
+    width: 200px;
+    background-color: #f2f2f2;
+    float: left;
+  }
+  
+  .sidenav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidenav ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .sidenav ul li a:hover {
+    background-color: #ddd;
+  }
+  
+  /* Stili per i fieldset */
+  .content {
+    margin-left: 220px; /* Spazio per la navbar */
+  }
+  
+  .fieldProfile {
+    display: none;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: calc(100% - 240px); /* Larghezza - spazio per la navbar e margini */
+    float: left;
+  }
+  
+  fieldset.visible {
+    display: block;
+  }
+  
