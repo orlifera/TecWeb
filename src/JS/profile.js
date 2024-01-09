@@ -1,62 +1,53 @@
 // Ottieni tutti i link nella navbar
-const links = document.querySelectorAll('.sidenav a');
+// const links = document.querySelectorAll('.sidenav a');
 
-// Aggiungi un gestore di eventi a ciascun link
-links.forEach(link => {
-  link.addEventListener('click', (event) => {
-    event.preventDefault();
+// // Aggiungi un gestore di eventi a ciascun link
+// links.forEach(link => {
+//   link.addEventListener('click', (event) => {
+//     event.preventDefault();
 
-    // Ottieni il valore dell'attributo data-target
-    const targetId = link.getAttribute('data-target');
+//     // Ottieni il valore dell'attributo data-target
+//     const targetId = link.getAttribute('data-target');
 
-    // Ottieni il fieldset corrispondente
-    const targetFieldset = document.getElementById(targetId);
+//     // Ottieni il fieldset corrispondente
+//     const targetFieldset = document.getElementById(targetId);
 
-    // Nascondi tutti i fieldset
-    const allFieldsets = document.querySelectorAll('fieldset');
-    allFieldsets.forEach(fieldset => {
-      fieldset.classList.remove('show');
+//     // Nascondi tutti i fieldset
+//     const allFieldsets = document.querySelectorAll('fieldset');
+//     allFieldsets.forEach(fieldset => {
+//       fieldset.classList.remove('show');
+//     });
+
+//     // Mostra solo il fieldset corrispondente al link cliccato
+//     targetFieldset.classList.add('show');
+//   });
+// });
+
+const first = document.getElementById('personalInfo');
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (first) {
+    first.classList.remove('hidden');
+    first.classList.add('show');
+  }
+  document.querySelectorAll('.sidenav a').forEach(link => {
+    link.addEventListener('click', function (event) {
+      event.preventDefault();
+      const targetId = this.getAttribute('data-target');
+
+      // Hide all fieldsets
+      document.querySelectorAll('fieldset').forEach(fieldset => {
+        fieldset.classList.remove('show');
+        fieldset.classList.add('hidden');
+      });
+
+      // Show the targeted fieldset
+      const targetFieldset = document.getElementById(targetId);
+      if (targetFieldset) {
+        targetFieldset.classList.remove('hidden');
+        targetFieldset.classList.add('show');
+      }
     });
-
-    // Mostra solo il fieldset corrispondente al link cliccato
-    targetFieldset.classList.add('show');
   });
 });
-
-// let info = document.getElementById('personalInfo'), 
-//     changePsw = document.getElementById('changePsw'), 
-//     address = docuemnt.getElementById('address'), 
-//     payments = document.getElementById('payment'), 
-//     fieldset = document.querySelector('fieldProfile'); 
-
-
-//     function showCard(...contents) {
-//         contents.forEach(contents => {
-//             if (contents.classList.contains("hidden"))
-//                 contents.classList.remove("hidden");
-//             contents.classList.add("show");
-//         });
-//     }
-
-//     function hideCard(...contents) {
-//         contents.forEach(contents => {
-//             if (contents.classList.contains("show"))
-//                 contents.classList.remove("show");
-//             contents.classList.add("hidden");
-//         });
-//     }
-
-//     function switchCard(toHide, toShow) {
-//         hideCard(toHide);
-//         showCard(toShow);
-//     }
-// document.addEventListener('DOMContentLoaded', function(){
-
-//     fieldset.addEventListener('click', function(){
-//         if(fieldset.classList.contains('hidden')){
-//             switchCard()
-//         }
-//     })
-
-// }); 
-
