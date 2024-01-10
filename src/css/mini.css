@@ -6,6 +6,44 @@
     --switch-pos: 3.7em;
 }
 
+@media (max-width: 400px) {
+    #main-header #logo {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 375px) {
+    
+    #mobile ul li {
+        padding: 0 1em;
+    }
+    
+    #mobile ul li svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    #mobile div#drop-catalogo {
+        width: 15em;
+        bottom: 35dvh;
+        right: calc((100dvw - 15em)/2);
+    }
+
+    #mobile div#drop-catalogo p {
+        font-size: 1em;
+        padding: 1em 0 0.5em;
+    }
+
+    #mobile div#drop-catalogo li {
+        width: 40%;
+        padding: 0.5em;
+    }
+
+    #mobile div#drop-catalogo ul {
+        padding: 0.5em 0;
+    }
+}
+
 footer {
     display: none;
 }
@@ -22,15 +60,21 @@ nav#menu {
     display: none;
 }
 
+#drop-p {
+    padding: 0.5em;
+}
+
 #mobile {
     display: block;
     width: 100%;
-    bottom: 0;
+    bottom: -1px;
+    margin: auto;
     position: fixed;
     background: linear-gradient(to top right, var(--primaryGradient), var(--secondaryGradient));;
 }
 
 #mobile ul {
+    padding: 0.8em 0;
     margin: auto;
     text-align: center;
     width: 100%;
@@ -46,7 +90,7 @@ nav#menu {
 }
 
 div#presentation {
-    height: 85vh;
+    height: 85dvh;
 }
 
 #presentation .title {
@@ -122,23 +166,61 @@ main#login-main {
     display: none;
 }
 
-#mobile .dropup-list {
-    position: absolute;
+#mobile {
     z-index: 999;
-    padding: 0.5em;
-    background-color: var(--primaryGradient);
 }
 
-#drop-catalogo {
-    width: 7em;
-    top: -7.8em;
-    left: 6.3em;
+#mobile .dropup-list {
+    position: fixed;
+    z-index: 999;
+    padding: 0.5em;
+    background-color: var(--bgDiv);
+    border-radius: 2px;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15), inset -1px -1px 2px rgba(0, 0, 0, 0.15);
+}
+
+#mobile #drop-catalogo {
+    width: 20em;
+    margin: auto;
+    bottom: 35dvh;
+    right: calc((100dvw - 20em)/2);
+}
+
+#mobile #profile-drop {
+    width: 20em;
+    margin: auto;
+    bottom: 35dvh;
+    right: 0;
+    /* right: calc((100dvw - 20em)/2); */
 }
 
 #mobile .dropup-list li {
-    width: 100%;
-    display: block;
+    width: 40%;
+    padding: 0.5em;
+    background-color: var(--secondaryGradient);
+    display: inline-block;
+    text-align: center;
+}
+
+#mobile .dropup-list ul {
+    padding: 2em;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#mobile .dropup-list a {
+    margin: auto;
+    text-align: center;
+}
+
+#mobile .dropup-list p {
     text-align: center;
     margin: auto;
-    padding: 1em;
+    padding: 2em 0 1em;
+    font-size: 1.5em;
+}
+
+.obscured {
+    filter: blur(5px);
+    position: fixed;
 }

@@ -7,6 +7,12 @@
     font-style: normal;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -179,7 +185,7 @@ nav#menu #switch {
 #menu li a:not(ul.dropdown-list a),
 #drop-p {
     display: block;
-    margin: 1em 1em;
+    padding: 1em;
 }
 
 /*DROPDOWN*/
