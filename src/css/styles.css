@@ -212,12 +212,9 @@ ul li ul.dropdown-list {
 }
 
 /* State when dropdown is active */
-ul.dropdown-list.show, ul li:hover ul.dropdown-list {
-    display: block;
-}
 
-ul.dropdown-list.hidden:not(ul li:hover ul.dropdown-list),
-ul.dropdown-list li.hidden {
+
+ul.dropdown-list:not(ul li:hover ul.dropdown-list) {
     display: none;
 }
 
@@ -984,6 +981,12 @@ fieldset:last-of-type {
     transition: var(--default-transition);
 }
 
+/* da controllare se c'è un modo migliore o va bene aumentare la specificità*/
+div#theme-switcher {
+    width: 5em;
+    margin: auto;
+}
+
 #theme-switcher::before {
     content: '';
     position: absolute;
@@ -1331,11 +1334,11 @@ input.previous:focus {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .show {
-    display: block;
+    display: block !important;
 }
 
 .completed {
@@ -1479,4 +1482,69 @@ input.previous:focus {
     font-size: 1em;
     width: 10em;
     margin: auto;
+}
+
+/*****
+PROFILE
+*****/
+/* Stili per la sidenav */
+.sidenav {
+    width: 10%;
+    background: linear-gradient(to bottom right, var(--primaryGradient), var(--secondaryGradient));
+    float: left;
+}
+
+.sidenav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidenav ul li {
+    border-bottom: 1px solid var(--smoke);
+    padding: .5em 0;
+}
+
+.sidenav ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--primaryText);
+}
+
+.sidenav ul li a:hover {
+    background-color: #ddd;
+}
+
+/* Stili per i fieldset */
+.content {
+    margin-left: 220px;
+    /* Spazio per la navbar */
+}
+
+.fieldProfile {
+    display: block;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: calc(100% - 240px);
+    /* Larghezza - spazio per la navbar e margini */
+    float: left;
+}
+
+.fieldProfile input {
+    display: block;
+}
+
+#genderSelector {
+    width: 30%;
+    margin: auto;
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#gg {
+    width: 1920px;
+    height: 1080px;
 }
