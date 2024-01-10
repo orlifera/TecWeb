@@ -7,12 +7,6 @@
     font-style: normal;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    * {
-        scroll-behavior: smooth;
-    }
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -44,7 +38,7 @@
     /*Secondo gradiente*/
     --primaryText: #dedeff;
     /*Testi importanti vari*/
-    --primaryIconBg: #838de3;
+    --primaryIconBg: #2196F3;
     --secondaryIconBG: #003f8f;
     --text-100: #333333;
     /*Testo primario*/
@@ -185,7 +179,7 @@ nav#menu #switch {
 #menu li a:not(ul.dropdown-list a),
 #drop-p {
     display: block;
-    padding: 1em;
+    margin: 1em 1em;
 }
 
 /*DROPDOWN*/
@@ -215,17 +209,17 @@ ul li ul.dropdown-list {
     position: absolute;
     z-index: 999;
     background-color: var(--primaryGradient);
-}
-
-/* State when dropdown is active */
-
-
-ul.dropdown-list:not(ul li:hover ul.dropdown-list) {
     display: none;
 }
 
-ul li:hover #drop-p ul.dropdown-list {
+/* State when dropdown is active */
+ul.dropdown-list.show {
     display: block;
+}
+
+ul.dropdown-list.hidden:not(ul li:hover ul.dropdown-list),
+ul.dropdown-list li.hidden {
+    display: none;
 }
 
 ul li ul.dropdown-list#profile-drop {
@@ -241,6 +235,10 @@ ul.dropdown-list a {
     display: block;
     margin: .5em .5em;
 
+}
+
+ul li:hover ul.dropdown-list {
+    display: block;
 }
 
 #menu.fixed {
@@ -1082,7 +1080,7 @@ div#theme-switcher {
 
 /*LOGIN*/
 
-#login-main {
+main#login-main {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1344,11 +1342,12 @@ input.previous:focus {
 }
 
 .hidden {
-    display: none !important;
+    display: none;
 }
 
 .show {
-    display: block !important;
+
+    display: block;
 }
 
 .completed {
@@ -1513,12 +1512,10 @@ ul#product-list li#product-card {
 PROFILE
 *****/
 /* Stili per la sidenav */
-
 #profileMain {
     width: 100%;
     margin: auto;
 }
-
 
 #profileDiv {
     width: 80%;
@@ -1526,13 +1523,11 @@ PROFILE
     border: 2px solid var(--smoke);
 }
 
-
-.sidenav {
+/* .sidenav {
     width: 25%;
     background: linear-gradient(to bottom right, var(--primaryGradient), var(--secondaryGradient));
     float: left;
 }
-
 
 .sidenav ul {
     list-style-type: none;
@@ -1553,13 +1548,12 @@ PROFILE
 
 .sidenav ul li:hover {
     background-color: var(--hover);
-}
+} */
 
 #profilePage {
     width: 75%;
     float: right;
 }
-
 
 /* .fieldProfile {
     width: 100%;
@@ -1568,12 +1562,9 @@ PROFILE
     padding: 10px;
     margin-bottom: 10px;
     width: calc(100% - 240px);
-    /* Larghezza - spazio per la navbar e margini 
+    /* Larghezza - spazio per la navbar e margini
     float: left;
 } */
-
-
-
 #genderSelector {
     width: 30%;
     margin: auto;
