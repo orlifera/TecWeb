@@ -1489,3 +1489,18 @@ input.previous:focus {
     width: 10em;
     margin: auto;
 }
+
+/*CATALOG*/
+
+ul#product-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    list-style-type: none;
+}
+
+ul#product-list li#product-card {
+    flex: 0 0 33.333%;
+    box-sizing: border-box;
+    margin: 10px;
+}
