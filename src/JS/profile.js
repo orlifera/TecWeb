@@ -24,16 +24,28 @@
 // });
 
 const first = document.getElementById('personalInfo');
+let firstNav = document.getElementById('firstNav');
 
 
 document.addEventListener('DOMContentLoaded', function () {
   if (first) {
     first.classList.remove('hidden');
     first.classList.add('show');
+    firstNav.classList.add('active');
   }
+
   document.querySelectorAll('.sidenav a').forEach(link => {
     link.addEventListener('click', function (event) {
       event.preventDefault();
+
+      // Remove active class from all nav items
+      document.querySelectorAll('.nav-item').forEach(navItem => {
+        navItem.classList.remove('active');
+      });
+
+      // Add active class to clicked nav item's parent li
+      this.parentElement.classList.add('active');
+
       const targetId = this.getAttribute('data-target');
 
       // Hide all fieldsets
