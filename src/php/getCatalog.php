@@ -33,8 +33,10 @@ if ($connectionOk) {
 
         if ($listaPC != null) {
             foreach ($listaPC as $pc) {
-                $stringaPC .= "<dt>" . $pc['Nome'] . "</dt>,";
-                $prezzoPc .= "<dt>&euro;" . $pc['Prezzo'] . "</dt>,";
+                $stringaPC .= "<dt class=\"pName\">" . $pc['Nome'] . "</dt>,";
+                $prezzoPc .= "<dt class=\"pPrice\">&euro;" . $pc['Prezzo'] . "</dt>,";
+                $stringaPC .= "<dt class=\"pName\">" . $pc['Nome'] . "</dt>,";
+                $prezzoPc .= "<dt class=\"pPrice\">&euro;" . $pc['Prezzo'] . "</dt>,";
                 $path_image .= $pc['path_immagine'] . ",";
                 $sku .= $pc['SKU'] . ",";
             }
@@ -50,8 +52,8 @@ if ($connectionOk) {
 
         if ($listaPC != null) {
             foreach ($listaPC as $pc) {
-                $stringaPC .= "<dt>" . $pc['Nome'] . "</dt>,";
-                $prezzoPc .= "<dt>&euro;" . $pc['Prezzo'] . "</dt>,";
+                $stringaPC .= "<dt class=\"pName\">" . $pc['Nome'] . "</dt>,";
+                $prezzoPc .= "<dt class=\"pPrice\">&euro;" . $pc['Prezzo'] . "</dt>,";
                 $path_image .= $pc['path_immagine'] . ",";
                 $sku .= $pc['SKU'] . ",";
             }
@@ -81,7 +83,7 @@ $connection->closeDBConnection();
 foreach ($nomePc as $i => $nome) {
     if ($nome != null) {
         // $prova = "<li>\n" . ""
-        $prova = "<li>\n" . "<dl>\n" .  "<a class=\"\" href=\"getProduct.php?categoria=" . $categoria . "&id=" . $sku1[$i] . "\">\n" . "<img src=\"" . $path[$i] . "\"" . "alt=\"image\">\n"  .  $nome .   $prezzo[$i]  . "</a>\n" . "</dl>\n" . "</li>\n";
+        $prova = "<li class=\"product-card\">" . "<a class=\"\" href=\"getProduct.php?categoria=" . $categoria . "&id=" . $sku1[$i] . "\">\n" . "<dl class=\"pList\">\n" . "<img class=\"pImage\" src=\"" . $path[$i] . "\"" . "alt=\"product image\">\n"  .  $nome .   $prezzo[$i]  . "</dl>\n" . "</a>\n" . "</li>\n";
         // $prova = "<div class=\"cell\">\n" . "<a class=\"\" href=\"getProduct.php?categoria=" . $categoria . "&id=" . $sku1[$i] . "\">\n" . "<img src=\"" . $path[$i] . "\"" . "alt=\"image\">\n" . "<dt>" .  $nome .  "</dt>" . "<dd>" . $prezzo[$i] . "</dd>\n" . "</a>\n" . "</div>\n";
         //variabile in più per concatenare i vari prodotti
         $htmlProdotti .= $prova;
