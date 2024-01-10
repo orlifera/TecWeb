@@ -1484,6 +1484,21 @@ input.previous:focus {
     margin: auto;
 }
 
+/*CATALOG*/
+
+ul#product-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    list-style-type: none;
+}
+
+ul#product-list li#product-card {
+    flex: 0 0 33.333%;
+    box-sizing: border-box;
+    margin: 10px;
+}
+
 /*****
 PROFILE
 *****/
@@ -1541,10 +1556,4 @@ PROFILE
     display: block;
     align-items: center;
     justify-content: center;
-}
-
-
-#gg {
-    width: 1920px;
-    height: 1080px;
 }

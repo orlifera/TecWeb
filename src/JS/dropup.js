@@ -1,4 +1,4 @@
-function showDrop(q) { 
+function showDrop(q) {
   q.classList.remove("hidden");
   q.classList.add("show");
 }
@@ -14,7 +14,7 @@ function toggleDrop(event) {
   var dropup = trigger.nextElementSibling;
   if (dropup.classList.contains("show")) {
     hideDrop(dropup);
-  } 
+  }
   else if (dropup.classList.contains("hidden")) {
     showDrop(dropup);
   }
@@ -23,20 +23,20 @@ function toggleDrop(event) {
 document.addEventListener('DOMContentLoaded', function () {
 
   document.querySelectorAll('.dropup-trigger').forEach(function (drop) {
-        drop.addEventListener('click', toggleDrop);
-    });
+    drop.addEventListener('click', toggleDrop);
+  });
 
 });
 
 function closeAllDropUp() {
-        var dropup = document.querySelector('.dropup-list');
-        dropup.forEach(drop => {
-            if (dropup.classList.contains('show')) hideDrop(drop);
-        });
-    }
+  var dropup = document.querySelector('.dropup-list');
+  dropup.forEach(drop => {
+    if (dropup.classList.contains('show')) hideDrop(drop);
+  });
+}
 
 document.addEventListener('click', function (event) {
-        if (!event.target.matches('.dropup-trigger, .dropup-list, .dropup-list *')) {
-            closeAllDropUp();
-        }
-    });
+  if (!event.target.matches('.dropup-trigger, .dropup-list, .dropup-list *')) {
+    closeAllDropUp();
+  }
+});
