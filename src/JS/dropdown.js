@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Close all dropdowns
     function closeAllDropdowns() {
-        document.querySelectorAll('.dropdown-list.show').forEach(dropdown => {
+        document.querySelectorAll('.show').forEach(dropdown => {
             dropdown.classList.remove('show');
             dropdown.classList.add('hidden');
         });

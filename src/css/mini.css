@@ -117,3 +117,28 @@ div#presentation {
 #info .info-title {
     font-size: 1.8em;
 }
+
+main#login-main {
+    display: none;
+}
+
+#mobile .dropup-list {
+    position: absolute;
+    z-index: 999;
+    padding: 0.5em;
+    background-color: var(--primaryGradient);
+}
+
+#drop-catalogo {
+    width: 7em;
+    top: -7.8em;
+    left: 6.3em;
+}
+
+#mobile .dropup-list li {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin: auto;
+    padding: 1em;
+}

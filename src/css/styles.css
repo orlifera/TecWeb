@@ -209,16 +209,12 @@ ul li ul.dropdown-list {
     position: absolute;
     z-index: 999;
     background-color: var(--primaryGradient);
-    display: none;
 }
 
 /* State when dropdown is active */
-ul.dropdown-list.show {
-    display: block;
-}
 
-ul.dropdown-list.hidden:not(ul li:hover ul.dropdown-list),
-ul.dropdown-list li.hidden {
+
+ul.dropdown-list:not(ul li:hover ul.dropdown-list) {
     display: none;
 }
 
@@ -235,10 +231,6 @@ ul.dropdown-list a {
     display: block;
     margin: .5em .5em;
 
-}
-
-ul li:hover ul.dropdown-list {
-    display: block;
 }
 
 #menu.fixed {
@@ -989,6 +981,12 @@ fieldset:last-of-type {
     transition: var(--default-transition);
 }
 
+/* da controllare se c'è un modo migliore o va bene aumentare la specificità*/
+div#theme-switcher {
+    width: 5em;
+    margin: auto;
+}
+
 #theme-switcher::before {
     content: '';
     position: absolute;
@@ -1074,7 +1072,7 @@ fieldset:last-of-type {
 
 /*LOGIN*/
 
-main#login-main {
+#login-main {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1335,16 +1333,12 @@ input.previous:focus {
     margin: 0 1em;
 }
 
-.hidden-label {
-    display: none;
-}
-
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .show {
-    display: block;
+    display: block !important;
 }
 
 .completed {
@@ -1503,4 +1497,63 @@ ul#product-list li#product-card {
     flex: 0 0 33.333%;
     box-sizing: border-box;
     margin: 10px;
+}
+
+/*****
+PROFILE
+*****/
+/* Stili per la sidenav */
+.sidenav {
+    width: 10%;
+    background: linear-gradient(to bottom right, var(--primaryGradient), var(--secondaryGradient));
+    float: left;
+}
+
+.sidenav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidenav ul li {
+    border-bottom: 1px solid var(--smoke);
+    padding: .5em 0;
+}
+
+.sidenav ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--primaryText);
+}
+
+.sidenav ul li a:hover {
+    background-color: #ddd;
+}
+
+/* Stili per i fieldset */
+.content {
+    margin-left: 220px;
+    /* Spazio per la navbar */
+}
+
+.fieldProfile {
+    display: block;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: calc(100% - 240px);
+    /* Larghezza - spazio per la navbar e margini */
+    float: left;
+}
+
+.fieldProfile input {
+    display: block;
+}
+
+#genderSelector {
+    width: 30%;
+    margin: auto;
+    display: block;
+    align-items: center;
+    justify-content: center;
 }

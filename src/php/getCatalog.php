@@ -35,6 +35,8 @@ if ($connectionOk) {
             foreach ($listaPC as $pc) {
                 $stringaPC .= "<dt class=\"pName\">" . $pc['Nome'] . "</dt>,";
                 $prezzoPc .= "<dt class=\"pPrice\">&euro;" . $pc['Prezzo'] . "</dt>,";
+                $stringaPC .= "<dt class=\"pName\">" . $pc['Nome'] . "</dt>,";
+                $prezzoPc .= "<dt class=\"pPrice\">&euro;" . $pc['Prezzo'] . "</dt>,";
                 $path_image .= $pc['path_immagine'] . ",";
                 $sku .= $pc['SKU'] . ",";
             }
