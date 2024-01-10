@@ -1,21 +1,27 @@
 drop table if exists utente;
 create table utente (
-    username varchar(255) not null,
-    nome varchar(255) not null,
-    cognome varchar(255) not null,
-    email varchar(255) not null,
-    password varchar(255) not null,
-    tipo enum('A', 'U') not null default 'U',
-    primary key(username)
-) Engine = InnoDB default charset = utf8mb4; 
+  nome varchar(255) not null,
+  cognome varchar(255) not null,
+  data_di_nascita DATE,
+  genere enum('Maschio', 'Femmina', 'Altro'),
+  username varchar(255) not null UNIQUE,
+  email varchar(255) not null UNIQUE,
+  password varchar(255) not null,
+  telefono varchar(16) not null,
+  citta varchar(255),
+  indirizzo varchar(255),
+  CAP int(5) not null,
+  tipo enum('A', 'U') not null default 'U',
+  primary key(email)
+) ENGINE = InnoDB default CHARSET = utf8mb4;
 
 INSERT INTO utente VALUES 
-( "admin", "admin", "admin", "admin1234@gmail.com", "admin", "A"),
-( "user", "user", "user", "user1234@gmail.com", "user", "U");
+( "admin", "admin", "1111-11-11", "Maschio", "admin", "admin@admin.admin", "admin", "+39 1234567890", "Adminlandia", "Via Admin 1", "00000", "A"),
+( "user", "user", "1111-11-11", "Altro", "user", "user@user.user", "user", "+39 1234567890", "Userlandia", "Via Cicciogamer 89", "00000", "U");
 
 drop table if exists Prodotto;
 CREATE TABLE Prodotto (
-  sku varchar(6) primary key ,
+  sku varchar(6) not null ,
   nome varchar(256) not null,
   tipo varchar(256) not null,
   descrizione varchar(256) not null,
@@ -24,13 +30,14 @@ CREATE TABLE Prodotto (
   disponibilita int not null,
   path_immagine varchar(256) not null,
   categoria varchar(6) not null,
-  riferimento varchar(6) null
+  riferimento varchar(6) null,
+  primary key(sku)
 ) Engine = InnoDB default charset = utf8mb4; 
 
 
 drop table if exists Carrello;
 CREATE TABLE Carrello (
-  sku varchar(6) primary key ,
+  sku varchar(6) not null,
   nome varchar(256) not null,
   tipo varchar(256) not null,
   descrizione varchar(256) not null,
@@ -38,7 +45,8 @@ CREATE TABLE Carrello (
   colore varchar(256) not null,
   quantitaScelta int not null,
   path_immagine varchar(256) not null,
-  categoria varchar(6) not null
+  categoria varchar(6) not null,
+  primary key(sku),
   foreign key (sku) references Prodotto(sku)
 ) Engine = InnoDB default charset = utf8mb4;
 
