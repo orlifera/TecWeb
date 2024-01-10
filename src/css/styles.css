@@ -209,11 +209,10 @@ ul li ul.dropdown-list {
     position: absolute;
     z-index: 999;
     background-color: var(--primaryGradient);
-    display: none;
 }
 
 /* State when dropdown is active */
-ul.dropdown-list.show {
+ul.dropdown-list.show, ul li:hover ul.dropdown-list {
     display: block;
 }
 
@@ -235,10 +234,6 @@ ul.dropdown-list a {
     display: block;
     margin: .5em .5em;
 
-}
-
-ul li:hover ul.dropdown-list {
-    display: block;
 }
 
 #menu.fixed {
@@ -1074,7 +1069,7 @@ fieldset:last-of-type {
 
 /*LOGIN*/
 
-main#login-main {
+#login-main {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1333,10 +1328,6 @@ input.previous:focus {
 
 #terms {
     margin: 0 1em;
-}
-
-.hidden-label {
-    display: none;
 }
 
 .hidden {
