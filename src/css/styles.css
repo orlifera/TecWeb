@@ -38,7 +38,7 @@
     /*Secondo gradiente*/
     --primaryText: #dedeff;
     /*Testi importanti vari*/
-    --primaryIconBg: #2196F3;
+    --primaryIconBg: #838de3;
     --secondaryIconBG: #003f8f;
     --text-100: #333333;
     /*Testo primario*/
@@ -1503,11 +1503,26 @@ ul#product-list li#product-card {
 PROFILE
 *****/
 /* Stili per la sidenav */
+
+#profileMain {
+    width: 100%;
+    margin: auto;
+}
+
+
+#profileDiv {
+    width: 80%;
+    margin: auto;
+    border: 2px solid var(--smoke);
+}
+
+
 .sidenav {
-    width: 10%;
+    width: 25%;
     background: linear-gradient(to bottom right, var(--primaryGradient), var(--secondaryGradient));
     float: left;
 }
+
 
 .sidenav ul {
     list-style-type: none;
@@ -1526,29 +1541,28 @@ PROFILE
     color: var(--primaryText);
 }
 
-.sidenav ul li a:hover {
-    background-color: #ddd;
+.sidenav ul li:hover {
+    background-color: var(--hover);
 }
 
-/* Stili per i fieldset */
-.content {
-    margin-left: 220px;
-    /* Spazio per la navbar */
+#profilePage {
+    width: 75%;
+    float: right;
 }
 
-.fieldProfile {
+
+/* .fieldProfile {
+    width: 100%;
     display: block;
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 10px;
     width: calc(100% - 240px);
-    /* Larghezza - spazio per la navbar e margini */
+    /* Larghezza - spazio per la navbar e margini 
     float: left;
-}
+} */
 
-.fieldProfile input {
-    display: block;
-}
+
 
 #genderSelector {
     width: 30%;
@@ -1556,4 +1570,17 @@ PROFILE
     display: block;
     align-items: center;
     justify-content: center;
+}
+
+#profilePage legend {
+    width: 80%;
+    margin: auto;
+    padding: 1em 0;
+    text-align: center;
+    background: linear-gradient(var(--secondaryGradient), var(--bgDiv));
+}
+
+.active {
+    background-color: var(--primaryIconBg);
+    border-left: 10px solid var(--primaryText);
 }
