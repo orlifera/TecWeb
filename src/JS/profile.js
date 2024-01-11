@@ -44,7 +44,9 @@ document.addEventListener('DOMContentLoaded', function () {
       });
 
       // Add active class to clicked nav item's parent li
-      this.parentElement.classList.add('active');
+      if (this.parentElement.classList.contains('nav-item')) {
+        this.parentElement.classList.add('active');
+      }
 
       const targetId = this.getAttribute('data-target');
 
