@@ -13,18 +13,24 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo '<p class="error">Le password non corrispondono.</p>';
         } else {
             // salva i dati dell'utente nel database
+            $nome = htmlentities(substr($_POST['fnome'], 0, 255));
+            $cognome = htmlentities(substr($_POST['lname'], 0, 255));
+            $dataNascita = date('Y-m-d', $_POST['dob']);
+            $genere = htmlentities($_POST['gender']);
             $username = htmlentities(substr($_POST['username'], 0, 255));
-            $nome = htmlentities(substr($_POST['nome'], 0, 255));
-            $cognome = htmlentities(substr($_POST['cognome'], 0, 255));
             $email = htmlentities(substr($_POST['email'], 0, 255));
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $telefono = htmlentities(substr($_POST['phone'], 0, 16));
+            $citta = htmlentities(substr($_POST['city'], 0, 255));
+            $indirizzo = htmlentities(substr($_POST['address'], 0, 255));
+            $cap = htmlentities(substr($_POST['cap'], 0, 255));
             
             // Richiede la connessione al database
             require_once("connessionedb.php");
             
-            // controlla se esiste già un utente con quel nome utente
-            $stmt = $connessione->prepare("SELECT * FROM utente WHERE username = ? LIMIT 1");
-            $stmt->bind_param("s", $username);
+            // controlla se esiste già un utente con quel nome utente e quella mail
+            $stmt = $connessione->prepare("SELECT * FROM utente WHERE username = ? AND email = ? LIMIT 1");
+            $stmt->bind_param("ss", $username, $email);
             $result = $stmt->execute();
             
             $result = $stmt->get_result()->fetch_assoc();
@@ -34,8 +40,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo '<p class="error">E\' già presente questo nome utente.</p>';
             } else {
                 // inserisce il nuovo utente nel database
-                $stmt = $connessione->prepare("INSERT INTO utente (username, nome, cognome, email, password) VALUES (?, ?, ?, ?, ?)");
-                $stmt->bind_param("sssss", $username, $nome, $cognome, $email, $password);
+                $stmt = $connessione->prepare("INSERT INTO utente (nome, cognome, dataNascita, genere, username, email, password, telefono, citta, indirizzo, cap) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                $stmt->bind_param("sssssssssss", $nome, $cognome, $dataNascita, $genere, $username, $email, $password, $telefono, $citta, $indirizzo, $cap);
                 $result = $stmt->execute();
                 
                 // se la query ha avuto successo, reindirizza l'utente alla pagina di login
