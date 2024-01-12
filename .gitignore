@@ -1,0 +1,67 @@
+# Node modules
+node_modules/
+
+# Log files
+*.log
+
+# Directory for built distributions
+/dist
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.idea/
+*.sublime-workspace
+*.sublime-project
+.vscode/
+*.swp
+*.swo
+
+# Dependency directories
+vendor/
+
+# Environment files
+.env
+
+# OS generated files
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# PHP server-specific cache and user files
+php_errors.log
+*.phar
+
+# Compiled Source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
