@@ -107,7 +107,7 @@ $paginaHTML = str_replace('src/php/getCatalog.php?categoria=kbd&riferimento=', '
 $paginaHTML = str_replace('src/php/getCatalog.php?categoria=pc&riferimento=', 'getCatalog.php?categoria=pc&riferimento=', $paginaHTML);
 
 
-$paginaHTML = str_replace('<script src="../js/accessoriesHandler.js">', '<script src="../js/accessoriesHandler.js" data-categoria="' . $_GET['categoria'] . '" data-riferimento="' . $riferimento . '" >', $paginaHTML);
+$paginaHTML = str_replace('<script src="../js/accessoriesHandler.js">', '<script src="../js/accessoriesHandler.js" data-categoria="' . $_GET['categoria'] . '" data-riferimento="' . $_GET['categoria'] . '" >', $paginaHTML);
 
 $paginaHTML = str_replace('<script src="../js/cart.js">', '<script src="../js/cart.js" data-id="' . $_GET['id'] . '" data-categoria="' . $_GET['categoria'] . '">', $paginaHTML);
 
