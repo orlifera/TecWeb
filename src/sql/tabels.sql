@@ -2,14 +2,14 @@ drop table if exists utente;
 create table utente (
   nome varchar(255) not null,
   cognome varchar(255) not null,
-  data_di_nascita DATE,
-  genere enum('Maschio', 'Femmina', 'Altro'),
+  dataNascita date not null,
+  genere varchar(255) not null,
   username varchar(255) not null UNIQUE,
   email varchar(255) not null UNIQUE,
   password varchar(255) not null,
   telefono varchar(16) not null,
-  citta varchar(255),
-  indirizzo varchar(255),
+  citta varchar(255) not null,
+  indirizzo varchar(255) not null,
   CAP int(5) not null,
   tipo enum('A', 'U') not null default 'U',
   primary key(email)

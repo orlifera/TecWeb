@@ -72,7 +72,7 @@
                                             </g>
                                         </svg>
                                         <label for="fname">Nome</label>
-                                        <input type="text" name="fname" id="fname" placeholder="Il tuo nome" required>
+                                        <input type="text" name="fname" id="fname" autocomplete="name" placeholder="Il tuo nome" required>
                                     </div>
 
 
@@ -90,8 +90,7 @@
                                             </g>
                                         </svg>
                                         <label for="lname">Cognome</label>
-                                        <input type="text" name="lname" id="lname" placeholder="Il tuo cognome"
-                                            required>
+                                        <input type="text" name="lname" id="lname" autocomplete="family-name" placeholder="Il tuo cognome" required>
 
                                     </div>
                                 </div>
@@ -105,7 +104,6 @@
 
                                         <label for="dob">Data Di Nascita</label>
                                         <input type="date" name="dob" id="dob" class="dob" required>
-
                                     </div>
                                     <div class="text-fields gender">
                                         <label for="gender">Genere:</label>
@@ -172,8 +170,7 @@
                                             </g>
                                         </svg>
                                         <label for="password">Password</label>
-                                        <input type="password" name="password" id="password"
-                                            placeholder="La tua password" required>
+                                        <input type="password" name="password" id="password" placeholder="La tua password" required>
                                     </div>
                                     <div class="text-fields confirm">
                                         <?xml version="1.0" encoding="utf-8"?>
@@ -189,9 +186,8 @@
                                                 </g>
                                             </g>
                                         </svg>
-                                        <label for="password-confirm">Conferma password</label>
-                                        <input type="password" name="password-confirm" id="ConfirmPassword"
-                                            placeholder="Conferma la password" required>
+                                        <label>Conferma password</label>
+                                        <input type="password" name="password-confirm" id="ConfirmPassword" placeholder="Conferma la password" required>
                                     </div>
                                 </div>
                                 <div class="page-btns">
@@ -221,8 +217,7 @@
                                             </g>
                                         </svg>
                                         <label for="phone">Telefono</label>
-                                        <input type="phone" name="phone" id="phone" placeholder="Il tuo Telefono"
-                                            required>
+                                        <input type="phone" name="phone" id="phone" placeholder="Il tuo Telefono" autocomplete="tel" required>
                                     </div>
 
                                     <div class="text-fields city">
@@ -234,8 +229,7 @@
                                             <rect class="cls-1" height="38.37" width="19.19" x="54.41" y="73.59" />
                                         </svg>
                                         <label for="city">Città</label>
-                                        <input type="text" name="city" id="city" placeholder="La tua città, provincia"
-                                            required>
+                                        <input type="text" name="city" id="city" placeholder="La tua città, provincia" autocomplete="country-name" required>
                                     </div>
                                 </div>
                                 <div class="button-container">
@@ -248,7 +242,7 @@
                                             <rect class="cls-1" height="38.37" width="19.19" x="54.41" y="73.59" />
                                         </svg>
                                         <label for="address">Indirizzo</label>
-                                        <input type="text" name="address" id="address" placeholder="Il tuo indirizzo"
+                                        <input type="text" name="address" id="address" autocomplete="street-address" placeholder="Il tuo indirizzo"
                                             required>
                                     </div>
                                     <div class="text-fields cap">
@@ -260,7 +254,7 @@
                                             <rect class="cls-1" height="38.37" width="19.19" x="54.41" y="73.59" />
                                         </svg>
                                         <label for="cap">CAP</label>
-                                        <input type="text" name="cap" id="cap" placeholder="Il tuo CAP" required>
+                                        <input type="text" name="cap" id="cap" placeholder="Il tuo CAP" autocomplete="postal-code" required>
                                     </div>
                                 </div>
                                 <label id="tos" for="terms">
@@ -269,7 +263,7 @@
                                 </label>
                                 <div class="page-btns">
                                     <input type="button" value="Indietro" class="previous stagebtn3a">
-                                    <input type="submit" value="Invia" class="next stagebtn3b">
+                                    <input type="submit" name="submit" value="Invia" class="next stagebtn3b">
                                 </div>
                             </div>
                         </fieldset>
