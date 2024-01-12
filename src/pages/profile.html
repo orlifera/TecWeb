@@ -280,6 +280,7 @@
             <form id="profilePage">
                 <fieldset class="fieldProfile show" id="personalInfo">
                     <legend>Informazioni personali</legend>
+
                     <div class="info-container">
                         <div class="text-fields fname">
                             <svg class="login-icon" xmlns="http://www.w3.org/2000/svg" version="1.0" width="24"
@@ -386,25 +387,109 @@
 
                 <fieldset class="fieldProfile hidden" id="changepsw">
                     <legend>Cambia password</legend>
-                    <label for="pwd">Vecchia password</label>
-                    <input type="password" name="lname" id="pwd" placeholder="La tua password" required>
-                    <label for="pwd">Nuova password</label>
-                    <input type="password" name="lname" id="pwd" placeholder="La tua password" required>
-                    <label for="pwd">Conferma password</label>
-                    <input type="password" name="lname" id="pwd" placeholder="La tua password" required>
-                    <div class="page-btns">
-                        <input type="submit" value="Aggiorna dati" class="next stagebtn1b">
+
+                    <div class="pwd-container">
+                        <div class="text-fields oldPwd">
+                            <?xml version="1.0" encoding="utf-8"?>
+                            <svg width="24px" height="24px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <g id="Layer_2" data-name="Layer 2">
+                                    <g id="invisible_box" data-name="invisible box">
+                                        <rect width="48" height="48" fill="none" />
+                                    </g>
+                                    <g id="Layer_7" data-name="Layer 7">
+                                        <path
+                                            d="M39,18H35V13A11,11,0,0,0,24,2H22A11,11,0,0,0,11,13v5H7a2,2,0,0,0-2,2V44a2,2,0,0,0,2,2H39a2,2,0,0,0,2-2V20A2,2,0,0,0,39,18ZM15,13a7,7,0,0,1,7-7h2a7,7,0,0,1,7,7v5H15ZM14,35a3,3,0,1,1,3-3A2.9,2.9,0,0,1,14,35Zm9,0a3,3,0,1,1,3-3A2.9,2.9,0,0,1,23,35Zm9,0a3,3,0,1,1,3-3A2.9,2.9,0,0,1,32,35Z" />
+                                    </g>
+                                </g>
+                            </svg>
+                            <label for="pwd">Vecchia password</label>
+                            <input type="password" name="pwd" id="pwd" placeholder="La tua vecchia password" required>
+                        </div>
+                    </div>
+                    <div class="pwd-container">
+                        <div class="text-fields password">
+                            <?xml version="1.0" encoding="utf-8"?>
+                            <svg width="24px" height="24px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <g id="Layer_2" data-name="Layer 2">
+                                    <g id="invisible_box" data-name="invisible box">
+                                        <rect width="48" height="48" fill="none" />
+                                    </g>
+                                    <g id="Layer_7" data-name="Layer 7">
+                                        <path
+                                            d="M39,18H35V13A11,11,0,0,0,24,2H22A11,11,0,0,0,11,13v5H7a2,2,0,0,0-2,2V44a2,2,0,0,0,2,2H39a2,2,0,0,0,2-2V20A2,2,0,0,0,39,18ZM15,13a7,7,0,0,1,7-7h2a7,7,0,0,1,7,7v5H15ZM14,35a3,3,0,1,1,3-3A2.9,2.9,0,0,1,14,35Zm9,0a3,3,0,1,1,3-3A2.9,2.9,0,0,1,23,35Zm9,0a3,3,0,1,1,3-3A2.9,2.9,0,0,1,32,35Z" />
+                                    </g>
+                                </g>
+                            </svg>
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" placeholder="La tua password" required>
+                        </div>
+                    </div>
+                    <div class="pwd-container">
+                        <div class="text-fields confirm">
+                            <?xml version="1.0" encoding="utf-8"?>
+                            <svg width="24px" height="24px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <g id="Layer_2" data-name="Layer 2">
+                                    <g id="invisible_box" data-name="invisible box">
+                                        <rect width="48" height="48" fill="none" />
+                                    </g>
+                                    <g id="Layer_7" data-name="Layer 7">
+                                        <path
+                                            d="M39,18H35V13A11,11,0,0,0,24,2H22A11,11,0,0,0,11,13v5H7a2,2,0,0,0-2,2V44a2,2,0,0,0,2,2H39a2,2,0,0,0,2-2V20A2,2,0,0,0,39,18ZM15,13a7,7,0,0,1,7-7h2a7,7,0,0,1,7,7v5H15ZM14,35a3,3,0,1,1,3-3A2.9,2.9,0,0,1,14,35Zm9,0a3,3,0,1,1,3-3A2.9,2.9,0,0,1,23,35Zm9,0a3,3,0,1,1,3-3A2.9,2.9,0,0,1,32,35Z" />
+                                    </g>
+                                </g>
+                            </svg>
+                            <label for="password-confirm" id="confirm">Conferma password</label>
+                            <input type="password" name="password-confirm" id="ConfirmPassword"
+                                placeholder="Conferma la password" required>
+                        </div>
+                        <div class="page-btns">
+                            <input type="submit" value="Aggiorna dati" class="next stagebtn1b">
+                        </div>
                     </div>
                 </fieldset>
 
                 <fieldset class="fieldProfile hidden" id="address">
                     <legend>Indirizzo</legend>
-                    <label for="city">Città</label>
-                    <input type="text" name="city" id="city" placeholder="La tua città, provincia">
-                    <label for="address">Indirizzo</label>
-                    <input type="text" name="address" id="address" placeholder="Il tuo indirizzo">
-                    <label for="cap">CAP</label>
-                    <input type="text" name="cap" id="cap" placeholder="Il tuo CAP">
+
+                    <div class="info-container">
+                        <div class="text-fields city">
+                            <?xml version="1.0" ?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                            <svg width="24px" height="24px" viewBox="0 0 128 128" data-name="Layer 4" id="Layer_4"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path class="cls-1"
+                                    d="M64,30.17,96.64,62.81V102H31.36V62.81L64,30.17M64,16,21.36,58.67V112h85.28V58.67L64,16Z" />
+                                <rect class="cls-1" height="38.37" width="19.19" x="54.41" y="73.59" />
+                            </svg>
+                            <label for="city">Città</label>
+                            <input type="text" name="city" id="city" placeholder="La tua città, provincia" required>
+                        </div>
+                    </div>
+                    <div class="info-container">
+                        <div class="text-fields address">
+                            <?xml version="1.0" ?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                            <svg width="24px" height="24px" viewBox="0 0 128 128" data-name="Layer 4" id="Layer_4"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path class="cls-1"
+                                    d="M64,30.17,96.64,62.81V102H31.36V62.81L64,30.17M64,16,21.36,58.67V112h85.28V58.67L64,16Z" />
+                                <rect class="cls-1" height="38.37" width="19.19" x="54.41" y="73.59" />
+                            </svg>
+                            <label for="address">Indirizzo</label>
+                            <input type="text" name="address" id="address" placeholder="Il tuo indirizzo" required>
+                        </div>
+                    </div>
+                    <div class="info-container">
+                        <div class="text-fields cap">
+                            <?xml version="1.0" ?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                            <svg width="24px" height="24px" viewBox="0 0 128 128" data-name="Layer 4" id="Layer_4"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path class="cls-1"
+                                    d="M64,30.17,96.64,62.81V102H31.36V62.81L64,30.17M64,16,21.36,58.67V112h85.28V58.67L64,16Z" />
+                                <rect class="cls-1" height="38.37" width="19.19" x="54.41" y="73.59" />
+                            </svg>
+                            <label for="cap">CAP</label>
+                            <input type="text" name="cap" id="cap" placeholder="Il tuo CAP" required>
+                        </div>
+                    </div>
                     <div class="page-btns">
                         <input type="submit" value="Aggiorna dati" class="next stagebtn1b">
                     </div>
@@ -412,17 +497,80 @@
 
                 <fieldset class="fieldProfile hidden" id="paymentMethod">
                     <legend>Metodi di pagamento</legend>
-                    <label for="intestatario">Intestatario</label>
-                    <input type="text" name="intestatario" id="intestatario" placeholder="Mr. Worldwide" disabled>
-                    <label for="numCarta">Numero della carta</label>
-                    <input type="text" name="numCarta" id="numCarta" placeholder="1111 1111 1111 1111" disabled>
-                    <label for="scadenza">Data Scadenza</label>
-                    <input type="text" name="scadenza" id="scadenza" placeholder="12/34" disabled>
-                    <label for="cvv">CVV</label>
-                    <input type="text" name="cvv" id="cvv" placeholder="123" disabled>
-                    <div class="page-btns">
-                        <input type="submit" value="Aggiorna dati" class="next stagebtn1b">
+
+                    <div class="container">
+                        <h2 id="detail">Enter Your Card Details</h2>
+
+                        <!-- Card -->
+                        <div class="card">
+                            <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                            <svg width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M21.75 5H2.25A1.251 1.251 0 0 0 1 6.25v12.5A1.251 1.251 0 0 0 2.25 20h19.5A1.251 1.251 0 0 0 23 18.75V6.25A1.251 1.251 0 0 0 21.75 5zM22 18.75a.25.25 0 0 1-.25.25H2.25a.25.25 0 0 1-.25-.25V10h20zM22 8H2V6.25A.25.25 0 0 1 2.25 6h19.5a.25.25 0 0 1 .25.25zM8 18H3v-1h5zm13 0h-2v-1h2zm-3 0h-2v-1h2zm-6-2H3v-1h9z" />
+                                <path fill="none" d="M0 0h24v24H0z" />
+                            </svg>
+
+                            <!-- Card Number -->
+                            <label>Card Number</label>
+                            <input class="card-number" placeholder="1234 1234 1234 1234" type="text" required
+                                maxlength="16" />
+
+                            <div class="container2">
+
+                                <!-- Card Holder -->
+                                <div class="name">
+                                    <label>Card Holder</label>
+                                    <input class="card-name" placeholder="ISRAEL ISRAELI" type="text" required />
+                                </div>
+
+                                <!-- Date -->
+                                <div class="expiration-date">
+                                    <label>Exp. Date</label>
+                                    <input class="card-name" placeholder="10/25" type="text" maxlength="5" required />
+                                </div>
+
+                                <!-- Cvv -->
+                                <div class="ccv">
+                                    <label>CCV</label>
+                                    <input class="card-name" placeholder="123" type="text" maxlength="3" required />
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <!-- <div class="info-container">
+                        <div class="text-fields fname">
+                            <svg class="login-icon" xmlns="http://www.w3.org/2000/svg" version="1.0" width="24"
+                                height="24" viewBox="0 0 128.000000 128.000000" preserveAspectRatio="xMidYMid meet">
+
+                                <g transform="translate(0.000000,128.000000) scale(0.100000,-0.100000)" stroke="none">
+                                    <path
+                                        d="M543 1266 c-199 -63 -281 -290 -167 -462 122 -184 390 -183 512 1 36 55 57 141 48 202 -26 189 -216 314 -393 259z m214 -100 c63 -42 96 -99 101 -173 5 -76 -10 -124 -57 -176 -86 -96 -229 -104 -323 -19 -124 111 -98 302 52 383 55 30 171 23 227 -15z" />
+                                    <path
+                                        d="M296 645 c-53 -19 -102 -69 -136 -140 -35 -74 -50 -153 -50 -265 0 -110 23 -161 95 -205 l48 -30 363 -3 c240 -2 377 1 404 8 51 14 108 63 131 115 48 105 5 357 -78 456 -31 37 -115 79 -158 79 -16 0 -71 -20 -121 -46 -77 -39 -99 -46 -150 -46 -64 -1 -120 18 -195 64 -51 31 -93 35 -153 13z m154 -101 c57 -37 144 -57 219 -51 51 4 84 15 151 49 72 37 90 43 120 37 81 -17 143 -135 156 -297 7 -97 -8 -147 -55 -179 -34 -23 -35 -23 -400 -23 -349 0 -367 1 -399 20 -50 31 -66 78 -59 180 10 135 53 244 111 280 53 34 84 30 156 -16z" />
+                                </g>
+                            </svg>
+                            <label for="intestatario">Intestatario</label>
+                            <input type="text" name="intestatario" id="intestatario" placeholder="Mr. Worldwide"
+                                disabled>
+                        </div>
+                        <div class="text-fields card">
+                            <?xml version="1.0" encoding="utf-8"?>
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M21.75 5H2.25A1.251 1.251 0 0 0 1 6.25v12.5A1.251 1.251 0 0 0 2.25 20h19.5A1.251 1.251 0 0 0 23 18.75V6.25A1.251 1.251 0 0 0 21.75 5zM22 18.75a.25.25 0 0 1-.25.25H2.25a.25.25 0 0 1-.25-.25V10h20zM22 8H2V6.25A.25.25 0 0 1 2.25 6h19.5a.25.25 0 0 1 .25.25zM8 18H3v-1h5zm13 0h-2v-1h2zm-3 0h-2v-1h2zm-6-2H3v-1h9z" />
+                                <path fill="none" d="M0 0h24v24H0z" />
+                            </svg>
+                            <label for="numCarta">Numero della carta</label>
+                            <input type="text" name="numCarta" id="numCarta" placeholder="1234 1234 1234 1234" disabled>
+                        </div>
+                        <label for="scadenza">Data Scadenza</label>
+                        <input type="text" name="scadenza" id="scadenza" placeholder="12/34" disabled>
+                        <label for="cvv">CVV</label>
+                        <input type="text" name="cvv" id="cvv" placeholder="123" disabled>
+                        <div class="page-btns">
+                            <input type="submit" value="Aggiorna dati" class="next stagebtn1b">
+                        </div>
+                    </div> -->
                 </fieldset>
             </form>
         </div>
