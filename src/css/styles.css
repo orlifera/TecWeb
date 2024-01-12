@@ -28,6 +28,7 @@
     --white: #FFFFFF;
     --background-link: #696cff;
     --border: #adacac;
+    --border-radius: 1em;
 }
 
 /* Palette chiara */
@@ -249,7 +250,7 @@ ul li:hover ul.dropdown-list {
     /*DA RIVEDERE*/
 }
 
-nav svg {
+nav svg:not(#signup, #sun, #moon) {
     fill: var(--primaryText);
 }
 
@@ -1514,51 +1515,89 @@ ul#product-list li#product-card {
 /*****
 PROFILE
 *****/
-/* Stili per la sidenav */
-#profileMain {
-    width: 100%;
-    margin: auto;
-}
 
 #profileDiv {
-    width: 80%;
-    margin: auto;
-    border: 2px solid var(--smoke);
-    display: flex;
-    position: relative;
-    top: 5em;
+    display: grid;
+    grid-template-columns: 20em 1fr;
+
 }
 
-.sidenav {
-    width: 25%;
-    background: linear-gradient(to bottom right, var(--primaryGradient), var(--secondaryGradient));
-    float: left;
+nav.sidenav {
+    width: 100%;
+    background-color: var(--secondaryGradient);
+    position: sticky;
+    /* max-height: 100svh; */
+    top: 0;
 }
 
-.sidenav ul {
-    list-style-type: none;
+.nav-list {
+    margin: 0;
     padding: 0;
+    list-style-type: none;
+    display: grid;
+    gap: 2em;
+    padding-block: 2em;
+    font: 2em;
 }
 
-.sidenav ul li:not(#bottom li) {
-    border-bottom: 1px solid var(--smoke);
-    padding: .5em 0;
+.nav-list li {
+    padding: 1em 2em;
+    width: 100%;
 }
 
-.sidenav ul li a {
+.nav-list li a {
     display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: var(--primaryText);
+    width: 100%;
+    height: 100%;
 }
 
-.sidenav ul li:hover:not(#bottom li) {
-    background-color: var(--hover);
+.sidenav li.active {
+    /* view-transition-name: activeNavTab; */
+    background-color: var(--white);
+    border-left: 10px solid var(--primaryIconBg);
+    position: relative;
 }
 
-#profilePage {
-    width: 75%;
-    float: right;
+/* ::view-transition-group(activeNavTab) {
+    animation-duration: 1.5s;
+} */
+
+.nav-list li.active a {
+    color: var(--secondaryIconBG);
+}
+
+.nav-list li.active::before,
+.nav-list li.active::after {
+    content: '';
+    position: absolute;
+    height: var(--border-radius);
+    width: var(--border-radius);
+    right: 0;
+    background-color: var(--secondaryGradient);
+}
+
+.nav-list li.active::before {
+    border-radius: 0 0 100vh 0;
+    box-shadow: 5px 5px 0 5px var(--white);
+    top: calc(var(--border-radius) * -1);
+    /*lo sposta proprio fuori la li*/
+}
+
+.nav-list li.active::after {
+    bottom: calc(var(--border-radius) * -1);
+    border-radius: 0 100vh 0 0;
+    box-shadow: 5px -5px 0 5px var(--white);
+}
+
+#profilePage legend {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+fieldset.fieldProfile {
+    border-bottom: unset;
+    background-color: var(--white);
 }
 
 #genderSelector {
@@ -1569,34 +1608,18 @@ PROFILE
     justify-content: center;
 }
 
-#profilePage legend {
+#nav-header {
+    display: block;
     width: 100%;
-    margin: auto;
-    padding: 3em 0;
-    text-align: center;
-    background: linear-gradient(var(--secondaryGradient), var(--bgDiv));
 }
 
-.fieldProfile {
-    border-bottom: unset;
-}
-
-.active {
-    background-color: var(--primaryIconBg);
-    border-left: 10px solid var(--primaryText);
-}
-
-#logout-button {
-    padding: unset;
-    width: 10%;
-    margin: auto;
-}
-
-#bottom {
+#nav-title {
     margin: auto;
     display: block;
-}
-
-#logout-button a {
-    width: 100%;
+    padding: 1em 0 0 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5em;
+    color: var(--primaryText);
 }
