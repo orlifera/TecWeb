@@ -20,6 +20,12 @@ class DBAccess
         return mysqli_connect_errno() == 0;
     }
 
+    /************ GESTIONE LOGIN E REGISTRAZIONE ************/
+    // FINIRE QUA 
+    public function getUsername($username) {
+        $query = "SELECT * FROM utente WHERE username = ?;";
+    } 
+
     /************ GESTIONE PRODOTTI ************/
     public function getProduct($categoria, $sku)
     {

@@ -41,6 +41,17 @@ function areFieldsCompleted(stageContent) {
 
 function switchStage(toHide, toShow, forward = true) {
 
+    // CONTROLLARE CHE IL FORM NON PERMETTA DI ANADARE AVANTI SE IL GENERE NON P STATO SELEZIONATO
+    // const div = document.querySelector('.text-fields.gender');
+
+    // div.addEventListener('click', () => {
+    //   const select = div.querySelector('select');
+    //   if (select.value === '') {
+    //     alert('Devi selezionare un genere');
+    //   }
+    // });
+    
+
     if (toHide === signupContent2 && forward) {
         var emailInput = signupContent2.querySelector('input[type="email"]');
         // if (emailInput && !emailInput.checkValidity()) {
@@ -93,4 +104,3 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-
