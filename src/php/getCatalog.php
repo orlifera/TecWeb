@@ -26,13 +26,13 @@ $htmlProdotti = "";
 
 $connection = new DBAccess();
 $connectionOk = $connection->openDBConnection();
-
 if ($connectionOk) {
-    if ($riferimento != "") {
+    if (!empty($riferimento)) {
         $listaPC = $connection->getNamePricePath1($categoria, $riferimento);
-
         if ($listaPC != null) {
             foreach ($listaPC as $pc) {
+                $stringaPC .= "<dt class=\"pName\">" . $pc['Nome'] . "</dt>,";
+                $prezzoPc .= "<dt class=\"pPrice\">&euro;" . $pc['Prezzo'] . "</dt>,";
                 $stringaPC .= "<dt class=\"pName\">" . $pc['Nome'] . "</dt>,";
                 $prezzoPc .= "<dt class=\"pPrice\">&euro;" . $pc['Prezzo'] . "</dt>,";
                 $path_image .= $pc['path_immagine'] . ",";
@@ -69,19 +69,10 @@ if ($connectionOk) {
 }
 $connection->closeDBConnection();
 
-// <ul>
-//     <li>
-//       <dl>
-//           roba dentro con dt e dd
-//       </dl>
-//     </li>
-// </ul>
-//$nome contiene il valore corrente mentre $i contiene l'indice corrente, $nomePc è l'array dove itero
-
 foreach ($nomePc as $i => $nome) {
     if ($nome != null) {
         // $prova = "<li>\n" . ""
-        $prova = "<li>\n" . "<dl>\n" .  "<a class=\"pLink\" href=\"getProduct.php?categoria=" . $categoria . "&id=" . $sku1[$i] . "\">\n" . "<img class=\"pImg\" src=\"" . $path[$i] . "\"" . "alt=\"image\">\n"  .  $nome .   $prezzo[$i]  . "</a>\n" . "</dl>\n" . "</li>\n";
+        $prova = "<li class=\"product-card\">" . "<a class=\"\" href=\"getProduct.php?categoria=" . $categoria . "&id=" . $sku1[$i] . "\">\n" . "<dl class=\"pList\">\n" . "<img class=\"pImage\" src=\"" . $path[$i] . "\"" . "alt=\"product image\">\n"  .  $nome .   $prezzo[$i]  . "</dl>\n" . "</a>\n" . "</li>\n";
         // $prova = "<div class=\"cell\">\n" . "<a class=\"\" href=\"getProduct.php?categoria=" . $categoria . "&id=" . $sku1[$i] . "\">\n" . "<img src=\"" . $path[$i] . "\"" . "alt=\"image\">\n" . "<dt>" .  $nome .  "</dt>" . "<dd>" . $prezzo[$i] . "</dd>\n" . "</a>\n" . "</div>\n";
         //variabile in più per concatenare i vari prodotti
         $htmlProdotti .= $prova;

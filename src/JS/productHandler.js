@@ -51,19 +51,8 @@ function decrementValue(index) {
   inputElement.value = value;
 }
 
-// function decrementValue() {
-//   var value = document.querySelector("input[type='number']").value;
-//   if (value == 0) {
-//     return;
-//   }
-//   if (value > 1) value--;
-//   else value = 1;
-//   document.querySelector("input[type='number']").value = value;
-// }
-
 function changeColorProductImage() {
   let selectedColor = selectColore.value;
-
   if (selectedColor == "Nero") {
     imageFilePath =
       "../../assets/images/" + categoriaValue + "/" + idValue + ".jpg";
@@ -71,6 +60,7 @@ function changeColorProductImage() {
     imageFilePath =
       "../../assets/images/" + categoriaValue + "/" + idValue + "_W.jpg";
   }
+  alert(imageFilePath);
   immagine.src = imageFilePath;
 }
 
