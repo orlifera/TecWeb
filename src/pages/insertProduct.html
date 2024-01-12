@@ -87,12 +87,18 @@
     </nav>
 
     <main>
-        <dl>
-            {ciao}
-        </dl>
-        <input type="button" value="Procedi con l'ordine" id="processOrder" name="processOrder" class="processOrder">
-        <input type="button" value="Rimuovi tutto" id="removeAll" name="removeAll" class="removeAll">
+        <!-- ../../assets/images/pc/P6.jpg -->
+        <input type="text" id="id" placeholder="id" required>
+        <input type="text" id="nome" placeholder="nome" required>
+        <input type="text" id="tipo" placeholder="tipo" required>
+        <input type="text-area" id="descrizione" placeholder="descrizione" required>
+        <input type="text" id="prezzo" placeholder="prezzo" required>
+        <input type="text" id="colore" placeholder="colore" required>
+        <input type="text" id="disponibilita" placeholder="disponibilità" required>
+        <input type="text" id="immagine" placeholder="immagine" required>
+        <input type="text" id="categoria" placeholder="categoria" required>
 
+        <input type="submit" class="inserisciProdotto" value="Inserisci">
     </main>
 
     <footer>
@@ -147,8 +153,9 @@
     <script src="../js/cart.js"></script>
     <script src="../js/orderHandler.js"></script>
     <script src="../js/productHandler.js"></script>
+    <script src="../js/admin.js"></script>
+    <script src="../js/insertProductAdmin.js" data-categoria="product"></script>
 
-    <script src="../js/removeCart.js"></script>
 
 </body>
 

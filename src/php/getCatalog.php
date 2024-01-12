@@ -26,11 +26,9 @@ $htmlProdotti = "";
 
 $connection = new DBAccess();
 $connectionOk = $connection->openDBConnection();
-
 if ($connectionOk) {
-    if ($riferimento != "") {
+    if (!empty($riferimento)) {
         $listaPC = $connection->getNamePricePath1($categoria, $riferimento);
-
         if ($listaPC != null) {
             foreach ($listaPC as $pc) {
                 $stringaPC .= "<dt>" . $pc['Nome'] . "</dt>,";
@@ -68,15 +66,6 @@ if ($connectionOk) {
     $stringaPC = "<p>I sistemi sono momentaneamente fuori servizio, ci scusiamo per il disagio</p>";
 }
 $connection->closeDBConnection();
-
-// <ul>
-//     <li>
-//       <dl>
-//           roba dentro con dt e dd
-//       </dl>
-//     </li>
-// </ul>
-//$nome contiene il valore corrente mentre $i contiene l'indice corrente, $nomePc è l'array dove itero
 
 foreach ($nomePc as $i => $nome) {
     if ($nome != null) {

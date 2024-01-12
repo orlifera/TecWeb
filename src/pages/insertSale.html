@@ -87,12 +87,13 @@
     </nav>
 
     <main>
-        <dl>
-            {ciao}
-        </dl>
-        <input type="button" value="Procedi con l'ordine" id="processOrder" name="processOrder" class="processOrder">
-        <input type="button" value="Rimuovi tutto" id="removeAll" name="removeAll" class="removeAll">
+        <input type="text" id="codice" placeholder="codice" required>
+        <input type="text" id="data_emissione" placeholder="data_emissione" required>
+        <input type="text" id="data_scadenza" placeholder="data_scadenza" required>
+        <input type="text" id="username" placeholder="username" required>
+        <input type="text" id="valore" placeholder="valore" required>
 
+        <input type="button" class="inserisciProdotto" value="Inserisci">
     </main>
 
     <footer>
@@ -144,11 +145,9 @@
         </ul>
     </footer>
     <script src="../JS/switch-handler.js"></script>
-    <script src="../js/cart.js"></script>
-    <script src="../js/orderHandler.js"></script>
-    <script src="../js/productHandler.js"></script>
 
-    <script src="../js/removeCart.js"></script>
+    <script src="../js/insertProductAdmin.js" data-categoria="sale"></script>
+
 
 </body>
 
