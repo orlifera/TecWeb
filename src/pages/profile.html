@@ -420,7 +420,7 @@
                                     </g>
                                 </g>
                             </svg>
-                            <label for="password">Password</label>
+                            <label for="password">Nuova Password</label>
                             <input type="password" name="password" id="password" placeholder="La tua password" required>
                         </div>
                     </div>
@@ -498,8 +498,8 @@
                 <fieldset class="fieldProfile hidden" id="paymentMethod">
                     <legend>Metodi di pagamento</legend>
 
-                    <div class="container">
-                        <h2 id="detail">Enter Your Card Details</h2>
+                    <div class="card-container">
+                        <h2 id="detail">Inserisci i dati della Tua carta</h2>
 
                         <!-- Card -->
                         <div class="card">
@@ -520,13 +520,14 @@
                                 <!-- Card Holder -->
                                 <div class="name">
                                     <label>Card Holder</label>
-                                    <input class="card-name" placeholder="ISRAEL ISRAELI" type="text" required />
+                                    <input class="card-name" placeholder="Mr. WorldWide" type="text" required />
                                 </div>
 
                                 <!-- Date -->
                                 <div class="expiration-date">
                                     <label>Exp. Date</label>
-                                    <input class="card-name" placeholder="10/25" type="text" maxlength="5" required />
+                                    <input id="expiry-date" class="card-name" placeholder="10/25" type="text"
+                                        maxlength="5" required />
                                 </div>
 
                                 <!-- Cvv -->

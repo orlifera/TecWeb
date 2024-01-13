@@ -25,6 +25,7 @@
 
 const first = document.getElementById('personalInfo');
 let firstNav = document.getElementById('firstNav');
+let exp = document.getElementById('expiry-date');
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -64,4 +65,20 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
+  exp.addEventListener('input', function (e) {
+    var input = e.target;
+    var value = input.value;
+    var length = value.length;
+    var cursorPosition = input.selectionStart;
+
+    // Handle backspace/delete at slash
+    if ((length === 3 && e.inputType === 'deleteContentBackward') ||
+      (cursorPosition === 3 && e.inputType === 'deleteContentBackward')) {
+      input.value = value.substring(0, 2);
+      e.preventDefault();
+    } else if (length === 2 && !value.includes('/')) {
+      input.value = value + '/';
+    }
+  });
+
 });

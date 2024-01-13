@@ -56,6 +56,9 @@
     --hover: #dedeff73;
     --smoke: #e2e2e2;
     --disabled: #f2f2f2;
+    --cardBg: #0026ff;
+    --cardLabel: #efefef;
+    --cardPlaceholder: #cdcdcd;
 }
 
 /* Palette scura */
@@ -1596,6 +1599,10 @@ fieldset.fieldProfile {
     font-size: 1.5em;
 }
 
+#profilePage label {
+    width: 15%;
+}
+
 .pwd-container {
     display: block;
     padding: 1em;
@@ -1608,12 +1615,11 @@ fieldset.fieldProfile {
 #detail {
     font-size: 1.5em;
     font-weight: 300;
-    padding-left: 1em;
     padding-bottom: .7em;
     color: var(--secondaryGradient);
     width: 420px;
     line-height: 1.5em;
-    text-align: left;
+    text-align: center;
 }
 
 .card {
@@ -1622,7 +1628,7 @@ fieldset.fieldProfile {
     height: 280px;
     width: 420px;
     border-radius: 20px;
-    background-color: var(--secondaryIconBG);
+    background-color: var(--secondaryGradient);
     border: 2px solid black;
     box-shadow: 0 0 80px rgba(0, 0, 0, 0.25);
     padding: 20px 30px 30px 30px;
@@ -1643,13 +1649,18 @@ fieldset.fieldProfile {
 }
 
 .card-number::placeholder {
-    color: black;
+    color: var(--cardPlaceholder);
     font-size: 30px;
 }
 
-input::placeholder {
-    color: #b5b5b5;
+.card input::placeholder {
+    color: var(--cardPlaceholder);
 }
+
+.card input:focus {
+    outline: none;
+}
+
 
 .name {
     padding: 0px 80px 0px 0px;
@@ -1680,13 +1691,13 @@ input::placeholder {
     border: none;
     background-color: transparent;
     height: 1em;
-    color: var(--background-link);
-    width: 100%;
-    border-bottom: 1px solid black;
+    color: var(--text-100);
+    width: 105%;
+    border-bottom: 1px solid var(--cardLabel);
 }
 
 .card label {
-    color: var(--background-link);
+    color: var(--cardLabel);
     font-weight: normal;
     pointer-events: none;
     display: block;
@@ -1698,19 +1709,46 @@ input.card-name {
     font-size: 16px;
     height: 26px;
     width: 20em;
-    border-bottom: 1px solid black;
-    color: black;
+    border-bottom: 1px solid var(--cardPlaceholder);
+    color: var(--cardLabel);
 }
 
 .container2 {
     display: flex;
 }
 
-.container {
+.card-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
     width: 100%;
+}
+
+#card-main {
+    position: relative;
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
+#order {
+    display: block;
+    padding: 2em;
+    margin: 5em auto;
+}
+
+#payment-animation {
+    animation: payment 5s linear;
+}
+
+@keyframes payment {
+    /* 0% {
+        transform: translateX(0px);
+    }
+    TO DEFINE
+    100% {
+        transform: translateX(-1000px);
+    } */
 }
