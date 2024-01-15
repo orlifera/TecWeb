@@ -159,55 +159,11 @@ function insertProduct() {
 
   var conferma = confirm("Sei sicuro di voler procedere?");
 
-  // Se l'utente conferma, chiamiamo la funzione callphp
   if (conferma) {
     callphp(url);
   } else {
   }
 }
-
-// function insertSale() {
-//   var codice = document.getElementById("codice").value;
-//   var data_emissione = document.getElementById("data_emissione").value;
-//   var data_scadenza = document.getElementById("data_scadenza").value;
-//   var username = document.getElementById("username").value;
-//   var valore = document.getElementById("valore").value;
-//   var isUsed = false;
-//   variabile_decisionale = "sale";
-//   if (
-//     codice == "" ||
-//     data_emissione == "" ||
-//     data_scadenza == "" ||
-//     username == "" ||
-//     valore == ""
-//   ) {
-//     alert("Compila tutti i campi");
-//     return;
-//   }
-
-//   var url =
-//     "../php/addProductOnDB.php?id=" +
-//     codice +
-//     "&data_emissione=" +
-//     data_emissione +
-//     "&data_scadenza=" +
-//     data_scadenza +
-//     "&username=" +
-//     username +
-//     "&isUsed=" +
-//     isUsed +
-//     "&valore=" +
-//     valore +
-//     "&variabile_decisionale=" +
-//     variabile_decisionale;
-//   var conferma = confirm("Sei sicuro di voler inserire lo sconto?");
-
-//   // Se l'utente conferma, chiamiamo la funzione callphp
-//   if (conferma) {
-//     callphp(url);
-//   } else {
-//   }
-// }
 
 function callphp(url) {
   window.location.href = url;

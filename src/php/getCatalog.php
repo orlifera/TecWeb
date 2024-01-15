@@ -66,15 +66,18 @@ if ($connectionOk) {
     $stringaPC = "<p>I sistemi sono momentaneamente fuori servizio, ci scusiamo per il disagio</p>";
 }
 $connection->closeDBConnection();
-
-foreach ($nomePc as $i => $nome) {
-    if ($nome != null) {
-        // $prova = "<li>\n" . ""
-        $prova = "<li>\n" . "<dl>\n" .  "<a class=\"\" href=\"getProduct.php?categoria=" . $categoria . "&id=" . $sku1[$i] . "\">\n" . "<img src=\"" . $path[$i] . "\"" . "alt=\"image\">\n"  .  $nome .   $prezzo[$i]  . "</a>\n" . "</dl>\n" . "</li>\n";
-        // $prova = "<div class=\"cell\">\n" . "<a class=\"\" href=\"getProduct.php?categoria=" . $categoria . "&id=" . $sku1[$i] . "\">\n" . "<img src=\"" . $path[$i] . "\"" . "alt=\"image\">\n" . "<dt>" .  $nome .  "</dt>" . "<dd>" . $prezzo[$i] . "</dd>\n" . "</a>\n" . "</div>\n";
-        //variabile in più per concatenare i vari prodotti
-        $htmlProdotti .= $prova;
+if ($nomePc != null) {
+    foreach ($nomePc as $i => $nome) {
+        if ($nome != null) {
+            // $prova = "<li>\n" . ""
+            $prova = "<li>\n" . "<dl>\n" .  "<a class=\"\" href=\"getProduct.php?categoria=" . $categoria . "&id=" . $sku1[$i] . "\">\n" . "<img src=\"" . $path[$i] . "\"" . "alt=\"image\">\n"  .  $nome .   $prezzo[$i]  . "</a>\n" . "</dl>\n" . "</li>\n";
+            // $prova = "<div class=\"cell\">\n" . "<a class=\"\" href=\"getProduct.php?categoria=" . $categoria . "&id=" . $sku1[$i] . "\">\n" . "<img src=\"" . $path[$i] . "\"" . "alt=\"image\">\n" . "<dt>" .  $nome .  "</dt>" . "<dd>" . $prezzo[$i] . "</dd>\n" . "</a>\n" . "</div>\n";
+            //variabile in più per concatenare i vari prodotti
+            $htmlProdotti .= $prova;
+        }
     }
+} else {
+    $htmlProdotti = "<p>Siamo spiacenti, i prodotti che cerca momentaneamente esauriti, ci scusiamo per il disagio</p>";
 }
 
 $paginaHTML = str_replace('{prodotto}', $htmlProdotti, $paginaHTML);
