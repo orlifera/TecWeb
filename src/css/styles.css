@@ -28,6 +28,7 @@
     --white: #FFFFFF;
     --background-link: #696cff;
     --border: #adacac;
+    --border-radius: 1em;
 }
 
 /* Palette chiara */
@@ -55,6 +56,9 @@
     --hover: #dedeff73;
     --smoke: #e2e2e2;
     --disabled: #f2f2f2;
+    --cardBg: #0026ff;
+    --cardLabel: #efefef;
+    --cardPlaceholder: #cdcdcd;
 }
 
 /* Palette scura */
@@ -197,9 +201,9 @@ nav#menu #switch {
     cursor: pointer;
 }
 
-#dropdown-icon {
+/* #dropdown-icon {
     fill: var(--primaryText);
-}
+} */
 
 ul li ul.dropdown-list li {
     width: 5.51em;
@@ -249,6 +253,10 @@ ul li:hover ul.dropdown-list {
     /*DA RIVEDERE*/
 }
 
+nav svg:not(#signup, #sun, #moon) {
+    fill: var(--primaryText);
+}
+
 #menu.fixed {
     position: fixed;
     top: 0;
@@ -265,10 +273,10 @@ ul li:hover ul.dropdown-list {
     margin-right: 8px;
 }
 
-#login,
+/* #login,
 #settings {
     fill: var(--primaryText);
-}
+} */
 
 #signup path {
     stroke: var(--primaryText);
@@ -338,11 +346,11 @@ ul li:hover ul.dropdown-list {
     filter: invert(1);
 }
 
-#cart,
+/* #cart,
 #profile {
     fill: var(--primaryText);
     z-index: 1;
-}
+} */
 
 .info-p {
     text-align: center;
@@ -453,66 +461,6 @@ ul li:hover ul.dropdown-list {
     text-align: justify;
     padding-bottom: 1em;
 }
-
-/* #review {
-    padding: 8em 5em 5em 5em;
-}
-
-#flex-review {
-    margin-top: 5em;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-}
-
-.quote {
-    width: 25em;
-    background-color: var(--primaryText);
-    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.15));
-    color: #030303;
-    margin-bottom: 5em;
-}
-
-.quote-head {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 2em 1em 0 2em;
-}
-
-.unit-left {
-    width: 10%;
-}
-
-.unit-body {
-    padding-left: 1em;
-}
-
-.quote-link,
-.quote-name a {
-    color: #030303;
-}
-
-.quote-name {
-    font-size: 1.2em;
-}
-
-.quote-status {
-    color: #003f8f;
-}
-
-.quote-img {
-    border-radius: 50%;
-    width: 100%;
-}
-
-.quote-text {
-    padding: 1em 2em 2em 2em;
-}
-
-.q {
-    font-size: 0.8em;
-} */
 
 #last {
     display: flex;
@@ -997,11 +945,11 @@ fieldset:last-of-type {
     transition: var(--default-transition);
 }
 
-/* da controllare se c'è un modo migliore o va bene aumentare la specificità*/
-div#theme-switcher {
+/* da controllare se c'è un modo migliore o va bene aumentare la specificità
+ div#theme-switcher {
     width: 5em;
     margin: auto;
-}
+} */
 
 #theme-switcher::before {
     content: '';
@@ -1510,60 +1458,101 @@ ul#product-list li#product-card {
 /*****
 PROFILE
 *****/
-/* Stili per la sidenav */
-#profileMain {
-    width: 100%;
-    margin: auto;
-}
 
 #profileDiv {
-    width: 80%;
-    margin: auto;
-    border: 2px solid var(--smoke);
+    display: grid;
+    grid-template-columns: 20em 1fr;
 }
 
-.sidenav {
-    width: 25%;
-    background: linear-gradient(to bottom right, var(--primaryGradient), var(--secondaryGradient));
-    float: left;
+nav.sidenav {
+    width: 100%;
+    background-color: var(--secondaryGradient);
+    position: sticky;
+    /* max-height: 100svh; */
+    top: 0;
 }
 
-.sidenav ul {
-    list-style-type: none;
+.nav-list {
+    margin: 0;
     padding: 0;
+    list-style-type: none;
+    display: grid;
+    gap: 2em;
+    padding-block: 2em;
+    font: 2em;
 }
 
-.sidenav ul li {
-    border-bottom: 1px solid var(--smoke);
-    padding: .5em 0;
+.nav-list li {
+    padding: 1em 2em;
+    width: 100%;
 }
 
-.sidenav ul li a {
+.nav-list li a {
     display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: var(--primaryText);
+    width: 100%;
+    height: 100%;
 }
 
-.sidenav ul li:hover {
-    background-color: var(--hover);
+.sidenav li.active {
+    /* view-transition-name: activeNavTab; */
+    background-color: var(--white);
+    border-left: 10px solid var(--primaryIconBg);
+    position: relative;
+}
+
+/* ::view-transition-group(activeNavTab) {
+    animation-duration: 1.5s;
+} */
+
+.nav-list li.active a {
+    color: var(--secondaryIconBG);
+}
+
+.nav-list li.active::before,
+.nav-list li.active::after {
+    content: '';
+    position: absolute;
+    height: var(--border-radius);
+    width: var(--border-radius);
+    right: 0;
+    background-color: var(--secondaryGradient);
+}
+
+.nav-list li.active::before {
+    border-radius: 0 0 100vh 0;
+    box-shadow: 5px 5px 0 5px var(--white);
+    top: calc(var(--border-radius) * -1);
+    /*lo sposta proprio fuori la li*/
+}
+
+.nav-list li.active::after {
+    bottom: calc(var(--border-radius) * -1);
+    border-radius: 0 100vh 0 0;
+    box-shadow: 5px -5px 0 5px var(--white);
 }
 
 #profilePage {
-    width: 75%;
-    float: right;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    text-align: center;
 }
 
-/* .fieldProfile {
+/* #profilePage legend { 
+    position: relative;
+    /* top: .5em; 
     width: 100%;
-    display: block;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-    width: calc(100% - 240px);
-    /* Larghezza - spazio per la navbar e margini
-    float: left;
-} */
+    text-align: center;
+}
+ */
+fieldset.fieldProfile {
+    height: 100%;
+    border-bottom: unset;
+    background-color: var(--white);
+    padding: unset;
+}
+
+
 #genderSelector {
     width: 30%;
     margin: auto;
@@ -1572,15 +1561,194 @@ PROFILE
     justify-content: center;
 }
 
-#profilePage legend {
-    width: 80%;
-    margin: auto;
-    padding: 1em 0;
-    text-align: center;
-    background: linear-gradient(var(--secondaryGradient), var(--bgDiv));
+#nav-header {
+    display: block;
+    width: 100%;
 }
 
-.active {
-    background-color: var(--primaryIconBg);
-    border-left: 10px solid var(--primaryText);
+#nav-title {
+    margin: auto;
+    display: block;
+    padding: 1em 0 0 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5em;
+    color: var(--primaryText);
+}
+
+#nav-title a {
+    color: var(--primaryText);
+}
+
+.info-container {
+    padding: 1em;
+    display: flex;
+}
+
+.info-container .text-fields {
+    padding: 1em .5em;
+}
+
+.info-container .text-fields.email {
+    width: 95%;
+}
+
+#profilePage legend {
+    padding: 1em 0;
+    font-size: 1.5em;
+}
+
+#profilePage label {
+    width: 15%;
+}
+
+.pwd-container {
+    display: block;
+    padding: 1em;
+}
+
+#confirm {
+    width: 11em;
+}
+
+#detail {
+    font-size: 1.5em;
+    font-weight: 300;
+    padding-bottom: .7em;
+    color: var(--secondaryGradient);
+    width: 420px;
+    line-height: 1.5em;
+    text-align: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 280px;
+    width: 420px;
+    border-radius: 20px;
+    background-color: var(--secondaryGradient);
+    border: 2px solid black;
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.25);
+    padding: 20px 30px 30px 30px;
+    overflow: hidden;
+}
+
+.logo {
+    height: 80px;
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.card-number {
+    font-size: 30px;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 40px;
+}
+
+.card-number::placeholder {
+    color: var(--cardPlaceholder);
+    font-size: 30px;
+}
+
+.card input::placeholder {
+    color: var(--cardPlaceholder);
+}
+
+.card input:focus {
+    outline: none;
+}
+
+
+.name {
+    padding: 0px 80px 0px 0px;
+    margin-right: 40px;
+    width: 10em;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.expiration-date {
+    padding: 0px 0px 0px 0px;
+    margin-right: 60px;
+    width: 80px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.ccv {
+    margin-right: 0px;
+    width: 4em;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.card input {
+    border: none;
+    background-color: transparent;
+    height: 1em;
+    color: var(--text-100);
+    width: 105%;
+    border-bottom: 1px solid var(--cardLabel);
+}
+
+.card label {
+    color: var(--cardLabel);
+    font-weight: normal;
+    pointer-events: none;
+    display: block;
+    padding-bottom: 2px;
+}
+
+input.card-name {
+    color: var(--background-link);
+    font-size: 16px;
+    height: 26px;
+    width: 20em;
+    border-bottom: 1px solid var(--cardPlaceholder);
+    color: var(--cardLabel);
+}
+
+.container2 {
+    display: flex;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+#card-main {
+    position: relative;
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
+#order {
+    display: block;
+    padding: 2em;
+    margin: 5em auto;
+}
+
+#payment-animation {
+    animation: payment 5s linear;
+}
+
+@keyframes payment {
+    /* 0% {
+        transform: translateX(0px);
+    }
+    TO DEFINE
+    100% {
+        transform: translateX(-1000px);
+    } */
 }
