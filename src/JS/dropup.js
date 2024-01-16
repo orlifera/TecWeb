@@ -2,14 +2,14 @@ function showDrop(q, p) {
   q.classList.remove("hidden");
   q.classList.add("show");
   p.classList.add("obscured");
-  console.log("clicked", q);
+  console.log("show");
 }
 
 function hideDrop(q, p) {
   q.classList.remove("show");
   q.classList.add("hidden");
   p.classList.remove("obscured")
-  console.log("clicked", q);
+  console.log("remove");
 }
 
 var main = document.querySelector('main');
@@ -17,18 +17,30 @@ var main = document.querySelector('main');
 function toggleDrop(event) {
   var trigger = event.currentTarget;
   var dropup = trigger.nextElementSibling;
-  if (dropup.classList.contains("show")) {
-    hideDrop(dropup, main);
-  } else if (dropup.classList.contains("hidden")) {
-    showDrop(dropup, main);
+  if(dropup && dropup.classList.contains("dropup-list")) {
+    if (dropup.classList.contains("show")) {
+      hideDrop(dropup, main);
+    } 
+    else if (dropup.classList.contains("hidden")) {
+      showDrop(dropup, main);
+    }
   }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  document.querySelectorAll('.dropup-trigger').forEach(function (drop) {
-    drop.addEventListener('click', toggleDrop);
+  document.addEventListener('click', function (event) {
+    var clicked = event.target.closest('.dropup-trigger');
+    if (clicked) {
+      console.log("clicked",clicked)
+      toggleDrop(event);
+    } else {
+      closeAllDropUp();
+    }
   });
+  // document.querySelectorAll('.dropup-trigger').forEach(function (drop) {
+  //   drop.addEventListener('click', toggleDrop);
+  // });
 
 });
 
@@ -38,11 +50,11 @@ function closeAllDropUp() {
   });
 }
 
-document.addEventListener('click', function(event) {
-    var dropupList = document.querySelector('.dropup-list');
-    var dropupTrigger = document.querySelector('.dropup-trigger');
+// document.addEventListener('click', function(event) {
+//     var dropupList = document.querySelector('.dropup-list');
+//     var dropupTrigger = document.querySelector('.dropup-trigger');
 
-    if (!(dropupList.contains(event.target) || dropupTrigger.contains(event.target))) {
-      closeAllDropUp();
-    }
-  });
+//     if (!(dropupList.contains(event.target) || dropupTrigger.contains(event.target))) {
+//       closeAllDropUp();
+//     }
+//   });

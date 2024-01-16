@@ -29,79 +29,108 @@ class DBAccess
     /************ GESTIONE PRODOTTI ************/
     public function getProduct($categoria, $sku)
     {
-        $query = "SELECT SKU, 
-                         Nome, 
-                         Tipo, 
-                         Descrizione, 
-                         Prezzo, 
-                         Colore, 
-                         Disponibilita,
-                         path_immagine,
-                         riferimento
-                         FROM Prodotto 
-                         WHERE categoria = '$categoria'
-                         AND SKU = '$sku';";
-        $queryResult = mysqli_query($this->connection, $query) or die("Errore in DBAccess" . mysqli_error($this->connection));
+        $query = "SELECT SKU, Nome, Tipo, Descrizione, Prezzo, Colore, Disponibilita, path_immagine, riferimento FROM Prodotto WHERE categoria = ? AND SKU = ?";
+        $stmt = mysqli_prepare($this->connection, $query);
+        mysqli_stmt_bind_param($stmt, "ss", $categoria, $sku);
+
+        mysqli_stmt_execute($stmt);
+        $queryResult = mysqli_stmt_get_result($stmt);
+
         if (mysqli_num_rows($queryResult) != 0) {
-            // Modo 1 di fare:
             $row = mysqli_fetch_assoc($queryResult);
-            return array($row["SKU"], $row["Nome"], $row["Tipo"], $row["Descrizione"], $row["Prezzo"], $row["Colore"], $row["Disponibilita"], $row["path_immagine"], $row["riferimento"]);
+            mysqli_stmt_close($stmt);
+            return array($row["SKU"], $row["Nome"], $row["Tipo"], $row["Descrizione"], $row["Prezzo"], $row["Colore"],  $row["Disponibilita"], $row["path_immagine"], $row["riferimento"]);
         } else {
+            mysqli_stmt_close($stmt);
             return null;
         }
     }
+
+    public function getProductAdmin($sku)
+    {
+        $query = "SELECT SKU, Nome, Tipo, Descrizione, categoria, Prezzo, Colore, Disponibilita, path_immagine, riferimento FROM Prodotto WHERE SKU = ?";
+        $stmt = mysqli_prepare($this->connection, $query);
+        mysqli_stmt_bind_param($stmt, "s", $sku);
+
+        mysqli_stmt_execute($stmt);
+        $queryResult = mysqli_stmt_get_result($stmt);
+
+        if (mysqli_num_rows($queryResult) != 0) {
+            $row = mysqli_fetch_assoc($queryResult);
+            mysqli_stmt_close($stmt);
+            return array($row["SKU"], $row["Nome"], $row["Tipo"], $row["Descrizione"], $row["Prezzo"], $row["Colore"], $row["categoria"], $row["Disponibilita"], $row["path_immagine"], $row["riferimento"]);
+        } else {
+            mysqli_stmt_close($stmt);
+            return null;
+        }
+    }
+
 
     public function getDisp($sku)
     {
-        $query = "SELECT Disponibilita
-                         FROM Prodotto 
-                         WHERE SKU = '$sku';";
-        $queryResult = mysqli_query($this->connection, $query) or die("Errore in DBAccess" . mysqli_error($this->connection));
+        $query = "SELECT Disponibilita FROM Prodotto WHERE SKU = ?";
+        $stmt = mysqli_prepare($this->connection, $query);
+        mysqli_stmt_bind_param($stmt, "s", $sku);
+        mysqli_stmt_execute($stmt);
+        $queryResult = mysqli_stmt_get_result($stmt);
         if (mysqli_num_rows($queryResult) != 0) {
-            // Modo 1 di fare:
             $row = mysqli_fetch_assoc($queryResult);
+            mysqli_stmt_close($stmt);
             return array($row["Disponibilita"]);
         } else {
+            mysqli_stmt_close($stmt);
             return null;
         }
     }
+
 
     public function getNamePricePath($categoria)
     {
-        $query = "SELECT Nome, Prezzo, path_immagine, SKU FROM Prodotto WHERE categoria = '$categoria';";
-        $queryResult = mysqli_query($this->connection, $query) or die("Errore in DBAccess" . mysqli_error($this->connection));
+        $query = "SELECT Nome, Prezzo, path_immagine, SKU FROM Prodotto WHERE categoria = ?";
+        $stmt = mysqli_prepare($this->connection, $query);
+
+        // Associa il valore alla variabile nello statement preparato
+        mysqli_stmt_bind_param($stmt, "s", $categoria);
+
+        mysqli_stmt_execute($stmt);
+        $queryResult = mysqli_stmt_get_result($stmt);
+
         if (mysqli_num_rows($queryResult) != 0) {
             $rows = array();
-            while ($row = $queryResult->fetch_assoc()) {
+            while ($row = mysqli_fetch_assoc($queryResult)) {
                 $rows[] = $row;
             }
+            mysqli_stmt_close($stmt);
             return $rows;
         } else {
+            mysqli_stmt_close($stmt);
             return null;
         }
     }
+
 
     public function getNamePricePath1($categoria, $riferimento)
     {
-        $query = "SELECT Nome, Prezzo, path_immagine, SKU FROM Prodotto WHERE categoria = '$categoria' AND riferimento = '$riferimento';";
-        $queryResult = mysqli_query($this->connection, $query) or die("Errore in DBAccess" . mysqli_error($this->connection));
+        $query = "SELECT Nome, Prezzo, path_immagine, SKU FROM Prodotto WHERE categoria = ? AND riferimento = ?";
+        $stmt = mysqli_prepare($this->connection, $query);
+        mysqli_stmt_bind_param($stmt, "ss", $categoria, $riferimento);
+
+        mysqli_stmt_execute($stmt);
+        $queryResult = mysqli_stmt_get_result($stmt);
+
         if (mysqli_num_rows($queryResult) != 0) {
             $rows = array();
-            while ($row = $queryResult->fetch_assoc()) {
+            while ($row = mysqli_fetch_assoc($queryResult)) {
                 $rows[] = $row;
             }
+            mysqli_stmt_close($stmt);
             return $rows;
         } else {
+            mysqli_stmt_close($stmt);
             return null;
         }
     }
 
-    public function insertNewPc($sku, $nome, $prezzo, $descrizione,  $quantita, $tipo,  $colore, $path_immagine)
-    {
-        $queryInsert = "INSERT INTO Prodotto (sku, nome, tipo, descrizione, prezzo, colore, disponibilita, path_immagine) VALUES (\"$sku\", \"$nome\", \"$tipo\", \"$descrizione\", $prezzo, \"$colore\", $quantita, \"$path_immagine\")";
-        mysqli_query($this->connection, $queryInsert) or die("errore in DBaccess" . mysqli_error($this->connection));
-        return mysqli_affected_rows($this->connection) > 0;
-    }
     /************ FINE GESTIONE PRODOTTO ************/
 
 
@@ -137,14 +166,32 @@ class DBAccess
 
     public function insertToCart($sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_immagine, $categoria)
     {
-        $queryInsert = "INSERT INTO Carrello (sku, nome, tipo, descrizione, prezzo, colore, quantitaScelta, path_immagine, categoria) VALUES (\"$sku\", \"$nome\", \"$tipo\", \"$descrizione\", $prezzo, \"$colore\", $quantita, \"$path_immagine\", \"$categoria\")";
-        mysqli_query($this->connection, $queryInsert) or die("errore in DBaccess" . mysqli_error($this->connection));
-        return mysqli_affected_rows($this->connection) > 0;
+        $queryInsert = "INSERT INTO Carrello (sku, nome, tipo, descrizione, prezzo, colore, quantitaScelta, path_immagine, categoria) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = mysqli_prepare($this->connection, $queryInsert);
+        mysqli_stmt_bind_param($stmt, "sssdssiss", $sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_immagine, $categoria);
+        mysqli_stmt_execute($stmt);
+        $rowsAffected = mysqli_stmt_affected_rows($stmt);
+        mysqli_stmt_close($stmt);
+
+        return $rowsAffected > 0;
     }
+
 
     public function deleteFromCart($sku)
     {
-        $queryDelete = "DELETE FROM Carrello WHERE sku = '$sku'";
+        $queryDelete = "DELETE FROM Carrello WHERE sku = ?";
+        $stmt = mysqli_prepare($this->connection, $queryDelete);
+        mysqli_stmt_bind_param($stmt, "s", $sku);
+        mysqli_stmt_execute($stmt);
+        $rowsAffected = mysqli_stmt_affected_rows($stmt);
+        mysqli_stmt_close($stmt);
+        return $rowsAffected > 0;
+    }
+
+
+    public function deleteAllCart()
+    {
+        $queryDelete = "DELETE FROM Carrello";
         mysqli_query($this->connection, $queryDelete) or die("errore in DBaccess" . mysqli_error($this->connection));
         return mysqli_affected_rows($this->connection) > 0;
     }
@@ -161,6 +208,225 @@ class DBAccess
 
     /************ FINE GESTIONE ORDINI ************/
 
+    /************ PARTE ADMIN ************/
+
+    public function getProductPcKbd()
+    {
+        $query = "SELECT * FROM Prodotto WHERE categoria = 'pc' OR categoria = 'kbd';";
+
+        $queryResult = mysqli_query($this->connection, $query) or die("Errore in DBAccess" . mysqli_error($this->connection));
+        if (mysqli_num_rows($queryResult) != 0) {
+            // // Modo 1 di fare:
+            // $row = mysqli_fetch_assoc($queryResult);
+            // return array($row["sku"], $row["nome"], $row["tipo"], $row["descrizione"], $row["prezzo"], $row["colore"], $row["disponibilita"], $row["path_immagine"], $row["categoria"], $row["riferimento"]);
+            $result = array();
+            while ($row = mysqli_fetch_array($queryResult)) {
+                $result[] = $row;
+            }
+            $queryResult->free();
+            return $result;
+        } else {
+            return null;
+        }
+    }
+
+    public function getProductAcc()
+    {
+        $query = "SELECT * FROM Prodotto WHERE categoria = 'acc' ;";
+
+        $queryResult = mysqli_query($this->connection, $query) or die("Errore in DBAccess" . mysqli_error($this->connection));
+        if (mysqli_num_rows($queryResult) != 0) {
+            // // Modo 1 di fare:
+            // $row = mysqli_fetch_assoc($queryResult);
+            // return array($row["sku"], $row["nome"], $row["tipo"], $row["descrizione"], $row["prezzo"], $row["colore"], $row["disponibilita"], $row["path_immagine"], $row["categoria"], $row["riferimento"]);
+            $result = array();
+            while ($row = mysqli_fetch_array($queryResult)) {
+                $result[] = $row;
+            }
+            $queryResult->free();
+            return $result;
+        } else {
+            return null;
+        }
+    }
+
+    public function getSconti()
+    {
+        $query = "SELECT * FROM Sconto ;";
+
+        $queryResult = mysqli_query($this->connection, $query) or die("Errore in DBAccess" . mysqli_error($this->connection));
+        if (mysqli_num_rows($queryResult) != 0) {
+            $result = array();
+            while ($row = mysqli_fetch_array($queryResult)) {
+                $result[] = $row;
+            }
+            $queryResult->free();
+            return $result;
+        } else {
+            return null;
+        }
+    }
+
+    public function getOrdini()
+    {
+        $query = "SELECT * FROM Ordine ;";
+
+        $queryResult = mysqli_query($this->connection, $query) or die("Errore in DBAccess" . mysqli_error($this->connection));
+        if (mysqli_num_rows($queryResult) != 0) {
+            $result = array();
+            while ($row = mysqli_fetch_array($queryResult)) {
+                $result[] = $row;
+            }
+            $queryResult->free();
+            return $result;
+        } else {
+            return null;
+        }
+    }
+
+    public function insertNewProduct($sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_immagine, $categoria, $riferimento)
+    {
+        $queryInsert = "INSERT INTO Prodotto (sku, nome, tipo, descrizione, prezzo, colore, disponibilita, path_immagine, categoria, riferimento) VALUES (\"$sku\", \"$nome\", \"$tipo\", \"$descrizione\", $prezzo, \"$colore\", $quantita, \"$path_immagine\", \"$categoria\", \"$riferimento\")";
+        mysqli_query($this->connection, $queryInsert) or die("errore in DBaccess" . mysqli_error($this->connection));
+        return mysqli_affected_rows($this->connection) > 0;
+    }
+
+    public function updateProduct($sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_immagine, $categoria, $riferimento)
+    {
+        $queryUpdate = "UPDATE Prodotto 
+                        SET nome = \"$nome\", 
+                            tipo = \"$tipo\", 
+                            descrizione = \"$descrizione\", 
+                            prezzo = $prezzo, 
+                            colore = \"$colore\", 
+                            disponibilita = $quantita, 
+                            path_immagine = \"$path_immagine\", 
+                            categoria = \"$categoria\", 
+                            riferimento = \"$riferimento\" 
+                        WHERE sku = \"$sku\"";
+
+        mysqli_query($this->connection, $queryUpdate) or die("Errore in DBAccess: " . mysqli_error($this->connection));
+
+        return mysqli_affected_rows($this->connection) > 0;
+    }
+
+    public function deleteProductAdmin($id)
+    {
+        $queryDelete = "DELETE FROM Prodotto WHERE sku = ?";
+        $stmt = mysqli_prepare($this->connection, $queryDelete);
+        mysqli_stmt_bind_param($stmt, "s", $id);
+        mysqli_stmt_execute($stmt);
+        $rowsAffected = mysqli_stmt_affected_rows($stmt);
+        mysqli_stmt_close($stmt);
+
+        return $rowsAffected > 0;
+    }
+
+    public function insertNewSale($codice, $data_emissione, $data_scadenza, $username, $isUsedSconto, $valore)
+    {
+        $queryInsert = "INSERT INTO Sconto (codice, data_emissione, data_scadenza, username, isUsed, valore) VALUES (\"$codice\", \"$data_emissione\", \"$data_scadenza\", \"$username\", $isUsedSconto, $valore)";
+        mysqli_query($this->connection, $queryInsert) or die("errore in DBaccess" . mysqli_error($this->connection));
+        return mysqli_affected_rows($this->connection) > 0;
+    }
+
+    public function getScontiAdmin($codice)
+    {
+        $query = "SELECT codice, data_emissione, data_scadenza, username, isUsed, valore FROM Sconto WHERE codice = ?";
+        $stmt = mysqli_prepare($this->connection, $query);
+        mysqli_stmt_bind_param($stmt, "s", $codice);
+        mysqli_stmt_execute($stmt);
+        $queryResult = mysqli_stmt_get_result($stmt);
+        if (mysqli_num_rows($queryResult) != 0) {
+            $row = mysqli_fetch_assoc($queryResult);
+            mysqli_stmt_close($stmt);
+            return array($row["codice"], $row["data_emissione"], $row["data_scadenza"], $row["username"], $row["isUsed"], $row["valore"]);
+        } else {
+            mysqli_stmt_close($stmt);
+            return null;
+        }
+    }
+
+    public function updateSale($codice, $data_emissione, $data_scadenza, $username, $isUsed, $valore)
+    {
+        $queryUpdate = "UPDATE Sconto 
+                    SET 
+                        data_emissione = \"$data_emissione\", 
+                        data_scadenza = \"$data_scadenza\", 
+                        username = \"$username\", 
+                        isUsed = \"$isUsed\", 
+                        valore = \"$valore\"
+                    WHERE codice = \"$codice\"";
+
+        mysqli_query($this->connection, $queryUpdate) or die("Errore in DBAccess: " . mysqli_error($this->connection));
+
+        return mysqli_affected_rows($this->connection) > 0;
+    }
+
+
+    public function deleteSale($codice)
+    {
+        $queryDelete = "DELETE FROM Sconto WHERE codice = ?";
+        $stmt = mysqli_prepare($this->connection, $queryDelete);
+        mysqli_stmt_bind_param($stmt, "s", $codice);
+        mysqli_stmt_execute($stmt);
+        $rowsAffected = mysqli_stmt_affected_rows($stmt);
+        mysqli_stmt_close($stmt);
+
+        return $rowsAffected > 0;
+    }
+
+    public function insertNewOrder($codice, $utente, $quantitaOrdinata, $indirizzo, $prezzo)
+    {
+        $queryInsert = "INSERT INTO Ordine (id, utente, quantitaOrdinata, indirizzo, prezzo) VALUES (\"$codice\", \"$utente\", $quantitaOrdinata, \"$indirizzo\", $prezzo)";
+        mysqli_query($this->connection, $queryInsert) or die("errore in DBaccess" . mysqli_error($this->connection));
+        return mysqli_affected_rows($this->connection) > 0;
+    }
+
+    public function deleteOrder($codice)
+    {
+        $queryDelete = "DELETE FROM Ordine WHERE id = ?";
+        $stmt = mysqli_prepare($this->connection, $queryDelete);
+        mysqli_stmt_bind_param($stmt, "s", $codice);
+        mysqli_stmt_execute($stmt);
+        $rowsAffected = mysqli_stmt_affected_rows($stmt);
+        mysqli_stmt_close($stmt);
+
+        return $rowsAffected > 0;
+    }
+
+    public function getOrdiniAdmin($codice)
+    {
+        $query = "SELECT id, utente, quantitaOrdinata, indirizzo, prezzo FROM Ordine WHERE id = ?";
+        $stmt = mysqli_prepare($this->connection, $query);
+        mysqli_stmt_bind_param($stmt, "s", $codice);
+        mysqli_stmt_execute($stmt);
+        $queryResult = mysqli_stmt_get_result($stmt);
+        if (mysqli_num_rows($queryResult) != 0) {
+            $row = mysqli_fetch_assoc($queryResult);
+            mysqli_stmt_close($stmt);
+            return array($row["id"], $row["utente"], $row["quantitaOrdinata"], $row["indirizzo"], $row["prezzo"]);
+        } else {
+            mysqli_stmt_close($stmt);
+            return null;
+        }
+    }
+
+    public function updateOrder($codice, $utente, $quantitaOrdinata, $indirizzo, $prezzo)
+    {
+        $queryUpdate = "UPDATE Ordine 
+                    SET 
+                        utente = '$utente', 
+                        quantitaOrdinata = $quantitaOrdinata, 
+                        indirizzo = '$indirizzo', 
+                        prezzo = $prezzo
+                    WHERE id = '$codice'";
+
+        mysqli_query($this->connection, $queryUpdate) or die("Errore in DBAccess: " . mysqli_error($this->connection));
+
+        return mysqli_affected_rows($this->connection) > 0;
+    }
+
+    /************ FINE PARTE ADMIN ************/
     public function closeDBConnection()
     {
         mysqli_close($this->connection);

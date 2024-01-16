@@ -3,7 +3,6 @@
 require_once "DBAccess.php";
 
 use DB\DBAccess;
-
 session_start();
 
 ini_set('display_errors', 1);

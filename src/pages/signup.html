@@ -1,67 +1,67 @@
 <!DOCTYPE html>
 <html lang="it" data-theme="light">
 
-    <head>
-        <meta charset="UTF-8">
-        <title>Signup - ML Tech</title>
-        <meta name="keywords" content="ML-TECH products, gaming, workstation, technology ">
-        <meta name="description" content="Sito ufficiale ml-tech, gruppo fondato da Orlando Ferazzani">
-        <link rel="stylesheet" href="../css/styles.css" media="screen">
-        <link rel="stylesheet" href="../css/print.css" media="print">
-        <link rel="stylesheet" href="../css/mini.css" media="screen and (max-width: 600px)">
-        <script>
-            //check local storage for theme and OS preference
-            let localS = localStorage.getItem('theme'),
-                themeToSet = localS
+<head>
+    <meta charset="UTF-8">
+    <title>Signup - ML Tech</title>
+    <meta name="keywords" content="ML-TECH products, gaming, workstation, technology ">
+    <meta name="description" content="Sito ufficiale ml-tech, gruppo fondato da Orlando Ferazzani">
+    <link rel="stylesheet" href="../css/styles.css" media="screen">
+    <link rel="stylesheet" href="../css/print.css" media="print">
+    <link rel="stylesheet" href="../css/mini.css" media="screen and (max-width: 600px)">
+    <script>
+        //check local storage for theme and OS preference
+        let localS = localStorage.getItem('theme'),
+            themeToSet = localS
 
-            //if LS not set => check OS preference
-            if (!localS) {
-                //media query with JS
-                themeToSet = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-            }
+        //if LS not set => check OS preference
+        if (!localS) {
+            //media query with JS
+            themeToSet = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        }
 
-            //set correct theme
-            document.documentElement.setAttribute('data-theme', themeToSet)
-        </script>
-    </head>
+        //set correct theme
+        document.documentElement.setAttribute('data-theme', themeToSet)
+    </script>
+</head>
 
-    <body>
-        <main id="login-main">
-            <div class="container">
-                <div class="login-link">
-                    <div class="logo">
-                        <a href="../../index.html"><img id="login-logo" src="../../assets/images/logoNoBg.png"
-                                alt="logo ML Tech"></a>
-                    </div>
-                    <h2 class="side-big-heading">Sei gi&agrave; registrato&quest;</h2>
-                    <p class="primary-bg-text">Accedi per visualizzare il tuo profilo e continuare con gli acquisti.</p>
-                    <a href="login.html" class="login-btn">Accedi</a>
-                    <p class="link-to-home">Vi siete persi? Tornate a <a href="../../index.html">Casa</a></p>
+<body>
+    <main id="login-main">
+        <div class="container">
+            <div class="login-link">
+                <div class="logo">
+                    <a href="../../index.html"><img id="login-logo" src="../../assets/images/logoNoBg.png"
+                            alt="logo ML Tech"></a>
                 </div>
-                <form action="../php/signup.php" method="post" class="signup-container">
-                    <h1 class="big-h">Crea Il Tuo Account</h1>
-                    <div class="progress-bar">
-                        <div class="stage">
-                            <p class="tool-tip">Generalità</p>
-                            <p class="stageno stageno-1">1</p>
-                        </div>
-                        <div class="stage">
-                            <p class="tool-tip">Contatti</p>
-                            <p class="stageno stageno-2">2</p>
-                        </div>
-                        <div class="stage">
-                            <p class="tool-tip">Indirizzo</p>
-                            <p class="stageno stageno-3">3</p>
-                        </div>
+                <h2 class="side-big-heading">Sei gi&agrave; registrato&quest;</h2>
+                <p class="primary-bg-text">Accedi per visualizzare il tuo profilo e continuare con gli acquisti.</p>
+                <a href="login.html" class="login-btn">Accedi</a>
+                <p class="link-to-home">Vi siete persi? Tornate a <a href="../../index.html">Casa</a></p>
+            </div>
+            <form action="../php/signup.php" method="post" class="signup-container">
+                <h1 class="big-h">Crea Il Tuo Account</h1>
+                <div class="progress-bar">
+                    <div class="stage">
+                        <p class="tool-tip">Generalità</p>
+                        <p class="stageno stageno-1">1</p>
                     </div>
-                    <div class="signup-content">
-                        <fieldset id="stage1">
-                            <div class="stage1-content">
-                                <div class="button-container">
-                                    <div class="text-fields fname">
-                                        <svg class="login-icon" xmlns="http://www.w3.org/2000/svg" version="1.0"
-                                            width="24" height="24" viewBox="0 0 128.000000 128.000000"
-                                            preserveAspectRatio="xMidYMid meet">
+                    <div class="stage">
+                        <p class="tool-tip">Contatti</p>
+                        <p class="stageno stageno-2">2</p>
+                    </div>
+                    <div class="stage">
+                        <p class="tool-tip">Indirizzo</p>
+                        <p class="stageno stageno-3">3</p>
+                    </div>
+                </div>
+                <div class="signup-content">
+                    <fieldset id="stage1">
+                        <div class="stage1-content">
+                            <div class="button-container">
+                                <div class="text-fields fname">
+                                    <svg class="login-icon" xmlns="http://www.w3.org/2000/svg" version="1.0" width="24"
+                                        height="24" viewBox="0 0 128.000000 128.000000"
+                                        preserveAspectRatio="xMidYMid meet">
 
                                             <g transform="translate(0.000000,128.000000) scale(0.100000,-0.100000)"
                                                 stroke="none">
@@ -76,10 +76,10 @@
                                     </div>
 
 
-                                    <div class="text-fields lname">
-                                        <svg class="login-icon" xmlns="http://www.w3.org/2000/svg" version="1.0"
-                                            width="24" height="24" viewBox="0 0 128.000000 128.000000"
-                                            preserveAspectRatio="xMidYMid meet">
+                                <div class="text-fields lname">
+                                    <svg class="login-icon" xmlns="http://www.w3.org/2000/svg" version="1.0" width="24"
+                                        height="24" viewBox="0 0 128.000000 128.000000"
+                                        preserveAspectRatio="xMidYMid meet">
 
                                             <g transform="translate(0.000000,128.000000) scale(0.100000,-0.100000)"
                                                 stroke="none">
@@ -92,15 +92,15 @@
                                         <label for="lname">Cognome</label>
                                         <input type="text" name="lname" id="lname" autocomplete="family-name" placeholder="Il tuo cognome" required>
 
-                                    </div>
                                 </div>
-                                <div class="button-container container2">
-                                    <div class="text-fields dob">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M19 5H13V2H11V5H5C3.346 5 2 6.346 2 8V18C2 19.103 2.897 20 4 20H20C21.103 20 22 19.103 22 18V8C22 6.346 20.654 5 19 5ZM5 7H19C19.2652 7 19.5196 7.10536 19.7071 7.29289C19.8946 7.48043 20 7.73478 20 8L20.001 11.12C19.105 11.348 18.532 11.854 18.085 12.252C17.578 12.702 17.243 13 16.497 13C15.752 13 15.417 12.702 14.91 12.253C14.315 11.724 13.501 11 11.995 11C10.49 11 9.676 11.724 9.081 12.253C8.574 12.703 8.24 13 7.495 13C6.752 13 6.418 12.703 5.913 12.253C5.466 11.855 4.895 11.348 4 11.12V8C4 7.73478 4.10536 7.48043 4.29289 7.29289C4.48043 7.10536 4.73478 7 5 7ZM4 18V13.286C4.191 13.409 4.374 13.56 4.583 13.747C5.178 14.276 5.991 15 7.495 15C9 15 9.814 14.276 10.409 13.747C10.916 13.297 11.25 13 11.995 13C12.74 13 13.075 13.298 13.582 13.747C14.177 14.276 14.991 15 16.497 15C18.003 15 18.818 14.276 19.413 13.747C19.624 13.559 19.808 13.407 20.001 13.283L20.002 18H4Z" />
-                                        </svg>
+                            </div>
+                            <div class="button-container container2">
+                                <div class="text-fields dob">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M19 5H13V2H11V5H5C3.346 5 2 6.346 2 8V18C2 19.103 2.897 20 4 20H20C21.103 20 22 19.103 22 18V8C22 6.346 20.654 5 19 5ZM5 7H19C19.2652 7 19.5196 7.10536 19.7071 7.29289C19.8946 7.48043 20 7.73478 20 8L20.001 11.12C19.105 11.348 18.532 11.854 18.085 12.252C17.578 12.702 17.243 13 16.497 13C15.752 13 15.417 12.702 14.91 12.253C14.315 11.724 13.501 11 11.995 11C10.49 11 9.676 11.724 9.081 12.253C8.574 12.703 8.24 13 7.495 13C6.752 13 6.418 12.703 5.913 12.253C5.466 11.855 4.895 11.348 4 11.12V8C4 7.73478 4.10536 7.48043 4.29289 7.29289C4.48043 7.10536 4.73478 7 5 7ZM4 18V13.286C4.191 13.409 4.374 13.56 4.583 13.747C5.178 14.276 5.991 15 7.495 15C9 15 9.814 14.276 10.409 13.747C10.916 13.297 11.25 13 11.995 13C12.74 13 13.075 13.298 13.582 13.747C14.177 14.276 14.991 15 16.497 15C18.003 15 18.818 14.276 19.413 13.747C19.624 13.559 19.808 13.407 20.001 13.283L20.002 18H4Z" />
+                                    </svg>
 
                                         <label for="dob">Data Di Nascita</label>
                                         <input type="date" name="dob" id="dob" class="dob" required>
@@ -119,40 +119,40 @@
                                     <input type="button" value="Avanti" class="next stagebtn1b">
                                 </div>
 
-                            </div>
-                        </fieldset>
-                        <fieldset id="stage2">
-                            <div class="stage2-content">
-                                <div class="button-container">
-                                    <div class="text-fields user">
-                                        <svg class="login-icon" xmlns="http://www.w3.org/2000/svg" version="1.0"
-                                            width="24" height="24" viewBox="0 0 128.000000 128.000000"
-                                            preserveAspectRatio="xMidYMid meet">
+                        </div>
+                    </fieldset>
+                    <fieldset id="stage2">
+                        <div class="stage2-content">
+                            <div class="button-container">
+                                <div class="text-fields user">
+                                    <svg class="login-icon" xmlns="http://www.w3.org/2000/svg" version="1.0" width="24"
+                                        height="24" viewBox="0 0 128.000000 128.000000"
+                                        preserveAspectRatio="xMidYMid meet">
 
-                                            <g transform="translate(0.000000,128.000000) scale(0.100000,-0.100000)"
-                                                stroke="none">
-                                                <path
-                                                    d="M543 1266 c-199 -63 -281 -290 -167 -462 122 -184 390 -183 512 1 36 55 57 141 48 202 -26 189 -216 314 -393 259z m214 -100 c63 -42 96 -99 101 -173 5 -76 -10 -124 -57 -176 -86 -96 -229 -104 -323 -19 -124 111 -98 302 52 383 55 30 171 23 227 -15z" />
-                                                <path
-                                                    d="M296 645 c-53 -19 -102 -69 -136 -140 -35 -74 -50 -153 -50 -265 0 -110 23 -161 95 -205 l48 -30 363 -3 c240 -2 377 1 404 8 51 14 108 63 131 115 48 105 5 357 -78 456 -31 37 -115 79 -158 79 -16 0 -71 -20 -121 -46 -77 -39 -99 -46 -150 -46 -64 -1 -120 18 -195 64 -51 31 -93 35 -153 13z m154 -101 c57 -37 144 -57 219 -51 51 4 84 15 151 49 72 37 90 43 120 37 81 -17 143 -135 156 -297 7 -97 -8 -147 -55 -179 -34 -23 -35 -23 -400 -23 -349 0 -367 1 -399 20 -50 31 -66 78 -59 180 10 135 53 244 111 280 53 34 84 30 156 -16z" />
-                                            </g>
-                                        </svg>
-
-                                        <label for="phone">Username</label>
-                                        <input type="text" name="user" id="user" placeholder="Il Tuo username" autocomplete="username" required>
-                                    </div>
-                                    <div class="text-fields email">
-                                        <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-                                        <svg width="24px" height="24px" viewBox="0 0 1920 1920"
-                                            xmlns="http://www.w3.org/2000/svg">
+                                        <g transform="translate(0.000000,128.000000) scale(0.100000,-0.100000)"
+                                            stroke="none">
                                             <path
-                                                d="M1920 428.266v1189.54l-464.16-580.146-88.203 70.585 468.679 585.904H83.684l468.679-585.904-88.202-70.585L0 1617.805V428.265l959.944 832.441L1920 428.266ZM1919.932 226v52.627l-959.943 832.44L.045 278.628V226h1919.887Z"
-                                                fill-rule="evenodd" />
-                                        </svg>
-                                        <label for="email">Email</label>
-                                        <input type="email" name="email" id="email" placeholder="La Tua email" autocomplete="email" required>
-                                    </div>
+                                                d="M543 1266 c-199 -63 -281 -290 -167 -462 122 -184 390 -183 512 1 36 55 57 141 48 202 -26 189 -216 314 -393 259z m214 -100 c63 -42 96 -99 101 -173 5 -76 -10 -124 -57 -176 -86 -96 -229 -104 -323 -19 -124 111 -98 302 52 383 55 30 171 23 227 -15z" />
+                                            <path
+                                                d="M296 645 c-53 -19 -102 -69 -136 -140 -35 -74 -50 -153 -50 -265 0 -110 23 -161 95 -205 l48 -30 363 -3 c240 -2 377 1 404 8 51 14 108 63 131 115 48 105 5 357 -78 456 -31 37 -115 79 -158 79 -16 0 -71 -20 -121 -46 -77 -39 -99 -46 -150 -46 -64 -1 -120 18 -195 64 -51 31 -93 35 -153 13z m154 -101 c57 -37 144 -57 219 -51 51 4 84 15 151 49 72 37 90 43 120 37 81 -17 143 -135 156 -297 7 -97 -8 -147 -55 -179 -34 -23 -35 -23 -400 -23 -349 0 -367 1 -399 20 -50 31 -66 78 -59 180 10 135 53 244 111 280 53 34 84 30 156 -16z" />
+                                        </g>
+                                    </svg>
+
+                                    <label for="phone">Username</label>
+                                    <input type="text" name="user" id="user" placeholder="Il Tuo username" autocomplete="username" required>
                                 </div>
+                                <div class="text-fields email">
+                                    <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                                    <svg width="24px" height="24px" viewBox="0 0 1920 1920"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M1920 428.266v1189.54l-464.16-580.146-88.203 70.585 468.679 585.904H83.684l468.679-585.904-88.202-70.585L0 1617.805V428.265l959.944 832.441L1920 428.266ZM1919.932 226v52.627l-959.943 832.44L.045 278.628V226h1919.887Z"
+                                            fill-rule="evenodd" />
+                                    </svg>
+                                    <label for="email">Email</label>
+                                    <input type="email" name="email" id="email" placeholder="La Tua email" autocomplete="email" required>
+                                </div>
+                            </div>
 
                                 <div class="button-container">
                                     <div class="text-fields password">
@@ -272,7 +272,7 @@
             </div>
         </main>
 
-        <script src="../JS/signup.js"></script>
-    </body>
+    <script src="../JS/signup.js"></script>
+</body>
 
 </html>

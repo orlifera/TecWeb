@@ -34,6 +34,21 @@ CREATE TABLE Prodotto (
   primary key(sku)
 ) Engine = InnoDB default charset = utf8mb4; 
 
+drop table if exists Sconto;
+CREATE TABLE Sconto (
+  codice varchar(256) primary key ,
+  data_emissione timestamp not null,
+  data_scadenza timestamp not null,
+  username varchar(255),
+  isUsed boolean default false,
+  valore double not null,
+  foreign key (username) references utente(username)
+) Engine = InnoDB default charset = utf8mb4; 
+
+INSERT INTO Sconto VALUES 
+("S1C1", "2021-12-01 00:00:00", "2021-12-31 00:00:00", "user", true, 100),
+("S2C2", "2021-12-01 00:00:00", "2021-12-31 00:00:00", "Matteo", false, 50);
+
 
 drop table if exists Carrello;
 CREATE TABLE Carrello (
@@ -50,8 +65,19 @@ CREATE TABLE Carrello (
   foreign key (sku) references Prodotto(sku)
 ) Engine = InnoDB default charset = utf8mb4;
 
+drop table if exists Ordine;
+CREATE TABLE Ordine (
+  id varchar(10) primary key ,
+  utente varchar(256) not null,
+  quantitaOrdinata double not null,
+  indirizzo varchar(256) not null,
+  prezzo double not null,
+  foreign key (utente) references Utente(username)
+) Engine = InnoDB default charset = utf8mb4;
 
-
+INSERT INTO Ordine VALUES
+("OR456D", "Matteo", 4, "Via Premaore Camponogara", 12),
+("OR423D", "user", 2, "Camponogara", 5);
 
 INSERT INTO Prodotto VALUES 
 ("P1", "Bull's Eye", "Gaming", "Il pc è composto da un Ryzen 5 5600,16GB di RAM a 3200Mhz e 1TB di SSD. Ha una RTX 3050 ed è alimentato da una PSU 650W. Il sistema raffreddato da un dissipatore a liquido Itek RGB a 240mm. Include il sistema operativo Windows 10 PRO.", 1320, "Nero, Bianco", 10, "../../assets/images/pc/P1.jpg", "pc", null),
@@ -84,11 +110,11 @@ INSERT INTO Prodotto VALUES
 
 ("T6", "Function MiniTKL (French ISO)", "Gaming", "Pensata per chi preferisce le tastiere full size ma non troppo ingombranti, la tastiera Function Full NZXT riunisce 104 tasti mantenendo le dimensioni più compatte possibili.", 139.00,"Nero, Bianco" , 10, "../../assets/images/kbd/T6.jpg", "kbd", null),
 
-("V1", "Artic E-sport Duo", "Ventola", "Ventola molto molto bella", 70.00,"Nero, Bianco" , 10, "../../assets/images/acc/V1.jpg", "acc", null),
+("V1", "Artic E-sport Duo", "Ventola", "Ventola molto molto bella", 70.00,"Nero, Bianco" , 10, "../../assets/images/acc/V1.jpg", "acc", pc),
 
-("V2", "Asus ROG RYUO", "Ventola", "Ventola molto molto moooolto bella", 180.00,"Nero, Bianco" , 10, "../../assets/images/acc/V2.jpg", "acc", null),
+("V2", "Asus ROG RYUO", "Ventola", "Ventola molto molto moooolto bella", 180.00,"Nero, Bianco" , 10, "../../assets/images/acc/V2.jpg", "acc", pc),
 
-("V3", "Be Quiet! BK022 Dark Rock Pro 4", "Ventola", "Ventola molto molto bella", 80.00,"Nero, Bianco" , 10, "../../assets/images/acc/V3.jpg", "acc", null);
+("V3", "Be Quiet! BK022 Dark Rock Pro 4", "Ventola", "Ventola molto molto bella", 80.00,"Nero, Bianco" , 10, "../../assets/images/acc/V3.jpg", "acc", pc);
 
 
 
