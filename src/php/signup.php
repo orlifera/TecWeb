@@ -5,6 +5,7 @@ error_reporting(E_ALL);
 // session_start();
 require_once("connessionedb.php");
 
+session_start();
 if (isset($_SESSION['user']) && $_SESSION['user'] !== '') {
     header('Location: ../pages/profile.html');
     exit();

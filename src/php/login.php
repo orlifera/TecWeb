@@ -1,9 +1,10 @@
 <?php
 
-if (isset($_SESSION['user']) && $_SESSION['user'] !== '') {
-    header('Location: ../../pages/profile.html');
-    exit();
-}
+session_start();
+// if (isset($_SESSION['user']) && $_SESSION['user'] !== '') {
+//     header('Location: /pages/profile.html');
+//     exit();
+// }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['submit'])) {
@@ -20,17 +21,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($result->num_rows > 0) {
             $user_data = $result->fetch_assoc();
             if (password_verify($password, $user_data["password"])) {
-                session_start();
+                // session_start();
                 // session_regenerate_id();
-                $_SESSION["user"] = $user_data["user"];
+                $_SESSION["user"] = $user_data["username"];
                 // print_r($_SESSION);
                 // var_dump($_SESSION);
                 // $_SESSION["password"] = $user_data["password"];
                 if(isset($_SESSION['user'])) {
-
-                    header('Location: ../pages/profile.html');
+                    header('Location: ../php/profile.php');
                 } else {
-                    echo '<p>Non va la sessione di merda</p>';
+                    echo '<p>Non va la sessione</p>';
                     // phpinfo();
                 }
                 exit();
