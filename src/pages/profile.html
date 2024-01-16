@@ -512,8 +512,8 @@
 
                             <!-- Card Number -->
                             <label>Card Number</label>
-                            <input class="card-number" placeholder="1234 1234 1234 1234" type="text" required
-                                maxlength="16" />
+                            <input class="card-number" placeholder="1234 1234 1234 1234" type="number"
+                                inputmode="numeric" required maxlength="16" />
 
                             <div class="container2">
 
@@ -526,14 +526,15 @@
                                 <!-- Date -->
                                 <div class="expiration-date">
                                     <label>Exp. Date</label>
-                                    <input id="expiry-date" class="card-name" placeholder="10/25" type="text"
-                                        maxlength="5" required />
+                                    <input id="expiry-date" class="card-name" placeholder="10/25" type="date"
+                                        inputmode="numeric" maxlength="5" required />
                                 </div>
 
                                 <!-- Cvv -->
                                 <div class="ccv">
                                     <label>CCV</label>
-                                    <input class="card-name" placeholder="123" type="text" maxlength="3" required />
+                                    <input class="card-name" placeholder="123" type="number" maxlength="3"
+                                        inputmode="numeric" required />
                                 </div>
                             </div>
                         </div>
