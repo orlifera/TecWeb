@@ -297,7 +297,7 @@
                                 </g>
                             </svg>
                             <label for="fname">Nome</label>
-                            <input type="text" name="fname" id="fname" placeholder="Il tuo nome" required>
+                            {nome}
                         </div>
                         <div class="text-fields lname">
                             <svg class="login-icon" xmlns="http://www.w3.org/2000/svg" version="1.0" width="24"
@@ -311,7 +311,7 @@
                                 </g>
                             </svg>
                             <label for="lname">Cognome</label>
-                            <input type="text" name="lname" id="lname" placeholder="Il tuo cognome" required>
+                            {cognome}
                         </div>
                     </div>
                     <div class="info-container">
@@ -323,7 +323,7 @@
                                     fill-rule="evenodd" />
                             </svg>
                             <label for="">Email</label>
-                            <input type="email" name="" id="email" placeholder="La Tua email" required>
+                            {email}
                         </div>
                     </div>
                     <div class="info-container">
@@ -343,12 +343,26 @@
                                 </g>
                             </svg>
                             <label for="phone">Telefono</label>
-                            <input type="phone" name="phone" id="phone" placeholder="Il tuo Telefono" required>
+                            {phone}
                         </div>
+                        <!-- *********************************** -->
+                        <!--SCOMMENTARE QEUSTO PRIMA DIV PER LA DATA DI COMPLEAANO CHE DA PROBLEMI SPOSTANDO TUTTO IL RESTO SOTTO E NON SO PERCHE-->
+                        <!-- *********************************** -->
+                        
+                        <!-- <div class="text-fields">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M19 5H13V2H11V5H5C3.346 5 2 6.346 2 8V18C2 19.103 2.897 20 4 20H20C21.103 20 22 19.103 22 18V8C22 6.346 20.654 5 19 5ZM5 7H19C19.2652 7 19.5196 7.10536 19.7071 7.29289C19.8946 7.48043 20 7.73478 20 8L20.001 11.12C19.105 11.348 18.532 11.854 18.085 12.252C17.578 12.702 17.243 13 16.497 13C15.752 13 15.417 12.702 14.91 12.253C14.315 11.724 13.501 11 11.995 11C10.49 11 9.676 11.724 9.081 12.253C8.574 12.703 8.24 13 7.495 13C6.752 13 6.418 12.703 5.913 12.253C5.466 11.855 4.895 11.348 4 11.12V8C4 7.73478 4.10536 7.48043 4.29289 7.29289C4.48043 7.10536 4.73478 7 5 7ZM4 18V13.286C4.191 13.409 4.374 13.56 4.583 13.747C5.178 14.276 5.991 15 7.495 15C9 15 9.814 14.276 10.409 13.747C10.916 13.297 11.25 13 11.995 13C12.74 13 13.075 13.298 13.582 13.747C14.177 14.276 14.991 15 16.497 15C18.003 15 18.818 14.276 19.413 13.747C19.624 13.559 19.808 13.407 20.001 13.283L20.002 18H4Z" />
+                            </svg>
+                                <label for="dob">Data Di Nascita</label>
+                                {dob}
+                            </div>
+                        </div> -->
                     </div>
-                    <div id="genderSelector">
+                    <!-- <div id="genderSelector">
                         <button id="male" aria-label="Male">
-                            <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                            <?xml version="1.0" encoding="utf-8"?>
                             <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -361,7 +375,7 @@
                             </svg>
                         </button>
                         <button id="female" aria-label="Female">
-                            <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                            <?xml version="1.0" encoding="utf-8"?>
                             <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -374,18 +388,17 @@
                             </svg>
                         </button>
                         <button id="other" aria-label="other">
-                            <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                            <?xml version="1.0" encoding="utf-8"?>
                             <svg fill="#000000" width="50px" height="50px" viewBox="0 0 30 30"
                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <path
                                     d="M17.984375 3.9863281 A 1.0001 1.0001 0 0 0 17 5L7 5 A 1.0001 1.0001 0 1 0 7 7L17 7L17 10L2.5996094 10L2.1777344 7.8828125C2.0747344 7.3698125 1.6236094 7 1.0996094 7C0.49260938 7 -1.4802974e-16 7.4926094 0 8.0996094L0 11.611328C0 12.447328 0.51678125 13.193375 1.3007812 13.484375C3.0507812 14.133375 6.065375 15.243406 7.109375 15.566406C8.614375 16.032406 10.644531 19.707031 10.644531 19.707031L10.648438 19.701172C11.637325 21.656206 13.659112 23 16 23L24 23C25.862 23 27.412375 21.722 27.859375 20L25.472656 20C23.957656 20 22.572531 19.144062 21.894531 17.789062L20.722656 15.447266C20.390656 14.782266 20.874188 14 21.617188 14L26.921875 14C25.537875 11.611 22.959 10 20 10L19 10L19 7L29 7 A 1.0001 1.0001 0 1 0 29 5L19 5 A 1.0001 1.0001 0 0 0 17.984375 3.9863281 z M 28.955078 22.988281 A 1.0001 1.0001 0 0 0 28.105469 23.552734C28.105469 23.552734 27.332093 25 25.996094 25L10 25 A 1.0001 1.0001 0 1 0 10 27L25.996094 27C28.664094 27 29.894531 24.447266 29.894531 24.447266 A 1.0001 1.0001 0 0 0 28.955078 22.988281 z" />
                             </svg>
                         </button>
+                    </div> -->
+                    <div class="page-btns">
+                        <input type="submit" value="Aggiorna dati" class="next stagebtn1b">
                     </div>
-                    <!-- <h1>orlando metti le due immagini per il genere grazie</h1>
-            <div class="page-btns">
-                <input type="submit" value="Aggiorna dati" class="next stagebtn1b">
-            </div> -->
                 </fieldset>
 
                 <fieldset class="fieldProfile hidden" id="changepsw">
@@ -445,9 +458,9 @@
                             <input type="password" name="password-confirm" id="ConfirmPassword"
                                 placeholder="Conferma la password" required>
                         </div>
-                        <div class="page-btns">
-                            <input type="submit" value="Aggiorna dati" class="next stagebtn1b">
-                        </div>
+                    </div>
+                    <div class="page-btns">
+                        <input type="submit" value="Aggiorna dati" class="next stagebtn1b">
                     </div>
                 </fieldset>
 
@@ -464,7 +477,7 @@
                                 <rect class="cls-1" height="38.37" width="19.19" x="54.41" y="73.59" />
                             </svg>
                             <label for="city">Città</label>
-                            <input type="text" name="city" id="city" placeholder="La tua città, provincia" required>
+                            {city}
                         </div>
                     </div>
                     <div class="info-container">
@@ -477,7 +490,7 @@
                                 <rect class="cls-1" height="38.37" width="19.19" x="54.41" y="73.59" />
                             </svg>
                             <label for="address">Indirizzo</label>
-                            <input type="text" name="address" id="address" placeholder="Il tuo indirizzo" required>
+                            {address}
                         </div>
                     </div>
                     <div class="info-container">
@@ -490,7 +503,7 @@
                                 <rect class="cls-1" height="38.37" width="19.19" x="54.41" y="73.59" />
                             </svg>
                             <label for="cap">CAP</label>
-                            <input type="text" name="cap" id="cap" placeholder="Il tuo CAP" required>
+                            {cap}
                         </div>
                     </div>
                     <div class="page-btns">
@@ -502,7 +515,7 @@
                     <legend>Metodi di pagamento</legend>
 
                     <div class="card-container">
-                        <h2 id="detail">Inserisci i dati della Tua carta</h2>
+                        <h2 id="detail">Attualmente fuori servizio</h2>
 
                         <!-- Card -->
                         <div class="card">
@@ -515,28 +528,26 @@
 
                             <!-- Card Number -->
                             <label>Card Number</label>
-                            <input class="card-number" placeholder="1234 1234 1234 1234" type="text" required
-                                maxlength="16" />
+                            <input class="card-number" value="1234 1234 1234 1234" type="text" disabled/>
 
                             <div class="container2">
 
                                 <!-- Card Holder -->
                                 <div class="name">
                                     <label>Card Holder</label>
-                                    <input class="card-name" placeholder="Mr. WorldWide" type="text" required />
+                                    <input class="card-name" placeholder="Mr. WorldWide" type="text" disabled/>
                                 </div>
 
                                 <!-- Date -->
                                 <div class="expiration-date">
                                     <label>Exp. Date</label>
-                                    <input id="expiry-date" class="card-name" placeholder="10/25" type="text"
-                                        maxlength="5" required />
+                                    <input id="expiry-date" class="card-name" placeholder="10/25" type="text" disabled />
                                 </div>
 
                                 <!-- Cvv -->
                                 <div class="ccv">
                                     <label>CCV</label>
-                                    <input class="card-name" placeholder="123" type="text" maxlength="3" required />
+                                    <input class="card-name" placeholder="123" type="text" maxlength="3" disabled />
                                 </div>
                             </div>
                         </div>
