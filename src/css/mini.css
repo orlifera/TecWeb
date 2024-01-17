@@ -1,14 +1,10 @@
-:root[data-theme="light"] {
-    --switch-pos: 0.55em;
-}
-
-[data-theme="dark"] {
-    --switch-pos: 3.7em;
-}
-
-@media (max-width: 400px) {
+@media (max-width: 420px) {
     #main-header #logo {
-        font-size: 2.5em;
+        font-size: 3em;
+    }
+
+    #mobile ul li {
+        padding: 0 1em;
     }
 }
 
@@ -42,6 +38,29 @@
     #mobile div#drop-catalogo ul {
         padding: 0.5em 0;
     }
+}
+
+@media (max-width: 300px) {
+    #mobile ul li {
+        padding: 0 0.5em;
+    }
+    #mob-theme-switcher {
+        font-size: 0.5em;
+    }
+}
+
+:root {
+    --switch-pos-mini: .25em;
+}
+
+[data-theme="light"] {
+    --sun-display: block;
+    --moon-display: none;
+}
+
+[data-theme="dark"] {
+    --sun-display: none;
+    --moon-display: block;
 }
 
 footer {
@@ -236,4 +255,41 @@ main#login-main {
 .obscured {
     filter: blur(5px);
     position: fixed;
+}
+
+#mob-theme-switcher {
+    background-color: var(--bgDiv);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: .5em;
+    position: relative;
+    gap: 1em;
+}
+
+#mob-theme-switcher::before {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background-color: var(--switch-bg-icon);
+    border-radius: 50%;
+    z-index: 0;
+    left: 0;
+    transform: translateX(var(--switch-pos-mini));
+}
+
+#mob-theme-switcher svg {
+    z-index: 1;
+}
+
+#mob-theme-switcher #mobsun {
+    fill: var(--icon-sun);
+    display: var(--sun-display);
+}
+
+#mob-theme-switcher #mobmoon {
+    fill: var(--icon-moon);
+    display: var(--moon-display);
 }
