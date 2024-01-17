@@ -26,6 +26,26 @@ class DBAccess
         $query = "SELECT * FROM utente WHERE username = ?;";
     } 
 
+    /************ GESTIONE PROFILO ************/
+    public function getProfileInfo($username) {
+        $query = "SELECT * FROM utente WHERE username = ?;";
+        $stmt = mysqli_prepare($this->connection, $query);
+        mysqli_stmt_bind_param($stmt, "s", $username);
+
+        mysqli_stmt_execute($stmt);
+        $queryResult = mysqli_stmt_get_result($stmt);
+
+        if (mysqli_num_rows($queryResult) != 0) {
+            $row = mysqli_fetch_assoc($queryResult);
+            mysqli_stmt_close($stmt);
+            return array($row["nome"], $row["cognome"], $row["dataNascita"], $row["genere"], $row["username"], $row["email"],  $row["password"], $row["telefono"], $row["citta"], $row["indirizzo"], $row["CAP"]);
+        } else {
+            mysqli_stmt_close($stmt);
+            return null;
+        }
+    }
+    
+
     /************ GESTIONE PRODOTTI ************/
     public function getProduct($categoria, $sku)
     {
