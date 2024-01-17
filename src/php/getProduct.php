@@ -38,10 +38,10 @@ $connectionOk = $connection->openDBConnection();
 if ($connectionOk) {
     $listaPC = $connection->getProduct($categoria, $sku);
     if ($listaPC != null) {
-        $stringaPC = "<dt id=\"nome\">" . $listaPC[1] . "</dt>";
-        $tipoPC = "<dd id=\"tipo\"> Tipologia: " . $listaPC[2] . "</dd>";
-        $descrizione = "<dd id=\"descrizione\">" . $listaPC[3] . "</dd>";
-        $prezzoPc = "<dd id=\"prezzo\"> Prezzo: €" . $listaPC[4] . "</dd>";
+        $stringaPC = "<dt class=\"product-name\">" . $listaPC[1] . "</dt>";
+        $tipoPC = "<dd class=\"product-type\"> Tipologia: " . $listaPC[2] . "</dd>";
+        $descrizione = "<dd class=\"product-description\">" . $listaPC[3] . "</dd>";
+        $prezzoPc = "<dd class=\"product-price\"> Prezzo: €" . $listaPC[4] . "</dd>";
 
         if (!empty($listaPC[5]) && !empty($listaPC[6])) {
             $colorePc = explode(",", $listaPC[5]);
@@ -60,13 +60,13 @@ if ($connectionOk) {
         } else {
         }
 
-        $disponibilita = "<dd id=\"disponibilita\"> " . ($listaPC[6] > 0 ? "Disponibilità: "  .  $listaPC[6] : "Non disponibile") . "</dd>";
+        $disponibilita = "<dd class=\"disponibilita\"> " . ($listaPC[6] > 0 ? "Disponibilità: "  .  $listaPC[6] : "Non disponibile") . "</dd>";
 
-        $quantita = $listaPC[6] > 0 ? "<dd>Quantità</dd><div><div class=\"\">
-            <input type=\"button\" value=\"-\" class=\"minus\">
-            <input type=\"number\" max=\"" . $listaPC[6] . "\" value=\"" . ($listaPC[6] > 0 ? 1 : 0) . "\" inputmode=\"numeric\" class=\"quantity\" disabled>
+        $quantita = $listaPC[6] > 0 ? "<dd>Quantità</dd><div><div class=\"qty-input\">
+            <input type=\"button\" value=\"-\" class=\"qty-count qty-count--minus minus\">
+            <input type=\"number\" max=\"" . $listaPC[6] . "\" value=\"" . ($listaPC[6] > 0 ? 1 : 0) . "\" inputmode=\"numeric\" class=\"product-quantity quantity\" disabled>
 
-            <input type=\"button\" value=\"+\" class=\"plus\">
+            <input type=\"button\" value=\"+\" class=\" qty-count qty-count--plus plus\">
             </div></div>" : "";
 
         $path_image = $listaPC[7];
