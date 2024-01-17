@@ -24,14 +24,16 @@
     --text-login: #333333;
     --text1-login: #5c5c5c;
     --textP-login: #ededff;
-    --error: #E94646;
     --white: #FFFFFF;
     --background-link: #696cff;
     --border: #adacac;
+    --border-radius: 1em;
 }
 
 /* Palette chiara */
 :root[data-theme="light"] {
+    --success: #30df19;
+    --error: #E94646;
     --primaryGradient: #3F51B5;
     /*Primo gradiente*/
     --secondaryGradient: #757de8;
@@ -55,6 +57,9 @@
     --hover: #dedeff73;
     --smoke: #e2e2e2;
     --disabled: #f2f2f2;
+    --cardBg: #0026ff;
+    --cardLabel: #efefef;
+    --cardPlaceholder: #cdcdcd;
 }
 
 /* Palette scura */
@@ -197,9 +202,9 @@ nav#menu #switch {
     cursor: pointer;
 }
 
-#dropdown-icon {
+/* #dropdown-icon {
     fill: var(--primaryText);
-}
+} */
 
 ul li ul.dropdown-list li {
     width: 5.51em;
@@ -249,6 +254,10 @@ ul li:hover ul.dropdown-list {
     /*DA RIVEDERE*/
 }
 
+nav svg:not(#signup, #sun, #moon) {
+    fill: var(--primaryText);
+}
+
 #menu.fixed {
     position: fixed;
     top: 0;
@@ -265,10 +274,10 @@ ul li:hover ul.dropdown-list {
     margin-right: 8px;
 }
 
-#login,
+/* #login,
 #settings {
     fill: var(--primaryText);
-}
+} */
 
 #signup path {
     stroke: var(--primaryText);
@@ -338,11 +347,11 @@ ul li:hover ul.dropdown-list {
     filter: invert(1);
 }
 
-#cart,
+/* #cart,
 #profile {
     fill: var(--primaryText);
     z-index: 1;
-}
+} */
 
 .info-p {
     text-align: center;
@@ -453,66 +462,6 @@ ul li:hover ul.dropdown-list {
     text-align: justify;
     padding-bottom: 1em;
 }
-
-/* #review {
-    padding: 8em 5em 5em 5em;
-}
-
-#flex-review {
-    margin-top: 5em;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-}
-
-.quote {
-    width: 25em;
-    background-color: var(--primaryText);
-    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.15));
-    color: #030303;
-    margin-bottom: 5em;
-}
-
-.quote-head {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 2em 1em 0 2em;
-}
-
-.unit-left {
-    width: 10%;
-}
-
-.unit-body {
-    padding-left: 1em;
-}
-
-.quote-link,
-.quote-name a {
-    color: #030303;
-}
-
-.quote-name {
-    font-size: 1.2em;
-}
-
-.quote-status {
-    color: #003f8f;
-}
-
-.quote-img {
-    border-radius: 50%;
-    width: 100%;
-}
-
-.quote-text {
-    padding: 1em 2em 2em 2em;
-}
-
-.q {
-    font-size: 0.8em;
-} */
 
 #last {
     display: flex;
@@ -997,11 +946,11 @@ fieldset:last-of-type {
     transition: var(--default-transition);
 }
 
-/* da controllare se c'è un modo migliore o va bene aumentare la specificità*/
-div#theme-switcher {
+/* da controllare se c'è un modo migliore o va bene aumentare la specificità
+ div#theme-switcher {
     width: 5em;
     margin: auto;
-}
+} */
 
 #theme-switcher::before {
     content: '';
@@ -1510,60 +1459,101 @@ ul#product-list li#product-card {
 /*****
 PROFILE
 *****/
-/* Stili per la sidenav */
-#profileMain {
-    width: 100%;
-    margin: auto;
-}
 
 #profileDiv {
-    width: 80%;
-    margin: auto;
-    border: 2px solid var(--smoke);
+    display: grid;
+    grid-template-columns: 20em 1fr;
 }
 
-.sidenav {
-    width: 25%;
-    background: linear-gradient(to bottom right, var(--primaryGradient), var(--secondaryGradient));
-    float: left;
+nav.sidenav {
+    width: 100%;
+    background-color: var(--secondaryGradient);
+    position: sticky;
+    /* max-height: 100svh; */
+    top: 0;
 }
 
-.sidenav ul {
-    list-style-type: none;
+.nav-list {
+    margin: 0;
     padding: 0;
+    list-style-type: none;
+    display: grid;
+    gap: 2em;
+    padding-block: 2em;
+    font: 2em;
 }
 
-.sidenav ul li {
-    border-bottom: 1px solid var(--smoke);
-    padding: .5em 0;
+.nav-list li {
+    padding: 1em 2em;
+    width: 100%;
 }
 
-.sidenav ul li a {
+.nav-list li a {
     display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: var(--primaryText);
+    width: 100%;
+    height: 100%;
 }
 
-.sidenav ul li:hover {
-    background-color: var(--hover);
+.sidenav li.active {
+    /* view-transition-name: activeNavTab; */
+    background-color: var(--white);
+    border-left: 10px solid var(--primaryIconBg);
+    position: relative;
+}
+
+/* ::view-transition-group(activeNavTab) {
+    animation-duration: 1.5s;
+} */
+
+.nav-list li.active a {
+    color: var(--secondaryIconBG);
+}
+
+.nav-list li.active::before,
+.nav-list li.active::after {
+    content: '';
+    position: absolute;
+    height: var(--border-radius);
+    width: var(--border-radius);
+    right: 0;
+    background-color: var(--secondaryGradient);
+}
+
+.nav-list li.active::before {
+    border-radius: 0 0 100vh 0;
+    box-shadow: 5px 5px 0 5px var(--white);
+    top: calc(var(--border-radius) * -1);
+    /*lo sposta proprio fuori la li*/
+}
+
+.nav-list li.active::after {
+    bottom: calc(var(--border-radius) * -1);
+    border-radius: 0 100vh 0 0;
+    box-shadow: 5px -5px 0 5px var(--white);
 }
 
 #profilePage {
-    width: 75%;
-    float: right;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    text-align: center;
 }
 
-/* .fieldProfile {
+/* #profilePage legend { 
+    position: relative;
+    /* top: .5em; 
     width: 100%;
-    display: block;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-    width: calc(100% - 240px);
-    /* Larghezza - spazio per la navbar e margini
-    float: left;
-} */
+    text-align: center;
+}
+ */
+fieldset.fieldProfile {
+    height: 100%;
+    border-bottom: unset;
+    background-color: var(--white);
+    padding: unset;
+}
+
+
 #genderSelector {
     width: 30%;
     margin: auto;
@@ -1572,15 +1562,543 @@ PROFILE
     justify-content: center;
 }
 
-#profilePage legend {
-    width: 80%;
-    margin: auto;
-    padding: 1em 0;
-    text-align: center;
-    background: linear-gradient(var(--secondaryGradient), var(--bgDiv));
+#nav-header {
+    display: block;
+    width: 100%;
 }
 
-.active {
-    background-color: var(--primaryIconBg);
-    border-left: 10px solid var(--primaryText);
+#nav-title {
+    margin: auto;
+    display: block;
+    padding: 1em 0 0 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5em;
+    color: var(--primaryText);
+}
+
+#nav-title a {
+    color: var(--primaryText);
+}
+
+.info-container {
+    padding: 1em;
+    display: flex;
+}
+
+.info-container .text-fields {
+    padding: 1em .5em;
+}
+
+.info-container .text-fields.email {
+    width: 95%;
+}
+
+#profilePage legend {
+    padding: 1em 0;
+    font-size: 1.5em;
+}
+
+#profilePage label:not(#emailProfile) {
+    width: 30%;
+}
+
+.pwd-container {
+    display: block;
+    padding: 1em;
+}
+
+#confirm {
+    width: 11em;
+}
+
+#detail {
+    font-size: 1.5em;
+    font-weight: 300;
+    padding-bottom: .7em;
+    color: var(--secondaryGradient);
+    width: 420px;
+    line-height: 1.5em;
+    text-align: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 280px;
+    width: 420px;
+    border-radius: 20px;
+    background-color: var(--secondaryGradient);
+    border: 2px solid black;
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.25);
+    padding: 20px 30px 30px 30px;
+    overflow: hidden;
+}
+
+.logo {
+    height: 80px;
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.card-number {
+    font-size: 30px;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 40px;
+}
+
+.card-number::placeholder {
+    color: var(--cardPlaceholder);
+    font-size: 30px;
+}
+
+.card input::placeholder {
+    color: var(--cardPlaceholder);
+}
+
+.card input:focus {
+    outline: none;
+}
+
+
+.name {
+    padding: 0px 80px 0px 0px;
+    margin-right: 40px;
+    width: 10em;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.expiration-date {
+    padding: 0px 0px 0px 0px;
+    margin-right: 60px;
+    width: 80px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.ccv {
+    margin-right: 0px;
+    width: 4em;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.card input {
+    border: none;
+    background-color: transparent;
+    height: 1em;
+    color: var(--text-100);
+    width: 105%;
+    border-bottom: 1px solid var(--cardLabel);
+}
+
+.card label {
+    color: var(--cardLabel);
+    font-weight: normal;
+    pointer-events: none;
+    display: block;
+    padding-bottom: 2px;
+}
+
+input.card-name {
+    color: var(--background-link);
+    font-size: 16px;
+    height: 26px;
+    width: 20em;
+    border-bottom: 1px solid var(--cardPlaceholder);
+    color: var(--cardLabel);
+}
+
+.container2 {
+    display: flex;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+#card-main {
+    position: relative;
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
+#order {
+    display: block;
+    padding: 2em;
+    margin: 5em auto;
+}
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#processing {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    top: 20em;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--bg);
+}
+
+.headings h1 {
+    color: var(--text-100);
+    font-weight: 400;
+}
+
+.headings h2 {
+    color: var(--text-200);
+    font-weight: 300;
+}
+
+.headings {
+    padding: 3em;
+}
+
+.wrapper {
+    position: relative;
+    margin: auto;
+}
+
+.gears {
+    width: 200px;
+    height: 200px;
+    margin: 2em auto;
+    border-radius: 50%;
+    overflow: hidden;
+    transform: scale(0);
+    animation: scale 0.5s ease 0.5s forwards;
+}
+
+.gear-wrapper {
+    position: absolute;
+}
+
+.gear-wrapper.gear-wrapper-1 {
+    top: 0;
+    left: 0;
+    transform: rotate(10deg) translate3d(-40px, -60px, 0);
+}
+
+.gear-wrapper.gear-wrapper-2 {
+    top: 0;
+    right: 0;
+    transform: rotate(25deg) translate3d(70px, -130px, 0);
+}
+
+.gear-wrapper.gear-wrapper-3 {
+    bottom: 0;
+    right: 0;
+    transform: rotate(15deg) translate3d(30px, 20px, 0);
+}
+
+.gear-wrapper.gear-wrapper-4 {
+    bottom: 0;
+    left: 0;
+    transform: translate3d(-70px, 70px, 0);
+}
+
+.gear {
+    fill: var(--border);
+    transform-origin: 50% 50%;
+}
+
+.gear.gear-1 {
+    width: 90px;
+    height: 90px;
+    animation: gearRotate 1s linear 2s infinite reverse;
+}
+
+.gear.gear-2 {
+    width: 150px;
+    height: 150px;
+    animation: gearRotate 1.5s linear 2s infinite;
+}
+
+.gear.gear-3 {
+    width: 60px;
+    height: 60px;
+    animation: gearRotate 0.75s linear 2s infinite reverse;
+}
+
+.gear.gear-4 {
+    width: 120px;
+    height: 110px;
+    animation: gearRotate 1.25s linear 2s infinite;
+}
+
+.loading-bar {
+    position: relative;
+    width: 200px;
+    height: 10px;
+    margin-top: 50px;
+    margin: auto;
+    background-color: var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.loading-bar span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--text-200);
+    transition: width .1s ease;
+    animation-name: progressBarAnimation;
+    /* animation-duration: 5s; */
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+.checkmark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    display: block;
+    border-radius: 50%;
+    stroke-width: 1px;
+    stroke: var(--bgDiv);
+    stroke-miterlimit: 10;
+}
+
+.checkmark-circle {
+    fill: none;
+    stroke-dasharray: 200px;
+    stroke-dashoffset: 200px;
+    stroke-width: 1px;
+    stroke-miterlimit: 10;
+}
+
+.checkmark-check {
+    stroke: var(--bg);
+    /* stroke-dasharray: 100px;
+    stroke-dashoffset: 100px;
+    transform-origin: 50% 50%; */
+}
+
+#processing.uncomplete .gear-wrapper-1 {
+    animation: gearEnter1 0.5s ease 1s forwards;
+}
+
+#processing.uncomplete .gear-wrapper-2 {
+    animation: gearEnter2 0.5s ease 1.5s forwards;
+}
+
+#processing.uncomplete .gear-wrapper-3 {
+    animation: gearEnter3 0.5s ease 1.25s forwards;
+}
+
+#processing.uncomplete .gear-wrapper-4 {
+    animation: gearEnter4 0.5s ease 0.75s forwards;
+}
+
+#processing.complete .gears {
+    background-color: transparent;
+    transition: background-color 0.25s ease 0.75s;
+}
+
+#processing.complete .gear-wrapper-1 {
+    transform: rotate(10deg) translate3d(-5px, -5px, 0);
+    animation: gearLeave1 0.5s ease 0.5s forwards;
+}
+
+#processing.complete .gear-wrapper-2 {
+    transform: rotate(25deg) translate3d(20px, -50px, 0);
+    animation: gearLeave2 0.5s ease 0.5s forwards;
+}
+
+#processing.complete .gear-wrapper-3 {
+    transform: rotate(15deg) translate3d(-25px, -15px, 0);
+    animation: gearLeave3 0.5s ease 0.5s forwards;
+}
+
+#processing.complete .gear-wrapper-4 {
+    transform: translate3d(0, 0, 0);
+    animation: gearLeave4 0.5s ease 0.5s forwards;
+}
+
+#processing.complete .loading-bar {
+    animation: hideLoading 0.5s forwards;
+}
+
+#processing.uncomplete .loading-bar span {
+    animation: progressBarAnimation 4s linear 1.5s forwards;
+}
+
+#processing.complete .checkmark.checkmark-success {
+    animation: fillCheckSuccess 0.4s cubic-bezier(0.65, 0, 0.45, 1) 1s forwards, beatCheck 0.2s ease-out 1.5s forwards, echoSuccess 1.25s ease-out 1.5s forwards;
+}
+
+#processing.complete .checkmark.checkmark-success .checkmark-circle {
+    stroke: var(--success);
+}
+
+/* #processing.complete .checkmark.checkmark-error {
+    animation: fillCheckError 0.4s cubic-bezier(0.65, 0, 0.45, 1) 1s forwards, beatCheck 0.2s ease-out 1.5s forwards, echoError 1.25s ease-out 1.5s forwards;
+} */
+
+#processing.complete .checkmark.checkmark-error .checkmark-circle {
+    stroke: var(--error);
+}
+
+#processing.complete .checkmark-circle {
+    animation: strokeCheck 0.5s cubic-bezier(0.65, 0, 0.45, 1) 0.75s forwards;
+}
+
+#processing.complete .checkmark-check {
+    animation: strokeCheck 0 .3s cubic-bezier(0.65, 0, 0.45, 1) 1.25s forwards;
+}
+
+@keyframes gearEnter1 {
+    to {
+        transform: rotate(10deg) translate3d(-5px, -5px, 0);
+    }
+}
+
+@keyframes gearEnter2 {
+    to {
+        transform: rotate(25deg) translate3d(20px, -50px, 0);
+    }
+}
+
+@keyframes gearEnter3 {
+    to {
+        transform: rotate(15deg) translate3d(-25px, -15px, 0);
+    }
+}
+
+@keyframes gearEnter4 {
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes gearLeave1 {
+    from {
+        transform: rotate(10deg) translate3d(-5px, -5px, 0);
+    }
+
+    to {
+        transform: rotate(10deg) translate3d(-40px, -60px, 0);
+    }
+}
+
+@keyframes gearLeave2 {
+    from {
+        transform: rotate(25deg) translate3d(20px, -50px, 0);
+    }
+
+    to {
+        transform: rotate(25deg) translate3d(70px, -130px, 0);
+    }
+}
+
+@keyframes gearLeave3 {
+    from {
+        transform: rotate(15deg) translate3d(-25px, -15px, 0);
+    }
+
+    to {
+        transform: rotate(15deg) translate3d(30px, 20px, 0);
+    }
+}
+
+@keyframes gearLeave4 {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(-70px, 70px, 0);
+    }
+}
+
+@keyframes gearRotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes progressBarAnimation {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes hideLoading {
+    to {
+        height: 0;
+        margin: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes scale {
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes fillCheckSuccess {
+    to {
+        box-shadow: inset 0 0 0 100px var(--success);
+    }
+}
+
+@keyframes fillCheckError {
+    to {
+        box-shadow: inset 0 0 0 100px var(--error);
+    }
+}
+
+@keyframes beatCheck {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes echoSuccess {
+    from {
+        box-shadow: inset 0 0 0 100px var(--success), 0 0 0 0 transparent;
+    }
+
+    to {
+        box-shadow: inset 0 0 0 100px var(--success), 0 0 0 50px transparent;
+    }
+}
+
+@keyframes strokeCheck {
+    to {
+        stroke-dashoffset: 0px;
+    }
 }
