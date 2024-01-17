@@ -2,14 +2,12 @@ function showDrop(q, p) {
   q.classList.remove("hidden");
   q.classList.add("show");
   p.classList.add("obscured");
-  console.log("show");
 }
 
 function hideDrop(q, p) {
   q.classList.remove("show");
   q.classList.add("hidden");
   p.classList.remove("obscured")
-  console.log("remove");
 }
 
 var main = document.querySelector('main');
