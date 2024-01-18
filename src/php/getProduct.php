@@ -38,10 +38,11 @@ $connectionOk = $connection->openDBConnection();
 if ($connectionOk) {
     $listaPC = $connection->getProduct($categoria, $sku);
     if ($listaPC != null) {
-        $stringaPC = "<dt id=\"nome\">" . $listaPC[1] . "</dt>";
-        $tipoPC = "<dd id=\"tipo\"> Tipologia: " . $listaPC[2] . "</dd>";
-        $descrizione = "<dd id=\"descrizione\">" . $listaPC[3] . "</dd>";
-        $prezzoPc = "<dd id=\"prezzo\"> Prezzo: €" . $listaPC[4] . "</dd>";
+        $stringaPC = "<dt class=\"product-name\">" . $listaPC[1] . "</dt>";
+        $tipoPC = "<div class=\"product-info\"><dt class=\"product-type\"> Tipologia: </dt><dd>" . $listaPC[2] . "</dd></div>";
+        $descrizione = "<div class=\"product-info\"><dt class=\"product-description\"></dt><dd>" . $listaPC[3] . "</dd></div>";
+        $prezzoPc = "<div class=\"product-info\"><dt class=\"product-price\"> Prezzo:</dt><dd> €" . $listaPC[4] . "</dd></div>";
+
 
         if (!empty($listaPC[5]) && !empty($listaPC[6])) {
             $colorePc = explode(",", $listaPC[5]);
@@ -60,13 +61,13 @@ if ($connectionOk) {
         } else {
         }
 
-        $disponibilita = "<dd id=\"disponibilita\"> " . ($listaPC[6] > 0 ? "Disponibilità: "  .  $listaPC[6] : "Non disponibile") . "</dd>";
+        $disponibilita = "<dt class=\"disponibilita\"> " . ($listaPC[6] > 0 ? "Disponibilità: "  .  $listaPC[6] : "Non disponibile") . "</dt>";
 
-        $quantita = $listaPC[6] > 0 ? "<dd>Quantità</dd><div><div class=\"\">
-            <input type=\"button\" value=\"-\" class=\"minus\">
-            <input type=\"number\" max=\"" . $listaPC[6] . "\" value=\"" . ($listaPC[6] > 0 ? 1 : 0) . "\" inputmode=\"numeric\" class=\"quantity\" disabled>
+        $quantita = $listaPC[6] > 0 ? "<dd>Quantità</dd><div class=\"qty-container\"><div class=\"qty-input\">
+            <input id=\"minus\" type=\"button\" value=\"-\" class=\"qty-count qty-count--minus \">
+            <input id=\"qty\" type=\"number\" max=\"" . $listaPC[6] . "\" value=\"" . ($listaPC[6] > 0 ? 1 : 0) . "\" inputmode=\"numeric\" class=\"product-quantity quantity\" >
 
-            <input type=\"button\" value=\"+\" class=\"plus\">
+            <input id=\"add\" type=\"button\" value=\"+\" class=\" qty-count qty-count--plus \">
             </div></div>" : "";
 
         $path_image = $listaPC[7];
