@@ -15,6 +15,17 @@
     font-style: normal;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+    * {
+        scroll-behavior: smooth;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    * {
+        scroll-behavior: smooth;
+    }
+}
 
 * {
     margin: 0;
@@ -24,6 +35,7 @@
     transition: var(--default-transition);
 }
 
+/* Variabili indipendenti dalla modalità del sito */
 :root {
     --default-transition: color .1s ease-in-out, background-color .3s ease-in-out, fill .1s ease-in-out,
         border-color .3s ease-in-out, transform .3s ease-in-out;
@@ -34,35 +46,34 @@
     --text1-login: #5c5c5c;
     --textP-login: #ededff;
     --white: #FFFFFF;
-    --background-link: #696cff;
+    --background-link: #7B4F8E;
     --border: #adacac;
     --border-radius: 1em;
-}
-
-/* Palette chiara */
-:root[data-theme="light"] {
     --success: #30df19;
     --error: #E94646;
-    --primaryGradient: #3F51B5;
-    /*Primo gradiente*/
-    --secondaryGradient: #757de8;
-    /*Secondo gradiente*/
-    --primaryText: #dedeff;
-    /*Testi importanti vari*/
-    --primaryIconBg: #838de3;
-    --secondaryIconBG: #003f8f;
-    --text-100: #333333;
-    /*Testo primario*/
-    --text-200: #5c5c5c;
-    /*testo secondario*/
-    --bg: #F9F9F9;
-    --bgDiv: #f5f5f5;
+    --bgProduct: #f5f3f7;
+}
+
+/* Variabili per la modalità chiara*/
+:root[data-theme="light"] {
+    --primary-100: #892CDC;
+    --primary-200: #BC6FF1;
+    --primary-300: #c38fe6;
+    --accent-100: #D9ACF5;
+    --accent-200: #fff4ff;
+    --text-100: #4A4A4A;
+    --text-200: #878787;
+    --text-300: #f9f9f9;
+    --bg-100: #F5F3F7;
+    --bg-200: #E9E4ED;
+    --bg-300: #FFFFFF;
+    --bg-contacts: #ebebeb;
     --switch-bg-icon: #ffd371;
     --muted-text: #b1b0b5;
     --icon-sun: #ee8e44;
     --icon-moon: #b7b7b7;
     --switch-pos: .25em;
-    --input-bg: #f2f2f8;
+    --input-bg: #ffffff;
     --hover: #dedeff73;
     --smoke: #e2e2e2;
     --disabled: #f2f2f2;
@@ -71,32 +82,45 @@
     --cardPlaceholder: #cdcdcd;
 }
 
-/* Palette scura */
+/* Variabili per la palette scura */
 [data-theme="dark"] {
-    --primaryGradient: #1F3A5F;
-    /*primo colore gradiente*/
-    --secondaryGradient: #4d648d;
-    /*Secondo colore gradiente*/
-    --primaryText: #acc2ef;
-    /*testi importanti vari*/
-    --primaryIconBG: #3D5A80;
-    /*background e colore icone*/
-    --secondaryIconBG: #cee8ff;
-    --text-100: #F9F9F9;
-    /*Testo primario*/
-    --text-200: #030303;
-    /*testo secondario*/
-    --bg: #0F1C2E;
-    --bgDiv: #1f2b3e;
+    --primary-100: #7B4F8E;
+    --primary-200: #563763;
+    --primary-300: #c38fe6;
+    --accent-100: #5A3A6E;
+    --accent-200: #897A96;
+    --text-100: #EEEEEE;
+    --text-200: #FDEBED;
+    --text-300: #f9f9f9;
+    --bg-100: #222831;
+    --bg-200: #393E46;
+    --bg-300: #454e59;
+    --bg-contacts: #353e4b;
     --switch-bg-icon: #081d32;
-    --muted-text: #77757E;
+    --muted-text: #a3a1ac;
     --icon-sun: var(--muted-text);
+    --hover: #dedeff73;
     --icon-moon: #b7b7b7;
     --switch-pos: 2.7em;
     --input-bg: #6B6E73;
 }
 
-/*Shake icona carrello quando aggiungi prodotti al carrello */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Prompt", sans-serif;
+    transition: var(--default-transition);
+}
+
+html {
+    font-size: 100%;
+    background-color: var(--bg-100);
+    margin: auto;
+    line-height: 1.5em;
+}
+
+/*Shake icona carrello quando aggiungi prodotti */
 @keyframes shake {
     0% {
         transform: translateX(0);
@@ -123,17 +147,9 @@
     animation: shake 0.5s ease-in-out;
 }
 
-
-html {
-    font-size: 100%;
-    background-color: var(--bg);
-    margin: auto;
-    line-height: 1.5em;
-}
-
 #main-header {
     padding: 1em;
-    background-color: var(--primaryText);
+    background-color: var(--bg-100);
 }
 
 /* Text replacement */
@@ -147,39 +163,53 @@ html {
     line-height: 1.5em;
 }
 
+[data-theme="dark"] #logo {
+    filter: invert(1);
+}
+
 #menu {
-    background: linear-gradient(to top right, var(--primaryGradient), var(--secondaryGradient));
+    background: linear-gradient(to top, var(--primary-100), var(--primary-200));
     justify-content: center;
     align-items: center;
     z-index: 0;
     display: flex;
     justify-content: space-between;
     width: 100%;
+    color: var(--text-300);
 }
 
 a {
     text-decoration: none;
-    color: var(--primaryText);
+    color: var(--text-300);
 }
 
+/* posizionamento switch */
 nav#menu #switch {
     padding-right: 2em;
+    padding-left: 1em;
 }
-
 
 #left li {
     font-size: 1.2em;
     text-transform: uppercase;
 }
 
+/* spaziatura uguale */
+#left li:nth-child(3) {
+    padding: unset;
+}
+
 #left {
     padding-left: 3em;
+    display: flex;
+    justify-content: space-around;
 }
 
 #right {
     padding-right: 3em;
 }
 
+/* navbar mobile non visibile */
 #mobile {
     display: none;
 }
@@ -188,73 +218,60 @@ nav#menu #switch {
     display: inline-block;
     list-style-type: none;
     position: relative;
+    color: var(--primaryText);
+    padding: 0 1em;
 }
 
-#menu li a:not(ul.dropdown-list a),
-#drop-p {
+#menu li a:not(ul.dropdown-list a){
     display: block;
-    margin: 1em 1em;
+    margin: 1em 0;
 }
 
 /*DROPDOWN*/
 .hidden {
     display: none !important;
+    /*Usato important di modo che quando viene aggiunta classe show o hidden da js, non venga sovrascritta da classi con maggior specificità*/
 }
 
 .show {
     display: block !important;
 }
 
-#drop-p {
-    text-align: center;
-    color: var(--primaryText);
-    cursor: pointer;
-}
-
-/* #dropdown-icon {
-    fill: var(--primaryText);
-} */
-
-ul li ul.dropdown-list li {
-    width: 5.51em;
+#menu ul.dropdown-list li {
+    width: 7em;
     display: block;
     text-align: center;
+    font-size: 1em;
+    padding: .5em;
 }
 
-ul li ul.dropdown-list li:hover {
+#menu ul.dropdown-list li:hover {
     background-color: var(--hover);
 }
 
-ul li ul.dropdown-list {
-    width: 100%;
+#menu ul.dropdown-list {
     position: absolute;
     z-index: 999;
-    background-color: var(--primaryGradient);
+    background-color: var(--primary-100);
     display: none;
 }
 
-/* State when dropdown is active DA RIVEDERE*/
-/* ul.dropdown-list.show {
-    display: block;
+#menu .dropdown-list {
+    left: -1em;
+    top: 2em;
 }
 
-ul.dropdown-list.hidden:not(ul li:hover ul.dropdown-list),
-ul.dropdown-list li.hidden {
-    display: none;
-} */
-
-ul li ul.dropdown-list#profile-drop {
-    width: 300%;
+#menu .dropdown-list#profile-drop {
     left: -4em;
+    top: 2em;
 }
 
-ul li ul.dropdown-list#profile-drop li {
-    width: 100%;
+#menu .dropdown-list#profile-drop li {
+    width: 15em;
 }
 
 ul.dropdown-list a {
     display: block;
-    margin: .5em .5em;
 
 }
 
@@ -264,7 +281,7 @@ ul li:hover ul.dropdown-list {
 }
 
 nav svg:not(#signup, #sun, #moon) {
-    fill: var(--primaryText);
+    fill: var(--text-300);
 }
 
 #menu.fixed {
@@ -273,8 +290,20 @@ nav svg:not(#signup, #sun, #moon) {
     z-index: 1;
 }
 
+#breadcrumb.fixed {
+    position: fixed;
+    top: 4.3em;
+    z-index: 1;
+    margin-bottom: 4em;
+}
+
 #breadcrumb {
     display: block;
+    padding: 1em;
+}
+
+#breadcrumb a {
+    color: var(--text-100);
 }
 
 #profile-drop a svg {
@@ -289,14 +318,14 @@ nav svg:not(#signup, #sun, #moon) {
 } */
 
 #signup path {
-    stroke: var(--primaryText);
+    stroke: var(--text-300);
     stroke-width: 1.5;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 
 
-/* Selettore per screen-reader-only */
+/* Selettore per screen-reader-only. Classe data al breadcrumb, in modo che sia facile per le persone con cecità orientarsi sul sito. Per persone con vista normale, è stata implementata una classe active per capire in che pagina si trova */
 .sr-only {
     border: 0 !important;
     clip: rect(1px, 1px, 1px, 1px) !important;
@@ -310,9 +339,11 @@ nav svg:not(#signup, #sun, #moon) {
     margin: -1px !important;
 }
 
+/* index */
+
 #presentation {
     width: 100%;
-    background: linear-gradient(-45deg, var(--primaryText), var(--secondaryGradient));
+    background: linear-gradient(-45deg, var(--accent-100), var(--accent-200));
     height: 100vh;
 }
 
@@ -320,7 +351,7 @@ nav svg:not(#signup, #sun, #moon) {
     font-size: 2.5em;
     margin-top: auto;
     text-align: center;
-
+    color: var(--text-100)
 }
 
 .subtitle {
@@ -328,6 +359,7 @@ nav svg:not(#signup, #sun, #moon) {
     padding-top: 1em;
     margin: auto;
     text-align: center;
+    color: var(--text-100);
 }
 
 #presentation .title {
@@ -349,29 +381,25 @@ nav svg:not(#signup, #sun, #moon) {
 .icon {
     width: 2em;
     height: 2em;
+    fill: var(--text-100)
 }
 
-/* Filtro che inverte il colore delle icone */
-#icons .icon {
-    filter: invert(1);
+#cookie-heading .icon {
+    width: 3em;
+    height: 3em;
 }
-
-/* #cart,
-#profile {
-    fill: var(--primaryText);
-    z-index: 1;
-} */
 
 .info-p {
     text-align: center;
     padding-top: 2em;
     margin-bottom: 2em;
     font-size: 2em;
+    color: var(--text-100)
 }
 
 #ref-rew {
     font-size: 1em;
-    color: #003f8f
+    color: var(--primary-300);
 }
 
 #info dl {
@@ -396,11 +424,8 @@ nav svg:not(#signup, #sun, #moon) {
     width: 18em;
     margin: 1em;
     padding: 1.5em 2em;
-    background-color: var(--bgDiv);
-    border-radius: 30px;
-    /* Ombra interna */
-    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15), inset -1px -1px 2px rgba(0, 0, 0, 0.15);
-    /* filter: drop-shadow(-1px -1px 2px rgba(0, 0, 0, 0.15)); */
+    background-color: var(--accent-100);
+    box-shadow: 0 1em 2em -0.9em rgba(0, 0, 0, 0.7);
 }
 
 #examples {
@@ -424,7 +449,7 @@ nav svg:not(#signup, #sun, #moon) {
     width: 18em;
     padding: 2em 2em;
     margin: 2em;
-    background-color: var(--bgDiv);
+    background-color: var(--accent-200);
     border-radius: 1%;
     color: #030303;
 }
@@ -451,14 +476,19 @@ nav svg:not(#signup, #sun, #moon) {
     color: var(--text-100);
     padding-top: 0.5em;
     font-size: 1.2em;
+}
+
+#examples a {
     text-decoration: underline;
+    color: var(--text-100);
 }
 
 #about {
     width: 100%;
     padding: 4em 0 10em 0;
-    background: linear-gradient(-45deg, var(--primaryText), var(--secondaryGradient));
-    color: #030303;
+    /* background: linear-gradient(-45deg, var(--accent-100), var(--accent-200)); */
+    background-color: var(--accent-100);
+    color: var(--text-100);
 }
 
 #about .title {
@@ -478,9 +508,9 @@ nav svg:not(#signup, #sun, #moon) {
     flex-wrap: wrap;
     gap: 6em;
     padding: 3em 0 2em 0;
-    background: linear-gradient(to right, var(--primaryGradient), var(--secondaryGradient));
-    color: var(--bg);
-    border-bottom: 1px solid #f9f9f9;
+    background: linear-gradient(45deg, var(--primary-100), var(--primary-200));
+    color: var(--text-300);
+    border-bottom: 1px solid var(--text-300);
 }
 
 
@@ -491,10 +521,12 @@ nav svg:not(#signup, #sun, #moon) {
 
 #last .title {
     font-size: 2em;
+    color: var(--text-300);
 }
 
 #last .subtitle {
     font-size: 1em;
+    color: var(--text-300);
 }
 
 #newsletter {
@@ -523,7 +555,7 @@ nav svg:not(#signup, #sun, #moon) {
 }
 
 footer {
-    background: linear-gradient(to right, var(--primaryGradient), var(--secondaryGradient));
+    background: linear-gradient(to right, var(--primary-100), var(--primary-200));
 }
 
 #icons {
@@ -537,6 +569,10 @@ footer {
 #icons li {
     display: inline-block;
     padding-inline: 1em;
+}
+
+#icons .icon {
+    fill: var(--text-300);
 }
 
 /* Flexbox per il footer */
@@ -555,10 +591,7 @@ footer dl#footdef div {
 
 footer dl#footdef dt {
     font-weight: bolder;
-}
-
-footer dl#footdef dt {
-    color: var(--primaryText)
+    color: var(--text-300);
 }
 
 #footdef dd {
@@ -578,7 +611,7 @@ footer ul#footunor li {
 }
 
 footer ul#footunor li {
-    color: var(--primaryText);
+    color: var(--text-300);
 }
 
 #rights {
@@ -592,14 +625,6 @@ footer ul#footunor li {
 
 #comunity {
     border-left: 1px solid #f9f9f9;
-}
-
-/* Catlog */
-
-.spacer {
-    width: 100%;
-    height: 100vh;
-    background-color: #f9f9f9;
 }
 
 /* Review */
@@ -710,12 +735,9 @@ p.heading {
 
 /*CONTACTS*/
 
-#mail {
-    color: var(--text-100);
-}
-
 #contact-info .info-col {
-    background-color: var(--primaryText);
+    background-color: var(--accent-100);
+    box-shadow: 0 0.5em 1em -0.4em rgba(0, 0, 0, 0.7);
 }
 
 #contact-info {
@@ -731,15 +753,20 @@ p.heading {
 
 .info-col ul li {
     list-style: none;
+    color: var(--text-100)
 }
 
-ul#contacts .icon {
-    filter: invert(0);
-}
-
-h4 {
+.info-col h4 {
     font-size: 130%;
     padding-bottom: 1em;
+    color: var(--text-100);
+}
+
+.info-col h2 {
+    font-size: 150%;
+    padding-bottom: 1em;
+    color: var(--text-100);
+
 }
 
 .info-col a {
@@ -767,6 +794,7 @@ h4 {
     height: 1.5em;
     vertical-align: middle;
     padding-right: .5em;
+    fill: var(--text-100);
 }
 
 #hours li {
@@ -774,7 +802,7 @@ h4 {
 }
 
 #icons-list {
-    padding-top: 1em;
+    padding-top: 1.5em;
 }
 
 /*contact form*/
@@ -790,10 +818,9 @@ h4 {
 
 #form-container {
     margin: 5em auto;
-    width: 50em;
-    background-color: var(--primaryText);
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
-    border-radius: 30px;
+    width: 60%;
+    background-color: var(--bg-contacts);
+    box-shadow: 0 0.5em 1em -0.4em rgba(0, 0, 0, 0.7);
     padding: 0 4em;
 }
 
@@ -801,9 +828,10 @@ h4 {
 #form-container p {
     text-align: center;
     padding: 1.5em 0 1em 0;
+    color: var(--text-100);
 }
 
-fieldset {
+#contact-form fieldset {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -817,6 +845,8 @@ fieldset {
     text-align: center;
     margin: auto;
     padding: 1em 0;
+    color: var(--text-100);
+    font-size: 1.2em;
 }
 
 #contact-form a {
@@ -832,7 +862,7 @@ fieldset {
     margin: auto;
     width: 100%;
     height: 2em;
-    border-radius: 10px;
+    border-radius: 2px;
     border: 1px solid var(--input-bg);
     background-color: var(--input-bg);
     color: var(--text-100);
@@ -840,7 +870,7 @@ fieldset {
 }
 
 #contact-form input::placeholder {
-    color: var(--text-100);
+    color: var(--text-200);
     text-align: center;
     font-size: 1em;
 }
@@ -855,7 +885,6 @@ fieldset {
     background-color: var(--input-bg);
     color: var(--text-100);
 }
-
 
 #text {
     width: 100%;
@@ -872,14 +901,13 @@ fieldset {
 
 #additional {
     width: 80%;
-    border-radius: 10px;
+    border-radius: 2px;
     border: 1px solid var(--input-bg);
     background-color: var(--input-bg);
     color: var(--text-100);
     resize: none;
     margin: auto;
     padding: 1em;
-
 }
 
 #contact-form textarea::placeholder {
@@ -891,17 +919,16 @@ fieldset {
 #contact-form input[type="file"] {
     background-color: transparent;
     border: none;
-    border-radius: 0px;
 }
 
 #contact-form input:focus:not(input[type="file"]),
 #contact-form textarea:focus {
     outline: none;
-    border: 1px solid var(--primaryGradient);
+    border: 1px solid var(--primary-100);
 }
 
-fieldset:last-of-type {
-    border: none;
+fieldset#termini {
+    border-bottom: unset;
     display: block;
     margin: auto;
     padding-top: 1em;
@@ -919,8 +946,8 @@ fieldset:last-of-type {
     align-items: center;
     justify-content: center;
     width: 1em;
-    height: 1em;
-    margin: auto;
+    margin: unset;
+    padding: 1em;
     border: none;
     background-color: var(--input-bg);
     cursor: pointer;
@@ -933,18 +960,19 @@ fieldset:last-of-type {
 #contact-form input[type="submit"] {
     width: 10em;
     height: 3em;
-    border-radius: 10px;
+    border-radius: 2px;
     border: none;
-    background-color: var(--primaryGradient);
-    color: var(--primaryText);
+    background-color: var(--accent-100);
+    color: var(--text-100);
     font-size: 1em;
     cursor: pointer;
+    margin: auto;
 }
 
 
 /*Theme Switcher*/
 #theme-switcher {
-    background-color: var(--bgDiv);
+    background-color: var(--accent-200);
     border-radius: 50px;
     display: flex;
     align-items: center;
@@ -954,12 +982,6 @@ fieldset:last-of-type {
     position: relative;
     transition: var(--default-transition);
 }
-
-/* da controllare se c'è un modo migliore o va bene aumentare la specificità
- div#theme-switcher {
-    width: 5em;
-    margin: auto;
-} */
 
 #theme-switcher::before {
     content: '';
@@ -991,7 +1013,6 @@ fieldset:last-of-type {
 
 .cookie-container {
     width: 100%;
-    height: 100%;
 }
 
 .cookie-subcontainer {
@@ -1000,7 +1021,7 @@ fieldset:last-of-type {
 }
 
 #cookie-heading {
-    width: 20em;
+    width: 15em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1016,13 +1037,12 @@ fieldset:last-of-type {
 }
 
 #cookie-section {
-    /* display: none; */
     width: 20em;
     padding: 2em;
     position: fixed;
     bottom: 1em;
     left: 2em;
-    background-color: var(--bgDiv);
+    background-color: var(--accent-200);
     box-shadow: 0 0 2px rgba(0, 0, 0, .5);
     border-radius: 15px;
 }
@@ -1038,8 +1058,8 @@ fieldset:last-of-type {
     justify-content: center;
     padding: .5em;
     border-radius: 10px;
-    background-color: var(--primaryGradient);
-    color: var(--primaryText);
+    background-color: var(--primary-100);
+    color: var(--text-300);
     cursor: pointer;
 }
 
@@ -1055,7 +1075,7 @@ main#login-main {
     background-color: var(--loginBg);
 }
 
-.logo {
+.login-logo {
     width: 15em;
     margin: auto;
 }
@@ -1110,7 +1130,7 @@ fieldset#stage3 {
     align-items: center;
 }
 
-.side-big-heading {
+.side-heading {
     font-weight: 800;
     font-size: 1.5em;
     text-align: center;
@@ -1119,11 +1139,16 @@ fieldset#stage3 {
     color: var(--textP-login);
 }
 
-.primary-bg-text {
+.login-side-text {
     color: var(--textP-login);
     font-weight: 500;
     text-align: center;
 }
+
+/* #connect {
+    width: 120%;
+    border: 1px solid var(--border);
+} */
 
 a.login-btn {
     text-decoration: none;
@@ -1303,10 +1328,6 @@ input.previous:focus {
     border: 1px solid var(--background-link);
 }
 
-#terms {
-    margin: 0 1em;
-}
-
 .completed {
     background-color: var(--background-link);
     color: var(--textP-login);
@@ -1402,19 +1423,6 @@ input#qty:focus {
 */
 /*CATALOG*/
 
-ul#product-list {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
-    list-style-type: none;
-}
-
-ul#product-list li#product-card {
-    flex: 0 0 33.333%;
-    box-sizing: border-box;
-    margin: 10px;
-}
-
 /*PRODUCT PAGE*/
 .product-display {
     display: flex;
@@ -1446,13 +1454,35 @@ ul#product-list li#product-card {
     margin-right: .5em;
 }
 
-.product-info dt {
-    font-weight: 900;
-    font-size: 1.3em;
+/*CATALOG*/
+
+#product-list {
+    display: grid;
+    width: 80%;
+    margin: 5em auto;
+    text-align: center;
+    gap: 1em;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
-.product-info dd {
-    font-size: 1.1em;
+#product-list .product-card {
+    box-sizing: border-box;
+    margin: 1em;
+    padding-bottom: 1em;
+    width: auto;
+    background-color: var(--bgProduct);
+    box-shadow: 0 1em 2em -0.9em rgba(0, 0, 0, 0.7);
+}
+
+.product-card img {
+    width: 100%;
+    object-fit: cover;
+    height: 300px;
+    margin-bottom: 1em;
+}
+
+.product-card dt {
+    color: #000;
 }
 
 
@@ -1467,7 +1497,7 @@ PROFILE
 
 nav.sidenav {
     width: 100%;
-    background-color: var(--secondaryGradient);
+    background-color: var(--primary-200);
     position: sticky;
     /* max-height: 100svh; */
     top: 0;
@@ -1497,7 +1527,7 @@ nav.sidenav {
 .sidenav li.active {
     /* view-transition-name: activeNavTab; */
     background-color: var(--white);
-    border-left: 10px solid var(--primaryIconBg);
+    border-left: 10px solid var(--bg-200);
     position: relative;
 }
 
@@ -1516,7 +1546,7 @@ nav.sidenav {
     height: var(--border-radius);
     width: var(--border-radius);
     right: 0;
-    background-color: var(--secondaryGradient);
+    background-color: var(--primary-200);
 }
 
 .nav-list li.active::before {
@@ -1548,7 +1578,7 @@ nav.sidenav {
  */
 fieldset.fieldProfile {
     height: 100%;
-    border-bottom: unset;
+    border: unset;
     background-color: var(--white);
     padding: unset;
 }
@@ -1575,11 +1605,11 @@ fieldset.fieldProfile {
     align-items: center;
     text-align: center;
     font-size: 1.5em;
-    color: var(--primaryText);
+    color: var(--text-100);
 }
 
 #nav-title a {
-    color: var(--primaryText);
+    color: var(--text-100);
 }
 
 .info-container {
@@ -1617,7 +1647,7 @@ fieldset.fieldProfile {
     font-size: 1.5em;
     font-weight: 300;
     padding-bottom: .7em;
-    color: var(--secondaryGradient);
+    color: var(--primary-200);
     width: 420px;
     line-height: 1.5em;
     text-align: center;
@@ -1629,7 +1659,7 @@ fieldset.fieldProfile {
     height: 280px;
     width: 420px;
     border-radius: 20px;
-    background-color: var(--secondaryGradient);
+    background-color: var(--primary-200);
     border: 2px solid black;
     box-shadow: 0 0 80px rgba(0, 0, 0, 0.25);
     padding: 20px 30px 30px 30px;
@@ -1734,11 +1764,13 @@ input.card-name {
     justify-content: center;
 }
 
-#order {
+#orderBtn {
     display: block;
     padding: 2em;
     margin: 5em auto;
 }
+
+/* payments e animation */
 
 .center {
     margin: 0 auto;
@@ -1752,7 +1784,7 @@ input.card-name {
     top: 20em;
     align-items: center;
     padding: 15px;
-    background-color: var(--bg);
+    background-color: var(--bg-100);
 }
 
 .headings h1 {
@@ -1886,7 +1918,7 @@ input.card-name {
     display: block;
     border-radius: 50%;
     stroke-width: 1px;
-    stroke: var(--bgDiv);
+    stroke: var(--accent-200);
     stroke-miterlimit: 10;
 }
 

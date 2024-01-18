@@ -6,6 +6,111 @@
     #mobile ul li {
         padding: 0 1em;
     }
+
+    #info h2.info-title {
+        font-size: 1.3em;
+    }
+    
+    #contact-info {
+        padding: unset;
+    }
+
+    .info-col #hours {
+        font-size: 1em;
+    }
+
+    #contact-info .info-col h2 {
+        font-size: 1.5em;
+    }
+
+    #contact-info .info-col h4 {
+        font-size: 1em;
+    }
+
+    #form-container fieldset {
+        padding: 1em 0;
+    }
+
+    div#form-container p {
+        padding: unset;
+        font-size: 1em;
+    }
+
+    #form-container h2 {
+        font-size: 1.5em;
+    }
+
+    #form-container form#contact-form {
+        padding: 0.5em;
+    }
+
+    #contact-form label {
+        width: 90%;
+        padding-top: unset;
+        width: unset;
+    }
+
+    #form-container #contact-form input {
+        margin: 0.5em 0;
+    }
+
+    #additional {
+        margin-bottom: 1em;
+    }
+
+    form#contact-form textarea::placeholder {
+        font-size: 0.8em;
+    }
+
+    #contact-form #termini {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #contact-form #tos a, #contact-form #tos {
+        font-size: 0.8em;
+    }
+
+    #contact-form #tos a{
+        margin-left: 0.3em;
+    }
+
+    #contact-form input#terms{
+        margin-right: 0.3em;
+    }
+
+    #contact-form input[type="submit"] {
+        margin: unset;
+    }
+
+    div#last {
+        padding-top: 4em;
+        gap: 2em;
+    }
+
+    #last div {
+        width: 80%;
+    }
+
+    #newsletter label {
+        width: 80%;
+        display: block;
+        margin: auto;
+    }
+
+    #newsletter #label-form-terms {
+        font-size: 0.1em;
+    }
+
+    #newsletter #form-email {
+        text-align: center;
+    }
+
+    #newsletter #button {
+        font-size: 0.8em;
+        width: 30%;
+    }
 }
 
 @media (max-width: 375px) {
@@ -38,6 +143,18 @@
     #mobile div#drop-catalogo ul {
         padding: 0.5em 0;
     }
+
+    #product-list {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    #product-list .product-card {
+        margin: 1em 0;
+    }
+
+    #product-list .product-card img {
+        height: 200px;
+    }
 }
 
 @media (max-width: 300px) {
@@ -67,20 +184,21 @@ footer {
     display: none;
 }
 
-header {
-    padding: unset;
+#main-header {
+    background: linear-gradient(to top right, var(--primary-100), var(--primary-200));
 }
 
 #logo {
     font-size: 4em;
+    filter: invert(1);
+}
+
+#breadcrumb {
+    display: none;
 }
 
 nav#menu {
     display: none;
-}
-
-#drop-p {
-    padding: 0.5em;
 }
 
 #mobile {
@@ -89,8 +207,7 @@ nav#menu {
     bottom: -1px;
     margin: auto;
     position: fixed;
-    background: linear-gradient(to top right, var(--primaryGradient), var(--secondaryGradient));;
-}
+    background: linear-gradient(to top right, var(--primary-100), var(--primary-200));}
 
 #mobile ul {
     padding: 0.8em 0;
@@ -102,10 +219,6 @@ nav#menu {
 #mobile li {
     display: inline-block;
     padding: 0 1.5em;
-}
-
-#mobile #home {
-    fill: var(--primaryText);
 }
 
 div#presentation {
@@ -165,7 +278,7 @@ div#presentation {
 
 #form-container {
     width: unset;
-    margin: 5em 2em;
+    margin: 5em 1em;
     padding: 1em;
 }
 
@@ -173,7 +286,7 @@ div#presentation {
     padding: 0 1em;
 }
 
-#form-container h2, #info .header {
+#form-container h2 {
     font-size: 1.5em;
 }
 
@@ -192,9 +305,10 @@ main#login-main {
 #mobile .dropup-list {
     position: fixed;
     z-index: 999;
-    background-color: var(--bgDiv);
+    background-color: var(--bg-100);
     border-radius: 2px;
     box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15), inset -1px -1px 2px rgba(0, 0, 0, 0.15);
+    padding: 1em;
 }
 
 #mobile #drop-catalogo, #mobile #profile-dropup {
@@ -207,7 +321,7 @@ main#login-main {
 #mobile #drop-catalogo li {
     width: 40%;
     padding: 0.5em;
-    background-color: var(--secondaryGradient);
+    background-color: var(--primary-200);
     display: inline-block;
     text-align: center;
 }
@@ -216,7 +330,7 @@ main#login-main {
     width: 100%;
     padding: 1em;
     margin: 0.5em auto;
-    background-color: var(--secondaryGradient);
+    background-color: var(--primary-200);
     align-items: center;
 }
 

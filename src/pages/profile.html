@@ -24,6 +24,7 @@
 
             //set correct theme
             document.documentElement.setAttribute('data-theme', themeToSet)
+
         </script>
     </head>
 
@@ -41,7 +42,7 @@
                 <ul>
                     <li><a href="../../index.html" lang="en">Home</a></li>
                     <li>
-                        <p id="drop-p" class="dropdown-trigger" tabindex="0" role="button" aria-haspopup="true"
+                        <p class="dropdown-trigger" tabindex="0" role="button" aria-haspopup="true"
                             lang="en">
                             Shop
                             <?xml version="1.0" encoding="utf-8"?>
@@ -75,7 +76,7 @@
                         </a>
                     </li>
                     <li>
-                        <p id="drop-p" class="dropdown-trigger" tabindex="0" role="button" aria-haspopup="true">
+                        <p class="dropdown-trigger" tabindex="0" role="button" aria-haspopup="true">
                             <svg id="profile" xmlns="http://www.w3.org/2000/svg" version="1.0" width="30" height="30"
                                 viewBox="0 0 128.000000 128.000000" preserveAspectRatio="xMidYMid meet">
 
@@ -91,7 +92,8 @@
                         </p>
                         <ul id="profile-drop" class="dropdown-list hidden">
                             <li>
-                                <a href="login.html">
+                                <!-- <a href="src/pages/login.html"> -->
+                                <a href="../php/sendToLogin.php">
                                     <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                                     <svg id="login" width="30px" height="30px" viewBox="0 0 24 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -294,7 +296,7 @@
                 </ul>
             </nav>
 
-            <form id="profilePage">
+            <form id="profilePage" method="post">
                 <fieldset class="fieldProfile show" id="personalInfo">
                     <legend>Informazioni personali</legend>
 
@@ -336,7 +338,7 @@
                                     d="M1920 428.266v1189.54l-464.16-580.146-88.203 70.585 468.679 585.904H83.684l468.679-585.904-88.202-70.585L0 1617.805V428.265l959.944 832.441L1920 428.266ZM1919.932 226v52.627l-959.943 832.44L.045 278.628V226h1919.887Z"
                                     fill-rule="evenodd" />
                             </svg>
-                            <label for="">Email</label>
+                            <label for="email">Email</label>
                             {email}
                         </div>
                     </div>
@@ -411,7 +413,7 @@
                         </button>
                     </div> -->
                     <div class="page-btns">
-                        <input type="submit" value="Aggiorna dati" class="next stagebtn1b">
+                        <input type="submit" name="personalInfo" value="Aggiorna dati" class="next stagebtn1b">
                     </div>
                 </fieldset>
 
@@ -433,7 +435,7 @@
                                 </g>
                             </svg>
                             <label for="pwd" id="oldPWd">Vecchia password</label>
-                            <input type="password" name="pwd" id="pwd" placeholder="La tua vecchia password" required>
+                            <input type="password" name="pwd" id="pwd" placeholder="La tua vecchia password" >
                         </div>
                     </div>
                     <div class="pwd-container">
@@ -451,7 +453,7 @@
                                 </g>
                             </svg>
                             <label for="password" id="newPwd">Nuova Password</label>
-                            <input type="password" name="password" id="password" placeholder="La tua password" required>
+                            <input type="password" name="password" id="password" placeholder="La tua password" >
                         </div>
                     </div>
                     <div class="pwd-container">
@@ -469,12 +471,11 @@
                                 </g>
                             </svg>
                             <label for="password-confirm" id="confirmPwd">Conferma password</label>
-                            <input type="password" name="password-confirm" id="ConfirmPassword"
-                                placeholder="Conferma la password" required>
+                            <input type="password" name="password-confirm" id="ConfirmPassword" placeholder="Conferma la password" >
                         </div>
                     </div>
                     <div class="page-btns">
-                        <input type="submit" value="Aggiorna dati" class="next stagebtn1b">
+                        <input type="submit" name="changepsw" value="Aggiorna dati" class="next stagebtn1b">
                     </div>
                 </fieldset>
 
@@ -521,7 +522,7 @@
                         </div>
                     </div>
                     <div class="page-btns">
-                        <input type="submit" value="Aggiorna dati" class="next stagebtn1b">
+                        <input type="submit" name="address" value="Aggiorna dati" class="next stagebtn1b">
                     </div>
                 </fieldset>
 
