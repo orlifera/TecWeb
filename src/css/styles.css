@@ -7,14 +7,8 @@
     font-style: normal;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Prompt", sans-serif;
-    transition: var(--default-transition);
-}
 
+/* Variabili indipendenti dalla modalità del sito */
 :root {
     --default-transition: color .1s ease-in-out, background-color .3s ease-in-out, fill .1s ease-in-out,
         border-color .3s ease-in-out, transform .3s ease-in-out;
@@ -32,7 +26,7 @@
     --error: #E94646;
 }
 
-/* Palette chiara */
+/* Variabili per la modalità chiara*/
 :root[data-theme="light"] {
     --primary-100: #892CDC;
     --primary-200: #BC6FF1;
@@ -60,7 +54,7 @@
     --cardPlaceholder: #cdcdcd;
 }
 
-/* Palette scura */
+/* Variabili per la palette scura */
 [data-theme="dark"] {
     --primary-100: #7B4F8E;
     --primary-200: #563763;
@@ -83,7 +77,22 @@
     --input-bg: #6B6E73;
 }
 
-/*Shake icona carrello quando aggiungi prodotti al carrello */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Prompt", sans-serif;
+    transition: var(--default-transition);
+}
+
+html {
+    font-size: 100%;
+    background-color: var(--bg);
+    margin: auto;
+    line-height: 1.5em;
+}
+
+/*Shake icona carrello quando aggiungi prodotti */
 @keyframes shake {
     0% {
         transform: translateX(0);
@@ -153,11 +162,6 @@ a {
     color: var(--text-300);
 }
 
-nav#menu #switch {
-    padding-right: 2em;
-}
-
-
 #left li {
     font-size: 1.2em;
     text-transform: uppercase;
@@ -190,6 +194,7 @@ nav#menu #switch {
 /*DROPDOWN*/
 .hidden {
     display: none !important;
+    /*Usato important di modo che quando viene aggiunta classe show o hidden da js, non venga sovrascritta da classi con maggior specificità*/
 }
 
 .show {
@@ -201,10 +206,6 @@ nav#menu #switch {
     color: var(--text-300);
     cursor: pointer;
 }
-
-/* #dropdown-icon {
-    fill: var( --text-100);
-} */
 
 ul li ul.dropdown-list li {
     width: 5.51em;
@@ -223,16 +224,6 @@ ul li ul.dropdown-list {
     background-color: var(--primary-100);
     display: none;
 }
-
-/* State when dropdown is active DA RIVEDERE*/
-/* ul.dropdown-list.show {
-    display: block;
-}
-
-ul.dropdown-list.hidden:not(ul li:hover ul.dropdown-list),
-ul.dropdown-list li.hidden {
-    display: none;
-} */
 
 ul li ul.dropdown-list#profile-drop {
     width: 300%;
@@ -274,11 +265,6 @@ nav svg:not(#signup, #sun, #moon) {
     margin-right: 8px;
 }
 
-/* #login,
-#settings {
-    fill: var( --text-100);
-} */
-
 #signup path {
     stroke: var(--text-300);
     stroke-width: 1.5;
@@ -287,7 +273,7 @@ nav svg:not(#signup, #sun, #moon) {
 }
 
 
-/* Selettore per screen-reader-only */
+/* Selettore per screen-reader-only. Classe data al breadcrumb, in modo che sia facile per le persone con cecità orientarsi sul sito. Per persone con vista normale, è stata implementata una classe active per capire in che pagina si trova */
 .sr-only {
     border: 0 !important;
     clip: rect(1px, 1px, 1px, 1px) !important;
@@ -347,12 +333,6 @@ nav svg:not(#signup, #sun, #moon) {
 #icons .icon {
     filter: invert(1);
 }
-
-/* #cart,
-#profile {
-    fill: var( --text-100);
-    z-index: 1;
-} */
 
 .info-p {
     text-align: center;
@@ -587,14 +567,6 @@ footer ul#footunor li {
     border-left: 1px solid #f9f9f9;
 }
 
-/* Catlog */
-
-.spacer {
-    width: 100%;
-    height: 100vh;
-    background-color: #f9f9f9;
-}
-
 /* Review */
 
 #review {
@@ -792,7 +764,7 @@ h4 {
     padding: 1.5em 0 1em 0;
 }
 
-fieldset {
+#contact-form fieldset {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -944,12 +916,6 @@ fieldset:last-of-type {
     transition: var(--default-transition);
 }
 
-/* da controllare se c'è un modo migliore o va bene aumentare la specificità
- div#theme-switcher {
-    width: 5em;
-    margin: auto;
-} */
-
 #theme-switcher::before {
     content: '';
     position: absolute;
@@ -980,7 +946,6 @@ fieldset:last-of-type {
 
 .cookie-container {
     width: 100%;
-    height: 100%;
 }
 
 .cookie-subcontainer {
@@ -989,7 +954,7 @@ fieldset:last-of-type {
 }
 
 #cookie-heading {
-    width: 20em;
+    width: 15em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1005,7 +970,6 @@ fieldset:last-of-type {
 }
 
 #cookie-section {
-    /* display: none; */
     width: 20em;
     padding: 2em;
     position: fixed;
@@ -1044,7 +1008,7 @@ main#login-main {
     background-color: var(--loginBg);
 }
 
-.logo {
+.login-logo {
     width: 15em;
     margin: auto;
 }
@@ -1099,7 +1063,7 @@ fieldset#stage3 {
     align-items: center;
 }
 
-.side-big-heading {
+.side-heading {
     font-weight: 800;
     font-size: 1.5em;
     text-align: center;
@@ -1108,11 +1072,16 @@ fieldset#stage3 {
     color: var(--textP-login);
 }
 
-.primary-bg-text {
+.login-side-text {
     color: var(--textP-login);
     font-weight: 500;
     text-align: center;
 }
+
+/* #connect {
+    width: 120%;
+    border: 1px solid var(--border);
+} */
 
 a.login-btn {
     text-decoration: none;
