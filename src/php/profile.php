@@ -51,13 +51,19 @@ if($connectionOk) {
     }
 
     if(isset($_POST['changepsw'])) {
-        $email = $listaInfo[5];
-        $op = $_POST['pwd'];
-        $np = $_POST['password'];
-        $cnp = $_POST['password-confirm'];
-        if(password_verify($op, $listaInfo[6]) && $np == $cnp) {
-            $np = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            $connection->updatePsw($email, $np);
+        if($_POST['pwd'] != null && $_POST['password'] != null && $_POST['password-confirm'] != null) {
+            $email = $listaInfo[5];
+            $op = $_POST['pwd'];
+            $np = $_POST['password'];
+            $cnp = $_POST['password-confirm'];
+            if(password_verify($op, $listaInfo[6]) && $np == $cnp) {
+                $np = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                $connection->updatePsw($email, $np);
+            } else {
+                echo 'Qualcosa andato storto con le psw';
+            }
+        } else {
+            echo "compila tutti i dati";
         }
     }
 
