@@ -29,6 +29,7 @@ let exp = document.getElementById('expiry-date');
 
 
 document.addEventListener('DOMContentLoaded', function () {
+
   if (first) {
     first.classList.remove('hidden');
     first.classList.add('show');
