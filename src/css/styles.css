@@ -28,26 +28,24 @@
     --background-link: #696cff;
     --border: #adacac;
     --border-radius: 1em;
+    --success: #30df19;
+    --error: #E94646;
 }
 
 /* Palette chiara */
 :root[data-theme="light"] {
-    --success: #30df19;
-    --error: #E94646;
-    --primaryGradient: #3F51B5;
-    /*Primo gradiente*/
-    --secondaryGradient: #757de8;
-    /*Secondo gradiente*/
-    --primaryText: #dedeff;
-    /*Testi importanti vari*/
-    --primaryIconBg: #838de3;
-    --secondaryIconBG: #003f8f;
-    --text-100: #333333;
-    /*Testo primario*/
-    --text-200: #5c5c5c;
-    /*testo secondario*/
-    --bg: #F9F9F9;
-    --bgDiv: #f5f5f5;
+    --primary-100: #892CDC;
+    --primary-200: #BC6FF1;
+    --primary-300: #c38fe6;
+    --accent-100: #D9ACF5;
+    --accent-200: #fff4ff;
+    --header: var(--accent-200);
+    --text-100: #4A4A4A;
+    --text-200: #878787;
+    --text-300: #f9f9f9;
+    --bg-100: #F5F3F7;
+    --bg-200: #E9E4ED;
+    --bg-300: #FFFFFF;
     --switch-bg-icon: #ffd371;
     --muted-text: #b1b0b5;
     --icon-sun: #ee8e44;
@@ -64,24 +62,22 @@
 
 /* Palette scura */
 [data-theme="dark"] {
-    --primaryGradient: #1F3A5F;
-    /*primo colore gradiente*/
-    --secondaryGradient: #4d648d;
-    /*Secondo colore gradiente*/
-    --primaryText: #acc2ef;
-    /*testi importanti vari*/
-    --primaryIconBG: #3D5A80;
-    /*background e colore icone*/
-    --secondaryIconBG: #cee8ff;
-    --text-100: #F9F9F9;
-    /*Testo primario*/
-    --text-200: #030303;
-    /*testo secondario*/
-    --bg: #0F1C2E;
-    --bgDiv: #1f2b3e;
+    --primary-100: #7B4F8E;
+    --primary-200: #563763;
+    --primary-300: #c38fe6;
+    --accent-100: #5A3A6E;
+    --accent-200: #897A96;
+    --header: var(--accent-200);
+    --text-100: #EEEEEE;
+    --text-200: #FDEBED;
+    --text-300: #f9f9f9;
+    --bg-100: #222831;
+    --bg-200: #393E46;
+    --bg-300: #454e59;
     --switch-bg-icon: #081d32;
-    --muted-text: #77757E;
+    --muted-text: #a3a1ac;
     --icon-sun: var(--muted-text);
+    --hover: #dedeff73;
     --icon-moon: #b7b7b7;
     --switch-pos: 2.7em;
     --input-bg: #6B6E73;
@@ -117,14 +113,14 @@
 
 html {
     font-size: 100%;
-    background-color: var(--bg);
+    background-color: var(--bg-100);
     margin: auto;
     line-height: 1.5em;
 }
 
 #main-header {
     padding: 1em;
-    background-color: var(--primaryText);
+    background-color: var(--header);
 }
 
 /* Text replacement */
@@ -138,8 +134,12 @@ html {
     line-height: 1.5em;
 }
 
+[data-theme="dark"] #logo {
+    filter: invert(1);
+}
+
 #menu {
-    background: linear-gradient(to top right, var(--primaryGradient), var(--secondaryGradient));
+    background: linear-gradient(to top, var(--primary-100), var(--primary-200));
     justify-content: center;
     align-items: center;
     z-index: 0;
@@ -150,7 +150,7 @@ html {
 
 a {
     text-decoration: none;
-    color: var(--primaryText);
+    color: var(--text-300);
 }
 
 nav#menu #switch {
@@ -198,12 +198,12 @@ nav#menu #switch {
 
 #drop-p {
     text-align: center;
-    color: var(--primaryText);
+    color: var(--text-300);
     cursor: pointer;
 }
 
 /* #dropdown-icon {
-    fill: var(--primaryText);
+    fill: var( --text-100);
 } */
 
 ul li ul.dropdown-list li {
@@ -220,7 +220,7 @@ ul li ul.dropdown-list {
     width: 100%;
     position: absolute;
     z-index: 999;
-    background-color: var(--primaryGradient);
+    background-color: var(--primary-100);
     display: none;
 }
 
@@ -255,7 +255,7 @@ ul li:hover ul.dropdown-list {
 }
 
 nav svg:not(#signup, #sun, #moon) {
-    fill: var(--primaryText);
+    fill: var(--text-300);
 }
 
 #menu.fixed {
@@ -276,11 +276,11 @@ nav svg:not(#signup, #sun, #moon) {
 
 /* #login,
 #settings {
-    fill: var(--primaryText);
+    fill: var( --text-100);
 } */
 
 #signup path {
-    stroke: var(--primaryText);
+    stroke: var(--text-300);
     stroke-width: 1.5;
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -303,7 +303,7 @@ nav svg:not(#signup, #sun, #moon) {
 
 #presentation {
     width: 100%;
-    background: linear-gradient(-45deg, var(--primaryText), var(--secondaryGradient));
+    background: linear-gradient(-45deg, var(--accent-100), var(--accent-200));
     height: 100vh;
 }
 
@@ -311,7 +311,7 @@ nav svg:not(#signup, #sun, #moon) {
     font-size: 2.5em;
     margin-top: auto;
     text-align: center;
-
+    color: var(--text-100)
 }
 
 .subtitle {
@@ -319,6 +319,7 @@ nav svg:not(#signup, #sun, #moon) {
     padding-top: 1em;
     margin: auto;
     text-align: center;
+    color: var(--text-100);
 }
 
 #presentation .title {
@@ -349,7 +350,7 @@ nav svg:not(#signup, #sun, #moon) {
 
 /* #cart,
 #profile {
-    fill: var(--primaryText);
+    fill: var( --text-100);
     z-index: 1;
 } */
 
@@ -358,11 +359,12 @@ nav svg:not(#signup, #sun, #moon) {
     padding-top: 2em;
     margin-bottom: 2em;
     font-size: 2em;
+    color: var(--text-100)
 }
 
 #ref-rew {
     font-size: 1em;
-    color: #003f8f
+    color: var(--primary-300);
 }
 
 #info dl {
@@ -387,7 +389,7 @@ nav svg:not(#signup, #sun, #moon) {
     width: 18em;
     margin: 1em;
     padding: 1.5em 2em;
-    background-color: var(--bgDiv);
+    background-color: var(--accent-100);
     border-radius: 30px;
     /* Ombra interna */
     box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15), inset -1px -1px 2px rgba(0, 0, 0, 0.15);
@@ -415,7 +417,7 @@ nav svg:not(#signup, #sun, #moon) {
     width: 18em;
     padding: 2em 2em;
     margin: 2em;
-    background-color: var(--bgDiv);
+    background-color: var(--accent-200);
     border-radius: 1%;
     color: #030303;
 }
@@ -448,8 +450,9 @@ nav svg:not(#signup, #sun, #moon) {
 #about {
     width: 100%;
     padding: 4em 0 10em 0;
-    background: linear-gradient(-45deg, var(--primaryText), var(--secondaryGradient));
-    color: #030303;
+    /* background: linear-gradient(-45deg, var(--accent-100), var(--accent-200)); */
+    background-color: var(--accent-100);
+    color: var(--text-100);
 }
 
 #about .title {
@@ -469,9 +472,9 @@ nav svg:not(#signup, #sun, #moon) {
     flex-wrap: wrap;
     gap: 6em;
     padding: 3em 0 2em 0;
-    background: linear-gradient(to right, var(--primaryGradient), var(--secondaryGradient));
-    color: var(--bg);
-    border-bottom: 1px solid #f9f9f9;
+    background: linear-gradient(45deg, var(--primary-100), var(--primary-200));
+    color: var(--text-300);
+    border-bottom: 1px solid var(--text-300);
 }
 
 
@@ -482,10 +485,12 @@ nav svg:not(#signup, #sun, #moon) {
 
 #last .title {
     font-size: 2em;
+    color: var(--text-300);
 }
 
 #last .subtitle {
     font-size: 1em;
+    color: var(--text-300);
 }
 
 #newsletter {
@@ -514,7 +519,7 @@ nav svg:not(#signup, #sun, #moon) {
 }
 
 footer {
-    background: linear-gradient(to right, var(--primaryGradient), var(--secondaryGradient));
+    background: linear-gradient(to right, var(--primary-100), var(--primary-200));
 }
 
 #icons {
@@ -546,10 +551,7 @@ footer dl#footdef div {
 
 footer dl#footdef dt {
     font-weight: bolder;
-}
-
-footer dl#footdef dt {
-    color: var(--primaryText)
+    color: var(--text-300);
 }
 
 #footdef dd {
@@ -569,7 +571,7 @@ footer ul#footunor li {
 }
 
 footer ul#footunor li {
-    color: var(--primaryText);
+    color: var(--text-300);
 }
 
 #rights {
@@ -701,12 +703,8 @@ p.heading {
 
 /*CONTACTS*/
 
-#mail {
-    color: var(--text-100);
-}
-
 #contact-info .info-col {
-    background-color: var(--primaryText);
+    background-color: var(--text-100);
 }
 
 #contact-info {
@@ -782,7 +780,7 @@ h4 {
 #form-container {
     margin: 5em auto;
     width: 50em;
-    background-color: var(--primaryText);
+    background-color: var(--text-100);
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
     border-radius: 30px;
     padding: 0 4em;
@@ -888,7 +886,7 @@ fieldset {
 #contact-form input:focus:not(input[type="file"]),
 #contact-form textarea:focus {
     outline: none;
-    border: 1px solid var(--primaryGradient);
+    border: 1px solid var(--primary-100);
 }
 
 fieldset:last-of-type {
@@ -926,8 +924,8 @@ fieldset:last-of-type {
     height: 3em;
     border-radius: 10px;
     border: none;
-    background-color: var(--primaryGradient);
-    color: var(--primaryText);
+    background-color: var(--primary-100);
+    color: var(--text-100);
     font-size: 1em;
     cursor: pointer;
 }
@@ -935,7 +933,7 @@ fieldset:last-of-type {
 
 /*Theme Switcher*/
 #theme-switcher {
-    background-color: var(--bgDiv);
+    background-color: var(--accent-200);
     border-radius: 50px;
     display: flex;
     align-items: center;
@@ -1013,7 +1011,7 @@ fieldset:last-of-type {
     position: fixed;
     bottom: 1em;
     left: 2em;
-    background-color: var(--bgDiv);
+    background-color: var(--accent-200);
     box-shadow: 0 0 2px rgba(0, 0, 0, .5);
     border-radius: 15px;
 }
@@ -1029,8 +1027,8 @@ fieldset:last-of-type {
     justify-content: center;
     padding: .5em;
     border-radius: 10px;
-    background-color: var(--primaryGradient);
-    color: var(--primaryText);
+    background-color: var(--primary-100);
+    color: var(--text-100);
     cursor: pointer;
 }
 
@@ -1458,7 +1456,7 @@ PROFILE
 
 nav.sidenav {
     width: 100%;
-    background-color: var(--secondaryGradient);
+    background-color: var(--primary-200);
     position: sticky;
     /* max-height: 100svh; */
     top: 0;
@@ -1488,7 +1486,7 @@ nav.sidenav {
 .sidenav li.active {
     /* view-transition-name: activeNavTab; */
     background-color: var(--white);
-    border-left: 10px solid var(--primaryIconBg);
+    border-left: 10px solid var(--bg-200);
     position: relative;
 }
 
@@ -1507,7 +1505,7 @@ nav.sidenav {
     height: var(--border-radius);
     width: var(--border-radius);
     right: 0;
-    background-color: var(--secondaryGradient);
+    background-color: var(--primary-200);
 }
 
 .nav-list li.active::before {
@@ -1566,11 +1564,11 @@ fieldset.fieldProfile {
     align-items: center;
     text-align: center;
     font-size: 1.5em;
-    color: var(--primaryText);
+    color: var(--text-100);
 }
 
 #nav-title a {
-    color: var(--primaryText);
+    color: var(--text-100);
 }
 
 .info-container {
@@ -1608,7 +1606,7 @@ fieldset.fieldProfile {
     font-size: 1.5em;
     font-weight: 300;
     padding-bottom: .7em;
-    color: var(--secondaryGradient);
+    color: var(--primary-200);
     width: 420px;
     line-height: 1.5em;
     text-align: center;
@@ -1620,7 +1618,7 @@ fieldset.fieldProfile {
     height: 280px;
     width: 420px;
     border-radius: 20px;
-    background-color: var(--secondaryGradient);
+    background-color: var(--primary-200);
     border: 2px solid black;
     box-shadow: 0 0 80px rgba(0, 0, 0, 0.25);
     padding: 20px 30px 30px 30px;
@@ -1743,7 +1741,7 @@ input.card-name {
     top: 20em;
     align-items: center;
     padding: 15px;
-    background-color: var(--bg);
+    background-color: var(--bg-100);
 }
 
 .headings h1 {
@@ -1868,7 +1866,7 @@ input.card-name {
     display: block;
     border-radius: 50%;
     stroke-width: 1px;
-    stroke: var(--bgDiv);
+    stroke: var(--accent-200);
     stroke-miterlimit: 10;
 }
 
@@ -1881,7 +1879,7 @@ input.card-name {
 }
 
 .checkmark-check {
-    stroke: var(--bg);
+    stroke: var(--bg-100);
     /* stroke-dasharray: 100px;
     stroke-dashoffset: 100px;
     transform-origin: 50% 50%; */
