@@ -191,6 +191,8 @@ nav#menu #switch {
 
 #left {
     padding-left: 3em;
+    display: flex;
+    justify-content: space-around;
 }
 
 #right {
@@ -210,7 +212,7 @@ nav#menu #switch {
     padding: 0 1em;
 }
 
-#menu li a:not(ul.dropdown-list a) {
+#menu li a:not(ul.dropdown-list a){
     display: block;
     margin: 1em 0;
 }
@@ -246,12 +248,12 @@ nav#menu #switch {
 
 #menu .dropdown-list {
     left: -1em;
-    top: 3em;
+    top: 2em;
 }
 
 #menu .dropdown-list#profile-drop {
     left: -4em;
-    top: 3em;
+    top: 2em;
 }
 
 #menu .dropdown-list#profile-drop li {
@@ -278,8 +280,19 @@ nav svg:not(#signup, #sun, #moon) {
     z-index: 1;
 }
 
+#breadcrumb.fixed {
+    position: fixed;
+    top: 4.3em;
+    z-index: 1;
+}
+
 #breadcrumb {
     display: block;
+    padding: 1em;
+}
+
+#breadcrumb a {
+    color: var(--text-100);
 }
 
 #profile-drop a svg {
@@ -1382,19 +1395,6 @@ input#qty:focus {
 }
 */
 /*CATALOG*/
-
-ul#product-list {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
-    list-style-type: none;
-}
-
-ul#product-list li#product-card {
-    flex: 0 0 33.333%;
-    box-sizing: border-box;
-    margin: 10px;
-}
 
 /*PRODUCT PAGE*/
 .product-display {
