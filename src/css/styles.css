@@ -38,7 +38,7 @@
     --text1-login: #5c5c5c;
     --textP-login: #ededff;
     --white: #FFFFFF;
-    --background-link: #696cff;
+    --background-link: #7B4F8E;
     --border: #adacac;
     --border-radius: 1em;
     --success: #30df19;
@@ -59,12 +59,13 @@
     --bg-100: #F5F3F7;
     --bg-200: #E9E4ED;
     --bg-300: #FFFFFF;
+    --bg-contacts: #ebebeb;
     --switch-bg-icon: #ffd371;
     --muted-text: #b1b0b5;
     --icon-sun: #ee8e44;
     --icon-moon: #b7b7b7;
     --switch-pos: .25em;
-    --input-bg: #f2f2f8;
+    --input-bg: #ffffff;
     --hover: #dedeff73;
     --smoke: #e2e2e2;
     --disabled: #f2f2f2;
@@ -86,6 +87,7 @@
     --bg-100: #222831;
     --bg-200: #393E46;
     --bg-300: #454e59;
+    --bg-contacts: #353e4b;
     --switch-bg-icon: #081d32;
     --muted-text: #a3a1ac;
     --icon-sun: var(--muted-text);
@@ -357,7 +359,7 @@ nav svg:not(#signup, #sun, #moon) {
 .icon {
     width: 2em;
     height: 2em;
-    fill: var(--text-300)
+    fill: var(--text-100)
 }
 
 .info-p {
@@ -542,6 +544,10 @@ footer {
     padding-inline: 1em;
 }
 
+#icons .icon {
+    fill: var(--text-300);
+}
+
 /* Flexbox per il footer */
 footer dl#footdef {
     display: flex;
@@ -703,7 +709,7 @@ p.heading {
 /*CONTACTS*/
 
 #contact-info .info-col {
-    background-color: var(--primary-300);
+    background-color: var(--accent-100);
     box-shadow: 0 0.5em 1em -0.4em rgba(0, 0, 0, 0.7);
 }
 
@@ -720,11 +726,20 @@ p.heading {
 
 .info-col ul li {
     list-style: none;
+    color: var(--text-100)
 }
 
-h4 {
+.info-col h4 {
     font-size: 130%;
     padding-bottom: 1em;
+    color: var(--text-100);
+}
+
+.info-col h2 {
+    font-size: 150%;
+    padding-bottom: 1em;
+    color: var(--text-100);
+
 }
 
 .info-col a {
@@ -752,7 +767,7 @@ h4 {
     height: 1.5em;
     vertical-align: middle;
     padding-right: .5em;
-    fill: var(--accent-100);
+    fill: var(--text-100);
 }
 
 #hours li {
@@ -777,7 +792,7 @@ h4 {
 #form-container {
     margin: 5em auto;
     width: 60%;
-    background-color: var(--text-100);
+    background-color: var(--bg-contacts);
     box-shadow: 0 0.5em 1em -0.4em rgba(0, 0, 0, 0.7);
     padding: 0 4em;
 }
@@ -786,6 +801,7 @@ h4 {
 #form-container p {
     text-align: center;
     padding: 1.5em 0 1em 0;
+    color: var(--text-100);
 }
 
 #contact-form fieldset {
@@ -802,6 +818,8 @@ h4 {
     text-align: center;
     margin: auto;
     padding: 1em 0;
+    color: var(--text-100);
+    font-size: 1.2em;
 }
 
 #contact-form a {
@@ -825,7 +843,7 @@ h4 {
 }
 
 #contact-form input::placeholder {
-    color: var(--text-100);
+    color: var(--text-200);
     text-align: center;
     font-size: 1em;
 }
@@ -840,7 +858,6 @@ h4 {
     background-color: var(--input-bg);
     color: var(--text-100);
 }
-
 
 #text {
     width: 100%;
@@ -883,8 +900,8 @@ h4 {
     border: 1px solid var(--primary-100);
 }
 
-fieldset:last-of-type {
-    border: none;
+fieldset#termini {
+    border-bottom: unset;
     display: block;
     margin: auto;
     padding-top: 1em;
@@ -902,8 +919,8 @@ fieldset:last-of-type {
     align-items: center;
     justify-content: center;
     width: 1em;
-    height: 1em;
-    margin: auto;
+    margin: unset;
+    padding: 1em;
     border: none;
     background-color: var(--input-bg);
     cursor: pointer;
@@ -918,7 +935,7 @@ fieldset:last-of-type {
     height: 3em;
     border-radius: 2px;
     border: none;
-    background-color: var(--primary-100);
+    background-color: var(--accent-100);
     color: var(--text-100);
     font-size: 1em;
     cursor: pointer;
@@ -1284,10 +1301,6 @@ input.previous:focus {
     border: 1px solid var(--background-link);
 }
 
-#terms {
-    margin: 0 1em;
-}
-
 .completed {
     background-color: var(--background-link);
     color: var(--textP-login);
@@ -1551,7 +1564,7 @@ nav.sidenav {
  */
 fieldset.fieldProfile {
     height: 100%;
-    border-bottom: unset;
+    border: unset;
     background-color: var(--white);
     padding: unset;
 }
@@ -1737,7 +1750,7 @@ input.card-name {
     justify-content: center;
 }
 
-#order {
+#orderBtn {
     display: block;
     padding: 2em;
     margin: 5em auto;
