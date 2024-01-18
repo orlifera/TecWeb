@@ -243,7 +243,7 @@ nav#menu #switch {
 
 #menu ul.dropdown-list {
     position: absolute;
-    z-index: 999;
+    z-index: 3;
     background-color: var(--primary-100);
     display: none;
 }
@@ -286,16 +286,18 @@ nav svg:not(#signup, #sun, #moon) {
     position: fixed;
     top: 4.3em;
     z-index: 1;
-    margin-bottom: 4em;
 }
 
 #breadcrumb {
     display: block;
-    padding: 1em;
+    padding-left: 1em;
+    width: 100%;
+    background-color: var(--bgProduct);
+    border-bottom: 1px solid var(--text-100);
 }
 
 #breadcrumb a {
-    color: var(--text-100);
+    color: var(--primary-100);
 }
 
 #profile-drop a svg {
@@ -1464,6 +1466,11 @@ input#qty:focus {
     width: auto;
     background-color: var(--bgProduct);
     box-shadow: 0 1em 2em -0.9em rgba(0, 0, 0, 0.7);
+    transition: transform 0.3 ease-in-out;
+}
+
+#product-list .product-card:hover {
+    transform: scale(1.1);
 }
 
 .product-card img {
