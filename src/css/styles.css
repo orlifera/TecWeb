@@ -696,7 +696,7 @@ p.heading {
 /*CONTACTS*/
 
 #contact-info .info-col {
-    background-color: var(--accent-200);
+    background-color: var(--primary-300);
     box-shadow: 0 0.5em 1em -0.4em rgba(0, 0, 0, 0.7);
 }
 
