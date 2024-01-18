@@ -13,7 +13,6 @@ error_reporting(E_ALL);
 setlocale(LC_ALL, 'it_IT');
 
 $paginaHTML = file_get_contents(__DIR__ . "/../pages/catalog.html");
-$indexHTML = file_get_contents(__DIR__ . "../../index.html");
 
 $listaPC = "";
 $stringaPC = "";
@@ -24,9 +23,6 @@ $categoria = $_GET['categoria'];
 $riferimento = $_GET['riferimento'];
 $sku = "";
 $htmlProdotti = "";
-
-//dona
-$indexProdotti = "";
 
 $connection = new DBAccess();
 $connectionOk = $connection->openDBConnection();
@@ -86,16 +82,6 @@ if ($nomePc != null) {
     $htmlProdotti = "<p>Siamo spiacenti, i prodotti che cerca momentaneamente esauriti, ci scusiamo per il disagio</p>";
 }
 
-//dona
-if ($nomePc != null) {
-    $prodotto1 = "<a class=\"product-card\" href=\"getProduct.php?categoria=pc" . "&id=" . $sku1[1] . "\">\n" . "<img src=\"" . $path[1] . "\"" . "alt=\"image\">\n"  .  $nomePc[1] .   $prezzo[1]  . "</a>\n";
-    $prodotto2 = "<a class=\"product-card\" href=\"getProduct.php?categoria=kbd" . "&id=" . $sku1[11] . "\">\n" . "<img src=\"" . $path[5] . "\"" . "alt=\"image\">\n"  .  $nomePc[5] .   $prezzo[5]  . "</a>\n";
-    $prodotto3 = "<a class=\"product-card\" href=\"getProduct.php?categoria=pc" . "&id=" . $sku1[5] . "\">\n" . "<img src=\"" . $path[11] . "\"" . "alt=\"image\">\n"  .  $nomePc[11] .   $prezzo[11]  . "</a>\n";
-    $indexProdotti .= $prodotto1 . $prodotto2 . $prodotto3;
-} else {
-    $indexProdotti = "<p>Siamo spiacenti, i prodotti che cerca momentaneamente esauriti, ci scusiamo per il disagio</p>";
-}
-
 $paginaHTML = str_replace('{prodotto}', $htmlProdotti, $paginaHTML);
 $paginaHTML = str_replace('cart.html', 'cart.php', $paginaHTML);
 $paginaHTML = str_replace('src/php/getCatalog.php?categoria=kbd&riferimento=', 'getCatalog.php?categoria=kbd&riferimento=', $paginaHTML);
@@ -118,7 +104,4 @@ $paginaHTML = str_replace('cookies.html', '../pages/cookies.html', $paginaHTML);
 $paginaHTML = str_replace('login.html', '../pages/login.html', $paginaHTML);
 $paginaHTML = str_replace('signup.html', '../pages/signup.html', $paginaHTML);
 
-$indexHTML = str_replace('{prodotto}', $indexProdotti, $indexHTML);
-
-echo($indexHTML);
 echo($paginaHTML);

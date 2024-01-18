@@ -43,6 +43,7 @@
     --border-radius: 1em;
     --success: #30df19;
     --error: #E94646;
+    --bgProduct: #f5f3f7;
 }
 
 /* Variabili per la modalità chiara*/
@@ -252,8 +253,14 @@ nav#menu #switch {
     display: none;
 }
 
+#menu .dropdown-list {
+    left: -1em;
+    top: 3em;
+}
+
 #menu .dropdown-list#profile-drop {
     left: -4em;
+    top: 3em;
 }
 
 #menu .dropdown-list#profile-drop li {
@@ -1448,7 +1455,7 @@ ul#product-list li#product-card {
     margin: 1em;
     padding-bottom: 1em;
     width: auto;
-    background-color: var(--bgDiv);
+    background-color: var(--bgProduct);
     box-shadow: 0 1em 2em -0.9em rgba(0, 0, 0, 0.7);
 }
 
