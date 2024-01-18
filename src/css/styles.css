@@ -52,7 +52,6 @@
     --primary-300: #c38fe6;
     --accent-100: #D9ACF5;
     --accent-200: #fff4ff;
-    --header: var(--accent-200);
     --text-100: #4A4A4A;
     --text-200: #878787;
     --text-300: #f9f9f9;
@@ -80,7 +79,6 @@
     --primary-300: #c38fe6;
     --accent-100: #5A3A6E;
     --accent-200: #897A96;
-    --header: var(--accent-200);
     --text-100: #EEEEEE;
     --text-200: #FDEBED;
     --text-300: #f9f9f9;
@@ -106,7 +104,7 @@
 
 html {
     font-size: 100%;
-    background-color: var(--bg);
+    background-color: var(--bg-100);
     margin: auto;
     line-height: 1.5em;
 }
@@ -138,17 +136,9 @@ html {
     animation: shake 0.5s ease-in-out;
 }
 
-
-html {
-    font-size: 100%;
-    background-color: var(--bg);
-    margin: auto;
-    line-height: 1.5em;
-}
-
 #main-header {
     padding: 1em;
-    background-color: var(--header);
+    background-color: var(--bg-100);
 }
 
 /* Text replacement */
@@ -174,6 +164,7 @@ html {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    color: var(--text-300);
 }
 
 a {
@@ -359,19 +350,8 @@ nav svg:not(#signup, #sun, #moon) {
 .icon {
     width: 2em;
     height: 2em;
-    fill: var(--text-100)
+    fill: var(--text-300)
 }
-
-/* Filtro che inverte il colore delle icone */
-#icons .icon {
-    filter: invert(1);
-}
-
-/* #cart,
-#profile {
-    fill: var(--primaryText);
-    z-index: 1;
-} */
 
 .info-p {
     text-align: center;
@@ -716,7 +696,7 @@ p.heading {
 /*CONTACTS*/
 
 #contact-info .info-col {
-    background-color: var(--text-100);
+    background-color: var(--accent-200);
     box-shadow: 0 0.5em 1em -0.4em rgba(0, 0, 0, 0.7);
 }
 
@@ -733,10 +713,6 @@ p.heading {
 
 .info-col ul li {
     list-style: none;
-}
-
-ul#contacts .icon {
-    filter: invert(0);
 }
 
 h4 {
@@ -769,6 +745,7 @@ h4 {
     height: 1.5em;
     vertical-align: middle;
     padding-right: .5em;
+    fill: var(--accent-100);
 }
 
 #hours li {
