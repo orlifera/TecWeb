@@ -24,6 +24,7 @@ $path_image = $_GET['path'];
 $categoria = $_GET['categoria'];
 
 $connection = new DBAccess();
+$connectionOk = "";
 $connectionOk = $connection->openDBConnection();
 
 $_SESSION['cart_counter'] = $cartCounter;
@@ -31,7 +32,9 @@ $_SESSION['cart_counter'] = $cartCounter;
 if ($connectionOk) {
     $listaPC = $connection->insertToCart($sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_image, $categoria);
 } else {
-    $stringaPC = "<p>I sistemi sono momentaneamente fuori servizio, ci scusiamo per il disagio</p>";
+    header("HTTP/1.0 404 Not Found");
+    include("../pages/404.html");
+    exit;
 }
 $connection->closeDBConnection();
 
