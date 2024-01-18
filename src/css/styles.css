@@ -214,7 +214,7 @@ nav#menu #switch {
     padding: 0 1em;
 }
 
-#menu li a:not(ul.dropdown-list a){
+#menu li a:not(ul.dropdown-list a) {
     display: block;
     margin: 1em 0;
 }
@@ -681,7 +681,7 @@ p.heading {
 }
 
 #deflist a {
-    color: blue;
+    color: var(--primary-100);
     text-decoration: underline;
 }
 
