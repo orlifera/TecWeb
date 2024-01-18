@@ -33,7 +33,6 @@
     --text-login: #333333;
     --text1-login: #5c5c5c;
     --textP-login: #ededff;
-    --error: #E94646;
     --white: #FFFFFF;
     --background-link: #696cff;
     --border: #adacac;
@@ -42,6 +41,8 @@
 
 /* Palette chiara */
 :root[data-theme="light"] {
+    --success: #30df19;
+    --error: #E94646;
     --primaryGradient: #3F51B5;
     /*Primo gradiente*/
     --secondaryGradient: #757de8;
@@ -1340,115 +1341,65 @@ input.previous:focus {
 }
 
 /*QTY INPUT*/
-
-.qty-input {
-    width: 5em;
-    display: flex;
-    margin: auto;
-    color: var(--text-100);
-    background-color: var(--bgDiv);
-}
-
-.product-qty,
-.qty-count {
-    background: transparent;
-    color: inherit;
-    font-weight: bold;
-    font-size: inherit;
-    border: none;
+/* 
+.qty-container {
+    position: relative;
     display: inline-block;
-    min-width: 0;
-    line-height: 1;
+    width: 100%;
+    max-width: 11rem;
+    padding: 0;
+    margin: 0;
+    border: 0;
 }
 
-.qty-input .product-qty:focus,
-.qty-input .qty-count:focus {
-    outline: none;
-}
-
-.qty-input .product-qty {
-    width: 2em;
-    min-width: 0;
-    display: inline-block;
+.qty-container .product-quantity {
+    font-size: 18px;
+    height: 4rem;
+    padding: 0 4rem;
+    border: 0;
+    background: #fff;
+    color: #222;
+    box-shadow: 0 10px 65px -10px rgba(0, 0, 0, 0.25);
     text-align: center;
-    -webkit-appearance: textfield;
-    -moz-appearance: textfield;
-    appearance: textfield;
+    width: 100%;
+    box-sizing: border-box;
+    font-weight: lighter;
 }
 
-.qty-input .product-qty::-webkit-outer-spin-button,
-.qty-input .product-qty::-webkit-inner-spin-button {
+.qty-count {
+    position: relative;
+    width: 2.8rem;
+    height: 2.8rem;
+    top: 0.6rem;
+    margin: auto;
+    display: block;
+    padding: 0;
+    border: 0;
+    background-color: var(--black);
+    background-size: 5.6rem 2.8rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.qty-count--plus {
+    background-color: #0026ff;
+    position: absolute;
+    right: -10em;
+}
+
+input#qty::-webkit-inner-spin-button,
+input#qty::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-.qty-input .qty-count {
-    padding: 0;
-    cursor: pointer;
-    width: 2.5rem;
-    font-size: 1.25em;
-    text-indent: -100px;
-    overflow: hidden;
-    position: relative;
-}
+input#qty:focus {
+    outline: none;
+    border: none;
+    box-shadow: 0 5px 55px -10px rgba(0, 0, 0, 0.2), 0 0 4px;
 
-.qty-input .qty-count:before,
-.qty-input .qty-count:after {
-    content: "";
-    height: 2px;
-    width: 10px;
-    position: absolute;
-    display: block;
-    background: #000;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
 }
-
-.qty-input .qty-count--minus {
-    border-right: 1px solid #e2e2e2;
-    align-items: center;
-    justify-content: center;
-}
-
-.qty-input .qty-count--add {
-    border-left: 1px solid #e2e2e2;
-    align-items: center;
-    justify-content: center;
-}
-
-.qty-input .qty-count--add:after {
-    transform: rotate(90deg);
-}
-
-.qty-input .qty-count:disabled {
-    color: #ccc;
-    background: #f2f2f2;
-    cursor: not-allowed;
-    border-color: transparent;
-}
-
-.qty-input .qty-count:disabled:before,
-.qty-input .qty-count:disabled:after {
-    background: #ccc;
-}
-
-.qty-input {
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    box-shadow: 0 1em 2em -0.9em rgba(0, 0, 0, 0.7);
-    transform: scale(1.5);
-}
-
-.qty-container {
-    font-size: 1em;
-    width: 10em;
-    margin: auto;
-}
-
+*/
 /*CATALOG*/
 
 ul#product-list {
@@ -1463,6 +1414,47 @@ ul#product-list li#product-card {
     box-sizing: border-box;
     margin: 10px;
 }
+
+/*PRODUCT PAGE*/
+.product-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 2em 0;
+    align-items: center;
+}
+
+.capsule {
+    width: 50%;
+    padding: 1em;
+}
+
+.product-image {
+    width: 20%;
+    object-fit: cover;
+}
+
+.product-name {
+    font-size: 2em;
+    font-weight: 900;
+    text-align: center;
+}
+
+.product-info dt:not(.product-description),
+.product-info dd:not(.product-description) {
+    display: inline-block;
+    margin-right: .5em;
+}
+
+.product-info dt {
+    font-weight: 900;
+    font-size: 1.3em;
+}
+
+.product-info dd {
+    font-size: 1.1em;
+}
+
 
 /*****
 PROFILE
@@ -1608,8 +1600,8 @@ fieldset.fieldProfile {
     font-size: 1.5em;
 }
 
-#profilePage label {
-    width: 15%;
+#profilePage label:not(#emailProfile) {
+    width: 30%;
 }
 
 .pwd-container {
@@ -1748,8 +1740,87 @@ input.card-name {
     margin: 5em auto;
 }
 
-#payment-animation {
-    animation: payment 5s linear;
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#processing {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    top: 20em;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--bg);
+}
+
+.headings h1 {
+    color: var(--text-100);
+    font-weight: 400;
+}
+
+.headings h2 {
+    color: var(--text-200);
+    font-weight: 300;
+}
+
+.headings {
+    padding: 3em;
+}
+
+.wrapper {
+    position: relative;
+    margin: auto;
+}
+
+.gears {
+    width: 200px;
+    height: 200px;
+    margin: 2em auto;
+    border-radius: 50%;
+    overflow: hidden;
+    transform: scale(0);
+    animation: scale 0.5s ease 0.5s forwards;
+}
+
+.gear-wrapper {
+    position: absolute;
+}
+
+.gear-wrapper.gear-wrapper-1 {
+    top: 0;
+    left: 0;
+    transform: rotate(10deg) translate3d(-40px, -60px, 0);
+}
+
+.gear-wrapper.gear-wrapper-2 {
+    top: 0;
+    right: 0;
+    transform: rotate(25deg) translate3d(70px, -130px, 0);
+}
+
+.gear-wrapper.gear-wrapper-3 {
+    bottom: 0;
+    right: 0;
+    transform: rotate(15deg) translate3d(30px, 20px, 0);
+}
+
+.gear-wrapper.gear-wrapper-4 {
+    bottom: 0;
+    left: 0;
+    transform: translate3d(-70px, 70px, 0);
+}
+
+.gear {
+    fill: var(--border);
+    transform-origin: 50% 50%;
+}
+
+.gear.gear-1 {
+    width: 90px;
+    height: 90px;
+    animation: gearRotate 1s linear 2s infinite reverse;
 }
 
 @keyframes payment {
@@ -1759,7 +1830,418 @@ input.card-name {
     TO DEFINE
     100% {
         transform: translateX(-1000px);
-    } */
+    } */}
+
+.gear.gear-2 {
+    width: 150px;
+    height: 150px;
+    animation: gearRotate 1.5s linear 2s infinite;
+}
+
+.gear.gear-3 {
+    width: 60px;
+    height: 60px;
+    animation: gearRotate 0.75s linear 2s infinite reverse;
+}
+
+.gear.gear-4 {
+    width: 120px;
+    height: 110px;
+    animation: gearRotate 1.25s linear 2s infinite;
+}
+
+.loading-bar {
+    position: relative;
+    width: 200px;
+    height: 10px;
+    margin-top: 50px;
+    margin: auto;
+    background-color: var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.loading-bar span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--text-200);
+    transition: width .1s ease;
+    animation-name: progressBarAnimation;
+    /* animation-duration: 5s; */
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+.checkmark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    display: block;
+    border-radius: 50%;
+    stroke-width: 1px;
+    stroke: var(--bgDiv);
+    stroke-miterlimit: 10;
+}
+
+.checkmark-circle {
+    fill: none;
+    stroke-dasharray: 200px;
+    stroke-dashoffset: 200px;
+    stroke-width: 1px;
+    stroke-miterlimit: 10;
+}
+
+.checkmark-check {
+    stroke: var(--bg);
+    /* stroke-dasharray: 100px;
+    stroke-dashoffset: 100px;
+    transform-origin: 50% 50%; */
+}
+
+#processing.uncomplete .gear-wrapper-1 {
+    animation: gearEnter1 0.5s ease 1s forwards;
+}
+
+#processing.uncomplete .gear-wrapper-2 {
+    animation: gearEnter2 0.5s ease 1.5s forwards;
+}
+
+#processing.uncomplete .gear-wrapper-3 {
+    animation: gearEnter3 0.5s ease 1.25s forwards;
+}
+
+#processing.uncomplete .gear-wrapper-4 {
+    animation: gearEnter4 0.5s ease 0.75s forwards;
+}
+
+#processing.complete .gears {
+    background-color: transparent;
+    transition: background-color 0.25s ease 0.75s;
+}
+
+#processing.complete .gear-wrapper-1 {
+    transform: rotate(10deg) translate3d(-5px, -5px, 0);
+    animation: gearLeave1 0.5s ease 0.5s forwards;
+}
+
+#processing.complete .gear-wrapper-2 {
+    transform: rotate(25deg) translate3d(20px, -50px, 0);
+    animation: gearLeave2 0.5s ease 0.5s forwards;
+}
+
+#processing.complete .gear-wrapper-3 {
+    transform: rotate(15deg) translate3d(-25px, -15px, 0);
+    animation: gearLeave3 0.5s ease 0.5s forwards;
+}
+
+#processing.complete .gear-wrapper-4 {
+    transform: translate3d(0, 0, 0);
+    animation: gearLeave4 0.5s ease 0.5s forwards;
+}
+
+#processing.complete .loading-bar {
+    animation: hideLoading 0.5s forwards;
+}
+
+#processing.uncomplete .loading-bar span {
+    animation: progressBarAnimation 4s linear 1.5s forwards;
+}
+
+#processing.complete .checkmark.checkmark-success {
+    animation: fillCheckSuccess 0.4s cubic-bezier(0.65, 0, 0.45, 1) 1s forwards, beatCheck 0.2s ease-out 1.5s forwards, echoSuccess 1.25s ease-out 1.5s forwards;
+}
+
+#processing.complete .checkmark.checkmark-success .checkmark-circle {
+    stroke: var(--success);
+}
+
+/* #processing.complete .checkmark.checkmark-error {
+    animation: fillCheckError 0.4s cubic-bezier(0.65, 0, 0.45, 1) 1s forwards, beatCheck 0.2s ease-out 1.5s forwards, echoError 1.25s ease-out 1.5s forwards;
+} */
+
+#processing.complete .checkmark.checkmark-error .checkmark-circle {
+    stroke: var(--error);
+}
+
+#processing.complete .checkmark-circle {
+    animation: strokeCheck 0.5s cubic-bezier(0.65, 0, 0.45, 1) 0.75s forwards;
+}
+
+#processing.complete .checkmark-check {
+    animation: strokeCheck 0 .3s cubic-bezier(0.65, 0, 0.45, 1) 1.25s forwards;
+}
+
+@keyframes gearEnter1 {
+    to {
+        transform: rotate(10deg) translate3d(-5px, -5px, 0);
+    }
+}
+
+@keyframes gearEnter2 {
+    to {
+        transform: rotate(25deg) translate3d(20px, -50px, 0);
+    }
+}
+
+@keyframes gearEnter3 {
+    to {
+        transform: rotate(15deg) translate3d(-25px, -15px, 0);
+    }
+}
+
+@keyframes gearEnter4 {
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes gearLeave1 {
+    from {
+        transform: rotate(10deg) translate3d(-5px, -5px, 0);
+    }
+
+    to {
+        transform: rotate(10deg) translate3d(-40px, -60px, 0);
+    }
+}
+
+@keyframes gearLeave2 {
+    from {
+        transform: rotate(25deg) translate3d(20px, -50px, 0);
+    }
+
+    to {
+        transform: rotate(25deg) translate3d(70px, -130px, 0);
+    }
+}
+
+@keyframes gearLeave3 {
+    from {
+        transform: rotate(15deg) translate3d(-25px, -15px, 0);
+    }
+
+    to {
+        transform: rotate(15deg) translate3d(30px, 20px, 0);
+    }
+}
+
+@keyframes gearLeave4 {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(-70px, 70px, 0);
+    }
+}
+
+@keyframes gearRotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes progressBarAnimation {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes hideLoading {
+    to {
+        height: 0;
+        margin: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes scale {
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes fillCheckSuccess {
+    to {
+        box-shadow: inset 0 0 0 100px var(--success);
+    }
+}
+
+@keyframes fillCheckError {
+    to {
+        box-shadow: inset 0 0 0 100px var(--error);
+    }
+}
+
+@keyframes beatCheck {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes echoSuccess {
+    from {
+        box-shadow: inset 0 0 0 100px var(--success), 0 0 0 0 transparent;
+    }
+
+    to {
+        box-shadow: inset 0 0 0 100px var(--success), 0 0 0 50px transparent;
+    }
+}
+
+@keyframes strokeCheck {
+    to {
+        stroke-dashoffset: 0px;
+    }
+}
+
+/*PAGINA 404*/
+#error404 {
+    height: 100%;
+    width: 100%;
+    margin-top: 90px;
+    padding: 1em;
+    font-size: 95px;
+    text-align: center;
+    text-shadow: 0 0 80px red, 0 0 30px FireBrick, 0 0 6px DarkRed;
+    color: red;
+    /* background-color: #111111; */
+}
+
+#error404 p {
+    margin: .9em;
+}
+
+#error {
+    color: black;
+    text-transform: uppercase;
+    text-shadow: 0 0 80px black;
+}
+
+#animOne {
+    animation: upper 6s linear infinite;
+}
+
+#animTwo {
+    animation: upper 15s linear infinite;
+}
+
+#code span,
+#error span,
+#error,
+#error404 p {
+    font-family: "Monoton", sans-serif;
+}
+
+#code span:nth-of-type(2) {
+    animation: lower 9s linear infinite;
+}
+
+#code span:nth-of-type(1) {
+    text-shadow: none;
+    opacity: .4;
+}
+
+@keyframes upper {
+
+    0%,
+    19.999%,
+    22%,
+    62.999%,
+    64%,
+    64.999%,
+    70%,
+    100% {
+        opacity: .99;
+        text-shadow: 0 0 80px black;
+    }
+
+    20%,
+    21.999%,
+    63%,
+    63.999%,
+    65%,
+    69.999% {
+        opacity: 0.4;
+        text-shadow: none;
+    }
+}
+
+@keyframes lower {
+
+    0%,
+    12%,
+    18.999%,
+    23%,
+    31.999%,
+    37%,
+    44.999%,
+    46%,
+    49.999%,
+    51%,
+    58.999%,
+    61%,
+    68.999%,
+    71%,
+    85.999%,
+    96%,
+    100% {
+        opacity: 0.99;
+        text-shadow: 0 0 80px black, 0 0 30px #8B0000, 0 0 6px #8B0000;
+    }
+
+    19%,
+    22.99%,
+    32%,
+    36.999%,
+    45%,
+    45.999%,
+    50%,
+    50.99%,
+    59%,
+    60.999%,
+    69%,
+    70.999%,
+    86%,
+    95.999% {
+        opacity: 0.4;
+        text-shadow: none;
+    }
+}
+
+#error404 #goHome {
+    font-family: "Prompt", sans-serif;
+    margin: 2em, 20em, 2em, 20em;
+    text-align: center;
+    font-size: .18em;
+    text-shadow: none;
+    color: black;
+}
+
+#error404 a {
+    color: red;
+    text-decoration: underline;
+}
+
+#error404 a:hover {
+    color: #8B4513;
 }
 
 /*PAGINA 404*/

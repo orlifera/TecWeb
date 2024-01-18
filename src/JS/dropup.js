@@ -2,59 +2,45 @@ function showDrop(q, p) {
   q.classList.remove("hidden");
   q.classList.add("show");
   p.classList.add("obscured");
-  console.log("show");
 }
 
 function hideDrop(q, p) {
   q.classList.remove("show");
   q.classList.add("hidden");
   p.classList.remove("obscured")
-  console.log("remove");
 }
 
 var main = document.querySelector('main');
 
-function toggleDrop(event) {
-  var trigger = event.currentTarget;
-  var dropup = trigger.nextElementSibling;
-  if(dropup && dropup.classList.contains("dropup-list")) {
-    if (dropup.classList.contains("show")) {
-      hideDrop(dropup, main);
-    } 
-    else if (dropup.classList.contains("hidden")) {
-      showDrop(dropup, main);
-    }
-  }
-}
-
 document.addEventListener('DOMContentLoaded', function () {
-
-  document.addEventListener('click', function (event) {
-    var clicked = event.target.closest('.dropup-trigger');
-    if (clicked) {
-      console.log("clicked",clicked)
-      toggleDrop(event);
-    } else {
-      closeAllDropUp();
+  document.addEventListener('click', function(event) {
+    var trigger1 = document.getElementById("trigger1");
+    var trigger2 = document.getElementById("trigger2");
+    var drop1 = document.getElementById("drop-catalogo");
+    var drop2 = document.getElementById("profile-dropup");
+    if (trigger1.contains(event.target)) { 
+      if (drop1.classList.contains("show")) {
+        hideDrop(drop1, main);
+      }
+      else if (drop1.classList.contains("hidden")) {
+        showDrop(drop1, main);
+      }
+    }
+    else if (trigger2.contains(event.target)) {
+      if (drop2.classList.contains("show")) {
+        hideDrop(drop2, main);
+      }
+      if (drop2.classList.contains("hidden")) {
+        showDrop(drop2, main);
+      }
+    }
+    else if (!(trigger1.contains(event.target) || trigger2.contains(event.target))) {
+      closeAllDropUp(drop1, drop2);
     }
   });
-  // document.querySelectorAll('.dropup-trigger').forEach(function (drop) {
-  //   drop.addEventListener('click', toggleDrop);
-  // });
-
 });
 
-function closeAllDropUp() {
-  document.querySelectorAll('.dropup-list').forEach(drop => {
-    if (drop.classList.contains('show')) hideDrop(drop, main);
-  });
+function closeAllDropUp(drop1, drop2) {
+  hideDrop(drop1, main);
+  hideDrop(drop2, main);
 }
-
-// document.addEventListener('click', function(event) {
-//     var dropupList = document.querySelector('.dropup-list');
-//     var dropupTrigger = document.querySelector('.dropup-trigger');
-
-//     if (!(dropupList.contains(event.target) || dropupTrigger.contains(event.target))) {
-//       closeAllDropUp();
-//     }
-//   });

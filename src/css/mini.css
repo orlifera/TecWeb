@@ -1,14 +1,10 @@
-:root[data-theme="light"] {
-    --switch-pos: 0.55em;
-}
-
-[data-theme="dark"] {
-    --switch-pos: 3.7em;
-}
-
-@media (max-width: 400px) {
+@media (max-width: 420px) {
     #main-header #logo {
-        font-size: 2.5em;
+        font-size: 3em;
+    }
+
+    #mobile ul li {
+        padding: 0 1em;
     }
 }
 
@@ -42,6 +38,29 @@
     #mobile div#drop-catalogo ul {
         padding: 0.5em 0;
     }
+}
+
+@media (max-width: 300px) {
+    #mobile ul li {
+        padding: 0 0.5em;
+    }
+    #mob-theme-switcher {
+        font-size: 0.5em;
+    }
+}
+
+:root {
+    --switch-pos-mini: .25em;
+}
+
+[data-theme="light"] {
+    --sun-display: block;
+    --moon-display: none;
+}
+
+[data-theme="dark"] {
+    --sun-display: none;
+    --moon-display: block;
 }
 
 footer {
@@ -85,8 +104,8 @@ nav#menu {
     padding: 0 1.5em;
 }
 
-#mobile svg {
-    fill: var(--primaryText)
+#mobile #home {
+    fill: var(--primaryText);
 }
 
 div#presentation {
@@ -173,28 +192,19 @@ main#login-main {
 #mobile .dropup-list {
     position: fixed;
     z-index: 999;
-    padding: 0.5em;
     background-color: var(--bgDiv);
     border-radius: 2px;
     box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15), inset -1px -1px 2px rgba(0, 0, 0, 0.15);
 }
 
-#mobile #drop-catalogo {
+#mobile #drop-catalogo, #mobile #profile-dropup {
     width: 20em;
     margin: auto;
     bottom: 35dvh;
     right: calc((100dvw - 20em)/2);
 }
 
-#mobile #profile-drop {
-    width: 20em;
-    margin: auto;
-    bottom: 35dvh;
-    right: 0;
-    /* right: calc((100dvw - 20em)/2); */
-}
-
-#mobile .dropup-list li {
+#mobile #drop-catalogo li {
     width: 40%;
     padding: 0.5em;
     background-color: var(--secondaryGradient);
@@ -202,15 +212,37 @@ main#login-main {
     text-align: center;
 }
 
-#mobile .dropup-list ul {
+#mobile #profile-dropup li {
+    width: 100%;
+    padding: 1em;
+    margin: 0.5em auto;
+    background-color: var(--secondaryGradient);
+    align-items: center;
+}
+
+#mobile #drop-catalogo ul {
     padding: 2em;
     display: flex;
     justify-content: space-evenly;
 }
 
+#mobile #profile-dropup ul {
+    padding: 2em;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
 #mobile .dropup-list a {
     margin: auto;
+    width: 100%;
     text-align: center;
+}
+
+#mobile .dropup-list a svg {
+    vertical-align: middle;
 }
 
 #mobile .dropup-list p {
@@ -223,4 +255,41 @@ main#login-main {
 .obscured {
     filter: blur(5px);
     position: fixed;
+}
+
+#mob-theme-switcher {
+    background-color: var(--bgDiv);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: .5em;
+    position: relative;
+    gap: 1em;
+}
+
+#mob-theme-switcher::before {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background-color: var(--switch-bg-icon);
+    border-radius: 50%;
+    z-index: 0;
+    left: 0;
+    transform: translateX(var(--switch-pos-mini));
+}
+
+#mob-theme-switcher svg {
+    z-index: 1;
+}
+
+#mob-theme-switcher #mobsun {
+    fill: var(--icon-sun);
+    display: var(--sun-display);
+}
+
+#mob-theme-switcher #mobmoon {
+    fill: var(--icon-moon);
+    display: var(--moon-display);
 }
