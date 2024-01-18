@@ -6,6 +6,83 @@
     #mobile ul li {
         padding: 0 1em;
     }
+
+    #info h2.info-title {
+        font-size: 1.3em;
+    }
+    
+    #contact-info {
+        padding: unset;
+    }
+
+    .info-col #hours {
+        font-size: 1em;
+    }
+
+    #contact-info .info-col h2 {
+        font-size: 1.5em;
+    }
+
+    #contact-info .info-col h4 {
+        font-size: 1em;
+    }
+
+    #form-container fieldset {
+        padding: 1em 0;
+    }
+
+    div#form-container p {
+        padding: unset;
+        font-size: 1em;
+    }
+
+    #form-container h2 {
+        font-size: 1.5em;
+    }
+
+    #form-container form#contact-form {
+        padding: 0.5em;
+    }
+
+    #contact-form label {
+        width: 90%;
+        padding-top: unset;
+        width: unset;
+    }
+
+    #form-container #contact-form input {
+        margin: 0.5em 0;
+    }
+
+    #additional {
+        margin-bottom: 1em;
+    }
+
+    form#contact-form textarea::placeholder {
+        font-size: 0.8em;
+    }
+
+    #contact-form #termini {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #contact-form #tos a, #contact-form #tos {
+        font-size: 0.8em;
+    }
+
+    #contact-form #tos a{
+        margin-left: 0.3em;
+    }
+
+    #contact-form input#terms{
+        margin-right: 0.3em;
+    }
+
+    #contact-form input[type="submit"] {
+        margin: unset;
+    }
 }
 
 @media (max-width: 375px) {
@@ -165,7 +242,7 @@ div#presentation {
 
 #form-container {
     width: unset;
-    margin: 5em 2em;
+    margin: 5em 1em;
     padding: 1em;
 }
 
@@ -173,7 +250,7 @@ div#presentation {
     padding: 0 1em;
 }
 
-#form-container h2, #info .header {
+#form-container h2 {
     font-size: 1.5em;
 }
 

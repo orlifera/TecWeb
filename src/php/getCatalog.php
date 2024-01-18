@@ -13,6 +13,7 @@ error_reporting(E_ALL);
 setlocale(LC_ALL, 'it_IT');
 
 $paginaHTML = file_get_contents(__DIR__ . "/../pages/catalog.html");
+$indexHTML = file_get_contents(__DIR__ . "../../index.html");
 
 $listaPC = "";
 $stringaPC = "";
@@ -23,6 +24,9 @@ $categoria = $_GET['categoria'];
 $riferimento = $_GET['riferimento'];
 $sku = "";
 $htmlProdotti = "";
+
+//dona
+$indexProdotti = "";
 
 $connection = new DBAccess();
 $connectionOk = $connection->openDBConnection();
@@ -72,7 +76,7 @@ if ($nomePc != null) {
     foreach ($nomePc as $i => $nome) {
         if ($nome != null) {
             // $prova = "<li>\n" . ""
-            $prova = "<li>\n" . "<dl>\n" .  "<a class=\"\" href=\"getProduct.php?categoria=" . $categoria . "&id=" . $sku1[$i] . "\">\n" . "<img src=\"" . $path[$i] . "\"" . "alt=\"image\">\n"  .  $nome .   $prezzo[$i]  . "</a>\n" . "</dl>\n" . "</li>\n";
+            $prova = "<a class=\"product-card\" href=\"getProduct.php?categoria=" . $categoria . "&id=" . $sku1[$i] . "\">\n" . "<img src=\"" . $path[$i] . "\"" . "alt=\"image\">\n"  .  $nome .   $prezzo[$i]  . "</a>\n";
             // $prova = "<div class=\"cell\">\n" . "<a class=\"\" href=\"getProduct.php?categoria=" . $categoria . "&id=" . $sku1[$i] . "\">\n" . "<img src=\"" . $path[$i] . "\"" . "alt=\"image\">\n" . "<dt>" .  $nome .  "</dt>" . "<dd>" . $prezzo[$i] . "</dd>\n" . "</a>\n" . "</div>\n";
             //variabile in più per concatenare i vari prodotti
             $htmlProdotti .= $prova;
@@ -80,6 +84,16 @@ if ($nomePc != null) {
     }
 } else {
     $htmlProdotti = "<p>Siamo spiacenti, i prodotti che cerca momentaneamente esauriti, ci scusiamo per il disagio</p>";
+}
+
+//dona
+if ($nomePc != null) {
+    $prodotto1 = "<a class=\"product-card\" href=\"getProduct.php?categoria=pc" . "&id=" . $sku1[1] . "\">\n" . "<img src=\"" . $path[1] . "\"" . "alt=\"image\">\n"  .  $nomePc[1] .   $prezzo[1]  . "</a>\n";
+    $prodotto2 = "<a class=\"product-card\" href=\"getProduct.php?categoria=kbd" . "&id=" . $sku1[11] . "\">\n" . "<img src=\"" . $path[5] . "\"" . "alt=\"image\">\n"  .  $nomePc[5] .   $prezzo[5]  . "</a>\n";
+    $prodotto3 = "<a class=\"product-card\" href=\"getProduct.php?categoria=pc" . "&id=" . $sku1[5] . "\">\n" . "<img src=\"" . $path[11] . "\"" . "alt=\"image\">\n"  .  $nomePc[11] .   $prezzo[11]  . "</a>\n";
+    $indexProdotti .= $prodotto1 . $prodotto2 . $prodotto3;
+} else {
+    $indexProdotti = "<p>Siamo spiacenti, i prodotti che cerca momentaneamente esauriti, ci scusiamo per il disagio</p>";
 }
 
 $paginaHTML = str_replace('{prodotto}', $htmlProdotti, $paginaHTML);
@@ -104,5 +118,7 @@ $paginaHTML = str_replace('cookies.html', '../pages/cookies.html', $paginaHTML);
 $paginaHTML = str_replace('login.html', '../pages/login.html', $paginaHTML);
 $paginaHTML = str_replace('signup.html', '../pages/signup.html', $paginaHTML);
 
+$indexHTML = str_replace('{prodotto}', $indexProdotti, $indexHTML);
 
-echo ($paginaHTML);
+echo($indexHTML);
+echo($paginaHTML);
