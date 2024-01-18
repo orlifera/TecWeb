@@ -27,7 +27,7 @@ function reverseAnimation() {
 document.addEventListener('DOMContentLoaded', function () {
 
 
-    document.getElementById('order').addEventListener('click', function () {
+    document.getElementById('orderBtn').addEventListener('click', function () {
         // Hide payment container and show payment animation
         document.getElementById('payment-container').classList.remove('show');
         document.getElementById('payment-container').classList.add('hidden');
