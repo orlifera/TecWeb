@@ -122,7 +122,7 @@ html {
 
 html {
     font-size: 100%;
-    background-color: var(--bg-100);
+    background-color: var(--bg);
     margin: auto;
     line-height: 1.5em;
 }
@@ -207,6 +207,10 @@ a {
     cursor: pointer;
 }
 
+/* #dropdown-icon {
+    fill: var(--primaryText);
+} */
+
 ul li ul.dropdown-list li {
     width: 5.51em;
     display: block;
@@ -264,6 +268,11 @@ nav svg:not(#signup, #sun, #moon) {
     vertical-align: middle;
     margin-right: 8px;
 }
+
+/* #login,
+#settings {
+    fill: var(--primaryText);
+} */
 
 #signup path {
     stroke: var(--text-300);
@@ -333,6 +342,12 @@ nav svg:not(#signup, #sun, #moon) {
 #icons .icon {
     filter: invert(1);
 }
+
+/* #cart,
+#profile {
+    fill: var(--primaryText);
+    z-index: 1;
+} */
 
 .info-p {
     text-align: center;
@@ -1848,7 +1863,7 @@ input.card-name {
 }
 
 .checkmark-check {
-    stroke: var(--bg-100);
+    stroke: var(--bg);
     /* stroke-dasharray: 100px;
     stroke-dashoffset: 100px;
     transform-origin: 50% 50%; */
