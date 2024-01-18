@@ -284,6 +284,7 @@ nav svg:not(#signup, #sun, #moon) {
     position: fixed;
     top: 4.3em;
     z-index: 1;
+    margin-bottom: 4em;
 }
 
 #breadcrumb {
@@ -371,6 +372,11 @@ nav svg:not(#signup, #sun, #moon) {
     width: 2em;
     height: 2em;
     fill: var(--text-300)
+}
+
+#cookie-heading .icon {
+    width: 3em;
+    height: 3em;
 }
 
 .info-p {
@@ -1028,7 +1034,7 @@ fieldset:last-of-type {
     padding: .5em;
     border-radius: 10px;
     background-color: var(--primary-100);
-    color: var(--text-100);
+    color: var(--text-300);
     cursor: pointer;
 }
 
