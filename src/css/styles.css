@@ -52,14 +52,15 @@
     --success: #30df19;
     --error: #E94646;
     --bgProduct: #f5f3f7;
+
 }
 
 /* Variabili per la modalità chiara*/
 :root[data-theme="light"] {
-    --primary-100: #892CDC;
-    --primary-200: #BC6FF1;
+    --primary-100: #511d7e;
+    --primary-200: #9a5bc4;
     --primary-300: #c38fe6;
-    --accent-100: #D9ACF5;
+    --accent-100: #ceb8e8;
     --accent-200: #fff4ff;
     --text-100: #4A4A4A;
     --text-200: #878787;
@@ -80,6 +81,8 @@
     --cardBg: #0026ff;
     --cardLabel: #efefef;
     --cardPlaceholder: #cdcdcd;
+    --active-link: #7B4F8E;
+    --placeholder: #989898;
 }
 
 /* Variabili per la palette scura */
@@ -103,6 +106,8 @@
     --icon-moon: #b7b7b7;
     --switch-pos: 2.7em;
     --input-bg: #6B6E73;
+    --active-link: #f9f9f9;
+    --placeholder: #cdcdcd;
 }
 
 * {
@@ -251,7 +256,7 @@ nav#menu #switch {
 
 #menu ul.dropdown-list {
     position: absolute;
-    z-index: 3;
+    z-index: 999;
     background-color: var(--primary-100);
     display: none;
 }
@@ -294,18 +299,16 @@ nav svg:not(.signup, #sun, #moon) {
     position: fixed;
     top: 4.3em;
     z-index: 1;
+    margin-bottom: 4em;
 }
 
 #breadcrumb {
     display: block;
-    padding-left: 1em;
-    width: 100%;
-    background-color: var(--bgProduct);
-    border-bottom: 1px solid var(--text-100);
+    padding: 1em;
 }
 
 #breadcrumb a {
-    color: var(--primary-100);
+    color: var(--text-100);
 }
 
 #profile-drop a svg {
@@ -1524,11 +1527,6 @@ input#qty:focus {
     width: auto;
     background-color: var(--bgProduct);
     box-shadow: 0 1em 2em -0.9em rgba(0, 0, 0, 0.7);
-    transition: transform 0.3 ease-in-out;
-}
-
-#product-list .product-card:hover {
-    transform: scale(1.1);
 }
 
 .product-card img {
@@ -1542,19 +1540,19 @@ input#qty:focus {
     color: #000;
 }
 
-
 /*****
 PROFILE
 *****/
 
 #profileDiv {
+    height: calc(100dvh - 15em);
     display: grid;
     grid-template-columns: 20em 1fr;
 }
 
 nav.sidenav {
     width: 100%;
-    background-color: var(--primary-200);
+    background-color: var(--primary-100);
     position: sticky;
     /* max-height: 100svh; */
     top: 0;
@@ -1583,8 +1581,8 @@ nav.sidenav {
 
 .sidenav li.active {
     /* view-transition-name: activeNavTab; */
-    background-color: var(--white);
-    border-left: 10px solid var(--bg-200);
+    background-color: var(--bg-100);
+    border-left: 10px solid var(--primary-200);
     position: relative;
 }
 
@@ -1593,7 +1591,7 @@ nav.sidenav {
 } */
 
 .nav-list li.active a {
-    color: var(--secondaryIconBG);
+    color: var(--active-link);
 }
 
 .nav-list li.active::before,
@@ -1603,12 +1601,12 @@ nav.sidenav {
     height: var(--border-radius);
     width: var(--border-radius);
     right: 0;
-    background-color: var(--primary-200);
+    background-color: var(--primary-100);
 }
 
 .nav-list li.active::before {
     border-radius: 0 0 100vh 0;
-    box-shadow: 5px 5px 0 5px var(--white);
+    box-shadow: 5px 5px 0 5px var(--bg-100);
     top: calc(var(--border-radius) * -1);
     /*lo sposta proprio fuori la li*/
 }
@@ -1616,7 +1614,7 @@ nav.sidenav {
 .nav-list li.active::after {
     bottom: calc(var(--border-radius) * -1);
     border-radius: 0 100vh 0 0;
-    box-shadow: 5px -5px 0 5px var(--white);
+    box-shadow: 5px -5px 0 5px var(--bg-100);
 }
 
 #profilePage {
@@ -1626,18 +1624,37 @@ nav.sidenav {
     text-align: center;
 }
 
-/* #profilePage legend { 
-    position: relative;
-    /* top: .5em; 
-    width: 100%;
-    text-align: center;
-}
- */
 fieldset.fieldProfile {
     height: 100%;
     border: unset;
-    background-color: var(--white);
+    background-color: var(--bg-100);
     padding: unset;
+}
+
+.fieldProfile label {
+    color: var(--text-100);
+    background-color: var(--bg-100);
+
+}
+
+.fieldProfile .text-fields {
+    border: 2px solid var(--primary-100);
+}
+
+input.dataHolder {
+    color: var(--text-100);
+}
+
+.fieldProfile input::placeholder {
+    color: var(--placeholder);
+}
+
+.fieldProfile #email:hover {
+    cursor: not-allowed;
+}
+
+.fieldProfile .card-container input:hover {
+    cursor: not-allowed;
 }
 
 
@@ -1662,7 +1679,7 @@ fieldset.fieldProfile {
     align-items: center;
     text-align: center;
     font-size: 1.5em;
-    color: var(--text-100);
+    color: var(--text-300);
 }
 
 #nav-title a {
@@ -1685,6 +1702,8 @@ fieldset.fieldProfile {
 #profilePage legend {
     padding: 1em 0;
     font-size: 1.5em;
+    width: 100%;
+    background-color: var(--bg-100);
 }
 
 #profilePage label:not(#emailProfile) {
@@ -1915,7 +1934,8 @@ input.card-name {
     TO DEFINE
     100% {
         transform: translateX(-1000px);
-    } */}
+    } */
+}
 
 .gear.gear-2 {
     width: 150px;
@@ -2459,4 +2479,53 @@ input.card-name {
 
 #error404 a:hover {
     color: #8B4513;
+}
+
+.scroller {
+    max-width: 600px;
+}
+
+.scroller__inner {
+    padding-block: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.scroller[data-animated="true"] {
+    overflow: hidden;
+    -webkit-mask: linear-gradient(90deg,
+            transparent,
+            white 20%,
+            white 80%,
+            transparent);
+    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+}
+
+.scroller[data-animated="true"] .scroller__inner {
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: scroll var(--_animation-duration, 40s) var(--_animation-direction, forwards) linear infinite;
+}
+
+.scroller[data-direction="right"] {
+    --_animation-direction: reverse;
+}
+
+.scroller[data-direction="left"] {
+    --_animation-direction: forwards;
+}
+
+.scroller[data-speed="fast"] {
+    --_animation-duration: 20s;
+}
+
+.scroller[data-speed="slow"] {
+    --_animation-duration: 60s;
+}
+
+@keyframes scroll {
+    to {
+        transform: translate(calc(-50% - 0.5rem));
+    }
 }
