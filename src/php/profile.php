@@ -25,6 +25,8 @@ $city = "";
 $address = "";
 $cap = "";
 
+// $errorpsw = "";
+
 $connection = new DBAccess();
 $connectionOk = $connection->openDBConnection();
 
@@ -33,24 +35,15 @@ if ($connectionOk) {
     $listaInfo = $connection->getProfileInfo($user);
 
     if (isset($_POST['personalInfo'])) {
-        $fname = $_POST['fname'];
-        $lname = $_POST['lname'];
-        $email = $listaInfo[5];
-        $phone = $_POST['phone'];
-        $connection->updatePersonalInfo($fname, $lname, $email, $phone);
-        header('Location: profile.php');
-    }
-
-    if (isset($_POST['address'])) {
-        $email = $listaInfo[5];
-        $city = $_POST['city'];
-        $address = $_POST['address'];
-        $cap = $_POST['cap'];
-        $connection->updateAddressInfo($email, $city, $address, $cap);
-        header('Location: profile.php');
-    }
-
-    if (isset($_POST['changepsw'])) {
+        if ($_POST['fname'] != null && $_POST['lname'] != null && $_POST['phone'] != null) {
+            $fname = $_POST['fname'];
+            $lname = $_POST['lname'];
+            $email = $listaInfo[5];
+            $phone = $_POST['phone'];
+            $connection->updatePersonalInfo($fname, $lname, $email, $phone);
+            header('Location: profile.php?section=personalInfo');
+        }
+    } else if (isset($_POST['changepsw'])) {
         if ($_POST['pwd'] != null && $_POST['password'] != null && $_POST['password-confirm'] != null) {
             $email = $listaInfo[5];
             $op = $_POST['pwd'];
@@ -59,11 +52,25 @@ if ($connectionOk) {
             if (password_verify($op, $listaInfo[6]) && $np == $cnp) {
                 $np = password_hash($_POST['password'], PASSWORD_DEFAULT);
                 $connection->updatePsw($email, $np);
+                // echo  'Cambio psw avvenuto';
+                // sleep(3);
+                // header('Location: profile.php');
             } else {
-                echo 'Qualcosa andato storto con le psw';
+                echo '<p class="error">Nuova password e conferma sono diverse</p>';
+                // $errorpsw = "<p name=\"error\" id=\"error\">Nuova password e conferma sono diverse</p>";
             }
         } else {
-            echo "compila tutti i dati";
+            echo '<p class="error">compila tutti i dati</p>';
+            // $errorpsw = "<p name=\"error\" id=\"error\">Compila tutti gli errori</p>";
+        }
+    } else if (isset($_POST['addressbtn'])) {
+        if ($_POST['city'] != null && $_POST['address'] != null && $_POST['cap'] != null) {
+            $email = $listaInfo[5];
+            $city = $_POST['city'];
+            $address = $_POST['address'];
+            $cap = $_POST['cap'];
+            $connection->updateAddressInfo($email, $city, $address, $cap);
+            header('Location: profile.php');
         }
     }
 
@@ -77,6 +84,7 @@ if ($connectionOk) {
         $address = "<input class=\"dataHolder\" type=\"text\" name=\"address\" id=\"address\" value=\"" . $listaInfo[9] . "\" required>";
         $cap = "<input class=\"dataHolder\" type=\"text\" name=\"cap\" id=\"cap\" value=\"" . $listaInfo[10] . "\" required>";
     }
+    // print_r($listaInfo);
 }
 /*
 0. nome
@@ -101,6 +109,7 @@ $paginaHTML = str_replace('{dob}', $dob, $paginaHTML);
 $paginaHTML = str_replace('{city}', $city, $paginaHTML);
 $paginaHTML = str_replace('{address}', $address, $paginaHTML);
 $paginaHTML = str_replace('{cap}', $cap, $paginaHTML);
+// $paginaHTML = str_replace('{errorpsw}', $error, $paginaHTML);
 
 
 echo ($paginaHTML);

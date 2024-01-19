@@ -33,6 +33,7 @@ foreach ($quantitaArray as $i => $id) {
 
 
 $connection = new DBAccess();
+$connectionOk = "";
 $connectionOk = $connection->openDBConnection();
 
 if ($connectionOk) {
@@ -50,7 +51,9 @@ if ($connectionOk) {
     }
 } else {
     $nomeProdottoCompleto = $prezzo = $path = $sku = [];
-    $htmlProdotti = "<p>I sistemi sono momentaneamente fuori servizio, ci scusiamo per il disagio</p>";
+    header("HTTP/1.0 404 Not Found");
+    include("../pages/404.html");
+    exit;
 }
 $connection->closeDBConnection();
 

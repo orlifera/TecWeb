@@ -8,20 +8,6 @@ var categoriaValue = getParameterByName("categoria", window.location.href);
 let imageFilePath =
   "../../assets/images/" + categoriaValue + "/" + idValue + ".jpg";
 
-// function incrementValue(disponibilita) {
-//   var inputElement = document.getElementById("quantity");
-//   var value = parseInt(inputElement.value, 10);
-//   var max = disponibilita;
-//   if (max == 0) {
-//     return;
-//   }
-//   if (value < max) {
-//     value++;
-//   } else {
-//     value = max;
-//   }
-//   document.querySelector("input[type='number']").value = value;
-// }
 function incrementValue(index, disponibilita) {
   var inputElement = document.querySelectorAll(".quantity")[index];
   var value = parseInt(inputElement.value, 10);
@@ -60,7 +46,6 @@ function changeColorProductImage() {
     imageFilePath =
       "../../assets/images/" + categoriaValue + "/" + idValue + "_W.jpg";
   }
-  alert(imageFilePath);
   immagine.src = imageFilePath;
 }
 

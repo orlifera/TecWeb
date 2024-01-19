@@ -42,7 +42,8 @@
                 <ul>
                     <li><a href="../../index.html" lang="en">Home</a></li>
                     <li>
-                        <p class="dropdown-trigger" tabindex="0" role="button" aria-haspopup="true" lang="en">
+                        <p id="drop-p" class="dropdown-trigger" tabindex="0" role="button" aria-haspopup="true"
+                            lang="en">
                             Shop
                             <?xml version="1.0" encoding="utf-8"?>
                             <svg id="dropdown-icon" width="30px" height="30px" viewBox="0 0 30 30"
@@ -57,7 +58,7 @@
                             <li><a href="../php/getCatalog.php?categoria=kbd&riferimento=">Tastiere</a></li>
                         </ul>
                     </li>
-                    <li><a href="../pages/contacts.html">Contatti</a></li>
+                    <li><a href="contacts.html">Contatti</a></li>
                 </ul>
             </div>
             <!-- Parte destra della navbar: indirizza a pagine personalizzate all'utente -->
@@ -91,8 +92,7 @@
                         </p>
                         <ul id="profile-drop" class="dropdown-list hidden">
                             <li>
-                                <!-- <a href="src/pages/login.html"> -->
-                                <a href="../php/sendToLogin.php">
+                                <a href="login.html">
                                     <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                                     <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -301,8 +301,8 @@
 
                     <div class="info-container">
                         <div class="text-fields fname">
-                            <svg class="login-icon" xmlns="http://www.w3.org/2000/svg" version="1.0" width="24"
-                                height="24" viewBox="0 0 128.000000 128.000000" preserveAspectRatio="xMidYMid meet">
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" version="1.0" width="24" height="24"
+                                viewBox="0 0 128.000000 128.000000" preserveAspectRatio="xMidYMid meet">
 
                                 <g transform="translate(0.000000,128.000000) scale(0.100000,-0.100000)" stroke="none">
                                     <path
@@ -315,8 +315,8 @@
                             {nome}
                         </div>
                         <div class="text-fields lname">
-                            <svg class="login-icon" xmlns="http://www.w3.org/2000/svg" version="1.0" width="24"
-                                height="24" viewBox="0 0 128.000000 128.000000" preserveAspectRatio="xMidYMid meet">
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" version="1.0" width="24" height="24"
+                                viewBox="0 0 128.000000 128.000000" preserveAspectRatio="xMidYMid meet">
 
                                 <g transform="translate(0.000000,128.000000) scale(0.100000,-0.100000)" stroke="none">
                                     <path
@@ -332,7 +332,8 @@
                     <div class="info-container">
                         <div class="text-fields email">
                             <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-                            <svg width="24px" height="24px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="icon" width="24px" height="24px" viewBox="0 0 1920 1920"
+                                xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M1920 428.266v1189.54l-464.16-580.146-88.203 70.585 468.679 585.904H83.684l468.679-585.904-88.202-70.585L0 1617.805V428.265l959.944 832.441L1920 428.266ZM1919.932 226v52.627l-959.943 832.44L.045 278.628V226h1919.887Z"
                                     fill-rule="evenodd" />
@@ -345,8 +346,9 @@
                         <div class="text-fields phone">
                             <?xml version="1.0" encoding="utf-8"?>
                             <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-                            <svg height="24px" width="24px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+                            <svg class="icon" height="24px" width="24px" version="1.1" id="_x32_"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                viewBox="0 0 512 512" xml:space="preserve">
                                 <g>
                                     <path class="st0" d="M94.811,21.696c-35.18,22.816-42.091,94.135-28.809,152.262c10.344,45.266,32.336,105.987,69.42,163.165
                                             		c34.886,53.79,83.557,102.022,120.669,129.928c47.657,35.832,115.594,58.608,150.774,35.792
@@ -365,7 +367,7 @@
                         <!-- *********************************** -->
 
                         <!-- <div class="text-fields">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M19 5H13V2H11V5H5C3.346 5 2 6.346 2 8V18C2 19.103 2.897 20 4 20H20C21.103 20 22 19.103 22 18V8C22 6.346 20.654 5 19 5ZM5 7H19C19.2652 7 19.5196 7.10536 19.7071 7.29289C19.8946 7.48043 20 7.73478 20 8L20.001 11.12C19.105 11.348 18.532 11.854 18.085 12.252C17.578 12.702 17.243 13 16.497 13C15.752 13 15.417 12.702 14.91 12.253C14.315 11.724 13.501 11 11.995 11C10.49 11 9.676 11.724 9.081 12.253C8.574 12.703 8.24 13 7.495 13C6.752 13 6.418 12.703 5.913 12.253C5.466 11.855 4.895 11.348 4 11.12V8C4 7.73478 4.10536 7.48043 4.29289 7.29289C4.48043 7.10536 4.73478 7 5 7ZM4 18V13.286C4.191 13.409 4.374 13.56 4.583 13.747C5.178 14.276 5.991 15 7.495 15C9 15 9.814 14.276 10.409 13.747C10.916 13.297 11.25 13 11.995 13C12.74 13 13.075 13.298 13.582 13.747C14.177 14.276 14.991 15 16.497 15C18.003 15 18.818 14.276 19.413 13.747C19.624 13.559 19.808 13.407 20.001 13.283L20.002 18H4Z" />
@@ -378,7 +380,7 @@
                     <!-- <div id="genderSelector">
                         <button id="male" aria-label="Male">
                             <?xml version="1.0" encoding="utf-8"?>
-                            <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none"
+                            <svg class="icon" width="50px" height="50px" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M18.5 8.5C18.5 12.0899 15.5899 15 12 15C8.41015 15 5.5 12.0899 5.5 8.5C5.5 4.91015 8.41015 2 12 2C15.5899 2 18.5 4.91015 18.5 8.5Z"
@@ -391,7 +393,7 @@
                         </button>
                         <button id="female" aria-label="Female">
                             <?xml version="1.0" encoding="utf-8"?>
-                            <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none"
+                            <svg class="icon" width="50px" height="50px" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M15 15.5C15 19.0899 12.0899 22 8.5 22C4.91015 22 2 19.0899 2 15.5C2 11.9101 4.91015 9 8.5 9C12.0899 9 15 11.9101 15 15.5Z"
@@ -404,7 +406,7 @@
                         </button>
                         <button id="other" aria-label="other">
                             <?xml version="1.0" encoding="utf-8"?>
-                            <svg fill="#000000" width="50px" height="50px" viewBox="0 0 30 30"
+                            <svg class="icon" fill="#000000" width="50px" height="50px" viewBox="0 0 30 30"
                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <path
                                     d="M17.984375 3.9863281 A 1.0001 1.0001 0 0 0 17 5L7 5 A 1.0001 1.0001 0 1 0 7 7L17 7L17 10L2.5996094 10L2.1777344 7.8828125C2.0747344 7.3698125 1.6236094 7 1.0996094 7C0.49260938 7 -1.4802974e-16 7.4926094 0 8.0996094L0 11.611328C0 12.447328 0.51678125 13.193375 1.3007812 13.484375C3.0507812 14.133375 6.065375 15.243406 7.109375 15.566406C8.614375 16.032406 10.644531 19.707031 10.644531 19.707031L10.648438 19.701172C11.637325 21.656206 13.659112 23 16 23L24 23C25.862 23 27.412375 21.722 27.859375 20L25.472656 20C23.957656 20 22.572531 19.144062 21.894531 17.789062L20.722656 15.447266C20.390656 14.782266 20.874188 14 21.617188 14L26.921875 14C25.537875 11.611 22.959 10 20 10L19 10L19 7L29 7 A 1.0001 1.0001 0 1 0 29 5L19 5 A 1.0001 1.0001 0 0 0 17.984375 3.9863281 z M 28.955078 22.988281 A 1.0001 1.0001 0 0 0 28.105469 23.552734C28.105469 23.552734 27.332093 25 25.996094 25L10 25 A 1.0001 1.0001 0 1 0 10 27L25.996094 27C28.664094 27 29.894531 24.447266 29.894531 24.447266 A 1.0001 1.0001 0 0 0 28.955078 22.988281 z" />
@@ -422,7 +424,8 @@
                     <div class="pwd-container">
                         <div class="text-fields oldPwd">
                             <?xml version="1.0" encoding="utf-8"?>
-                            <svg width="24px" height="24px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="icon" width="24px" height="24px" viewBox="0 0 48 48"
+                                xmlns="http://www.w3.org/2000/svg">
                                 <g id="Layer_2" data-name="Layer 2">
                                     <g id="invisible_box" data-name="invisible box">
                                         <rect width="48" height="48" fill="none" />
@@ -440,7 +443,8 @@
                     <div class="pwd-container">
                         <div class="text-fields password">
                             <?xml version="1.0" encoding="utf-8"?>
-                            <svg width="24px" height="24px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="icon" width="24px" height="24px" viewBox="0 0 48 48"
+                                xmlns="http://www.w3.org/2000/svg">
                                 <g id="Layer_2" data-name="Layer 2">
                                     <g id="invisible_box" data-name="invisible box">
                                         <rect width="48" height="48" fill="none" />
@@ -458,7 +462,8 @@
                     <div class="pwd-container">
                         <div class="text-fields confirm">
                             <?xml version="1.0" encoding="utf-8"?>
-                            <svg width="24px" height="24px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="icon" width="24px" height="24px" viewBox="0 0 48 48"
+                                xmlns="http://www.w3.org/2000/svg">
                                 <g id="Layer_2" data-name="Layer 2">
                                     <g id="invisible_box" data-name="invisible box">
                                         <rect width="48" height="48" fill="none" />
@@ -474,6 +479,7 @@
                                 placeholder="Conferma la password">
                         </div>
                     </div>
+                    {errorpsw}
                     <div class="page-btns">
                         <input type="submit" name="changepsw" value="Aggiorna dati" class="next stagebtn1b">
                     </div>
@@ -485,8 +491,8 @@
                     <div class="info-container">
                         <div class="text-fields city">
                             <?xml version="1.0" ?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-                            <svg width="24px" height="24px" viewBox="0 0 128 128" data-name="Layer 4" id="Layer_4"
-                                xmlns="http://www.w3.org/2000/svg">
+                            <svg class="icon" width="24px" height="24px" viewBox="0 0 128 128" data-name="Layer 4"
+                                id="Layer_4" xmlns="http://www.w3.org/2000/svg">
                                 <path class="cls-1"
                                     d="M64,30.17,96.64,62.81V102H31.36V62.81L64,30.17M64,16,21.36,58.67V112h85.28V58.67L64,16Z" />
                                 <rect class="cls-1" height="38.37" width="19.19" x="54.41" y="73.59" />
@@ -498,8 +504,8 @@
                     <div class="info-container">
                         <div class="text-fields address">
                             <?xml version="1.0" ?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-                            <svg width="24px" height="24px" viewBox="0 0 128 128" data-name="Layer 4" id="Layer_4"
-                                xmlns="http://www.w3.org/2000/svg">
+                            <svg class="icon" width="24px" height="24px" viewBox="0 0 128 128" data-name="Layer 4"
+                                id="Layer_4" xmlns="http://www.w3.org/2000/svg">
                                 <path class="cls-1"
                                     d="M64,30.17,96.64,62.81V102H31.36V62.81L64,30.17M64,16,21.36,58.67V112h85.28V58.67L64,16Z" />
                                 <rect class="cls-1" height="38.37" width="19.19" x="54.41" y="73.59" />
@@ -511,8 +517,8 @@
                     <div class="info-container">
                         <div class="text-fields cap">
                             <?xml version="1.0" ?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-                            <svg width="24px" height="24px" viewBox="0 0 128 128" data-name="Layer 4" id="Layer_4"
-                                xmlns="http://www.w3.org/2000/svg">
+                            <svg class="icon" width="24px" height="24px" viewBox="0 0 128 128" data-name="Layer 4"
+                                id="Layer_4" xmlns="http://www.w3.org/2000/svg">
                                 <path class="cls-1"
                                     d="M64,30.17,96.64,62.81V102H31.36V62.81L64,30.17M64,16,21.36,58.67V112h85.28V58.67L64,16Z" />
                                 <rect class="cls-1" height="38.37" width="19.19" x="54.41" y="73.59" />
@@ -522,7 +528,7 @@
                         </div>
                     </div>
                     <div class="page-btns">
-                        <input type="submit" name="address" value="Aggiorna dati" class="next stagebtn1b">
+                        <input type="submit" name="addressbtn" value="Aggiorna dati" class="next stagebtn1b">
                     </div>
                 </fieldset>
 
@@ -535,7 +541,8 @@
                         <!-- Card -->
                         <div class="card">
                             <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-                            <svg width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="icon" width="30px" height="30px" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M21.75 5H2.25A1.251 1.251 0 0 0 1 6.25v12.5A1.251 1.251 0 0 0 2.25 20h19.5A1.251 1.251 0 0 0 23 18.75V6.25A1.251 1.251 0 0 0 21.75 5zM22 18.75a.25.25 0 0 1-.25.25H2.25a.25.25 0 0 1-.25-.25V10h20zM22 8H2V6.25A.25.25 0 0 1 2.25 6h19.5a.25.25 0 0 1 .25.25zM8 18H3v-1h5zm13 0h-2v-1h2zm-3 0h-2v-1h2zm-6-2H3v-1h9z" />
                                 <path fill="none" d="M0 0h24v24H0z" />
@@ -550,7 +557,7 @@
                                 <!-- Card Holder -->
                                 <div class="name">
                                     <label for="c-holder">Card Holder</label>
-                                    <input id="c-holder" class="card-name" placeholder="Mr. WorldWide" type="text"
+                                    <inpu id="c-holder" t class="card-name" placeholder="Mr. WorldWide" type="text"
                                         disabled />
                                 </div>
 
@@ -563,8 +570,8 @@
 
                                 <!-- Cvv -->
                                 <div class="ccv">
-                                    <label for="c-cvv">CCV</label>
-                                    <input id="c-cvv" class="card-name" placeholder="123" type="text" maxlength="3"
+                                    <label for="c-ccv">CCV</label>
+                                    <input id="c-ccv" class="card-name" placeholder="123" type="text" maxlength="3"
                                         disabled />
                                 </div>
                             </div>
@@ -572,7 +579,7 @@
                     </div>
                     <!-- <div class="info-container">
                         <div class="text-fields fname">
-                            <svg class="login-icon" xmlns="http://www.w3.org/2000/svg" version="1.0" width="24"
+                            <svg class="icon"  xmlns="http://www.w3.org/2000/svg" version="1.0" width="24"
                                 height="24" viewBox="0 0 128.000000 128.000000" preserveAspectRatio="xMidYMid meet">
 
                                 <g transform="translate(0.000000,128.000000) scale(0.100000,-0.100000)" stroke="none">
@@ -588,7 +595,7 @@
                         </div>
                         <div class="text-fields card">
                             <?xml version="1.0" encoding="utf-8"?>
-                            <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="icon" width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M21.75 5H2.25A1.251 1.251 0 0 0 1 6.25v12.5A1.251 1.251 0 0 0 2.25 20h19.5A1.251 1.251 0 0 0 23 18.75V6.25A1.251 1.251 0 0 0 21.75 5zM22 18.75a.25.25 0 0 1-.25.25H2.25a.25.25 0 0 1-.25-.25V10h20zM22 8H2V6.25A.25.25 0 0 1 2.25 6h19.5a.25.25 0 0 1 .25.25zM8 18H3v-1h5zm13 0h-2v-1h2zm-3 0h-2v-1h2zm-6-2H3v-1h9z" />
                                 <path fill="none" d="M0 0h24v24H0z" />

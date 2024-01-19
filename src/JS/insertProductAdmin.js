@@ -11,13 +11,16 @@ function insertProduct() {
   if (category == "product") {
     var id = encodeURIComponent(document.getElementById("id").value);
     var nome = encodeURIComponent(document.getElementById("nome").value);
-    var immagine = encodeURIComponent(
-      document.getElementById("immagine").value
+    var tipo = encodeURIComponent(document.getElementById("tipo").value);
+    var categoria = encodeURIComponent(
+      document.getElementById("categoria").value
     );
-    var categoria = document.getElementById("categoria").value;
+    var immagine = "../../assets/images/" + categoria + "/" + id + ".jpg";
     var disponibilita = encodeURIComponent(
       document.getElementById("disponibilita").value
     );
+    var riferimento = document.getElementById("riferimento").value;
+
     var prezzo = encodeURIComponent(document.getElementById("prezzo").value);
     if (!/^\d+$/.test(disponibilita) && !/^\d+$/.test(prezzo)) {
       alert("Errore: inserimento valori non corretto");
@@ -30,13 +33,11 @@ function insertProduct() {
     var colore = encodeURIComponent(document.getElementById("colore").value);
     variabile_decisionale = "product";
 
-    var riferimento = "";
     if (
       id == "" ||
       nome == "" ||
       tipo == "" ||
       prezzo == "" ||
-      immagine == "" ||
       categoria == "" ||
       disponibilita == "" ||
       descrizione == "" ||
@@ -44,10 +45,6 @@ function insertProduct() {
     ) {
       alert("Compila tutti i campi");
       return;
-    }
-
-    if (categoria == "pc" || categoria == "kbd") {
-      riferimento = categoria;
     }
 
     var url =
