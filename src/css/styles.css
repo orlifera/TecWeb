@@ -37,8 +37,8 @@
 
 /* Variabili indipendenti dalla modalità del sito */
 :root {
-    --default-transition: color .1s ease-in-out, background-color .3s ease-in-out, fill .1s ease-in-out,
-        border-color .3s ease-in-out, transform .3s ease-in-out;
+    /*--default-transition: color .1s ease-in-out, background-color .3s ease-in-out, fill .1s ease-in-out,
+        border-color .3s ease-in-out, transform .3s ease-in-out; */
     --loginBg: #f9f9f9;
     --progessBg: #cfcfcf;
     --loginSbmt: #3F51B5;
@@ -60,9 +60,9 @@
     --primary-100: #511d7e;
     --primary-200: #9a5bc4;
     --primary-300: #c38fe6;
-    --accent-100: #ceb8e8;
+    --accent-100: #dbc1fa;
     --accent-200: #fff4ff;
-    --text-100: #4A4A4A;
+    --text-100: #3a3a3a;
     --text-200: #878787;
     --text-300: #f9f9f9;
     --bg-100: #F5F3F7;
@@ -87,8 +87,8 @@
 
 /* Variabili per la palette scura */
 [data-theme="dark"] {
-    --primary-100: #7B4F8E;
-    --primary-200: #563763;
+    --primary-100: #563763;
+    --primary-200: #915ba9;
     --primary-300: #c38fe6;
     --accent-100: #5A3A6E;
     --accent-200: #897A96;
@@ -106,7 +106,7 @@
     --icon-moon: #b7b7b7;
     --switch-pos: 2.7em;
     --input-bg: #6B6E73;
-    --active-link: #f9f9f9;
+    --active-link: #bc8cd0;
     --placeholder: #cdcdcd;
 }
 
@@ -408,7 +408,7 @@ nav svg:not(.signup, #sun, #moon) {
 
 #ref-rew {
     font-size: 1em;
-    color: var(--primary-300);
+    color: var(--primary-200);
 }
 
 #info dl {
@@ -419,11 +419,13 @@ nav svg:not(.signup, #sun, #moon) {
 
 #info dt {
     font-weight: bold;
+    font-size: 1.5em;
     color: var(--text-100);
 }
 
 #info dd {
-    text-align: justify;
+    text-align: center;
+    font-size: 1.2em;
     color: var(--text-100);
     padding: 1em;
 }
@@ -509,6 +511,8 @@ nav svg:not(.signup, #sun, #moon) {
     margin: auto;
     text-align: justify;
     padding-bottom: 1em;
+    font-size: 20px;
+    line-height: 2em;
 }
 
 #last {
@@ -704,7 +708,7 @@ p.heading {
 }
 
 #deflist a {
-    color: var(--primary-100);
+    color: var(--active-link);
     text-decoration: underline;
 }
 
@@ -1449,7 +1453,8 @@ input#qty:focus {
     border-left: 1px solid var(--background-link);
 }
 
-.capsule dt, .capsule label {
+.capsule dt,
+.capsule label {
     font-weight: bold;
     margin: .5em;
 }
@@ -1471,7 +1476,8 @@ input#qty:focus {
     margin-right: 1em;
 }
 
-#accessories, #addToCart {
+#accessories,
+#addToCart {
     color: var(--text-login);
     background-color: var(--bg-200);
     font-size: 1em;
@@ -1481,9 +1487,10 @@ input#qty:focus {
     border-radius: 5px;
 }
 
-#accessories:hover, #addToCart:hover {
+#accessories:hover,
+#addToCart:hover {
     background-color: var(--bg-100);
-    
+
 }
 
 .product-image {
@@ -1624,6 +1631,7 @@ nav.sidenav {
     text-align: center;
 }
 
+
 fieldset.fieldProfile {
     height: 100%;
     border: unset;
@@ -1703,6 +1711,7 @@ input.dataHolder {
     padding: 1em 0;
     font-size: 1.5em;
     width: 100%;
+    color: var(--text-100);
     background-color: var(--bg-100);
 }
 
