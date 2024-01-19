@@ -28,20 +28,6 @@ function hideStage(...contents) {
   });
 }
 
-// function areFieldsCompleted(stageContent) {
-//   let inputs = stageContent.querySelectorAll("input");
-//   for (let input of inputs) {
-//     if (
-//       input.type !== "submit" &&
-//       input.type !== "button" &&
-//       input.value.trim() === ""
-//     ) {
-//       return false; // Found an empty field, return false.
-//     }
-//   }
-//   return true; // All fields are filled.
-// }
-
 function areFieldsCompleted(stageContent) {
   let inputs = stageContent.querySelectorAll("input, select");
   for (let input of inputs) {
