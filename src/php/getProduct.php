@@ -60,7 +60,7 @@ if ($connectionOk) {
 
         $disponibilita = "<dt class=\"disponibilita\" id=\"dispon\"> " . ($listaPC[6] > 0 ? "Disponibilità: "  .  $listaPC[6] : "Non disponibile") . "</dt>";
 
-        $quantita = $listaPC[6] > 0 ? "<dd>Quantità</dd><div class=\"qty-container\"><div class=\"qty-input\">
+        $quantita = $listaPC[6] > 0 ? "<dt>Quantità</dt><div class=\"qty-container\"><div class=\"qty-input\">
             <input id=\"minus\" type=\"button\" value=\"-\" class=\"qty-count qty-count--minus \">
             <input id=\"qty\" type=\"number\" max=\"" . $listaPC[6] . "\" value=\"" . ($listaPC[6] > 0 ? 1 : 0) . "\" inputmode=\"numeric\" class=\"product-quantity quantity\" disabled >
 

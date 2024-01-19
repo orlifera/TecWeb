@@ -53,9 +53,9 @@ class DBAccess
         }
         mysqli_stmt_bind_param($stmt, "ssss", $fname, $lname, $phone, $email);
         if (mysqli_stmt_execute($stmt)) {
-            echo "Aggiornamento avvenuto";
+            echo "Aggiornamento info avvenuto";
         } else {
-            echo "Aggiornamento non avvenuto: " . mysqli_error($this->connection);
+            echo "Aggiornamento info non avvenuto: " . mysqli_error($this->connection);
         }
         mysqli_stmt_close($stmt);
     }
@@ -68,9 +68,9 @@ class DBAccess
         }
         mysqli_stmt_bind_param($stmt, "ss", $psw, $email);
         if (mysqli_stmt_execute($stmt)) {
-            echo "Aggiornamento avvenuto";
+            echo "Aggiornamento psw avvenuto";
         } else {
-            echo "Aggiornamento non avvenuto: " . mysqli_error($this->connection);
+            echo "Aggiornamento psw non avvenuto: " . mysqli_error($this->connection);
         }
         mysqli_stmt_close($stmt);
     }
@@ -83,9 +83,9 @@ class DBAccess
         }
         mysqli_stmt_bind_param($stmt, "ssis", $city, $address, $cap, $email);
         if (mysqli_stmt_execute($stmt)) {
-            echo "Aggiornamento avvenuto";
+            echo "Aggiornamento address avvenuto";
         } else {
-            echo "Aggiornamento non avvenuto: " . mysqli_error($this->connection);
+            echo "Aggiornamento address non avvenuto: " . mysqli_error($this->connection);
         }
         mysqli_stmt_close($stmt);
     }
