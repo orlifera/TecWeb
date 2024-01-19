@@ -314,6 +314,10 @@ nav svg:not(.signup, #sun, #moon) {
     margin-right: 8px;
 }
 
+.float {
+    padding-top: 6em;
+}
+
 /* #login,
 #settings {
     fill: var(--primaryText);
@@ -1436,23 +1440,68 @@ input#qty:focus {
 }
 
 .capsule {
+    margin: 2em 0;
     width: 50%;
-    padding: 1em;
+    padding: 1em 0 1em 2em;
+    border-left: 1px solid var(--background-link);
+}
+
+.capsule dt, .capsule label {
+    font-weight: bold;
+    margin: .5em;
+}
+
+.capsule label {
+    margin-right: .5em;
+}
+
+#product .container {
+    flex-direction: column;
+    height: unset;
+}
+
+#product-buttons {
+    margin-top: 2em;
+}
+
+#accessories {
+    margin-right: 1em;
+}
+
+#accessories, #addToCart {
+    color: var(--text-login);
+    background-color: var(--bg-200);
+    font-size: 1em;
+    padding: 0.5em;
+    text-align: center;
+    border: 2px solid var(--text-login);
+    border-radius: 5px;
+}
+
+#accessories:hover, #addToCart:hover {
+    background-color: var(--bg-100);
+    
 }
 
 .product-image {
     width: 20%;
     object-fit: cover;
+    height: 300px;
 }
 
 .product-name {
     font-size: 2em;
     font-weight: 900;
     text-align: center;
+    margin-bottom: 1em;
+}
+
+.product-info .dd-description {
+    margin: 0 1em;
 }
 
 .product-info dt:not(.product-description),
-.product-info dd:not(.product-description) {
+.product-info dd:not(.dd-description) {
     display: inline-block;
     margin-right: .5em;
 }

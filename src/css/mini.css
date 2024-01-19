@@ -155,6 +155,15 @@
     #product-list .product-card img {
         height: 200px;
     }
+
+    input#accessories, input#addToCart {
+        font-size: 0.8em;
+        padding: 0.3em;
+    }
+
+    #product .container {
+        width: 98%;
+    }
 }
 
 @media (max-width: 300px) {
@@ -423,7 +432,7 @@ main#login-main {
     height: unset;
 }
 
-.container {
+#login-main .container {
     width: 90%;
     height: unset;
     flex-direction: column-reverse;
@@ -439,6 +448,7 @@ main#login-main {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     box-shadow: 0 1em 2em -0.9em rgba(0, 0, 0, 0.7);
+    margin-bottom: 1em;
 }
 
 .button-container {
@@ -480,4 +490,42 @@ main#login-main {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.progress-bar {
+    margin: unset;
+}
+
+.product-display {
+    flex-direction: column;
+}
+
+.product-image {
+    height: unset;
+    width: 40%;
+}
+
+.capsule {
+    border: none;
+    padding: unset;
+    width: 80%;
+    margin-bottom: 0;
+}
+
+.capsule dt, .capsule label {
+    font-size: 1.2em;
+}
+
+#accessories, #addToCart {
+    font-size: 1em;
+    padding: 0.3em;
+}
+
+.capsule #product-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+#product .container {
+    margin-bottom: 5em;
 }

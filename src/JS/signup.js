@@ -29,6 +29,18 @@ function hideStage(...contents) {
   });
 }
 
+function hideNumber(...n1) {
+  n1.forEach(n1 => {
+    n1.parentElement.classList.add("hidden");
+  });
+}
+
+function showNumber(...n1) {
+  n1.forEach(n1 => {
+    n1.parentElement.classList.remove("hidden");
+  });
+}
+
 // function areFieldsCompleted(stageContent) {
 //   let inputs = stageContent.querySelectorAll("input");
 //   for (let input of inputs) {
@@ -83,8 +95,8 @@ document.addEventListener('DOMContentLoaded', function () {
   hideStage(signupContent2, signupContent3);
   stageno1.classList.add("completed");
   if (window.innerWidth <= 600) {
-    stageno2.parentElement.classList.add("hidden");
-    stageno3.parentElement.classList.add("hidden");
+    hideNumber(stageno2);
+    hideNumber(stageno3);
   }
 
 
@@ -93,11 +105,10 @@ document.addEventListener('DOMContentLoaded', function () {
       stageno1.classList.remove("stageno");
       stageno2.classList.add("completed");
       loginLink.classList.add("hidden");
-      if(window.innerWidth <= 600) {
-        stageno1.parentElement.classList.add("hidden");
-        stageno2.parentElement.classList.remove("hidden");
+      if (window.innerWidth <= 600) {
+        hideNumber(stageno1);
+        showNumber(stageno2);
       }
-
     }
   });
 
@@ -106,9 +117,9 @@ document.addEventListener('DOMContentLoaded', function () {
       stageno2.classList.remove("completed");
       stageno1.classList.add("stageno");
       loginLink.classList.remove("hidden");
-      if(window.innerWidth <= 600) {
-        stageno2.parentElement.classList.add("hidden");
-        stageno1.parentElement.classList.remove("hidden");
+      if (window.innerWidth <= 600) {
+        hideNumber(stageno2);
+        showNumber(stageno1);
       }
     }
   });
@@ -117,9 +128,9 @@ document.addEventListener('DOMContentLoaded', function () {
     if (switchStage(signupContent2, signupContent3, true)) {
       stageno2.classList.remove("stageno");
       stageno3.classList.add("completed");
-      if(window.innerWidth <= 600) {
-        stageno2.parentElement.classList.add("hidden");
-        stageno3.parentElement.classList.remove("hidden");
+      if (window.innerWidth <= 600) {
+        hideNumber(stageno2);
+        showNumber(stageno3);
       }
     }
   });
@@ -128,9 +139,9 @@ document.addEventListener('DOMContentLoaded', function () {
     if (switchStage(signupContent3, signupContent2, false)) {
       stageno3.classList.remove("completed");
       stageno2.classList.add("stageno");
-      if(window.innerWidth <= 600) {
-        stageno3.parentElement.classList.add("hidden");
-        stageno2.parentElement.classList.remove("hidden");
+      if (window.innerWidth <= 600) {
+        hideNumber(stageno3);
+        showNumber(stageno2);
       }
     }
   });
