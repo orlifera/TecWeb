@@ -67,7 +67,7 @@
             <div id="right">
                 <ul>
                     <li>
-                        <a href="src/php/cart.php">
+                        <a href="src/php/cart.php" aria-label="il tuo carrello">
                             <svg class="icon" id="cart" xmlns="http://www.w3.org/2000/svg" version="1.0" width="30"
                                 height="30" viewBox="0 0 5000 5000" preserveAspectRatio="xMidYMid meet" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -95,7 +95,7 @@
                         <ul id="profile-drop" class="dropdown-list hidden">
                             <li>
                                 <!-- <a href="src/pages/login.html"> -->
-                                <a href="src/php/sendToLogin.php">
+                                <a href="src/php/sendToLogin.php" aria-label="Accesso">
                                     <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                                     <svg id="login" width="30px" height="30px" viewBox="0 0 24 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -108,7 +108,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="src/pages/signup.html">
+                                <a href="src/pages/signup.html" aria-label="registrazione">
                                     <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                                     <svg id="signup" width="30px" height="30px" viewBox="0 0 24 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -125,7 +125,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="src/php/sendToLogin.php">
+                                <a href="src/php/sendToLogin.php" aria-label="impostazioni">
                                     <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                                     <svg id="settings" width="30px" height="30px" viewBox="0 0 24 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -287,10 +287,54 @@
                 <h2 class="title">ML Tech</h2>
                 <p class="subtitle">Tiozzo fai qualcosa plis (scherxo)</p>
             </div>
-            <!-- Seconda sezione: da informazioni sul servizio offerto dal sito -->
+
+            <!-- Seconda sezione: mostra alcuni prodotti in evidenza -->
+            <div id="examples">
+                <h2 class="title">I Nostri Prodotti</h2>
+                <form action="src/php/getCatalog.php" method="post">
+                    <dl id="product-list-pc" class="scroller__inner">
+                        {prodotto}
+                    </dl>
+                </form>
+                <p>Vai al catalogo: <a href="src/php/getCatalog.php?categoria=pc&riferimento=" lang="en"
+                        abbr="Personal Computer">PC</a>
+                    <a href="src/php/getCatalog.php?categoria=kbd&riferimento=">Tastiere</a>
+                </p>
+            </div>
+
+            <!-- Terza sezione: mostra alcune informazioni riguardanti l'azienda -->
+            <div id="about">
+                <h2 class="title">L'Azienda</h2>
+                <p>ML Tech nasce dalla mia passione per il mondo del <span lang="en">gaming</span> e per quello dei
+                    <span lang="en">computer</span>. Ho pensato che
+                    non ci
+                    fosse modo migliore di trasmettere queste mie passioni ad altre persone se non unendole. Il mio
+                    obiettivo principale è di fare la differenza dalle grandi aziende, offrendoti una qualità maggiore
+                    dei
+                    servizi e un rapporto amichevole, Non resterai un semplice numero o un anonimo cliente, ma entrerai
+                    a
+                    fare parte di una <span lang="en">comunity</span> di appasionati ed esperti. Vorrei insomma che ti
+                    sentissi tra amici, in
+                    un
+                    posto dove giocare con gli altri e poter chiedere consigli su qualsiasi argomento dedicato.
+                    Il catalogo offre prodotti per tutte le fasce di prezzo, in modo che ognuno possa trovare quello che
+                    cerca.
+                    ML Tech nasce anche per essere una <span lang="en">comunity</span> per tutti coloro che condividono
+                    queste mie passioni, o
+                    per
+                    chi ci si vuole avvicinare per la prima volta, perciò ti invito ad entrare nel nostro server <span
+                        lang="en">discord</span>>
+                    dove potrai interagire con gli altri, rimanere aggiornato sulle novità del mondo <span
+                        lang="en">tech</span> e
+                    sugli sconti
+                    del
+                    sito.
+                </p>
+            </div>
+
+            <!-- Quarta sezione: mostra alcune informazioni riguardanti il servizio -->
             <div id="info">
                 <p class="info-p">Per noi è fondamentale offrire un servizio di qualità</p>
-                <!-- Icone inserite come parte integrante del codice HTML poiché offrono informazioni riguardanti il contenuto -->
                 <dl>
                     <div class="info-col">
                         <?xml version="1.0" encoding="iso-8859-1"?>
@@ -419,48 +463,8 @@
                 <p class="info-p">Non ci credi? <a id="ref-rew" href="src/pages/reviews.html">Guarda cosa dicono i
                         clienti di noi</a></p>
             </div>
-            <!-- Terza sezione: esempi di prodotti venduti nel sito in base alle tendenze -->
-            <div id="examples">
-                <h2 class="title">I Nostri Prodotti</h2>
-                <form action="src/php/getCatalog.php" method="post">
-                    <dl id="product-list">
-                        {prodotto}
-                    </dl>
-                </form>
-                <p>Vai al catalogo: <a href="src/php/getCatalog.php?categoria=pc&riferimento=" lang="en"
-                        abbr="Personal Computer">PC</a>
-                    <a href="src/php/getCatalog.php?categoria=kbd&riferimento=">Tastiere</a>
-                </p>
-            </div>
-            <!-- Quarta sezione: informazioni sull'azienda -->
-            <div id="about">
-                <h2 class="title">L'Azienda</h2>
-                <p>ML Tech nasce dalla mia passione per il mondo del <span lang="en">gaming</span> e per quello dei
-                    <span lang="en">computer</span>. Ho pensato che
-                    non ci
-                    fosse modo migliore di trasmettere queste mie passioni ad altre persone se non unendole. Il mio
-                    obiettivo principale è di fare la differenza dalle grandi aziende, offrendoti una qualità maggiore
-                    dei
-                    servizi e un rapporto amichevole, Non resterai un semplice numero o un anonimo cliente, ma entrerai
-                    a
-                    fare parte di una <span lang="en">comunity</span> di appasionati ed esperti. Vorrei insomma che ti
-                    sentissi tra amici, in
-                    un
-                    posto dove giocare con gli altri e poter chiedere consigli su qualsiasi argomento dedicato.
-                    Il catalogo offre prodotti per tutte le fasce di prezzo, in modo che ognuno possa trovare quello che
-                    cerca.
-                    ML Tech nasce anche per essere una <span lang="en">comunity</span> per tutti coloro che condividono
-                    queste mie passioni, o
-                    per
-                    chi ci si vuole avvicinare per la prima volta, perciò ti invito ad entrare nel nostro server <span
-                        lang="en">discord</span>>
-                    dove potrai interagire con gli altri, rimanere aggiornato sulle novità del mondo <span
-                        lang="en">tech</span> e sugli sconti
-                    del
-                    sito.
-                </p>
-            </div>
-            <!-- Sesta sezione: form per contattare l'azienda -->
+
+            <!-- Quinta sezione: form per contattare l'azienda -->
             <div id="last">
                 <div>
                     <h2 class="title">Rimani in contatto con noi</h2>
@@ -535,7 +539,7 @@
             <div id="icons">
                 <ul>
                     <li>
-                        <a href="" target="_blank">
+                        <a href="" target="_blank" aria-label="Facebook">
                             <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                             <svg class="icon" width="30" height="30" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -545,7 +549,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="instagram.com/ml__tech" target="_blank">
+                        <a href="instagram.com/ml__tech" target="_blank" aria-label="Instagram">
                             <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                             <svg class="icon" width="30" height="30" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -559,7 +563,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="" target="_blank">
+                        <a href="" target="_blank" aria-label="TikTok">
                             <?xml version="1.0" encoding="utf-8"?>
                             <svg class="icon" width="30" height="30" viewBox="0 0 32 32" version="1.1"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -570,7 +574,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://discord.gg/2w7mYbJmy2" target="_blank">
+                        <a href="https://discord.gg/2w7mYbJmy2" target="_blank" aria-label="Discord">
                             <?xml version="1.0" encoding="utf-8"?>
                             <svg class="icon" width="30" height="30" viewBox="0 0 32 32" version="1.1"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -625,6 +629,7 @@
         <script src="src/JS/cookie-handler.js"></script>
         <script src="src/JS/dropdown.js"></script>
         <script src="src/JS/dropup.js"></script>
+        <script src="src/JS/scroll.js"></script>
     </body>
 
 </html>
