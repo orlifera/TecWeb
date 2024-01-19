@@ -274,33 +274,27 @@
             <p>Ti trovi in: <span lang="en"><a href="../../index.html">Home</a> &gt; &gt; Product</span></p>
         </nav>
 
-        <main>
-            <!-- <div class="spacer"></div> -->
-            <form action="../php/getProduct.php" method="post">
-                <dl class="product-display">
-                    <img class="product-image" src="download1.jpg">
-                    <div class="capsule">
-                        {nomePC}
-                        {tipo}
-                        {prezzo}
-                        {colore}
-                        {Disponibilità}
-                        {quantita}
-
-                        <dt>Descrizione:</dt>
-                        {descrizione}
-                    </div>
-
-                </dl>
-                <input type="button" name="accessories" id="accessories" value="Accessori">
-            </form>
-
-            <input type="button" name="addToCart" id="addToCart" value="Aggiungi al carrello"
-                data-path="../../assets/images/pc/P1.jpg">
-
-            <input type="button" name="showCart" id="showCart" value="Mostra il carrello">
-
-
+        <main id="product">
+            <div class="container">
+                <form action="../php/getProduct.php" method="post">
+                    <dl class="product-display">
+                        <img class="product-image" src="download1.jpg">
+                        <div class="capsule">
+                            {nomePC}
+                            {tipo}
+                            {prezzo}
+                            {colore}
+                            {Disponibilità}
+                            {quantita}
+                            {descrizione}
+                            <div id="product-buttons">
+                                <input type="button" name="accessories" id="accessories" value="Accessori">
+                                <input type="button" name="addToCart" id="addToCart" value="Aggiungi al carrello" data-path="../../assets/images/pc/P1.jpg">
+                            </div>
+                        </div>
+                    </dl>
+                </form>
+            </div>           
         </main>
         <footer>
             <!-- Icone per account social dell'azienda -->
@@ -396,6 +390,7 @@
         <script src="../js/productHandler.js"></script>
         <script src="../JS/dropup.js"></script>
         <script src="../JS/dropdown.js"></script>
+        <script src="../JS/nav-fixed.js"></script>
 
     </body>
 
