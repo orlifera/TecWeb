@@ -111,6 +111,10 @@
         font-size: 0.8em;
         width: 30%;
     }
+
+    h2#detail {
+        font-size: 1.2em;
+    }
 }
 
 @media (max-width: 375px) {
@@ -528,4 +532,119 @@ main#login-main {
 
 #product .container {
     margin-bottom: 5em;
+}
+
+.sidenav {
+    display: none;
+}
+
+.info-container {
+    flex-direction: column;
+}
+
+.info-container .text-fields {
+    width: 100%;
+}
+
+.info-container .text-fields.email {
+    width: 100%;
+}
+
+#profilePage .fieldProfile legend {
+    margin: auto;
+    font-size: 1.3em;
+    padding-top: 2em;
+    padding-bottom: 0;
+}
+
+#profilePage fieldset.fieldProfile .page-btns {
+    margin-bottom: 5em;
+}
+
+#profileDiv {
+    height: unset;
+}
+
+#profileDiv #profilePage .text-fields label {
+    width: 10em;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    height: unset;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: var(--bg-100);
+    border-width: 1px;
+    box-shadow: 0 1em 2em -0.9em rgba(0, 0, 0, 0.7);
+    padding: 1em 0;
+}
+
+#paymentMethod .card-number {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    margin-top: 0.3em;
+    width: 100%;
+    text-align: center;
+    padding-bottom: .2em;
+}
+
+#paymentMethod .container2 div {
+    display: block;
+    width: 100%;
+}
+
+.name {
+    padding: 0;
+    margin: 0;
+    position: unset;
+    display: block;
+}
+
+.expiration-date {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    display: block;
+}
+
+.ccv {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.card input {
+    width: 100%;
+    margin: auto;
+    border-bottom: 1px solid var(--text1-login);
+}
+
+#paymentMethod .card label {
+    color: var(--text1-login);
+    width: 100%;
+    padding: .5em 0;
+    text-align: center;
+}
+
+input.card-name {
+    color: var(--background-link);
+    width: 100%;
+    border-bottom: 1px solid var(--cardPlaceholder);
+    color: var(--cardLabel);
+}
+
+#paymentMethod .card-container {
+    width: 100%;
+    height: unset;
+}
+
+#detail {
+    color: var(--primary-200);
+    width: 100%;
+    font-size: 1.3em;
+    padding: 0.8em;
 }

@@ -305,10 +305,13 @@ nav svg:not(.signup, #sun, #moon) {
 #breadcrumb {
     display: block;
     padding: 1em;
+    color: var(--text-login);
 }
 
 #breadcrumb a {
-    color: var(--text-100);
+    color: var(--active-link);
+    font-weight: 900;
+    text-decoration: underline;
 }
 
 #profile-drop a svg {
@@ -969,15 +972,18 @@ fieldset#termini {
 #contact-form input[type="submit"] {
     width: 10em;
     height: 3em;
-    border-radius: 2px;
+    border-radius: 5px;
     border: none;
-    background-color: var(--accent-100);
+    background-color: var(--primary-300);
     color: var(--text-100);
     font-size: 1em;
     cursor: pointer;
     margin: auto;
 }
 
+#contact-form input[type="submit"]:hover {
+    background-color: var(--accent-100);
+}
 
 /*Theme Switcher*/
 #theme-switcher {
@@ -1527,6 +1533,11 @@ input#qty:focus {
     width: auto;
     background-color: var(--bgProduct);
     box-shadow: 0 1em 2em -0.9em rgba(0, 0, 0, 0.7);
+    transition: transform 0.3 ease-in-out;
+}
+
+#product-list .product-card:hover {
+    transform: scale(1.1);
 }
 
 .product-card img {
@@ -1546,12 +1557,13 @@ PROFILE
 
 #profileDiv {
     height: calc(100dvh - 15em);
-    display: grid;
-    grid-template-columns: 20em 1fr;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 nav.sidenav {
-    width: 100%;
+    width: 30%;
     background-color: var(--primary-100);
     position: sticky;
     /* max-height: 100svh; */
@@ -1619,7 +1631,6 @@ nav.sidenav {
 
 #profilePage {
     width: 100%;
-    height: 100%;
     background-color: var(--white);
     text-align: center;
 }
@@ -1707,7 +1718,7 @@ input.dataHolder {
 }
 
 #profilePage label:not(#emailProfile) {
-    width: 30%;
+    width: 10em;
 }
 
 .pwd-container {
