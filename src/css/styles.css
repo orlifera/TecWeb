@@ -285,7 +285,7 @@ ul li:hover ul.dropdown-list {
     /*DA RIVEDERE*/
 }
 
-nav svg:not(#signup, #sun, #moon) {
+nav svg:not(.signup, #sun, #moon) {
     fill: var(--text-300);
 }
 
@@ -322,7 +322,7 @@ nav svg:not(#signup, #sun, #moon) {
     fill: var(--primaryText);
 } */
 
-#signup path {
+.signup path {
     stroke: var(--text-300);
     stroke-width: 1.5;
     stroke-linecap: round;
@@ -331,7 +331,7 @@ nav svg:not(#signup, #sun, #moon) {
 
 
 /* Selettore per screen-reader-only. Classe data al breadcrumb, in modo che sia facile per le persone con cecità orientarsi sul sito. Per persone con vista normale, è stata implementata una classe active per capire in che pagina si trova */
-.sr-only {
+/* .sr-only {
     border: 0 !important;
     clip: rect(1px, 1px, 1px, 1px) !important;
     clip-path: inset(50%) !important;
@@ -342,7 +342,7 @@ nav svg:not(#signup, #sun, #moon) {
     white-space: nowrap !important;
     padding: 0 !important;
     margin: -1px !important;
-}
+} */
 
 /* index */
 
@@ -1294,6 +1294,7 @@ a.login-btn:hover {
 
 #gender:focus {
     border: 1px solid var(--background-link);
+    width: 100%;
 }
 
 
@@ -1768,10 +1769,6 @@ input.card-name {
     width: 20em;
     border-bottom: 1px solid var(--cardPlaceholder);
     color: var(--cardLabel);
-}
-
-.container2 {
-    display: flex;
 }
 
 .card-container {

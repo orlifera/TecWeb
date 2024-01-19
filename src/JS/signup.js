@@ -82,6 +82,10 @@ document.addEventListener('DOMContentLoaded', function () {
   showStage(signupContent1);
   hideStage(signupContent2, signupContent3);
   stageno1.classList.add("completed");
+  if (window.innerWidth <= 600) {
+    stageno2.parentElement.classList.add("hidden");
+    stageno3.parentElement.classList.add("hidden");
+  }
 
 
   stagebtn1b.addEventListener('click', function () {
@@ -89,6 +93,11 @@ document.addEventListener('DOMContentLoaded', function () {
       stageno1.classList.remove("stageno");
       stageno2.classList.add("completed");
       loginLink.classList.add("hidden");
+      if(window.innerWidth <= 600) {
+        stageno1.parentElement.classList.add("hidden");
+        stageno2.parentElement.classList.remove("hidden");
+      }
+
     }
   });
 
@@ -97,6 +106,10 @@ document.addEventListener('DOMContentLoaded', function () {
       stageno2.classList.remove("completed");
       stageno1.classList.add("stageno");
       loginLink.classList.remove("hidden");
+      if(window.innerWidth <= 600) {
+        stageno2.parentElement.classList.add("hidden");
+        stageno1.parentElement.classList.remove("hidden");
+      }
     }
   });
 
@@ -104,6 +117,10 @@ document.addEventListener('DOMContentLoaded', function () {
     if (switchStage(signupContent2, signupContent3, true)) {
       stageno2.classList.remove("stageno");
       stageno3.classList.add("completed");
+      if(window.innerWidth <= 600) {
+        stageno2.parentElement.classList.add("hidden");
+        stageno3.parentElement.classList.remove("hidden");
+      }
     }
   });
 
@@ -111,6 +128,10 @@ document.addEventListener('DOMContentLoaded', function () {
     if (switchStage(signupContent3, signupContent2, false)) {
       stageno3.classList.remove("completed");
       stageno2.classList.add("stageno");
+      if(window.innerWidth <= 600) {
+        stageno3.parentElement.classList.add("hidden");
+        stageno2.parentElement.classList.remove("hidden");
+      }
     }
   });
 });
