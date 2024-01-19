@@ -6,6 +6,111 @@
     #mobile ul li {
         padding: 0 1em;
     }
+
+    #info h2.info-title {
+        font-size: 1.3em;
+    }
+    
+    #contact-info {
+        padding: unset;
+    }
+
+    .info-col #hours {
+        font-size: 1em;
+    }
+
+    #contact-info .info-col h2 {
+        font-size: 1.5em;
+    }
+
+    #contact-info .info-col h4 {
+        font-size: 1em;
+    }
+
+    #form-container fieldset {
+        padding: 1em 0;
+    }
+
+    div#form-container p {
+        padding: unset;
+        font-size: 1em;
+    }
+
+    #form-container h2 {
+        font-size: 1.5em;
+    }
+
+    #form-container form#contact-form {
+        padding: 0.5em;
+    }
+
+    #contact-form label {
+        width: 90%;
+        padding-top: unset;
+        width: unset;
+    }
+
+    #form-container #contact-form input {
+        margin: 0.5em 0;
+    }
+
+    #additional {
+        margin-bottom: 1em;
+    }
+
+    form#contact-form textarea::placeholder {
+        font-size: 0.8em;
+    }
+
+    #contact-form #termini {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #contact-form #tos a, #contact-form #tos {
+        font-size: 0.8em;
+    }
+
+    #contact-form #tos a{
+        margin-left: 0.3em;
+    }
+
+    #contact-form input#terms{
+        margin-right: 0.3em;
+    }
+
+    #contact-form input[type="submit"] {
+        margin: unset;
+    }
+
+    div#last {
+        padding-top: 4em;
+        gap: 2em;
+    }
+
+    #last div {
+        width: 80%;
+    }
+
+    #newsletter label {
+        width: 80%;
+        display: block;
+        margin: auto;
+    }
+
+    #newsletter #label-form-terms {
+        font-size: 0.1em;
+    }
+
+    #newsletter #form-email {
+        text-align: center;
+    }
+
+    #newsletter #button {
+        font-size: 0.8em;
+        width: 30%;
+    }
 }
 
 @media (max-width: 375px) {
@@ -38,14 +143,40 @@
     #mobile div#drop-catalogo ul {
         padding: 0.5em 0;
     }
+
+    #product-list {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    #product-list .product-card {
+        margin: 1em 0;
+    }
+
+    #product-list .product-card img {
+        height: 200px;
+    }
 }
 
 @media (max-width: 300px) {
     #mobile ul li {
         padding: 0 0.5em;
     }
+
     #mob-theme-switcher {
         font-size: 0.5em;
+    }
+
+    #mobile div#drop-catalogo, #mobile div#profile-dropup {
+        width: 15em;
+        right: calc((100dvw - 15em)/2);
+    }
+
+    #mobile div#profile-dropup {
+        padding: unset;
+    }
+
+    #mobile div#profile-dropup li {
+        font-size: .5em;
     }
 }
 
@@ -67,20 +198,22 @@ footer {
     display: none;
 }
 
-header {
+#main-header {
+    background: linear-gradient(to top right, var(--primary-100), var(--primary-200));
     padding: unset;
 }
 
-#logo {
-    font-size: 4em;
+#main-header h1#logo {
+    font-size: 4.5em;
+    filter: invert(1);
+}
+
+#breadcrumb {
+    display: none;
 }
 
 nav#menu {
     display: none;
-}
-
-#drop-p {
-    padding: 0.5em;
 }
 
 #mobile {
@@ -89,8 +222,7 @@ nav#menu {
     bottom: -1px;
     margin: auto;
     position: fixed;
-    background: linear-gradient(to top right, var(--primaryGradient), var(--secondaryGradient));;
-}
+    background: linear-gradient(to top right, var(--primary-100), var(--primary-200));}
 
 #mobile ul {
     padding: 0.8em 0;
@@ -102,10 +234,6 @@ nav#menu {
 #mobile li {
     display: inline-block;
     padding: 0 1.5em;
-}
-
-#mobile #home {
-    fill: var(--primaryText);
 }
 
 div#presentation {
@@ -165,7 +293,7 @@ div#presentation {
 
 #form-container {
     width: unset;
-    margin: 5em 2em;
+    margin: 5em 1em;
     padding: 1em;
 }
 
@@ -173,16 +301,12 @@ div#presentation {
     padding: 0 1em;
 }
 
-#form-container h2, #info .header {
+#form-container h2 {
     font-size: 1.5em;
 }
 
 #info .info-title {
     font-size: 1.8em;
-}
-
-main#login-main {
-    display: none;
 }
 
 #mobile {
@@ -192,9 +316,10 @@ main#login-main {
 #mobile .dropup-list {
     position: fixed;
     z-index: 999;
-    background-color: var(--bgDiv);
+    background-color: var(--bg-100);
     border-radius: 2px;
     box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15), inset -1px -1px 2px rgba(0, 0, 0, 0.15);
+    padding: 1em;
 }
 
 #mobile #drop-catalogo, #mobile #profile-dropup {
@@ -207,7 +332,7 @@ main#login-main {
 #mobile #drop-catalogo li {
     width: 40%;
     padding: 0.5em;
-    background-color: var(--secondaryGradient);
+    background-color: var(--primary-200);
     display: inline-block;
     text-align: center;
 }
@@ -216,7 +341,7 @@ main#login-main {
     width: 100%;
     padding: 1em;
     margin: 0.5em auto;
-    background-color: var(--secondaryGradient);
+    background-color: var(--primary-200);
     align-items: center;
 }
 
@@ -258,7 +383,7 @@ main#login-main {
 }
 
 #mob-theme-switcher {
-    background-color: var(--bgDiv);
+    background-color: var(--bg-100);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -292,4 +417,67 @@ main#login-main {
 #mob-theme-switcher #mobmoon {
     fill: var(--icon-moon);
     display: var(--moon-display);
+}
+
+main#login-main {
+    height: unset;
+}
+
+.container {
+    width: 90%;
+    height: unset;
+    flex-direction: column-reverse;
+    background-color: var(--bg-100);
+}
+
+.login-logo {
+    display: none;
+}
+
+.login-link {
+    width: 100%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    box-shadow: 0 1em 2em -0.9em rgba(0, 0, 0, 0.7);
+}
+
+.button-container {
+    flex-wrap: wrap;
+}
+
+.side-heading {
+    padding-top: 1em;
+}
+
+.big-h {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.text-fields {
+    width: 100%;
+    margin: 0.5em auto;
+}
+
+.text-fields label {
+    margin: auto;
+    width: 50%;
+    background-color: var(--bg-100);
+}
+
+.text-fields input {
+    font-size: 1em;
+    padding: .5em;
+    color: var(--text1-login);
+}
+
+.gender #gender {
+    background-color: var(--bg-100);
+    padding: .5em;
+}
+
+.signup-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
