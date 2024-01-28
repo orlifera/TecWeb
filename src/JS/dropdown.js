@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const menu = document.getElementById('menu');
 
     // Function to open or close a specific dropdown
     function toggleDropdown(dropdownList) {
@@ -17,14 +18,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Close all dropdowns
     function closeAllDropdowns() {
-        document.querySelectorAll('.show').forEach(dropdown => {
+        menu.querySelectorAll('.show').forEach(dropdown => {
             dropdown.classList.remove('show');
             dropdown.classList.add('hidden');
         });
     }
 
     // Handle keydown events for dropdown triggers
-    const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
+    const dropdownTriggers = menu.querySelectorAll('.dropdown-trigger');
     dropdownTriggers.forEach(trigger => {
         console.log("primo trigger");
         trigger.addEventListener('keydown', function (event) {
@@ -52,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Close dropdowns when clicking outside
     document.addEventListener('click', function (event) {
-        if (!event.target.matches('.dropdown-trigger, .dropdown-list, .dropdown-list *')) {
+        if (!event.target.matches('#menu .dropdown-trigger, .dropdown-list, .dropdown-list *')) {
             closeAllDropdowns();
         }
     });

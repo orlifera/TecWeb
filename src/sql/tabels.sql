@@ -1,27 +1,57 @@
 drop table if exists utente;
+
 create table utente (
   nome varchar(255) not null,
   cognome varchar(255) not null,
-  data_di_nascita DATE,
-  genere enum('Maschio', 'Femmina', 'Altro'),
+  dataNascita date not null,
+  genere varchar(255) not null,
   username varchar(255) not null UNIQUE,
   email varchar(255) not null UNIQUE,
   password varchar(255) not null,
   telefono varchar(16) not null,
-  citta varchar(255),
-  indirizzo varchar(255),
+  citta varchar(255) not null,
+  indirizzo varchar(255) not null,
   CAP int(5) not null,
   tipo enum('A', 'U') not null default 'U',
   primary key(email)
 ) ENGINE = InnoDB default CHARSET = utf8mb4;
 
-INSERT INTO utente VALUES 
-( "admin", "admin", "1111-11-11", "Maschio", "admin", "admin@admin.admin", "admin", "+39 1234567890", "Adminlandia", "Via Admin 1", "00000", "A"),
-( "user", "user", "1111-11-11", "Altro", "user", "user@user.user", "user", "+39 1234567890", "Userlandia", "Via Cicciogamer 9", "00000", "U");
+INSERT INTO
+  utente
+VALUES
+  (
+    "admin",
+    "admin",
+    "1111-11-11",
+    "Maschio",
+    "admin",
+    "admin@admin.admin",
+    "admin",
+    "+39 1234567890",
+    "Adminlandia",
+    "Via Admin 1",
+    "00000",
+    "A"
+  ),
+  (
+    "user",
+    "user",
+    "1111-11-11",
+    "Altro",
+    "user",
+    "user@user.user",
+    "user",
+    "+39 1234567890",
+    "Userlandia",
+    "Via Cicciogamer 9",
+    "00000",
+    "U"
+  );
 
 drop table if exists Prodotto;
+
 CREATE TABLE Prodotto (
-  sku varchar(6) not null ,
+  sku varchar(6) not null,
   nome varchar(256) not null,
   tipo varchar(256) not null,
   descrizione varchar(256) not null,
@@ -32,25 +62,42 @@ CREATE TABLE Prodotto (
   categoria varchar(6) not null,
   riferimento varchar(6) null,
   primary key(sku)
-) Engine = InnoDB default charset = utf8mb4; 
+) Engine = InnoDB default charset = utf8mb4;
 
 drop table if exists Sconto;
+
 CREATE TABLE Sconto (
-  codice varchar(256) primary key ,
+  codice varchar(256) primary key,
   data_emissione timestamp not null,
   data_scadenza timestamp not null,
   username varchar(255),
   isUsed boolean default false,
   valore double not null,
   foreign key (username) references utente(username)
-) Engine = InnoDB default charset = utf8mb4; 
+) Engine = InnoDB default charset = utf8mb4;
 
-INSERT INTO Sconto VALUES 
-("S1C1", "2021-12-01 00:00:00", "2021-12-31 00:00:00", "user", true, 100),
-("S2C2", "2021-12-01 00:00:00", "2021-12-31 00:00:00", "Matteo", false, 50);
-
+INSERT INTO
+  Sconto
+VALUES
+  (
+    "S1C1",
+    "2021-12-01 00:00:00",
+    "2021-12-31 00:00:00",
+    "user",
+    true,
+    100
+  ),
+  (
+    "S2C2",
+    "2021-12-01 00:00:00",
+    "2021-12-31 00:00:00",
+    "admin",
+    false,
+    50
+  );
 
 drop table if exists Carrello;
+
 CREATE TABLE Carrello (
   sku varchar(6) not null,
   nome varchar(256) not null,
@@ -66,8 +113,9 @@ CREATE TABLE Carrello (
 ) Engine = InnoDB default charset = utf8mb4;
 
 drop table if exists Ordine;
+
 CREATE TABLE Ordine (
-  id varchar(10) primary key ,
+  id varchar(10) primary key,
   utente varchar(256) not null,
   quantitaOrdinata double not null,
   indirizzo varchar(256) not null,
@@ -75,9 +123,17 @@ CREATE TABLE Ordine (
   foreign key (utente) references Utente(username)
 ) Engine = InnoDB default charset = utf8mb4;
 
-INSERT INTO Ordine VALUES
-("OR456D", "Matteo", 4, "Via Premaore Camponogara", 12),
-("OR423D", "user", 2, "Camponogara", 5);
+INSERT INTO
+  Ordine
+VALUES
+  (
+    "OR456D",
+    "admin",
+    4,
+    "Via Premaore Camponogara",
+    12
+  ),
+  ("OR423D", "user", 2, "Camponogara", 5);
 
 INSERT INTO Prodotto VALUES 
 ("P1", "Bull's Eye", "Gaming", "Il pc è composto da un Ryzen 5 5600,16GB di RAM a 3200Mhz e 1TB di SSD. Ha una RTX 3050 ed è alimentato da una PSU 650W. Il sistema raffreddato da un dissipatore a liquido Itek RGB a 240mm. Include il sistema operativo Windows 10 PRO.", 1320, "Nero, Bianco", 10, "../../assets/images/pc/P1.jpg", "pc", null),
@@ -110,28 +166,24 @@ INSERT INTO Prodotto VALUES
 
 ("T6", "Function MiniTKL (French ISO)", "Gaming", "Pensata per chi preferisce le tastiere full size ma non troppo ingombranti, la tastiera Function Full NZXT riunisce 104 tasti mantenendo le dimensioni più compatte possibili.", 139.00,"Nero, Bianco" , 10, "../../assets/images/kbd/T6.jpg", "kbd", null),
 
-("V1", "Artic E-sport Duo", "Ventola", "Ventola molto molto bella", 70.00,"Nero, Bianco" , 10, "../../assets/images/acc/V1.jpg", "acc", pc),
+("V1", "Artic E-sport Duo", "Ventola", "Ventola molto molto bella", 70.00,"Nero, Bianco" , 10, "../../assets/images/acc/V1.jpg", "acc", "pc"),
 
-("V2", "Asus ROG RYUO", "Ventola", "Ventola molto molto moooolto bella", 180.00,"Nero, Bianco" , 10, "../../assets/images/acc/V2.jpg", "acc", pc),
+("V2", "Asus ROG RYUO", "Ventola", "Ventola molto molto moooolto bella", 180.00,"Nero, Bianco" , 10, "../../assets/images/acc/V2.jpg", "acc", "pc"),
 
-("V3", "Be Quiet! BK022 Dark Rock Pro 4", "Ventola", "Ventola molto molto bella", 80.00,"Nero, Bianco" , 10, "../../assets/images/acc/V3.jpg", "acc", pc);
-
-
+("V3", "Be Quiet! BK022 Dark Rock Pro 4", "Ventola", "Ventola molto molto bella", 80.00,"Nero, Bianco" , 10, "../../assets/images/acc/V3.jpg", "acc", "pc");
 
 
 
-/*
-SELECT 
-    Carrello.sku AS carrello_sku,
-    Carrello.nome AS carrello_nome,
-    Carrello.tipo AS carrello_tipo,
-    Carrello.descrizione AS carrello_descrizione,
-    Carrello.prezzo AS carrello_prezzo,
-    Carrello.colore AS carrello_colore,
-    Carrello.quantitaScelta AS carrello_quantitaScelta,
-    Carrello.path_immagine AS carrello_path_immagine,
-    Carrello.categoria AS carrello_categoria,
-    Prodotto.disponibilita AS prodotto_disponibilita
-FROM Carrello
-JOIN Prodotto ON Carrello.sku = Prodotto.sku;
-*/
+INSERT INTO Ordine VALUES
+("OR456D", "admin", 4, "Via Premaore Camponogara", 12),
+("OR423D", "user", 2, "Camponogara", 5);
+
+
+INSERT INTO utente VALUES 
+( "admin", "admin", "1111-11-11", "Maschio", "admin", "admin@admin.admin", "admin", "+39 1234567890", "Adminlandia", "Via Admin 1", "00000", "A"),
+( "user", "user", "1111-11-11", "Altro", "user", "user@user.user", "user", "+39 1234567890", "Userlandia", "Via Cicciogamer 9", "00000", "U");
+
+
+INSERT INTO Sconto VALUES 
+("S1C1", "2021-12-01 00:00:00", "2021-12-31 00:00:00", "user", true, 100),
+("S2C2", "2021-12-01 00:00:00", "2021-12-31 00:00:00", "admin", false, 50);

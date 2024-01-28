@@ -1,11 +1,10 @@
 <?php
 require_once "DBAccess.php";
 
-
 use DB\DBAccess;
 
 session_start();
-$cartCounter = isset($_SESSION['cart_counter']) ? $_SESSION['cart_counter'] : 0;
+$cartCounter = empty($_SESSION['cart_counter']) ? 0 : $_SESSION['cart_counter'];
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -25,81 +24,71 @@ $sku = "";
 $htmlProdotti = "";
 
 $connection = new DBAccess();
+$connectionOk = "";
 $connectionOk = $connection->openDBConnection();
+
 if ($connectionOk) {
     if (!empty($riferimento)) {
         $listaPC = $connection->getNamePricePath1($categoria, $riferimento);
-        if ($listaPC != null) {
-            foreach ($listaPC as $pc) {
-                $stringaPC .= "<dt class=\"pName\">" . $pc['Nome'] . "</dt>,";
-                $prezzoPc .= "<dt class=\"pPrice\">&euro;" . $pc['Prezzo'] . "</dt>,";
-                $stringaPC .= "<dt class=\"pName\">" . $pc['Nome'] . "</dt>,";
-                $prezzoPc .= "<dt class=\"pPrice\">&euro;" . $pc['Prezzo'] . "</dt>,";
-                $path_image .= $pc['path_immagine'] . ",";
-                $sku .= $pc['SKU'] . ",";
-            }
-            $nomePc = explode(",", $stringaPC);
-            $prezzo = explode(",", $prezzoPc);
-            $path = explode(",", $path_image);
-            $sku1 = explode(",", $sku);
-        } else {
-            $stringaPC = "<p>Errore</p>";
-        }
     } else {
         $listaPC = $connection->getNamePricePath($categoria);
+    }
 
-        if ($listaPC != null) {
-            foreach ($listaPC as $pc) {
-                $stringaPC .= "<dt class=\"pName\">" . $pc['Nome'] . "</dt>,";
-                $prezzoPc .= "<dt class=\"pPrice\">&euro;" . $pc['Prezzo'] . "</dt>,";
-                $path_image .= $pc['path_immagine'] . ",";
-                $sku .= $pc['SKU'] . ",";
-            }
-            $nomePc = explode(",", $stringaPC);
-            $prezzo = explode(",", $prezzoPc);
-            $path = explode(",", $path_image);
-            $sku1 = explode(",", $sku);
-        } else {
-            $stringaPC = "<p>Errore</p>";
+    if ($listaPC != null) {
+        foreach ($listaPC as $pc) {
+            $stringaPC .= "<dt class=\"pName\">" . $pc['Nome'] . "</dt>,";
+            $prezzoPc .= "<dt class=\"pPrice\">&euro;" . $pc['Prezzo'] . "</dt>,";
+            $path_image .= $pc['path_immagine'] . ",";
+            $sku .= $pc['SKU'] . ",";
+        }
+
+        $nomePc = explode(",", $stringaPC);
+        $prezzo = explode(",", $prezzoPc);
+        $path = explode(",", $path_image);
+        $sku1 = explode(",", $sku);
+    } else {
+        $stringaPC = "<p>Errore</p>";
+    }
+} else {
+    header("HTTP/1.0 404 Not Found");
+    include("../pages/404.html");
+    exit;
+}
+
+$connection->closeDBConnection();
+
+if ($nomePc != null) {
+    foreach ($nomePc as $i => $nome) {
+        if ($nome != null) {
+            // $prova = "<li>\n" . ""
+            $prova = "<a class=\"product-card\" href=\"getProduct.php?categoria=" . $categoria . "&id=" . $sku1[$i] . "\">\n" . "<img src=\"" . $path[$i] . "\"" . "alt=\"image\">\n"  .  $nome .   $prezzo[$i]  . "</a>\n";
+            // $prova = "<div class=\"cell\">\n" . "<a class=\"\" href=\"getProduct.php?categoria=" . $categoria . "&id=" . $sku1[$i] . "\">\n" . "<img src=\"" . $path[$i] . "\"" . "alt=\"image\">\n" . "<dt>" .  $nome .  "</dt>" . "<dd>" . $prezzo[$i] . "</dd>\n" . "</a>\n" . "</div>\n";
+            //variabile in più per concatenare i vari prodotti
+            $htmlProdotti .= $prova;
         }
     }
 } else {
-
-    $stringaPC = "<p>I sistemi sono momentaneamente fuori servizio, ci scusiamo per il disagio</p>";
+    $htmlProdotti = "<p>Siamo spiacenti, i prodotti che cerca momentaneamente esauriti, ci scusiamo per il disagio</p>";
 }
-$connection->closeDBConnection();
 
-foreach ($nomePc as $i => $nome) {
-    if ($nome != null) {
-        // $prova = "<li>\n" . ""
-        $prova = "<li class=\"product-card\">" . "<a class=\"\" href=\"getProduct.php?categoria=" . $categoria . "&id=" . $sku1[$i] . "\">\n" . "<dl class=\"pList\">\n" . "<img class=\"pImage\" src=\"" . $path[$i] . "\"" . "alt=\"product image\">\n"  .  $nome .   $prezzo[$i]  . "</dl>\n" . "</a>\n" . "</li>\n";
-        // $prova = "<div class=\"cell\">\n" . "<a class=\"\" href=\"getProduct.php?categoria=" . $categoria . "&id=" . $sku1[$i] . "\">\n" . "<img src=\"" . $path[$i] . "\"" . "alt=\"image\">\n" . "<dt>" .  $nome .  "</dt>" . "<dd>" . $prezzo[$i] . "</dd>\n" . "</a>\n" . "</div>\n";
-        //variabile in più per concatenare i vari prodotti
-        $htmlProdotti .= $prova;
-    }
-}
+$ricerca = array('cart.html', 'src/php/getCatalog.php?categoria=kbd&riferimento=', 'src/php/getCatalog.php?categoria=pc&riferimento=');
+$sostituzione = array('cart.php', 'getCatalog.php?categoria=kbd&riferimento=', 'getCatalog.php?categoria=pc&riferimento=');
+$paginaHTML = str_replace($ricerca, $sostituzione, $paginaHTML);
+
+$percorsoSostituzione = array(
+    'src/pages/contacts.html', 'catalog.html', 'faq.html', 'news.html', 'profile.html',
+    'tos.html', 'privacy.html', 'cookies.html', 'login.html', 'signup.html'
+);
+
+$percorsoSostituzioneRelativo = array(
+    '../pages/contacts.html', '../pages/catalog.html', '../pages/faq.html', '../pages/news.html',
+    '../pages/profile.html', '../pages/tos.html', '../pages/privacy.html', '../pages/cookies.html',
+    '../pages/login.html', '../pages/signup.html'
+);
+
+$paginaHTML = str_replace($percorsoSostituzione, $percorsoSostituzioneRelativo, $paginaHTML);
 
 $paginaHTML = str_replace('{prodotto}', $htmlProdotti, $paginaHTML);
-$paginaHTML = str_replace('cart.html', 'cart.php', $paginaHTML);
-$paginaHTML = str_replace('src/php/getCatalog.php?categoria=kbd&riferimento=', 'getCatalog.php?categoria=kbd&riferimento=', $paginaHTML);
-$paginaHTML = str_replace('src/php/getCatalog.php?categoria=pc&riferimento=', 'getCatalog.php?categoria=pc&riferimento=', $paginaHTML);
-
-$paginaHTML = str_replace('catalog.html?categoria=kbd', 'getCatalog.php?categoria=kbd&riferimento=', $paginaHTML);
-$paginaHTML = str_replace('catalog.html?categoria=pc', 'getCatalog.php?categoria=pc&riferimento=', $paginaHTML);
 $paginaHTML = str_replace('{count_cart}', $cartCounter, $paginaHTML);
 
-
-$paginaHTML = str_replace('src/pages/contacts.html', '../pages/contacts.html', $paginaHTML);
-$paginaHTML = str_replace('catalog.html', '../pages/catalog.html', $paginaHTML);
-$paginaHTML = str_replace('faq.html', '../pages/faq.html', $paginaHTML);
-$paginaHTML = str_replace('news.html', '../pages/news.html', $paginaHTML);
-$paginaHTML = str_replace('profile.html', '../pages/profile.html', $paginaHTML);
-$paginaHTML = str_replace('tos.html', '../pages/tos.html', $paginaHTML);
-$paginaHTML = str_replace('privacy.html', '../pages/privacy.html', $paginaHTML);
-$paginaHTML = str_replace('cookies.html', '../pages/cookies.html', $paginaHTML);
-
-$paginaHTML = str_replace('login.html', '../pages/login.html', $paginaHTML);
-$paginaHTML = str_replace('signup.html', '../pages/signup.html', $paginaHTML);
-
-
-echo ($paginaHTML);
+echo $paginaHTML;

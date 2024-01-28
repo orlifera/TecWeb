@@ -23,7 +23,7 @@ function addToCart() {
   var tipologiaProdotto = document.getElementById("tipo").innerText;
   var descrProdotto = document.getElementById("descrizione").innerText;
   var prezzoProdotto = document.getElementById("prezzo").innerText;
-  var disponibilita = document.getElementById("disponibilita").innerText;
+  var disponibilita = document.getElementById("dispon").innerText;
   if (disponibilita === "Non disponibile") {
     alert("Prodotto non disponibile, ci scusiamo per il disagio!");
     return;
@@ -32,6 +32,7 @@ function addToCart() {
   var coloreProdotto = document.getElementById("colore").value;
   var splitValori = prezzoProdotto.split("€");
   var prezzo = splitValori[1];
+
   splitValori = disponibilita.split(":");
   var url =
     "../php/addToCart.php?id=" +

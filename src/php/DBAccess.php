@@ -20,6 +20,77 @@ class DBAccess
         return mysqli_connect_errno() == 0;
     }
 
+    /************ GESTIONE LOGIN E REGISTRAZIONE ************/
+    // FINIRE QUA 
+    public function getUsername($username) {
+        $query = "SELECT * FROM utente WHERE username = ?;";
+    } 
+
+    /************ GESTIONE PROFILO ************/
+    public function getProfileInfo($username) {
+        $query = "SELECT * FROM utente WHERE username = ?;";
+        $stmt = mysqli_prepare($this->connection, $query);
+        mysqli_stmt_bind_param($stmt, "s", $username);
+
+        mysqli_stmt_execute($stmt);
+        $queryResult = mysqli_stmt_get_result($stmt);
+
+        if (mysqli_num_rows($queryResult) != 0) {
+            $row = mysqli_fetch_assoc($queryResult);
+            mysqli_stmt_close($stmt);
+            return array($row["nome"], $row["cognome"], $row["dataNascita"], $row["genere"], $row["username"], $row["email"],  $row["password"], $row["telefono"], $row["citta"], $row["indirizzo"], $row["CAP"]);
+        } else {
+            mysqli_stmt_close($stmt);
+            return null;
+        }
+    }
+
+    public function updatePersonalInfo($fname, $lname, $email, $phone) {
+        $query = "UPDATE utente SET nome = ?, cognome = ?, telefono = ? WHERE email = ?;";
+        $stmt = mysqli_prepare($this->connection, $query);
+        if ($stmt === false) {
+            die("Errore nella preparazione dello statement: " . mysqli_error($this->connection));
+        }
+        mysqli_stmt_bind_param($stmt, "ssss", $fname, $lname, $phone, $email);
+        if (mysqli_stmt_execute($stmt)) {
+            echo "Aggiornamento info avvenuto";
+        } else {
+            echo "Aggiornamento info non avvenuto: " . mysqli_error($this->connection);
+        }
+        mysqli_stmt_close($stmt);
+    }
+
+    public function updatePsw($email, $psw) {
+        $query = "UPDATE utente SET password = ? WHERE email = ?;";
+        $stmt = mysqli_prepare($this->connection, $query);
+        if ($stmt === false) {
+            die("Errore nella preparazione dello statement: " . mysqli_error($this->connection));
+        }
+        mysqli_stmt_bind_param($stmt, "ss", $psw, $email);
+        if (mysqli_stmt_execute($stmt)) {
+            echo "Aggiornamento psw avvenuto";
+        } else {
+            echo "Aggiornamento psw non avvenuto: " . mysqli_error($this->connection);
+        }
+        mysqli_stmt_close($stmt);
+    }
+
+    public function updateAddressInfo($email, $city, $address, $cap) {
+        $query = "UPDATE utente SET citta = ?, indirizzo = ?, CAP = ? WHERE email = ?;";
+        $stmt = mysqli_prepare($this->connection, $query);
+        if ($stmt === false) {
+            die("Errore nella preparazione dello statement: " . mysqli_error($this->connection));
+        }
+        mysqli_stmt_bind_param($stmt, "ssis", $city, $address, $cap, $email);
+        if (mysqli_stmt_execute($stmt)) {
+            echo "Aggiornamento address avvenuto";
+        } else {
+            echo "Aggiornamento address non avvenuto: " . mysqli_error($this->connection);
+        }
+        mysqli_stmt_close($stmt);
+    }
+    
+
     /************ GESTIONE PRODOTTI ************/
     public function getProduct($categoria, $sku)
     {

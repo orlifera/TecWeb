@@ -11,13 +11,16 @@ function insertProduct() {
   if (category == "product") {
     var id = encodeURIComponent(document.getElementById("id").value);
     var nome = encodeURIComponent(document.getElementById("nome").value);
-    var immagine = encodeURIComponent(
-      document.getElementById("immagine").value
+    var tipo = encodeURIComponent(document.getElementById("tipo").value);
+    var categoria = encodeURIComponent(
+      document.getElementById("categoria").value
     );
-    var categoria = document.getElementById("categoria").value;
+    var immagine = "../../assets/images/" + categoria + "/" + id + ".jpg";
     var disponibilita = encodeURIComponent(
       document.getElementById("disponibilita").value
     );
+    var riferimento = document.getElementById("riferimento").value;
+
     var prezzo = encodeURIComponent(document.getElementById("prezzo").value);
     if (!/^\d+$/.test(disponibilita) && !/^\d+$/.test(prezzo)) {
       alert("Errore: inserimento valori non corretto");
@@ -30,13 +33,11 @@ function insertProduct() {
     var colore = encodeURIComponent(document.getElementById("colore").value);
     variabile_decisionale = "product";
 
-    var riferimento = "";
     if (
       id == "" ||
       nome == "" ||
       tipo == "" ||
       prezzo == "" ||
-      immagine == "" ||
       categoria == "" ||
       disponibilita == "" ||
       descrizione == "" ||
@@ -44,10 +45,6 @@ function insertProduct() {
     ) {
       alert("Compila tutti i campi");
       return;
-    }
-
-    if (categoria == "pc" || categoria == "kbd") {
-      riferimento = categoria;
     }
 
     var url =
@@ -159,55 +156,11 @@ function insertProduct() {
 
   var conferma = confirm("Sei sicuro di voler procedere?");
 
-  // Se l'utente conferma, chiamiamo la funzione callphp
   if (conferma) {
     callphp(url);
   } else {
   }
 }
-
-// function insertSale() {
-//   var codice = document.getElementById("codice").value;
-//   var data_emissione = document.getElementById("data_emissione").value;
-//   var data_scadenza = document.getElementById("data_scadenza").value;
-//   var username = document.getElementById("username").value;
-//   var valore = document.getElementById("valore").value;
-//   var isUsed = false;
-//   variabile_decisionale = "sale";
-//   if (
-//     codice == "" ||
-//     data_emissione == "" ||
-//     data_scadenza == "" ||
-//     username == "" ||
-//     valore == ""
-//   ) {
-//     alert("Compila tutti i campi");
-//     return;
-//   }
-
-//   var url =
-//     "../php/addProductOnDB.php?id=" +
-//     codice +
-//     "&data_emissione=" +
-//     data_emissione +
-//     "&data_scadenza=" +
-//     data_scadenza +
-//     "&username=" +
-//     username +
-//     "&isUsed=" +
-//     isUsed +
-//     "&valore=" +
-//     valore +
-//     "&variabile_decisionale=" +
-//     variabile_decisionale;
-//   var conferma = confirm("Sei sicuro di voler inserire lo sconto?");
-
-//   // Se l'utente conferma, chiamiamo la funzione callphp
-//   if (conferma) {
-//     callphp(url);
-//   } else {
-//   }
-// }
 
 function callphp(url) {
   window.location.href = url;

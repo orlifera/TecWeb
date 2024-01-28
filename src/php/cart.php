@@ -3,6 +3,7 @@
 require_once "DBAccess.php";
 
 use DB\DBAccess;
+
 session_start();
 
 ini_set('display_errors', 1);
@@ -42,28 +43,29 @@ if ($connectionOk) {
     }
 } else {
     $nomeProdottoCompleto = $prezzo = $path = $sku = [];
-    $htmlProdotti = "<p>I sistemi sono momentaneamente fuori servizio, ci scusiamo per il disagio</p>";
+    header("HTTP/1.0 404 Not Found");
+    include("../pages/404.html");
+    exit;
 }
 $connection->closeDBConnection();
 
 foreach ($nomeProdottoCompleto as $i => $nome) {
     if ($nome != null) {
-        $prova = //"<dl class=\"productDetail\">\n" .
+        $prova =
             "<a class=\"\" href=\"getProduct.php?categoria=" . $categoria[$i] . "&id=" . $sku[$i] . "\">\n" .
             "<img src=\"" . $path[$i] . "\" alt=\"image\">\n" .
             "<dt class=\"productName\">" . $nome . "</dt>\n" .
             "<dd class=\"productPrice\">" . $prezzo[$i] . "</dd>\n" .
-            // <dt> Quantità scelta: " . $quantita[$i] . "</dt>\n
-            //"<dt id=\"disponibilita\"> " . ($disponibilita[$i] > 10 ? "Disponibilità: "  .  $disponibilita[$i] : "Non disponibile") . "</dt>" .
-            "</a>\n" .
 
-            "<dd>Quantità</dd><div><div class=\"\">
-            <input type=\"button\" value=\"-\" class=\"minus\">
-            <input type=\"number\" max=\"" . $disponibilita[$i] . "\" value=\"" .  $quantita[$i] . "\" inputmode=\"numeric\" class=\"quantity\" disabled>
-            <input type=\"button\" value=\"+\" class=\"plus\">
+            "</a>\n" .
+            "<dd>Quantità</dd><div class=\"qty-container\"><div class=\"qty-input\">
+            <input id=\"minus\" type=\"button\" value=\"-\" class=\"qty-count qty-count--minus \">
+            <input id=\"qty\" type=\"number\" max=\"" . $disponibilita[$i] . "\" value=\"" . $quantita[$i] . "\" inputmode=\"numeric\" class=\"product-quantity quantity\" disabled>
+
+            <input id=\"add\" type=\"button\" value=\"+\" class=\" qty-count qty-count--plus \">
             </div></div>" .
             "<input type=\"button\" value=\"Rimuovi dal carrello\" class=\"removeCart\"name=\"removeCart" . $sku[$i] . "\">";
-        //. "</dl>\n";
+
         $htmlProdotti .= $prova;
         $counter++;
     }
