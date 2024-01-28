@@ -37,8 +37,8 @@
 
 /* Variabili indipendenti dalla modalità del sito */
 :root {
-    /*--default-transition: color .1s ease-in-out, background-color .3s ease-in-out, fill .1s ease-in-out,
-        border-color .3s ease-in-out, transform .3s ease-in-out; */
+    --default-transition: color .3s ease-in-out, background-color .3s ease-in-out, fill .3s ease-in-out,
+        border-color .3s ease-in-out, transform .3s ease-in-out, linear-gradient .3s ease-in-out;
     --loginBg: #f9f9f9;
     --progessBg: #cfcfcf;
     --loginSbmt: #3F51B5;
@@ -110,14 +110,6 @@
     --placeholder: #cdcdcd;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Prompt", sans-serif;
-    transition: var(--default-transition);
-}
-
 html {
     font-size: 100%;
     background-color: var(--bg-100);
@@ -184,7 +176,7 @@ html {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: underline;
     color: var(--text-300);
 }
 
@@ -192,6 +184,10 @@ a {
 nav#menu #switch {
     padding-right: 2em;
     padding-left: 1em;
+}
+
+nav#menu a {
+    text-decoration: none;
 }
 
 #left li {
