@@ -33,6 +33,7 @@ $prodottiAcc = "";
 $ordini = "";
 
 $connection = new DBAccess();
+$connectionOk = "";
 $connectionOk = $connection->openDBConnection();
 if ($connectionOk) {
     $listaPC = $connection->getProductPcKbd();
@@ -65,7 +66,9 @@ if ($connectionOk) {
     }
 } else {
 
-    $stringaPC = "<p>I sistemi sono momentaneamente fuori servizio, ci scusiamo per il disagio</p>";
+    header("HTTP/1.0 404 Not Found");
+    include("../pages/404.html");
+    exit;
 }
 $connection->closeDBConnection();
 
@@ -119,7 +122,9 @@ if ($connectionOk) {
     }
 } else {
 
-    $stringaPC = "<p>I sistemi sono momentaneamente fuori servizio, ci scusiamo per il disagio</p>";
+    header("HTTP/1.0 404 Not Found");
+    include("../pages/404.html");
+    exit;
 }
 $connection->closeDBConnection();
 
@@ -170,7 +175,9 @@ if ($connectionOk) {
     }
 } else {
 
-    $stringaPC = "<p>I sistemi sono momentaneamente fuori servizio, ci scusiamo per il disagio</p>";
+    header("HTTP/1.0 404 Not Found");
+    include("../pages/404.html");
+    exit;
 }
 $connection->closeDBConnection();
 
@@ -211,7 +218,9 @@ if ($connectionOk) {
     }
 } else {
 
-    $stringaPC = "<p>I sistemi sono momentaneamente fuori servizio, ci scusiamo per il disagio</p>";
+    header("HTTP/1.0 404 Not Found");
+    include("../pages/404.html");
+    exit;
 }
 $connection->closeDBConnection();
 

@@ -2,10 +2,8 @@
 
 const switchTheme = () => {
     //get root element and data theme value 
-    const rootElem = document.documentElement
-    let dataTheme = rootElem.getAttribute('data-theme'),
-        newTheme
-
+    const rootElem = document.documentElement;
+    let dataTheme = rootElem.getAttribute('data-theme'), newTheme;
     //if dataTheme is light, change to dark, else change to light. Whatever is set, we apply the opposite
     newTheme = (dataTheme === 'light') ? 'dark' : 'light';
 
@@ -25,6 +23,14 @@ document.querySelector('#theme-switcher').addEventListener('click', switchTheme)
 //this is for the div with tabindex. It calls the switchTheme function when the enter key is pressed. 
 document.querySelector('#theme-switcher').addEventListener('keypress', function (event) {
     if (event.key === 'Enter' || event.keyCode === 13) {
+        switchTheme();
+    }
+});
+
+document.addEventListener('click', function(event) {
+    var trigger = document.getElementById('mob-theme-switcher');
+    if (trigger.contains(event.target)) {
+        console.log('hey', event.target);
         switchTheme();
     }
 });
