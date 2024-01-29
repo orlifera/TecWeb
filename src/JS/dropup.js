@@ -1,16 +1,14 @@
-function showDrop(q, p) { 
+var main = document.querySelector('main');
+
+function showDrop(q) { 
   q.classList.remove("hidden");
   q.classList.add("show");
-  p.classList.add("obscured");
 }
 
-function hideDrop(q, p) {
+function hideDrop(q) {
   q.classList.remove("show");
   q.classList.add("hidden");
-  p.classList.remove("obscured")
 }
-
-var main = document.querySelector('main');
 
 document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('click', function(event) {
@@ -20,18 +18,24 @@ document.addEventListener('DOMContentLoaded', function () {
     var drop2 = document.getElementById("profile-dropup");
     if (trigger1.contains(event.target)) { 
       if (drop1.classList.contains("show")) {
-        hideDrop(drop1, main);
+        hideDrop(drop1);
+        main.classList.remove("obscured");
       }
       else if (drop1.classList.contains("hidden")) {
-        showDrop(drop1, main);
+        showDrop(drop1);
+        hideDrop(drop2);
+        main.classList.add("obscured");
       }
     }
     else if (trigger2.contains(event.target)) {
       if (drop2.classList.contains("show")) {
-        hideDrop(drop2, main);
+        hideDrop(drop2);
+        main.classList.remove("obscured");
       }
-      if (drop2.classList.contains("hidden")) {
-        showDrop(drop2, main);
+      else if (drop2.classList.contains("hidden")) {
+        showDrop(drop2);
+        hideDrop(drop1);
+        main.classList.add("obscured");
       }
     }
     else if (!(trigger1.contains(event.target) || trigger2.contains(event.target))) {
@@ -41,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function closeAllDropUp(drop1, drop2) {
-  hideDrop(drop1, main);
-  hideDrop(drop2, main);
+  hideDrop(drop1);
+  hideDrop(drop2);
+  main.classList.remove("obscured");
 }

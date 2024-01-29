@@ -53,7 +53,10 @@ class DBAccess
         }
         mysqli_stmt_bind_param($stmt, "ssss", $fname, $lname, $phone, $email);
         if (mysqli_stmt_execute($stmt)) {
-            echo "Aggiornamento info avvenuto";
+            // echo "Aggiornamento info avvenuto";
+            echo '<p class="errorDati">Aggiornamento info avvenute</p>';
+            // echo "<div class=\"errorDati\">Aggiornamento info avvenuto</div>";
+            
         } else {
             echo "Aggiornamento info non avvenuto: " . mysqli_error($this->connection);
         }

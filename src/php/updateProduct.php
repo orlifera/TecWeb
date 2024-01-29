@@ -10,6 +10,7 @@ error_reporting(E_ALL);
 setlocale(LC_ALL, 'it_IT');
 
 $connection = new DBAccess();
+$connectionOk = "";
 $connectionOk = $connection->openDBConnection();
 
 $variabile_dec = $_GET['variabile_decisionale'];
@@ -47,7 +48,9 @@ if ($connectionOk) {
         $listaSconti = $connection->updateOrder($codice, $utente, $quantitaOrdinata, $indirizzo, $prezzo);
     }
 } else {
-    $stringaPC = "<p>I sistemi sono momentaneamente fuori servizio, ci scusiamo per il disagio</p>";
+    header("HTTP/1.0 404 Not Found");
+    include("../pages/404.html");
+    exit;
 }
 $connection->closeDBConnection();
 

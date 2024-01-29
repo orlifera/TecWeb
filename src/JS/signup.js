@@ -22,11 +22,38 @@ function showStage(...contents) {
 }
 
 function hideStage(...contents) {
-  contents.forEach((contents) => {
-    if (contents.classList.contains("show")) contents.classList.remove("show");
+  contents.forEach(contents => {
+    if (contents.classList.contains("show"))
+      contents.classList.remove("show");
     contents.classList.add("hidden");
   });
 }
+
+function hideNumber(...n1) {
+  n1.forEach(n1 => {
+    n1.parentElement.classList.add("hidden");
+  });
+}
+
+function showNumber(...n1) {
+  n1.forEach(n1 => {
+    n1.parentElement.classList.remove("hidden");
+  });
+}
+
+// function areFieldsCompleted(stageContent) {
+//   let inputs = stageContent.querySelectorAll("input");
+//   for (let input of inputs) {
+//     if (
+//       input.type !== "submit" &&
+//       input.type !== "button" &&
+//       input.value.trim() === ""
+//     ) {
+//       return false; // Found an empty field, return false.
+//     }
+//   }
+//   return true; // All fields are filled.
+// }
 
 function areFieldsCompleted(stageContent) {
   let inputs = stageContent.querySelectorAll("input, select");
@@ -63,37 +90,59 @@ function switchStage(toHide, toShow, forward = true) {
   return true;
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
   showStage(signupContent1);
   hideStage(signupContent2, signupContent3);
+  stageno1.classList.add("completed");
+  if (window.innerWidth <= 600) {
+    hideNumber(stageno2);
+    hideNumber(stageno3);
+  }
 
-  stagebtn1b.addEventListener("click", function () {
+
+  stagebtn1b.addEventListener('click', function () {
     if (switchStage(signupContent1, signupContent2, true)) {
       stageno1.classList.remove("stageno");
-      stageno1.classList.add("completed");
+      stageno2.classList.add("completed");
       loginLink.classList.add("hidden");
+      if (window.innerWidth <= 600) {
+        hideNumber(stageno1);
+        showNumber(stageno2);
+      }
     }
   });
 
-  stagebtn2a.addEventListener("click", function () {
+  stagebtn2a.addEventListener('click', function () {
     if (switchStage(signupContent2, signupContent1, false)) {
-      stageno1.classList.remove("completed");
+      stageno2.classList.remove("completed");
       stageno1.classList.add("stageno");
       loginLink.classList.remove("hidden");
+      if (window.innerWidth <= 600) {
+        hideNumber(stageno2);
+        showNumber(stageno1);
+      }
     }
   });
 
-  stagebtn2b.addEventListener("click", function () {
+  stagebtn2b.addEventListener('click', function () {
     if (switchStage(signupContent2, signupContent3, true)) {
       stageno2.classList.remove("stageno");
-      stageno2.classList.add("completed");
+      stageno3.classList.add("completed");
+      if (window.innerWidth <= 600) {
+        hideNumber(stageno2);
+        showNumber(stageno3);
+      }
     }
   });
 
-  stagebtn3a.addEventListener("click", function () {
+  stagebtn3a.addEventListener('click', function () {
     if (switchStage(signupContent3, signupContent2, false)) {
-      stageno2.classList.remove("completed");
+      stageno3.classList.remove("completed");
       stageno2.classList.add("stageno");
+      if (window.innerWidth <= 600) {
+        hideNumber(stageno3);
+        showNumber(stageno2);
+      }
     }
   });
 });

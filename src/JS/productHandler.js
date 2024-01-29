@@ -1,5 +1,5 @@
-let minusButtons = document.querySelectorAll(".minus");
-let plusButtons = document.querySelectorAll(".plus");
+let minusButtons = document.querySelectorAll(".qty-count--minus");
+let plusButtons = document.querySelectorAll(".qty-count--plus");
 let selectColore = document.getElementById("colore");
 let immagine = document.querySelector("img");
 var idValue = getParameterByName("id", window.location.href);

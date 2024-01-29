@@ -31,35 +31,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
                 exit();
             } else {
-                // echo "<div id=\"error\">username o password errati</div>";
-                $errormsg="<div class=\"error\">Email o Password non coincidono</div>";
-                $paginaHTML = str_replace('{errore}', $errormsg, $paginaHTML);
+                $errormsg="<div class=\"errorDati\">Email o Password non coincidono</div>";
+                $paginaHTML = str_replace('<div id="errorDati"></div>', $errormsg, $paginaHTML);
+                $strReplace=" <a href=\"../pages/signup.html\" class=\"login-btn\">Registrati</a>";
+                $paginaHTML = str_replace('<a href="signup.html" class="login-btn">Registrati</a>', $strReplace, $paginaHTML);
                 echo($paginaHTML);
-                // $_SESSION['error'] = $errormsg;
-                // echo "<script>document.getElementById('error').innerHTML='$errormsg'</script>";
-                // header('Location: ../pages/login.html');
-                // $error = "Password errata";
             }
         } else {
-            // echo "<div id=\"error\">username o password errati</div>";
-            
-            
-            
-            // $errormsg="<div class=\"error>\"Email o Password non coincidono</div>";
-            $errormsg="<div class=\"error\">Email o Password non coincidono</div>";
-            $paginaHTML = str_replace('<div id="error"></div>', $errormsg, $paginaHTML);
+            $errormsg="<div class=\"errorDati\">Email o Password non coincidono</div>";
+            $paginaHTML = str_replace('<div id="errorDati"></div>', $errormsg, $paginaHTML);
+            $strReplace=" <a href=\"../pages/signup.html\" class=\"login-btn\">Registrati</a>";
+            $paginaHTML = str_replace('<a href="signup.html" class="login-btn">Registrati</a>', $strReplace, $paginaHTML);
             echo($paginaHTML);
-            
-            
-            
-            // $_SESSION['error'] = $errormsg;
-            // echo "<script>document.getElementById('error').innerHTML='$errormsg'</script>";
-            // header('Location: ../pages/login.html');
-            // $error = "Password errata";
-            // if ($errormsg) {
-            //     $error_html = str_replace("{errore}", $errormsg, '<div id="error">{errore}</div>');
-            //     echo $error_html;
-            // }
         }
         $connessione->close();
     }
