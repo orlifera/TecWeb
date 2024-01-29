@@ -184,8 +184,12 @@ html {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: underline;
     color: var(--text-300);
+}
+
+#menu a {
+    text-decoration: none;
 }
 
 /* posizionamento switch */
@@ -423,7 +427,16 @@ nav svg:not(.signup, #sun, #moon) {
     width: 100%;
     margin-bottom: 5em;
     padding: 1em 0;
+    text-align: center;
 }
+
+#examples blockquote {
+    display: inline-block;
+    width: 30%;
+    height: 100%;
+    padding: 0 5em;
+}
+
 
 #examples .title {
     padding: 1em 0;
@@ -2279,136 +2292,8 @@ input.card-name {
     opacity: .4;
 }
 
-@keyframes upper {
-
-    0%,
-    19.999%,
-    22%,
-    62.999%,
-    64%,
-    64.999%,
-    70%,
-    100% {
-        opacity: .99;
-        text-shadow: 0 0 80px black;
-    }
-
-    20%,
-    21.999%,
-    63%,
-    63.999%,
-    65%,
-    69.999% {
-        opacity: 0.4;
-        text-shadow: none;
-    }
-}
-
-@keyframes lower {
-
-    0%,
-    12%,
-    18.999%,
-    23%,
-    31.999%,
-    37%,
-    44.999%,
-    46%,
-    49.999%,
-    51%,
-    58.999%,
-    61%,
-    68.999%,
-    71%,
-    85.999%,
-    96%,
-    100% {
-        opacity: 0.99;
-        text-shadow: 0 0 80px black, 0 0 30px #8B0000, 0 0 6px #8B0000;
-    }
-
-    19%,
-    22.99%,
-    32%,
-    36.999%,
-    45%,
-    45.999%,
-    50%,
-    50.99%,
-    59%,
-    60.999%,
-    69%,
-    70.999%,
-    86%,
-    95.999% {
-        opacity: 0.4;
-        text-shadow: none;
-    }
-}
-
-#error404 #goHome {
-    font-family: "Prompt", sans-serif;
-    margin: 2em, 20em, 2em, 20em;
-    text-align: center;
-    font-size: .18em;
-    text-shadow: none;
-    color: black;
-}
-
-#error404 a {
-    color: red;
-    text-decoration: underline;
-}
-
-#error404 a:hover {
-    color: #8B4513;
-}
-
-/*PAGINA 404*/
-#error404 {
-    height: 100%;
-    width: 100%;
-    margin-top: 90px;
-    padding: 1em;
-    font-size: 95px;
-    text-align: center;
-    text-shadow: 0 0 80px red, 0 0 30px FireBrick, 0 0 6px DarkRed;
-    color: red;
-    /* background-color: #111111; */
-}
-
-#error404 p {
-    margin: .9em;
-}
-
-#error {
-    color: black;
-    text-transform: uppercase;
-    text-shadow: 0 0 80px black;
-}
-
-#animOne {
-    animation: upper 6s linear infinite;
-}
-
-#animTwo {
-    animation: upper 15s linear infinite;
-}
-
-#code span,
-#error span,
-#error,
-#error404 p {
-    font-family: "Monoton", sans-serif;
-}
-
-#code span:nth-of-type(2) {
-    animation: lower 9s linear infinite;
-}
-
-#code span:nth-of-type(1) {
-    text-shadow: none;
-    opacity: .4;
+#print_cover {
+    display: none;
 }
 
 @keyframes upper {

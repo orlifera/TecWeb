@@ -39,8 +39,8 @@ if ($connectionOk) {
 
     if ($listaPC != null) {
         $stringaPC = "<dt class=\"product-name\" id=\"nome\">" . $listaPC[1] . "</dt>";
-        $tipoPC = "<div class=\"product-info\"><dt class=\"product-type\" id=\"tipo\"> Tipologia: </dt><dd>" . $listaPC[2] . "</dd></div>";
-        $descrizione = "<div class=\"product-info\"><dt class=\"product-description\" id=\"descrizione\"></dt><dd>" . $listaPC[3] . "</dd></div>";
+        $tipoPC = "<div class=\"product-info\"><dt class=\"product-type\" > Tipologia: </dt><dd id=\"tipo\">" . $listaPC[2] . "</dd></div>";
+        $descrizione = "<div class=\"product-info\"><dt class=\"product-description\" ></dt><dd id=\"descrizione\">" . $listaPC[3] . "</dd></div>";
         $prezzoPc = "<div class=\"product-info\"><dt class=\"product-price\" > Prezzo:</dt><dd id=\"prezzo\"> €" . $listaPC[4] . "</dd></div>";
 
 

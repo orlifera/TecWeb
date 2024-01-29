@@ -12,10 +12,10 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 setlocale(LC_ALL, 'it_IT');
 
-$paginaHTML = file_get_contents(__DIR__ . "/../pages/order.html");
+$paginaHTML = file_get_contents(__DIR__ . "/../pages/payments.html");
 
 $listaPC = "";
-$htmlProdotti = "";
+// $htmlProdotti = "";
 $sku = $_GET["id"];
 $quantitaOrdinata = $_GET["quantitaOrdinata"];
 $quantitaRimanente = "";
@@ -44,7 +44,7 @@ if ($connectionOk) {
             $quantitaRimanente = $listaPC[0] - $quantitaOrdinata;
             $listaPC = $connection->updateDisponibilitaProdotto($sku, $quantitaRimanente);
             $listaPC = $connection->deleteFromCart($sku);
-            $htmlProdotti = "<p>Ordine confermato, il team di ML Tech la ringrazia per la fiducia</p>";
+            // $htmlProdotti = "<p>Ordine confermato, il team di ML Tech la ringrazia per la fiducia</p>";
         } else {
             $htmlProdotti = "<p>Errore</p>";
         }
@@ -58,7 +58,7 @@ if ($connectionOk) {
 $connection->closeDBConnection();
 
 
-$paginaHTML = str_replace('{ciao}', $htmlProdotti, $paginaHTML);
+// $paginaHTML = str_replace('{ciao}', $htmlProdotti, $paginaHTML);
 
 $paginaHTML = str_replace('src/pages/cart.html', 'cart.php', $paginaHTML);
 
