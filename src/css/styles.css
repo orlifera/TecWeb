@@ -153,7 +153,7 @@ html {
 }
 
 #main-header {
-    padding: 1em;
+    padding-top: 1em;
     background-color: var(--bg-100);
 }
 
@@ -294,23 +294,19 @@ nav svg:not(.signup, #sun, #moon) {
     fill: var(--text-300);
 }
 
-#menu.fixed {
-    position: fixed;
+#menu {
+    position: sticky;
     top: 0;
-    z-index: 1;
-}
-
-#breadcrumb.fixed {
-    position: fixed;
-    top: 4.3em;
-    z-index: 1;
-    margin-bottom: 4em;
+    left: 0;
+    z-index: 999;
 }
 
 #breadcrumb {
     display: block;
-    padding: 1em;
+    padding: 0.5em;
+    margin-left: 1em;
     color: var(--text-login);
+    background-color: var(--bg-100);
 }
 
 #breadcrumb a {
@@ -329,11 +325,6 @@ nav svg:not(.signup, #sun, #moon) {
     padding-top: 6em;
 }
 
-/* #login,
-#settings {
-    fill: var(--primaryText);
-} */
-
 .signup path {
     stroke: var(--text-300);
     stroke-width: 1.5;
@@ -341,27 +332,12 @@ nav svg:not(.signup, #sun, #moon) {
     stroke-linejoin: round;
 }
 
-
-/* Selettore per screen-reader-only. Classe data al breadcrumb, in modo che sia facile per le persone con cecità orientarsi sul sito. Per persone con vista normale, è stata implementata una classe active per capire in che pagina si trova */
-/* .sr-only {
-    border: 0 !important;
-    clip: rect(1px, 1px, 1px, 1px) !important;
-    clip-path: inset(50%) !important;
-    height: 1px !important;
-    width: 1px !important;
-    position: absolute !important;
-    overflow: hidden !important;
-    white-space: nowrap !important;
-    padding: 0 !important;
-    margin: -1px !important;
-} */
-
 /* index */
 
 #presentation {
     width: 100%;
     background: linear-gradient(-45deg, var(--accent-100), var(--accent-200));
-    height: 100vh;
+    height: 70dvh;
 }
 
 .title {
@@ -381,13 +357,14 @@ nav svg:not(.signup, #sun, #moon) {
 
 #presentation .title {
     position: relative;
-    top: 45vh;
-    font-size: 3em;
+    top: 30dvh;
+    font-size: 5em;
+    text-transform: uppercase;
 }
 
 #presentation .subtitle {
     position: relative;
-    top: 45vh;
+    top: 30dvh;
 }
 
 #info {
@@ -399,11 +376,6 @@ nav svg:not(.signup, #sun, #moon) {
     width: 2em;
     height: 2em;
     fill: var(--text-100)
-}
-
-#cookie-heading .icon {
-    width: 3em;
-    height: 3em;
 }
 
 .info-p {
@@ -517,7 +489,7 @@ nav svg:not(.signup, #sun, #moon) {
 #about p {
     width: 70%;
     margin: auto;
-    text-align: justify;
+    text-align: center;
     padding-bottom: 1em;
     font-size: 20px;
     line-height: 2em;
@@ -634,7 +606,6 @@ footer ul#footunor li {
 footer ul#footunor li {
     color: var(--text-300);
 }
-
 #rights {
     display: block;
 }
@@ -646,6 +617,10 @@ footer ul#footunor li {
 
 #comunity {
     border-left: 1px solid #f9f9f9;
+}
+
+#mobile-footer {
+    display: none;
 }
 
 /* Review */
@@ -675,7 +650,6 @@ footer ul#footunor li {
 }
 
 .dropdown-content {
-    display: none;
     background-color: #f9f9f9;
     padding: 10px;
     border-top: 1px solid #030303;
@@ -686,6 +660,7 @@ footer ul#footunor li {
     padding: 1em;
     margin-top: 1em;
     background-color: #f9f9f9;
+    font-weight: bold;
 }
 
 .question:hover {
@@ -1042,33 +1017,39 @@ fieldset#termini {
 .cookie-subcontainer {
     width: 85%;
     margin: auto;
+    text-align: center;
 }
 
-#cookie-heading {
-    width: 15em;
+#cookie-header {
+    width: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    gap: .5em;
 }
 
-#cookie-icon {
+#cookie-header #cookie-icon {
     width: 2em;
 }
 
 #cookie-desc {
-    text-align: justify;
+    text-align: center;
     padding: .5em 0;
+}
+
+#cookie-desc a {
+    color: var(--primary-100);
 }
 
 #cookie-section {
     width: 20em;
     padding: 2em;
     position: fixed;
-    bottom: 1em;
+    bottom: 2.5em;
     left: 2em;
     background-color: var(--accent-200);
-    box-shadow: 0 0 2px rgba(0, 0, 0, .5);
-    border-radius: 15px;
+    box-shadow: 0 1em 2em -0.9em rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
 }
 
 .btn {
@@ -1078,15 +1059,17 @@ fieldset#termini {
 
 .cookie-btn {
     display: inline;
-    align-items: center;
-    justify-content: center;
     padding: .5em;
-    border-radius: 10px;
+    border: none;
     background-color: var(--primary-100);
+    box-shadow: 0 1em 2em -0.9em rgba(0, 0, 0, 0.7);
     color: var(--text-300);
     cursor: pointer;
 }
 
+.cookie-btn:hover {
+    background-color: var(--primary-200);
+}
 
 /*LOGIN*/
 
