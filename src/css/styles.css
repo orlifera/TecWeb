@@ -37,8 +37,8 @@
 
 /* Variabili indipendenti dalla modalità del sito */
 :root {
-    /*--default-transition: color .1s ease-in-out, background-color .3s ease-in-out, fill .1s ease-in-out,
-        border-color .3s ease-in-out, transform .3s ease-in-out; */
+    --default-transition: color .1s ease-in-out, background-color .3s ease-in-out, fill .1s ease-in-out,
+        border-color .3s ease-in-out, transform .3s ease-in-out;
     --loginBg: #f9f9f9;
     --progessBg: #cfcfcf;
     --loginSbmt: #3F51B5;
@@ -273,6 +273,11 @@ nav#menu #switch {
 
 #menu .dropdown-list#profile-drop li {
     width: 15em;
+}
+
+#dropdown-icon {
+    position: relative;
+    top: .6em;
 }
 
 ul.dropdown-list a {
