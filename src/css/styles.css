@@ -597,7 +597,6 @@ footer dl#footdef div {
 
 footer dl#footdef dt {
     font-weight: bolder;
-    color: var(--text-300);
 }
 
 #footdef dd {
@@ -616,9 +615,6 @@ footer ul#footunor li {
     padding: auto;
 }
 
-footer ul#footunor li {
-    color: var(--text-300);
-}
 #rights {
     display: block;
 }
@@ -634,6 +630,10 @@ footer ul#footunor li {
 
 #mobile-footer {
     display: none;
+}
+
+footer li, footer dd, footer dt {
+    color: var(--text-300);
 }
 
 /* Review */
