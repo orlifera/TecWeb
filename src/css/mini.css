@@ -20,6 +20,7 @@
     }
 
     #contact-info .info-col h2 {
+        padding-bottom: unset;
         font-size: 1.5em;
     }
 
@@ -115,6 +116,18 @@
     h2#detail {
         font-size: 1.2em;
     }
+
+    #cookie-section #cookie-heading {
+        font-size: 1.2em;
+    }
+
+    #cookie-section #cookie-desc {
+        font-size: 0.8em;
+    }
+
+    #cookie-section #cookie-header #cookie-icon {
+        font-size: .5em;
+    }
 }
 
 @media (max-width: 375px) {
@@ -191,6 +204,15 @@
     #mobile div#profile-dropup li {
         font-size: .5em;
     }
+
+    footer#mobile-footer {
+        margin-bottom: 3.5em;
+    }
+
+    footer#mobile-footer ul li {
+        font-size: 1em;
+        padding: 1em 0;
+    }
 }
 
 :root {
@@ -205,6 +227,10 @@
 [data-theme="dark"] {
     --sun-display: none;
     --moon-display: block;
+}
+
+.spacer {
+    height: 100dvh;
 }
 
 footer {
@@ -271,17 +297,38 @@ div#presentation {
     font-size: 2em;
 }
 
+#about p {
+    font-size: 1em;
+}
+
 #examples .examples-col {
     width: 15em;
 }
 
 #last {
-    padding: 4em 0 6em 0;
+    padding: 4em 0;
     gap: 2em;
 }
 
 #last div {
     width: 70%;
+}
+
+#mobile-footer {
+    display: block;
+    margin-bottom: 4.1em;
+}
+
+#mobile-footer ul {
+    width: 100%;
+    text-align: center;
+}
+
+#mobile-footer ul li {
+    display: inline-block;
+    padding: 1em;
+    color: var(--text-100);
+    width: 20%;
 }
 
 #button {
@@ -531,7 +578,7 @@ main#login-main {
 }
 
 #product .container {
-    margin-bottom: 5em;
+    margin-bottom: 3em;
 }
 
 .sidenav {
@@ -638,4 +685,23 @@ main#login-main {
     width: 100%;
     font-size: 1.3em;
     padding: 0.8em;
+}
+
+section#cookie-section {
+    width: 100%;
+    left: 0;
+    padding-top: 0.2;
+}
+
+#cookie-section #cookie-heading {
+    font-size: 1.8em;
+}
+
+#cookie-section #cookie-desc {
+    font-size: 1.5em;
+    padding-bottom: .5em;
+}
+
+#cookie-section #cookie-header #cookie-icon {
+    font-size: 1em;
 }
