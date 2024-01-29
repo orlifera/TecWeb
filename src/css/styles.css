@@ -275,6 +275,11 @@ nav#menu #switch {
     width: 15em;
 }
 
+#dropdown-icon {
+    position: relative;
+    top: .6em;
+}
+
 ul.dropdown-list a {
     display: block;
 
