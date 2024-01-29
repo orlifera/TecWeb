@@ -38,10 +38,10 @@ if ($connectionOk) {
     $listaPC = $connection->getProduct($categoria, $sku);
 
     if ($listaPC != null) {
-        $stringaPC = "<dt class=\"product-name\">" . $listaPC[1] . "</dt>";
-        $tipoPC = "<div class=\"product-info\"><dt class=\"product-type\"> Tipologia: </dt><dd>" . $listaPC[2] . "</dd></div>";
-        $descrizione = "<div class=\"product-info\"><dt class=\"product-description\"> Descrizione: </dt><dd class=\"dd-description\">" . $listaPC[3] . "</dd></div>";
-        $prezzoPc = "<div class=\"product-info\"><dt class=\"product-price\"> Prezzo:</dt><dd> €" . $listaPC[4] . "</dd></div>";
+        $stringaPC = "<dt class=\"product-name\" id=\"nome\">" . $listaPC[1] . "</dt>";
+        $tipoPC = "<div class=\"product-info\"><dt class=\"product-type\" > Tipologia: </dt><dd id=\"tipo\">" . $listaPC[2] . "</dd></div>";
+        $descrizione = "<div class=\"product-info\"><dt class=\"product-description\" ></dt><dd id=\"descrizione\">" . $listaPC[3] . "</dd></div>";
+        $prezzoPc = "<div class=\"product-info\"><dt class=\"product-price\" > Prezzo:</dt><dd id=\"prezzo\"> €" . $listaPC[4] . "</dd></div>";
 
 
         if (!empty($listaPC[5]) && !empty($listaPC[6])) {
@@ -58,11 +58,11 @@ if ($connectionOk) {
             $colori .= "</select>";
         }
 
-        $disponibilita = "<dt class=\"disponibilita\"> " . ($listaPC[6] > 0 ? "Disponibilità: "  .  $listaPC[6] : "Non disponibile") . "</dt>";
+        $disponibilita = "<dt class=\"disponibilita\" id=\"dispon\"> " . ($listaPC[6] > 0 ? "Disponibilità: "  .  $listaPC[6] : "Non disponibile") . "</dt>";
 
         $quantita = $listaPC[6] > 0 ? "<dt>Quantità</dt><div class=\"qty-container\"><div class=\"qty-input\">
             <input id=\"minus\" type=\"button\" value=\"-\" class=\"qty-count qty-count--minus \">
-            <input id=\"qty\" type=\"number\" max=\"" . $listaPC[6] . "\" value=\"" . ($listaPC[6] > 0 ? 1 : 0) . "\" inputmode=\"numeric\" class=\"product-quantity quantity\" >
+            <input id=\"qty\" type=\"number\" max=\"" . $listaPC[6] . "\" value=\"" . ($listaPC[6] > 0 ? 1 : 0) . "\" inputmode=\"numeric\" class=\"product-quantity quantity\" disabled >
 
             <input id=\"add\" type=\"button\" value=\"+\" class=\" qty-count qty-count--plus \">
             </div></div>" : "";

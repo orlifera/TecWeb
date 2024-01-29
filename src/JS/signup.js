@@ -90,15 +90,21 @@ function switchStage(toHide, toShow, forward = true) {
   return true;
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  showStage(signupContent1);
-  hideStage(signupContent2, signupContent3);
-  stageno1.classList.add("completed");
+function start() {
   if (window.innerWidth <= 600) {
     hideNumber(stageno2);
     hideNumber(stageno3);
   }
+}
 
+document.addEventListener('DOMContentLoaded', function () {
+  showStage(signupContent1);
+  hideStage(signupContent2, signupContent3);
+  stageno1.classList.add("completed");
+
+  start();
+
+  document.addEventListener('resize', start);
 
   stagebtn1b.addEventListener('click', function () {
     if (switchStage(signupContent1, signupContent2, true)) {
@@ -144,5 +150,10 @@ document.addEventListener('DOMContentLoaded', function () {
         showNumber(stageno2);
       }
     }
+  });
+
+  let proceedButton = document.getElementById('proceed');
+  proceedButton.addEventListener('click', function () {
+    window.location.href = 'payments.html'; // Replace with your desired URL
   });
 });
