@@ -15,7 +15,6 @@ setlocale(LC_ALL, 'it_IT');
 $paginaHTML = file_get_contents(__DIR__ . "/../pages/payments.html");
 
 $listaPC = "";
-// $htmlProdotti = "";
 $sku = $_GET["id"];
 $quantitaOrdinata = $_GET["quantitaOrdinata"];
 $quantitaRimanente = "";
@@ -31,7 +30,6 @@ foreach ($quantitaArray as $i => $id) {
     $quantita[] = $id;
 }
 
-
 $connection = new DBAccess();
 $connectionOk = "";
 $connectionOk = $connection->openDBConnection();
@@ -44,7 +42,6 @@ if ($connectionOk) {
             $quantitaRimanente = $listaPC[0] - $quantitaOrdinata;
             $listaPC = $connection->updateDisponibilitaProdotto($sku, $quantitaRimanente);
             $listaPC = $connection->deleteFromCart($sku);
-            // $htmlProdotti = "<p>Ordine confermato, il team di ML Tech la ringrazia per la fiducia</p>";
         } else {
             $htmlProdotti = "<p>Errore</p>";
         }
@@ -57,15 +54,11 @@ if ($connectionOk) {
 }
 $connection->closeDBConnection();
 
-
-// $paginaHTML = str_replace('{ciao}', $htmlProdotti, $paginaHTML);
-
 $paginaHTML = str_replace('src/pages/cart.html', 'cart.php', $paginaHTML);
 
 $paginaHTML = str_replace('catalog.html?categoria=kbd', 'getCatalog.php?categoria=kbd', $paginaHTML);
 $paginaHTML = str_replace('catalog.html?categoria=pc', 'getCatalog.php?categoria=pc', $paginaHTML);
 $paginaHTML = str_replace('{count_cart}', $cartCounter, $paginaHTML);
-
 $paginaHTML = str_replace('contacts.html', '../pages/contacts.html', $paginaHTML);
 $paginaHTML = str_replace('faq.html', '../pages/faq.html', $paginaHTML);
 $paginaHTML = str_replace('news.html', '../pages/news.html', $paginaHTML);
