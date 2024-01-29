@@ -41,7 +41,8 @@ if ($connectionOk) {
             $email = $listaInfo[5];
             $phone = $_POST['phone'];
             $connection->updatePersonalInfo($fname, $lname, $email, $phone);
-            header('Location: profile.php?section=personalInfo');
+            // header('Location: profile.php?section=personalInfo');
+            // echo '<p class="confirmDati">Aggiornamento info avvenute</p>';
         }
     } else if (isset($_POST['changepsw'])) {
         if ($_POST['pwd'] != null && $_POST['password'] != null && $_POST['password-confirm'] != null) {
@@ -52,22 +53,13 @@ if ($connectionOk) {
             if (password_verify($op, $listaInfo[6]) && $np == $cnp) {
                 $np = password_hash($_POST['password'], PASSWORD_DEFAULT);
                 $connection->updatePsw($email, $np);
-                // echo  'Cambio psw avvenuto';
-                // sleep(3);
-                // header('Location: profile.php');
             } else {
-                echo '<p class="errorDati">psw e new psw diverse</p>';
-                // $errormsg="<div class=\"errorDati\">Nuova e password e conferma sono diverse</div>";
-                // $paginaHTML = str_replace('<div id="stato"></div>', $errormsg, $paginaHTML);
-                // echo($paginaHTML);
-                // $errorpsw = "<p name=\"error\" id=\"error\">Nuova password e conferma sono diverse</p>";
+                echo '<p class="errorDati">Uno dei campi non è corretto</p>';
             }
         } else {
-            // echo '<p class="error">compila tutti i dati</p>';
             $errormsg="<div class=\"errorDati\">Compila tutti i dati</div>";
             $paginaHTML = str_replace('<div id="stato"></div>', $errormsg, $paginaHTML);
             echo($paginaHTML);
-            // $errorpsw = "<p name=\"error\" id=\"error\">Compila tutti gli errori</p>";
         }
     } else if (isset($_POST['addressbtn'])) {
         if ($_POST['city'] != null && $_POST['address'] != null && $_POST['cap'] != null) {
