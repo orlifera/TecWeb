@@ -184,8 +184,12 @@ html {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: underline;
     color: var(--text-300);
+}
+
+#menu a {
+    text-decoration: none;
 }
 
 /* posizionamento switch */
@@ -451,7 +455,16 @@ nav svg:not(.signup, #sun, #moon) {
     width: 100%;
     margin-bottom: 5em;
     padding: 1em 0;
+    text-align: center;
 }
+
+#examples blockquote {
+    display: inline-block;
+    width: 30%;
+    height: 100%;
+    padding: 0 5em;
+}
+
 
 #examples .title {
     padding: 1em 0;

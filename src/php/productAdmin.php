@@ -14,7 +14,7 @@ setlocale(LC_ALL, 'it_IT');
 
 $paginaHTML = file_get_contents(__DIR__ . "/../pages/productAdmin.html");
 
-$variabile_dec = "ordini";
+$variabile_dec = "prodotti";
 
 
 $listaPC = "";
