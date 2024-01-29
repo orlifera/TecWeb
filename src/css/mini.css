@@ -600,25 +600,23 @@ main#login-main {
 .name {
     padding: 0;
     margin: 0;
-    position: unset;
-    display: block;
+    position: relative;
 }
 
 .expiration-date {
     padding: 0;
     margin: 0;
     position: relative;
-    display: block;
 }
 
 .ccv {
     margin: 0;
     padding: 0;
-    display: block;
 }
 
 .card input {
     width: 100%;
+    height: 1em;
     margin: auto;
     border-bottom: 1px solid var(--text1-login);
 }
@@ -628,13 +626,6 @@ main#login-main {
     width: 100%;
     padding: .5em 0;
     text-align: center;
-}
-
-input.card-name {
-    color: var(--background-link);
-    width: 100%;
-    border-bottom: 1px solid var(--cardPlaceholder);
-    color: var(--cardLabel);
 }
 
 #paymentMethod .card-container {

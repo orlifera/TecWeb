@@ -180,6 +180,10 @@ a {
     color: var(--text-300);
 }
 
+#menu a {
+    text-decoration: none;
+}
+
 /* posizionamento switch */
 nav#menu #switch {
     padding-right: 2em;
@@ -269,6 +273,11 @@ nav#menu a {
 
 #menu .dropdown-list#profile-drop li {
     width: 15em;
+}
+
+#dropdown-icon {
+    position: relative;
+    top: .6em;
 }
 
 ul.dropdown-list a {
@@ -442,7 +451,16 @@ nav svg:not(.signup, #sun, #moon) {
     width: 100%;
     margin-bottom: 5em;
     padding: 1em 0;
+    text-align: center;
 }
+
+#examples blockquote {
+    display: inline-block;
+    width: 30%;
+    height: 100%;
+    padding: 0 5em;
+}
+
 
 #examples .title {
     padding: 1em 0;
@@ -1586,6 +1604,7 @@ nav.sidenav {
 .nav-list li {
     padding: 1em 2em;
     width: 100%;
+    font-size: 1.2em;
 }
 
 .nav-list li a {
@@ -2287,136 +2306,8 @@ input.card-name {
     opacity: .4;
 }
 
-@keyframes upper {
-
-    0%,
-    19.999%,
-    22%,
-    62.999%,
-    64%,
-    64.999%,
-    70%,
-    100% {
-        opacity: .99;
-        text-shadow: 0 0 80px black;
-    }
-
-    20%,
-    21.999%,
-    63%,
-    63.999%,
-    65%,
-    69.999% {
-        opacity: 0.4;
-        text-shadow: none;
-    }
-}
-
-@keyframes lower {
-
-    0%,
-    12%,
-    18.999%,
-    23%,
-    31.999%,
-    37%,
-    44.999%,
-    46%,
-    49.999%,
-    51%,
-    58.999%,
-    61%,
-    68.999%,
-    71%,
-    85.999%,
-    96%,
-    100% {
-        opacity: 0.99;
-        text-shadow: 0 0 80px black, 0 0 30px #8B0000, 0 0 6px #8B0000;
-    }
-
-    19%,
-    22.99%,
-    32%,
-    36.999%,
-    45%,
-    45.999%,
-    50%,
-    50.99%,
-    59%,
-    60.999%,
-    69%,
-    70.999%,
-    86%,
-    95.999% {
-        opacity: 0.4;
-        text-shadow: none;
-    }
-}
-
-#error404 #goHome {
-    font-family: "Prompt", sans-serif;
-    margin: 2em, 20em, 2em, 20em;
-    text-align: center;
-    font-size: .18em;
-    text-shadow: none;
-    color: black;
-}
-
-#error404 a {
-    color: red;
-    text-decoration: underline;
-}
-
-#error404 a:hover {
-    color: #8B4513;
-}
-
-/*PAGINA 404*/
-#error404 {
-    height: 100%;
-    width: 100%;
-    margin-top: 90px;
-    padding: 1em;
-    font-size: 95px;
-    text-align: center;
-    text-shadow: 0 0 80px red, 0 0 30px FireBrick, 0 0 6px DarkRed;
-    color: red;
-    /* background-color: #111111; */
-}
-
-#error404 p {
-    margin: .9em;
-}
-
-#error {
-    color: black;
-    text-transform: uppercase;
-    text-shadow: 0 0 80px black;
-}
-
-#animOne {
-    animation: upper 6s linear infinite;
-}
-
-#animTwo {
-    animation: upper 15s linear infinite;
-}
-
-#code span,
-#error span,
-#error,
-#error404 p {
-    font-family: "Monoton", sans-serif;
-}
-
-#code span:nth-of-type(2) {
-    animation: lower 9s linear infinite;
-}
-
-#code span:nth-of-type(1) {
-    text-shadow: none;
-    opacity: .4;
+#print_cover {
+    display: none;
 }
 
 @keyframes upper {
@@ -2551,4 +2442,82 @@ input.card-name {
     to {
         transform: translate(calc(-50% - 0.5rem));
     }
+}
+
+/*ADMIN PAGE*/
+
+.fieldProfile ul li {
+    display: flex;
+    width: 100%;
+    padding: 1em;
+    color: var(--text-100);
+    border-bottom: 1px solid var(--border);
+}
+
+.fieldProfile {
+    max-height: 100%;
+    overflow-y: auto;
+    position: relative;
+}
+
+.fieldProfile::-webkit-scrollbar {
+    width: 10px;
+}
+
+.fieldProfile::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+.fieldProfile::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Style the drop-down menu */
+.dropdown-options {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    /* Adjust size as needed */
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    /* Align to the right side of dropbtn */
+    background-color: #f9f9f9;
+    min-width: 160px;
+    /* Set a minimum width */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Style the buttons inside the dropdown */
+.dropdown-content input[type="button"] {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border: none;
+    background: none;
+    text-align: left;
+    width: 100%;
+    /* Make the buttons expand to the width of the container */
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Add a hover effect for the buttons */
+.dropdown-content input[type="button"]:hover {
+    background-color: #ddd;
 }
