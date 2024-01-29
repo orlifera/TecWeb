@@ -691,3 +691,160 @@ div.page-btns {
 .loginH {
     margin-top: 1.5em;
 }
+
+/**********************
+        CATALOG
+**********************/
+#product-list {
+    display: grid;
+    width: 90%;
+    gap: 1cm 0;
+    text-align: center;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+#product-list .product-card {
+    box-sizing: border-box;
+    margin: 1cm;
+    padding-bottom: 1cm;
+    width: auto;
+    background-color: var(--bgProduct);
+    box-shadow: 0 1em 2em -0.9em rgba(0, 0, 0, 0.7);
+    transition: transform 0.3 ease-in-out;
+}
+
+#product-list .product-card:hover {
+    transform: scale(1.1);
+}
+
+.product-card img {
+    width: 80%;
+    object-fit: cover;
+    height: 100px;
+    margin-bottom: 1cm;
+}
+
+.product-card dt {
+    color: #000;
+}
+
+/**********************
+     PRODUCT PAGE
+**********************/
+
+.product-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 2em 0;
+    align-items: center;
+}
+
+.capsule {
+    margin: 2em 0;
+    width: 50%;
+    padding: 1em 0 1em 2em;
+    border-left: 1px solid var(--background-link);
+}
+
+.capsule dt,
+.capsule label {
+    font-weight: bold;
+    margin: .5em;
+}
+
+.capsule label {
+    margin-right: .5em;
+}
+
+#product {
+    margin: -2em;
+}
+
+#product .container {
+    flex-direction: column;
+    height: unset;
+}
+
+#product-buttons {
+    margin-top: 2em;
+}
+
+#accessories {
+    margin-right: 1em;
+}
+
+#accessories,
+#addToCart {
+    color: var(--text-login);
+    background-color: var(--bg-200);
+    font-size: 1em;
+    padding: 0.5em;
+    text-align: center;
+    border: 2px solid var(--text-login);
+    border-radius: 5px;
+}
+
+#accessories:hover,
+#addToCart:hover {
+    background-color: var(--bg-100);
+
+}
+
+.product-image {
+    width: 20%;
+    object-fit: cover;
+    height: 300px;
+}
+
+.product-name {
+    font-size: 2em;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.product-info .dd-description {
+    margin: 0 1em;
+}
+
+.product-info dt:not(.product-description),
+.product-info dd:not(.dd-description) {
+    display: inline-block;
+    margin-right: .5em;
+}
+
+
+/**********************
+       ERROR 404
+**********************/
+
+/*PAGINA 404*/
+#error404 {
+    height: 100%;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+    padding: 1em;
+    font-size: 95px;
+    text-align: center;
+    text-shadow: 0 0 80px red, 0 0 30px FireBrick, 0 0 6px DarkRed;
+    color: red;
+}
+
+#error404 p {
+    display: none;
+}
+
+#error {
+    display: none;
+}
+
+#error404 a {
+    color: red;
+    text-decoration: underline;
+}
+
+#print_cover {
+    text-transform: uppercase;
+}
