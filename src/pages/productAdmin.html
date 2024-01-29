@@ -270,12 +270,6 @@
         </nav>
         <div id="profileDiv">
             <nav class="sidenav">
-                <header id="nav-header">
-                    <form action="">
-                        <!-- <h2 id="nav-title">Ciao, {username}!</h2> -->
-                        {username}
-                    </form>
-                </header>
                 <ul class="nav-list">
                     <li id="firstNav" class="nav-item"><a href="#" data-target="personalInfo">Prodotti</a>
                     </li>
@@ -287,19 +281,31 @@
             <form id="profilePage" method="post">
                 <fieldset class="fieldProfile show" id="personalInfo">
                     <legend>Prodotti</legend>
-                    <ul>
+                    <ul id="admin-product">
                         {prodotti}
                     </ul>
+                    <!-- <li>Test <div class="dropdown-options">
+                            <button class="dropbtn">⋮</button>
+                            <div class="dropdown-content hidden">
+                                <input type="button" name="removeProduct" value="Rimuovi">
+                                <input type="button" name="modifyProduct" value="Modifica">
+                            </div>
+                        </div>
+                    </li> -->
                 </fieldset>
 
                 <fieldset class="fieldProfile hidden" id="changepsw">
                     <legend>Sconti</legend>
-                    {sconti}
+                    <ul id="admin-discount">
+                        {sconti}
+                    </ul>
                 </fieldset>
 
                 <fieldset class="fieldProfile hidden" id="change-address">
                     <legend>Ordini</legend>
-                    {ordini}
+                    <ul id="admin-order">
+                        {ordini}
+                    </ul>
                 </fieldset>
             </form>
 
@@ -307,6 +313,7 @@
         <script src="../JS/switch-handler.js"></script>
         <script src="../JS/admin.js"></script>
         <script src="../JS/profile.js"></script>
+        <script src="../JS/kebab.js"></script>
     </body>
 
 </html>

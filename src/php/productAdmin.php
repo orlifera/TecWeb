@@ -82,6 +82,13 @@ if ($variabile_dec == "prodotti") {
                 "<input type=\"checkbox\" class=\"" . $categoria[$i] . "\" id=\"" . $sku[$i] . "\">\n" .
                 "<label for=\"" . $sku[$i] . "\">" . $nome . "</label>\n" .
                 "</a>\n" .
+                "<div class=\"dropdown-options\">
+                            <button class=\"dropbtn\">⋮</button>
+                            <div class=\"dropdown-content hidden\">
+                                <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\">
+                                <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\">
+                            </div>
+                        </div>" .
                 "</li>\n";
             $prodottiPcKbd .= $prova;
         }
@@ -134,11 +141,20 @@ if ($variabile_dec == "prodotti") {
                 "<input type=\"checkbox\" class=\"" . $categoria[$i] . "\" id=\"" . $sku[$i] . "\">\n" .
                 "<label for=\"" . $sku[$i] . "\">" . $nome . "</label>\n" .
                 "</a>\n" .
+                "<div class=\"dropdown-options\">
+                            <button class=\"dropbtn\">⋮</button>
+                            <div class=\"dropdown-content hidden\">
+                                <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\">
+                                <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\">
+                            </div>
+                        </div>" .
+
+
                 "</li>\n";
             $prodottiAcc .= $prova;
         }
     }
-    $prodottiTotali .= "<strong>PRODOTTI</strong><br>" . $prodottiPcKbd .   $prodottiAcc .
+    $prodottiTotali .=  $prodottiPcKbd .   $prodottiAcc .
         "<input type=\"button\" name=\"insertProduct\" id=\"insertItem\" value=\"Inserisci nuovo\">" .
         "<input type=\"button\" name=\"removeProduct\" id=\"removeItem\" value=\"Rimuovi\">" .
         "<input type=\"button\" name=\"modifyProduct\" id=\"modifyItem\" value=\"Modifica\">" .
