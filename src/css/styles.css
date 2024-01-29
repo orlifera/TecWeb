@@ -37,8 +37,8 @@
 
 /* Variabili indipendenti dalla modalità del sito */
 :root {
-    --default-transition: color .1s ease-in-out, background-color .3s ease-in-out, fill .1s ease-in-out,
-        border-color .3s ease-in-out, transform .3s ease-in-out;
+    --default-transition: color .3s ease-in-out, background-color .3s ease-in-out, fill .3s ease-in-out,
+        border-color .3s ease-in-out, transform .3s ease-in-out, linear-gradient .3s ease-in-out;
     --loginBg: #f9f9f9;
     --progessBg: #cfcfcf;
     --loginSbmt: #3F51B5;
@@ -110,14 +110,6 @@
     --placeholder: #cdcdcd;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Prompt", sans-serif;
-    transition: var(--default-transition);
-}
-
 html {
     font-size: 100%;
     background-color: var(--bg-100);
@@ -184,14 +176,22 @@ html {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: underline;
     color: var(--text-300);
+}
+
+#menu a {
+    text-decoration: none;
 }
 
 /* posizionamento switch */
 nav#menu #switch {
     padding-right: 2em;
     padding-left: 1em;
+}
+
+nav#menu a {
+    text-decoration: none;
 }
 
 #left li {
@@ -451,7 +451,16 @@ nav svg:not(.signup, #sun, #moon) {
     width: 100%;
     margin-bottom: 5em;
     padding: 1em 0;
+    text-align: center;
 }
+
+#examples blockquote {
+    display: inline-block;
+    width: 30%;
+    height: 100%;
+    padding: 0 5em;
+}
+
 
 #examples .title {
     padding: 1em 0;
@@ -612,7 +621,6 @@ footer dl#footdef div {
 
 footer dl#footdef dt {
     font-weight: bolder;
-    color: var(--text-300);
 }
 
 #footdef dd {
@@ -631,10 +639,6 @@ footer ul#footunor li {
     padding: auto;
 }
 
-footer ul#footunor li {
-    color: var(--text-300);
-}
-
 #rights {
     display: block;
 }
@@ -646,6 +650,16 @@ footer ul#footunor li {
 
 #comunity {
     border-left: 1px solid #f9f9f9;
+}
+
+#mobile-footer {
+    display: none;
+}
+
+footer li,
+footer dd,
+footer dt {
+    color: var(--text-300);
 }
 
 /* Review */
@@ -1595,6 +1609,7 @@ nav.sidenav {
 .nav-list li {
     padding: 1em 2em;
     width: 100%;
+    font-size: 1.2em;
 }
 
 .nav-list li a {
@@ -2432,4 +2447,84 @@ input.card-name {
     to {
         transform: translate(calc(-50% - 0.5rem));
     }
+}
+
+/*ADMIN PAGE*/
+
+.fieldProfile ul li {
+    display: flex;
+    width: 100%;
+    padding: 1em;
+    color: var(--text-100);
+    border-bottom: 1px solid var(--border);
+}
+
+.fieldProfile {
+    max-height: 100%;
+    overflow-y: auto;
+    position: relative;
+}
+
+.fieldProfile::-webkit-scrollbar {
+    width: 10px;
+}
+
+.fieldProfile::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+.fieldProfile::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Style the drop-down menu */
+.dropdown-options {
+    position: relative;
+    display: inline-block;
+
+}
+
+.dropbtn {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: var(--text-100);
+    /* Adjust size as needed */
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    /* Align to the right side of dropbtn */
+    background-color: var(--bg-100);
+    min-width: 160px;
+    /* Set a minimum width */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Style the buttons inside the dropdown */
+.dropdown-content input[type="button"] {
+    color: var(--text-100);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border: none;
+    background: none;
+    text-align: left;
+    width: 100%;
+    /* Make the buttons expand to the width of the container */
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Add a hover effect for the buttons */
+.dropdown-content input[type="button"]:hover {
+    background-color: #ddd;
 }
