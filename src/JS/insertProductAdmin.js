@@ -70,6 +70,7 @@ function insertProduct() {
       riferimento +
       "&variabile_decisionale=" +
       variabile_decisionale;
+    // alert(url);
   } else if (category == "sale") {
     var codice = encodeURIComponent(document.getElementById("codice").value);
     var data_emissione = encodeURIComponent(

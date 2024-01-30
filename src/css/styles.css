@@ -1544,7 +1544,7 @@ nav.sidenav {
     height: var(--border-radius);
     width: var(--border-radius);
     right: 0;
-    background-color:transparent;
+    background-color: transparent;
 }
 
 .nav-list li.active::before {
