@@ -117,15 +117,16 @@
         font-size: 1.2em;
     }
 
-    #cookie-section #cookie-heading {
+    section#cookie-section #cookie-heading {
         font-size: 1.2em;
     }
 
-    #cookie-section #cookie-desc {
+    section#cookie-section #cookie-desc {
         font-size: 0.8em;
+        padding: .5em;
     }
 
-    #cookie-section #cookie-header #cookie-icon {
+    section#cookie-section #cookie-header #cookie-icon {
         font-size: .5em;
     }
 }
@@ -213,6 +214,24 @@
         font-size: 1em;
         padding: 1em 0;
     }
+
+    /* main section#cookie-section {
+        padding: .5em;
+        width: 100%;
+    }
+
+    section#cookie-section div.cookie-container div.cookie-subcontainer {
+       margin: unset;
+    }
+
+    main section#cookie-section div.cookie-container {
+        width: 100%;
+        padding: unset;
+    }
+
+    #cookie-section #cookie-header {
+        width: 100%;
+    } */
 }
 
 :root {
@@ -301,8 +320,11 @@ div#presentation {
     font-size: 1em;
 }
 
-#examples .examples-col {
-    width: 15em;
+div#examples blockquote.tiktok-embed {
+    display: block;
+    width: 3em;
+    padding: 0 1em;
+    margin: unset;
 }
 
 #last {
@@ -698,20 +720,31 @@ main#login-main {
 section#cookie-section {
     width: 100%;
     left: 0;
-    padding-top: 0.2;
+    padding: 0.2em;
+    border-radius: 0;
 }
 
 #cookie-section #cookie-heading {
     font-size: 1.8em;
+    margin-left: .5em;
 }
 
 #cookie-section #cookie-desc {
     font-size: 1.5em;
     padding-bottom: .5em;
+    width: 100%;
 }
 
 #cookie-section #cookie-header #cookie-icon {
     font-size: 1em;
+}
+
+div.cookie-container {
+    width: 100%;
+}
+
+div.cookie-subcontainer {
+    padding: 1em 0 4em;
 }
 
 main#cart-main .cart-container a {

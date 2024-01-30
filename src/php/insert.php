@@ -15,16 +15,18 @@ $paginaHTML = file_get_contents(__DIR__ . "/../pages/insert.html");
 $category = $_GET['category'];
 $lista = "";
 if ($category == "product") {
-    $lista = "<input type=\"text\" id=\"id\" placeholder=\"Id\" required>" . "\n
-    <input type=\"text\" id=\"nome\" placeholder=\"Nome\" required>" . "\n
-    <input type=\"text\" id=\"tipo\" placeholder=\"Tipologia\" required>" . "\n
-    <input type=\"textarea\" id=\"descrizione\" placeholder=\"Descrizione\" required> " . "\n
-    <input type=\"text\" id=\"prezzo\" placeholder=\"Prezzo\" required> " . "\n
-    <input type=\"text\" id=\"colore\" placeholder=\"Colore\" required>" . "\n
-    <input type=\"text\" id=\"disponibilita\" placeholder=\"Disponibilità\" required>" . "\n
-    <input type=\"text\" id=\"categoria\" placeholder=\"Categoria\" required>" . "\n
-    <input type=\"text\" id=\"riferimento\" placeholder=\"Riferimento\" required>" . "\n
-    <input type=\"button\" class=\"inserisciProdotto\" value=\"Inserisci\">";
+    $lista = "<h2 class=\"headings\">Crea Prodotto</h2>" . "<div class=\"info-container\">" .
+        "<div class=\"text-fields\"><label for=\"id\">SKU</label><input type=\"text\" id=\"id\" placeholder=\"Id\" required></div>" . "\n
+    <div class=\"text-fields\"><label for=\"nome\">Nome</label><input type=\"text\" id=\"nome\" placeholder=\"Nome\" required></div>" . "</div>" . "<div class=\"info-container\">" . "\n
+    <div class=\"text-fields\"><label for=\"tipo\">Tipo</label><input type=\"text\" id=\"tipo\" placeholder=\"Tipologia\" required></div>" . "\n
+    <div class=\"text-fields\"><label for=\"riferimento\">PC o Tastiera</label><input type=\"text\" id=\"riferimento\" placeholder=\"Riferimento\" required></div>" .  "\n
+    </div>" . "<div class=\"info-container\">" .  "\n
+    <div class=\"text-fields\"><label for=\"prezzo\">Prezzo</label><input type=\"text\" id=\"prezzo\" placeholder=\"Prezzo\" required></div> " . "\n
+    <div class=\"text-fields\"><label for=\"colore\">Colore</label><input type=\"text\" id=\"colore\" placeholder=\"Colore\" required></div>" . "</div>" . "<div class=\"info-container\">" . "\n
+    <div class=\"text-fields\"><label for=\"disponibilita\">Disponibilità</label><input type=\"text\" id=\"disponibilita\" placeholder=\"Disponibilità\" required></div>" . "\n
+    <div class=\"text-fields\"><label for=\"categoria\">Categoria</label><input type=\"text\" id=\"categoria\" placeholder=\"Categoria\" required></div>" . "</div>"  . "<div class=\"text-fields prod-description\"><label for=\"descrizione\">Descrizione</label>
+                                <textarea id=\"descrizione\" rows=\"10\" cols=\"100\"  placeholder=\"Descrizione Prodotto\"></textarea></div>\n" . "\n
+<input id=\"inserisci-prodotto\" type=\"button\" class=\"inserisciProdotto\" value=\"Inserisci\">";
     $paginaHTML = str_replace('<script src="../js/insertProductAdmin.js"></script>', '<script src="../js/insertProductAdmin.js" data-categoria="product"></script>', $paginaHTML);
 } else {
     $lista = "<input type=\"text\" id=\"codice\" placeholder=\"codice\" required>" . "\n

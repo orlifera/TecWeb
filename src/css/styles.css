@@ -183,6 +183,12 @@ abbr {
     text-decoration: none;
 }
 
+#menu {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
 #menu a {
     text-decoration: none;
 }
@@ -297,19 +303,6 @@ nav svg:not(.signup, #sun, #moon) {
     fill: var(--text-300);
 }
 
-#menu.fixed {
-    position: fixed;
-    top: 0;
-    z-index: 1;
-}
-
-#breadcrumb.fixed {
-    position: fixed;
-    top: 4.3em;
-    z-index: 1;
-    margin-bottom: 4em;
-}
-
 #breadcrumb {
     display: block;
     padding: 0.5em;
@@ -388,11 +381,6 @@ nav svg:not(.signup, #sun, #moon) {
     fill: var(--text-100)
 }
 
-#cookie-heading .icon {
-    width: 3em;
-    height: 3em;
-}
-
 .info-p {
     text-align: center;
     padding-top: 2em;
@@ -444,57 +432,11 @@ nav svg:not(.signup, #sun, #moon) {
 #examples blockquote {
     display: inline-block;
     width: 30%;
-    padding: 0 5em;
+    padding: 0 1em;
 }
-
 
 #examples .title {
     padding: 1em 0;
-}
-
-#examples dl {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
-
-#examples .examples-col {
-    text-align: center;
-    width: 18em;
-    padding: 2em 2em;
-    margin: 2em;
-    background-color: var(--accent-200);
-    border-radius: 1%;
-    color: #030303;
-}
-
-.examples-col img {
-    width: 100%;
-    height: auto;
-    margin: auto;
-}
-
-.examples-col dt {
-    font-weight: bold;
-    padding-bottom: 1em;
-}
-
-.examples-col dd {
-    width: 5em;
-    margin: auto;
-    padding: 0.5em;
-}
-
-#examples p {
-    text-align: center;
-    color: var(--text-100);
-    padding-top: 0.5em;
-    font-size: 1.2em;
-}
-
-#examples a {
-    text-decoration: underline;
-    color: var(--text-100);
 }
 
 #about {
@@ -512,7 +454,7 @@ nav svg:not(.signup, #sun, #moon) {
 #about p {
     width: 70%;
     margin: auto;
-    text-align: justify;
+    text-align: center;
     padding-bottom: 1em;
     font-size: 20px;
     line-height: 2em;
@@ -1035,9 +977,10 @@ fieldset#termini {
 .cookie-subcontainer {
     width: 85%;
     margin: auto;
+    text-align: center;
 }
 
-#cookie-heading {
+#cookie-header {
     width: 15em;
     display: flex;
     align-items: center;
@@ -1049,7 +992,7 @@ fieldset#termini {
 }
 
 #cookie-desc {
-    text-align: justify;
+    text-align: left;
     padding: .5em 0;
 }
 
@@ -1071,8 +1014,6 @@ fieldset#termini {
 
 .cookie-btn {
     display: inline;
-    align-items: center;
-    justify-content: center;
     padding: .5em;
     border-radius: 10px;
     background-color: var(--primary-100);
@@ -1454,14 +1395,15 @@ input.previous:focus {
     margin-right: .5em;
 }
 
-.qty-container, .qty-dt {
+.qty-container,
+.qty-dt {
     display: inline-block;
 }
 
 #qty {
     width: 2em;
     height: 2em;
-    text-align:center;
+    text-align: center;
     border-radius: none;
     border-top: 1px solid var(--text-100);
     border-bottom: 1px solid var(--text-100);
@@ -1473,7 +1415,8 @@ input.previous:focus {
     display: flex;
 }
 
-#minus, #add {
+#minus,
+#add {
     width: 2em;
     border: 1px solid var(--text-100);
 }
@@ -1488,7 +1431,9 @@ input.previous:focus {
     border-bottom-right-radius: 5px;
 }
 
-#minus, #add, #qty {
+#minus,
+#add,
+#qty {
     background-color: var(--bg-300);
     outline: none;
     color: var(--text-100);
@@ -1593,7 +1538,7 @@ nav.sidenav {
     height: var(--border-radius);
     width: var(--border-radius);
     right: 0;
-    background-color: var(--primary-100);
+    background-color:transparent;
 }
 
 .nav-list li.active::before {
@@ -2541,7 +2486,7 @@ input.card-name {
 .cart-container .product-image {
     width: 80%;
     height: auto;
-    object-fit:contain;
+    object-fit: contain;
 }
 
 #cart-main .capsule {
@@ -2549,7 +2494,9 @@ input.card-name {
     margin: unset;
 }
 
-#removeCart, #processOrder, #removeAll {
+#removeCart,
+#processOrder,
+#removeAll {
     color: var(--text-100);
     background-color: var(--bg-100);
     font-size: 1em;
@@ -2560,7 +2507,9 @@ input.card-name {
     width: 6em;
 }
 
-#removeCart:hover, #processOrder:hover, #removeAll:hover {
+#removeCart:hover,
+#processOrder:hover,
+#removeAll:hover {
     background-color: var(--bg-300);
 }
 
@@ -2592,11 +2541,14 @@ input.card-name {
     text-align: center;
 }
 
-#processOrder, #removeAll {
+#processOrder,
+#removeAll {
     width: unset;
 }
 
-#cart-main #minus, #cart-main #add, #cart-main #qty {
+#cart-main #minus,
+#cart-main #add,
+#cart-main #qty {
     background-color: var(--bg-100);
 }
 
@@ -2622,11 +2574,11 @@ input.card-name {
     background-color: var(--bg-100);
 }
 
-#modificaProdotto {
+#modificaProdotto,
+#inserisci-prodotto {
     text-decoration: none;
     background-color: var(--accent-100);
     color: var(--text-100);
-    width: 10%;
     display: inline-block;
     margin: 3em 2em;
     font-size: 1em;
@@ -2636,10 +2588,12 @@ input.card-name {
     padding: 1em;
 }
 
-#modificaProdotto:hover {
+#modificaProdotto:hover,
+#inserisci-prodotto:hover {
     background-color: var(--primary-200);
     color: var(--text-300);
 }
+
 
 .headings {
     color: var(--text-100);
