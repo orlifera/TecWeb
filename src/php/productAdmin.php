@@ -132,40 +132,35 @@ if ($connectionOk) {
     exit;
 }
 
-    foreach ($nomePc as $i => $nome) {
-        if ($nome != null) {
-            $prova = "<li>\n" .
-                "<a class=\"\" href=\"getProduct.php?categoria=" . $categoria[$i] . "&id=" . $sku[$i] . "\">" .
-                "<input type=\"checkbox\" class=\"" . $categoria[$i] . "\" id=\"" . $sku[$i] . "\">\n" .
-                "<label for=\"" . $sku[$i] . "\">" . $nome . "</label>\n" .
-                "</a>\n" .
-                "<div class=\"dropdown-options\">
-                            <button class=\"dropbtn\">⋮</button>
-                            <div class=\"dropdown-content hidden\">
-                                <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\">
-                                <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\">
-                            </div>
-                        </div>" .
-
-
-                "</li>\n";
-            $prodottiAcc .= $prova;
-        }
+foreach ($nomePc as $i => $nome) {
+    if ($nome != null) {
+        $prova = "<li>\n" .
+            "<a class=\"\" href=\"getProduct.php?categoria=" . $categoria[$i] . "&id=" . $sku[$i] . "\">" .
+            "<label for=\"" . $sku[$i] . "\">" . $nome . "</label>\n" .
+            "</a>\n" .
+            "<div class=\"dropdown-options\">
+                    <button class=\"dropbtn\">⋮</button>
+                    <div class=\"dropdown-content hidden\">
+                    <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\" class=\"removeItem\" data-id=\"" . $sku[$i] . "\"
+                    data-categoria=\"prodotti\">
+                    <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\" class=\"modifyItem\" data-id=\"" . $sku[$i] . "\" data-categoria=\"prodotti\">
+                    </div>
+                </div>" .
+            "</li>\n";
+        $prodottiAcc .= $prova;
     }
-    $prodottiTotali .=  $prodottiPcKbd .   $prodottiAcc;
-    //     "<input type=\"button\" name=\"insertProduct\" id=\"insertItem\" value=\"Inserisci nuovo\">" .
-    //     "<input type=\"button\" name=\"removeProduct\" id=\"removeItem\" value=\"Rimuovi\">" .
-    //     "<input type=\"button\" name=\"modifyProduct\" id=\"modifyItem\" value=\"Modifica\">" .
-    //     "<input type=\"button\" name=\"selectAllProduct\" id=\"selectAllItem\" value=\"Seleziona tutti\">" .
-    //     "<input type=\"button\" name=\"deselectAllProduct\" id=\"deselectAllItem\" value=\"Deseleziona tutti\"><br>";
-} else if ($variabile_dec == "sconti") {
-    $sconti = "";
-    $codiceSconto = "";
-    $emissioneSconto = "";
-    $scadenzaSconto = "";
-    $usernameSconto = "";
-    $isUsedSconto = "";
-    $valoreSconto = "";
+}
+$prodottiTotali .=  $prodottiPcKbd .   $prodottiAcc .
+    "<input type=\"button\" name=\"insertProduct\" class=\"insertItem\" value=\"Inserisci nuovo\" data-categoria=\"prodotti\">";
+
+/* sconti */
+$sconti = "";
+$codiceSconto = "";
+$emissioneSconto = "";
+$scadenzaSconto = "";
+$usernameSconto = "";
+$isUsedSconto = "";
+$valoreSconto = "";
 
 $connectionOk = $connection->openDBConnection();
 if ($connectionOk) {
