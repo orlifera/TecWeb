@@ -2601,7 +2601,6 @@ input.card-name {
     text-decoration: none;
     background-color: var(--accent-100);
     color: var(--text-100);
-    width: 10%;
     display: inline-block;
     margin: 3em 2em;
     font-size: 1em;
@@ -2616,6 +2615,7 @@ input.card-name {
     background-color: var(--primary-200);
     color: var(--text-300);
 }
+
 
 .headings {
     color: var(--text-100);

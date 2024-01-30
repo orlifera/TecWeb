@@ -151,7 +151,7 @@ foreach ($nomePc as $i => $nome) {
     }
 }
 $prodottiTotali .=  $prodottiPcKbd .   $prodottiAcc .
-    "<input type=\"button\" name=\"insertProduct\" class=\"insertItem\" value=\"Inserisci nuovo\" data-categoria=\"prodotti\">";
+    "<input id=\"inserisci-prodotto\"type=\"button\" name=\"insertProduct\" class=\"insertItem\" value=\"Crea Prodotto\" data-categoria=\"prodotti\">";
 
 /* sconti */
 $sconti = "";
