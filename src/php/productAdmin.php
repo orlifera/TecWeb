@@ -192,9 +192,25 @@ if ($connectionOk) {
 }
 foreach ($codiceSconto as $i => $nome) {
     if ($nome != null) {
-        $prova = "<li>\n" .
-            "<label for=\"" . $nome . "\">" . $nome . " " . $emissioneSconto[$i] . " " . $scadenzaSconto[$i] . " " . $usernameSconto[$i] . " " . ($isUsedSconto[$i] == 0 ? "Buono non usato" : "Buono usato") . " " . $valoreSconto[$i] . "</label>\n .
-            <div class=\"dropdown-options\">
+        /*$prova = "<li>\n <ul>" .
+            "<li> " . $nome . " </li>\n" .
+            "<li> " . $nomeUtente[$i] . "</li>\n" .
+            "<li>" . $cognomeUtente[$i] . "</li>\n" .
+            "<li>" . $emailUtente[$i] . "</li>\n" .
+            "<li>" . $phoneUtente[$i] . "</li>\n" .
+            "<li>" . $indirizzo[$i] . "</li>\n" .
+            "<li>" . $cittaUtente[$i] . "</li>\n" .
+            "<li>" . $capUtente[$i] . "</li>\n" .
+            "<li>" . $quantitaOrdinata[$i] . "</li>\n" .
+            "<li>" . $prezzoTotale[$i] . "</li>\n</ul>\n" . */
+        $prova = "<li>\n<ul>\n" .
+            "<li>" . $nome . "</li>\n" .
+            "<li>" . $emissioneSconto[$i] . "</li>\n" .
+            "<li>" . $scadenzaSconto[$i] . "</li>\n" .
+            "<li>" . $usernameSconto[$i] . "</li>\n" .
+            "<li>" . ($isUsedSconto[$i] == 0 ? "Buono non usato" : "Buono usato") . "</li>\n</ul>\n" .
+
+            "<div class=\"dropdown-options\">
                     <button class=\"dropbtn\">⋮</button>
                     <div class=\"dropdown-content hidden\">
                     <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\" class=\"removeItem\" data-id=\"" . $nome . "\" data-categoria=\"sconti\">
@@ -210,9 +226,14 @@ $scontiTotali .=    $sconti .
 
 /* ordini */
 $id = "";
-$utente = "";
+$nomeUtente = "";
+$cognomeUtente = "";
+$emailUtente = "";
+$phoneUtente = "";
+$indirizzoUtente = "";
+$cittaUtente = "";
+$capUtente = "";
 $quantitaOrdinata = "";
-$indirizzo = "";
 $prezzoTotale = "";
 
 $connectionOk = $connection->openDBConnection();
@@ -222,15 +243,25 @@ if ($connectionOk) {
     if ($listaPC != null) {
         foreach ($listaPC as $pc) {
             $id .=  $pc['id'] . ",";
-            $utente .= $pc['utente'] . ",";
+            $nomeUtente .= $pc['nome'] . ",";
+            $cognomeUtente .= $pc['cognome'] . ",";
+            $emailUtente .= $pc['email'] . ",";
+            $phoneUtente .= $pc['numero'] . ",";
+            $indirizzoUtente .= $pc['indirizzo'] . ",";
+            $cittaUtente .= $pc['citta'] . ",";
+            $capUtente .= $pc['cap'] . ",";
             $quantitaOrdinata .= $pc['quantitaOrdinata'] . ",";
-            $indirizzo .= $pc['indirizzo'] . ",";
             $prezzoTotale .= $pc['prezzo'] . ",";
         }
         $id = explode(",", $id);
-        $utente = explode(",", $utente);
+        $nomeUtente = explode(",", $nomeUtente);
+        $cognomeUtente = explode(",", $cognomeUtente);
+        $emailUtente = explode(",", $emailUtente);
+        $phoneUtente = explode(",", $phoneUtente);
+        $indirizzo = explode(",", $indirizzoUtente);
+        $cittaUtente = explode(",", $cittaUtente);
+        $capUtente = explode(",", $capUtente);
         $quantitaOrdinata = explode(",", $quantitaOrdinata);
-        $indirizzo = explode(",", $indirizzo);
         $prezzoTotale = explode(",", $prezzoTotale);
     } else {
         $stringaPC = "<p>Errore</p>";
@@ -244,8 +275,18 @@ if ($connectionOk) {
 
 foreach ($id as $i => $nome) {
     if ($nome != null) {
-        $prova = "<li>\n<dl>\n<dd>\n" .
-            "<label for=\"" . $nome . "\">" . $nome . " " . $utente[$i] . " " . $quantitaOrdinata[$i] . " " . $indirizzo[$i] . " " . $prezzoTotale[$i] . "</label>\n" .
+        $prova = "<li>\n <ul>" .
+            "<li> " . $nome . " </li>\n" .
+            "<li> " . $nomeUtente[$i] . "</li>\n" .
+            "<li>" . $cognomeUtente[$i] . "</li>\n" .
+            "<li>" . $emailUtente[$i] . "</li>\n" .
+            "<li>" . $phoneUtente[$i] . "</li>\n" .
+            "<li>" . $indirizzo[$i] . "</li>\n" .
+            "<li>" . $cittaUtente[$i] . "</li>\n" .
+            "<li>" . $capUtente[$i] . "</li>\n" .
+            "<li>" . $quantitaOrdinata[$i] . "</li>\n" .
+            "<li>" . $prezzoTotale[$i] . "</li>\n</ul>\n" .
+
             "<div class=\"dropdown-options\">
                     <button class=\"dropbtn\">⋮</button>
                     <div class=\"dropdown-content hidden\">
@@ -254,14 +295,14 @@ foreach ($id as $i => $nome) {
                     <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\" class=\"modifyItem\" data-id=\"" . $nome . "\"  data-categoria=\"ordini\">
                     </div>
                 </div>" .
-            "</dd>\n</dl>\n</li>\n";
+            "</li>\n";
         $ordini .= $prova;
     }
 }
 $ordiniTotali .= $ordini .
-    "<input type=\"button\" name=\"insertOrder\" class=\"insertItem\" value=\"Aggiungi Ordine\" data-categoria=\"ordini\">";
 
-$connection->closeDBConnection();
+
+    $connection->closeDBConnection();
 
 $paginaHTML = str_replace('{prodotti}', $prodottiTotali, $paginaHTML);
 $paginaHTML = str_replace('{sconti}', $scontiTotali, $paginaHTML);

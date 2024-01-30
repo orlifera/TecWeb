@@ -73,7 +73,6 @@ CREATE TABLE Sconto (
   username varchar(255),
   isUsed boolean default false,
   valore double not null,
-  foreign key (username) references utente(username)
 ) Engine = InnoDB default charset = utf8mb4;
 
 INSERT INTO
@@ -112,28 +111,34 @@ CREATE TABLE Carrello (
   foreign key (sku) references Prodotto(sku)
 ) Engine = InnoDB default charset = utf8mb4;
 
-drop table if exists Ordine;
+DROP TABLE IF EXISTS Ordine;
 
 CREATE TABLE Ordine (
-  id varchar(10) primary key,
-  utente varchar(256) not null,
-  quantitaOrdinata double not null,
+  id int(10) primary key auto_increment not null,
+  nome varchar(256) not null,
+  cognome varchar(256) not null,
+  email varchar(256) not null,
+  numero int(10) not null,
   indirizzo varchar(256) not null,
-  prezzo double not null,
-  foreign key (utente) references Utente(username)
-) Engine = InnoDB default charset = utf8mb4;
+  citta varchar(256) not null,
+  cap int(5) not null,
+  quantitaOrdinata double not null,
+  prezzo double not null
+) Engine=InnoDB default charset=utf8mb4;
 
-INSERT INTO
-  Ordine
-VALUES
-  (
-    "OR456D",
-    "admin",
-    4,
-    "Via Premaore Camponogara",
-    12
-  ),
-  ("OR423D", "user", 2, "Camponogara", 5);
+
+INSERT INTO Ordine (nome, email, cognome, numero, indirizzo, citta, cap, quantitaOrdinata, prezzo)
+VALUES (
+  'Cicciogamer',
+  'ciao@gmail.com',  
+  'Cicciogamer',     
+  472673,
+  'Via Premaore',
+  'Camponogara',
+  30010,
+  2,
+  100
+);
 
 INSERT INTO Prodotto VALUES 
 ("P1", "Bull's Eye", "Gaming", "Il pc è composto da un Ryzen 5 5600,16GB di RAM a 3200Mhz e 1TB di SSD. Ha una RTX 3050 ed è alimentato da una PSU 650W. Il sistema raffreddato da un dissipatore a liquido Itek RGB a 240mm. Include il sistema operativo Windows 10 PRO.", 1320, "Nero, Bianco", 10, "../../assets/images/pc/P1.jpg", "pc", null),

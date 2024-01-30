@@ -445,9 +445,10 @@ class DBAccess
         return $rowsAffected > 0;
     }
 
-    public function insertNewOrder($codice, $utente, $quantitaOrdinata, $indirizzo, $prezzo)
+    /*insertNewOrder($sku, $quantitaOrdinata, $nomeUtente, $cognomeUtente, $emailUtente, $phoneUtente, $indirizzoUtente, $cittaUtente, $capUtente, $prezzo); */
+    public function insertNewOrder($quantitaOrdinata, $nomeUtente, $cognomeUtente, $emailUtente, $phoneUtente, $indirizzoUtente, $cittaUtente, $capUtente, $prezzo)
     {
-        $queryInsert = "INSERT INTO Ordine (id, utente, quantitaOrdinata, indirizzo, prezzo) VALUES (\"$codice\", \"$utente\", $quantitaOrdinata, \"$indirizzo\", $prezzo)";
+        $queryInsert = "INSERT INTO Ordine (nome, cognome, email, numero, indirizzo, citta, cap, quantitaOrdinata, prezzo) VALUES (\"$nomeUtente\", \"$cognomeUtente\", \"$emailUtente\", $phoneUtente, \"$indirizzoUtente\",   \"$cittaUtente\", $capUtente,$quantitaOrdinata,  $prezzo)";
         mysqli_query($this->connection, $queryInsert) or die("errore in DBaccess" . mysqli_error($this->connection));
         return mysqli_affected_rows($this->connection) > 0;
     }

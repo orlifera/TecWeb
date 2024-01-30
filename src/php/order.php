@@ -12,11 +12,21 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 setlocale(LC_ALL, 'it_IT');
 
-$paginaHTML = file_get_contents(__DIR__ . "/../pages/checkout.html");
+$paginaHTML = file_get_contents(__DIR__ . "/../pages/payments.html");
 
 $listaPC = "";
+
 $sku = $_GET["id"];
 $quantitaOrdinata = $_GET["quantitaOrdinata"];
+$nomeUtente = $_GET["nome"];
+$cognomeUtente = $_GET["cognome"];
+$emailUtente = $_GET["email"];
+$phoneUtente = $_GET["phone"];
+$indirizzoUtente = $_GET["indirizzo"];
+$cittaUtente = $_GET["citta"];
+$capUtente = $_GET["cap"];
+$prezzo = $_GET["prezzo"];
+
 $quantitaRimanente = "";
 
 $skuArray = explode(',', $sku);
@@ -41,6 +51,7 @@ if ($connectionOk) {
         if (!empty($listaPC)) {
             $quantitaRimanente = $listaPC[0] - $quantitaOrdinata;
             $listaPC = $connection->updateDisponibilitaProdotto($sku, $quantitaRimanente);
+            $listaPC = $connection->insertNewOrder($quantitaOrdinata, $nomeUtente, $cognomeUtente, $emailUtente, $phoneUtente, $indirizzoUtente, $cittaUtente, $capUtente, $prezzo);
             $listaPC = $connection->deleteFromCart($sku);
         } else {
             $htmlProdotti = "<p>Errore</p>";

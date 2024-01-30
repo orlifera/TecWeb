@@ -10,8 +10,6 @@ function insertItem() {
     window.location.href = "../php/insert.php?category=product";
   } else if (tipologia == "sconti") {
     window.location.href = "../php/insert.php?category=sale";
-  } else {
-    window.location.href = "../php/insert.php?category=order";
   }
 }
 
