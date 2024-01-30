@@ -62,14 +62,10 @@ if ($connectionOk) {
                 $connection->updatePsw($email, $np);
                 header('Location: profile.php?section=changepsw');
             } else {
-                // echo '<p class="banner errorDati">Uno dei campi non è corretto</p><svg id="err" class="cross-msg" width="30" height="30" viewBox="0 0 24 24" fill="none"> <path d="M19 5L4.99998 19M5.00001 5L19 19" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>';
                 $_SESSION['error_message'] = true;
                 header('Location: profile.php?section=changepsw');
             }
         } else {
-            // $errormsg="<div class=\"errorDati\">Compila tutti i dati</div>";
-            // $paginaHTML = str_replace('<div id="stato"></div>', $errormsg, $paginaHTML);
-            // echo($paginaHTML);
             echo '<p class="banner errorDati">Compila tutti i dati</p><svg id="err" class="cross-msg" width="30" height="30" viewBox="0 0 24 24" fill="none"> <path d="M19 5L4.99998 19M5.00001 5L19 19" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>';
 
         }
@@ -99,7 +95,6 @@ if ($connectionOk) {
             $paginaHTML = str_replace('<li class="adminListItem"></li>', $admin, $paginaHTML);
         }
     }
-    // print_r($listaInfo);
 }
 /*
 0. nome
@@ -125,7 +120,6 @@ $paginaHTML = str_replace('{dob}', $dob, $paginaHTML);
 $paginaHTML = str_replace('{city}', $city, $paginaHTML);
 $paginaHTML = str_replace('{address}', $address, $paginaHTML);
 $paginaHTML = str_replace('{cap}', $cap, $paginaHTML);
-// $paginaHTML = str_replace('{errorpsw}', $error, $paginaHTML);
 
 
 echo ($paginaHTML);
