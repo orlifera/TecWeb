@@ -154,12 +154,12 @@ if ($variabile_dec == "prodotti") {
             $prodottiAcc .= $prova;
         }
     }
-    $prodottiTotali .=  $prodottiPcKbd .   $prodottiAcc .
-        "<input type=\"button\" name=\"insertProduct\" id=\"insertItem\" value=\"Inserisci nuovo\">" .
-        "<input type=\"button\" name=\"removeProduct\" id=\"removeItem\" value=\"Rimuovi\">" .
-        "<input type=\"button\" name=\"modifyProduct\" id=\"modifyItem\" value=\"Modifica\">" .
-        "<input type=\"button\" name=\"selectAllProduct\" id=\"selectAllItem\" value=\"Seleziona tutti\">" .
-        "<input type=\"button\" name=\"deselectAllProduct\" id=\"deselectAllItem\" value=\"Deseleziona tutti\"><br>";
+    $prodottiTotali .=  $prodottiPcKbd .   $prodottiAcc;
+    //     "<input type=\"button\" name=\"insertProduct\" id=\"insertItem\" value=\"Inserisci nuovo\">" .
+    //     "<input type=\"button\" name=\"removeProduct\" id=\"removeItem\" value=\"Rimuovi\">" .
+    //     "<input type=\"button\" name=\"modifyProduct\" id=\"modifyItem\" value=\"Modifica\">" .
+    //     "<input type=\"button\" name=\"selectAllProduct\" id=\"selectAllItem\" value=\"Seleziona tutti\">" .
+    //     "<input type=\"button\" name=\"deselectAllProduct\" id=\"deselectAllItem\" value=\"Deseleziona tutti\"><br>";
 } else if ($variabile_dec == "sconti") {
     $sconti = "";
     $codiceSconto = "";
