@@ -435,10 +435,9 @@ nav svg:not(.signup, #sun, #moon) {
     text-align: center;
 }
 
-#examples blockquote {
+#examples .video-container {
+    margin: 3em;
     display: inline-block;
-    width: 30%;
-    padding: 0 1em;
 }
 
 #examples .title {
