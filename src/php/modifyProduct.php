@@ -58,7 +58,7 @@ if ($connectionOk) {
 
             foreach ($stringaPC as $i => $stringa) {
                 if ($stringa !== null) {
-                    $prova = "<h2>{$stringa}</h2>" .
+                    $prova = "<h2 class=\"headings\">{$stringa}</h2>" .
                         "<div class=\"info-container\">" .
                         "<div class=\"text-fields\">
                             <label for=\"nome\">Nome</label>
@@ -71,8 +71,7 @@ if ($connectionOk) {
                         "</div>" .
                         "<div class=\"info-container\" >" .
                         "<div class=\"text-fields\">
-                                <label for=\"descrizione\">Descrizione</label>
-                                <input type=\"text\" id=\"descrizione\" placeholder=\"{$descrizione[$i]}\">
+                                <label for=\"path_image\">Immagine (path)</label><input type=\"text\" id=\"path_image\" placeholder=\"{$path_image[$i]}\">
                             </div>\n" .
                         "<div class=\"text-fields\">
                             <label for=\"prezzo\">Prezzo</label>
@@ -90,8 +89,10 @@ if ($connectionOk) {
                         </div>\n" .
                         "</div>" .
                         "<div class=\"info-container\" >" .
-                        "<div class=\"text-fields\"><label for=\"path_image\">Immagine (path)</label><input type=\"text\" id=\"path_image\" placeholder=\"{$path_image[$i]}\"></div>\n" .
-                        "<div class=\"text-fields\"><label for=\"categoria\">Categoria</label><input type=\"text\" id=\"categoria\" placeholder=\"{$categoria[$i]}\"></div>\n" . "</div>";
+
+                        "<div class=\"text-fields prod-category\"><label for=\"categoria\">Categoria</label><input type=\"text\" id=\"categoria\" placeholder=\"{$categoria[$i]}\"></div>\n" . "</div>" .
+                        "<div class=\"text-fields prod-description\"><label for=\"descrizione\">Descrizione</label>
+                                <textarea id=\"descrizione\" rows=\"10\" cols=\"100\"  placeholder=\"{$descrizione[$i]}\"></textarea></div>\n";
 
                     $htmlProdotti .= $prova;
                 }
