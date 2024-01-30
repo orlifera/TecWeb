@@ -131,7 +131,7 @@
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 376px) {
     
     #mobile ul li {
         padding: 0 1em;
@@ -182,6 +182,10 @@
     #product .container {
         width: 98%;
     }
+
+    #examples .video-container {
+        width: 15em;
+    }
 }
 
 @media (max-width: 300px) {
@@ -215,23 +219,13 @@
         padding: 1em 0;
     }
 
-    /* main section#cookie-section {
-        padding: .5em;
-        width: 100%;
+    #examples h3.title {
+        font-size: 1.5em;
     }
 
-    section#cookie-section div.cookie-container div.cookie-subcontainer {
-       margin: unset;
+    #examples .video-container {
+        width: 10em;
     }
-
-    main section#cookie-section div.cookie-container {
-        width: 100%;
-        padding: unset;
-    }
-
-    #cookie-section #cookie-header {
-        width: 100%;
-    } */
 }
 
 :root {

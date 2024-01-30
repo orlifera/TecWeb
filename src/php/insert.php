@@ -29,12 +29,12 @@ if ($category == "product") {
 <input id=\"inserisci-prodotto\" type=\"button\" class=\"inserisciProdotto\" value=\"Inserisci\">";
     $paginaHTML = str_replace('<script src="../js/insertProductAdmin.js"></script>', '<script src="../js/insertProductAdmin.js" data-categoria="product"></script>', $paginaHTML);
 } else {
-    $lista = "<input type=\"text\" id=\"codice\" placeholder=\"codice\" required>" . "\n
-    <input type=\"text\" id=\"data_emissione\" placeholder=\"data_emissione\" required>" . "\n
-    <input type=\"text\" id=\"data_scadenza\" placeholder=\"data_scadenza\" required>" . "\n
-    <input type=\"text\" id=\"username\" placeholder=\"username\" required>" . "\n
-    <input type=\"text\" id=\"valore\" placeholder=\"valore\" required>" . "\n
-    <input type=\"button\" class=\"inserisciProdotto\" value=\"Inserisci\">";
+    $lista = "<div class=\"info-container\"><div class=\"text-fields\"><label for=\"codice\">Codice</label><input type=\"text\" name=\"codice\" id=\"codice\" placeholder=\"Inserire ccodice\" required></div></div>" . "\n
+    <div class=\"info-container\"><div class=\"text-fields\"><label for=\"data_emissione\">Data Emissione</label><input type=\"text\" name=\"data_emissione\" id=\"data_emissione\" placeholder=\"Inserire data di emissione\" required></div>" . "\n
+    <div class=\"text-fields\"><label for=\"data_scadenza\">Data Scadenza</label><input type=\"text\" name=\"data_scadenza\" id=\"data_scadenza\" placeholder=\"Inserire data di scadenza\" required></div></div>" . "\n
+    <div class=\"info-container\"><div class=\"text-fields\"><label for=\"username\" lang=\"en\">Username</label><input type=\"text\" name=\"username\" id=\"username\" placeholder=\"Inserire username\" required></div>" . "\n
+    <div class=\"text-fields\"><label for=\"valore\">Valore</label><input type=\"text\" name=\"valore\" id=\"valore\" placeholder=\"Inserire valore\" required></div></div>" . "\n
+    <input type=\"button\" name=\"inserisciSconto\" id=\"aggiungiSconto\" class=\"inserisciSconto\" value=\"Inserisci Sconto\">";
     $paginaHTML = str_replace('<script src="../js/insertProductAdmin.js"></script>', '<script src="../js/insertProductAdmin.js" data-categoria="sale"></script>', $paginaHTML);
 }
 

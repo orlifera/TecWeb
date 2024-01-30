@@ -438,6 +438,11 @@ nav svg:not(.signup, #sun, #moon) {
 #examples .video-container {
     margin: 3em;
     display: inline-block;
+    width: 20em;
+}
+
+#examples .video-container video {
+    width: 100%;
 }
 
 #examples .title {
@@ -994,6 +999,12 @@ fieldset#termini {
 
 #cookie-icon {
     width: 2em;
+    fill: transparent;
+    stroke: var(--text-100);
+}
+
+#cookie-link {
+    color: var(--background-link);
 }
 
 #cookie-desc {
@@ -1007,7 +1018,7 @@ fieldset#termini {
     position: fixed;
     bottom: 1em;
     left: 2em;
-    background-color: var(--accent-200);
+    background-color: var(--bgProduct);
     box-shadow: 0 0 2px rgba(0, 0, 0, .5);
     border-radius: 15px;
 }
@@ -1707,6 +1718,9 @@ input.dataHolder {
     outline: none;
 }
 
+#paymentMethod label {
+    background-color: transparent;
+}
 
 .name {
     padding: 0px 80px 0px 0px;
@@ -1738,7 +1752,7 @@ input.dataHolder {
     background-color: transparent;
     height: 1em;
     color: var(--text-100);
-    width: 105%;
+    width: 100%;
     border-bottom: 1px solid var(--cardLabel);
 }
 
@@ -2544,9 +2558,11 @@ input.card-name {
     resize: none;
 }
 
-.mod-prod {
+div.mod-prod {
     background-color: var(--bg-100);
     text-align: center;
+    width: 70%;
+    margin: auto;
 }
 
 .mod-prod label {
@@ -2589,6 +2605,13 @@ input.card-name {
 
 .admin-container {
     background-color: var(--bg-100);
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+
+.admin-container .headings {
+    padding: 2em;
 }
 
 .admin-container label {
