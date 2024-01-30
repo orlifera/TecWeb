@@ -1010,7 +1010,7 @@ fieldset#termini {
 
 /*Theme Switcher*/
 #theme-switcher {
-    background-color: var(--accent-200);
+    background-color: var(--bg-100);
     border-radius: 50px;
     display: flex;
     align-items: center;
@@ -1183,11 +1183,6 @@ fieldset#stage3 {
     text-align: center;
 }
 
-/* #connect {
-    width: 120%;
-    border: 1px solid var(--border);
-} */
-
 a.login-btn {
     text-decoration: none;
     color: var(--textP-login);
@@ -1259,8 +1254,8 @@ a.login-btn:hover {
     display: flex;
     position: relative;
     align-items: center;
-    border: 1px solid var(--border);
     padding: 2%;
+    border: 2px solid var(--primary-100);
     margin: auto;
     width: 45%;
     border-radius: 10px;
@@ -1674,10 +1669,6 @@ fieldset.fieldProfile {
     color: var(--text-100);
     background-color: var(--bg-100);
 
-}
-
-.fieldProfile .text-fields {
-    border: 2px solid var(--primary-100);
 }
 
 input.dataHolder {
@@ -2527,4 +2518,41 @@ input.card-name {
 /* Add a hover effect for the buttons */
 .dropdown-content input[type="button"]:hover {
     background-color: #ddd;
+}
+
+.text-fields.prod-description textarea {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    text-align: center;
+    resize: none;
+}
+
+.mod-prod {
+    background-color: var(--bg-100);
+    text-align: center;
+}
+
+.mod-prod label {
+    color: var(--text-100);
+    background-color: var(--bg-100);
+}
+
+#modificaProdotto {
+    text-decoration: none;
+    background-color: var(--accent-100);
+    color: var(--text-100);
+    width: 10%;
+    display: inline-block;
+    margin: 3em 2em;
+    font-size: 1em;
+    text-align: center;
+    border: 2px solid var(--primary-200);
+    border-radius: 10px;
+    padding: 1em;
+}
+
+#modificaProdotto:hover {
+    background-color: var(--primary-200);
+    color: var(--text-300);
 }
