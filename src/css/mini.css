@@ -320,12 +320,12 @@ div#presentation {
     font-size: 1em;
 }
 
-div#examples blockquote.tiktok-embed {
+/* div#examples blockquote.tiktok-embed {
     display: block;
     width: 3em;
     padding: 0 1em;
     margin: unset;
-}
+} */
 
 #last {
     padding: 4em 0;
@@ -611,10 +611,6 @@ main#login-main {
     margin-bottom: 3em;
 }
 
-.sidenav {
-    display: none;
-}
-
 .info-container {
     flex-direction: column;
 }
@@ -757,4 +753,62 @@ main#cart-main .cart-container a {
 
 #cart-main #caps2 {
     width: 30%
+}
+
+#side div#profileDiv {
+    justify-content: flex-start;
+}
+
+nav.sidenav {
+    position: relative;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 85dvh;
+    transition: 0.3s;
+}
+
+.nav-list li.active::before,
+.nav-list li.active::after {
+    display: none;
+}
+
+.sidenav li.active {
+    background-color: var(--accent-100);
+    border-left: none;
+}
+
+form#profilePage {
+    position: absolute;
+    z-index: 1;
+}
+
+nav.sidenav #hamburger {
+    display: block;
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    stroke: var(--text-100);
+    transition: 0.3s;
+}
+
+#side nav.sidenav.open {
+    width: 80%;
+    transition: 0.3s;
+}
+
+#side nav.sidenav #hamburger.visible {
+    left: unset;
+    right: 1em;
+    stroke: var(--text-300);
+    transition: 0.3s;
+}
+
+.nav-list {
+    margin-top: 1em;
+}
+
+#side #nav-header, .nav-list {
+    overflow: hidden;
 }

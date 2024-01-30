@@ -223,7 +223,7 @@ foreach ($codiceSconto as $i => $nome) {
     }
 }
 $scontiTotali .=    $sconti .
-    "<input type=\"button\" name=\"insertSconto\" class=\"insertItem\" value=\"Aggiungi sconto\" data-categoria=\"sconti\">";
+    "<input type=\"button\" name=\"insertSconto\" id=\"aggiungiSconto\" class=\"insertItem\" value=\"Aggiungi sconto\" data-categoria=\"sconti\">";
 
 /* ordini */
 $id = "";

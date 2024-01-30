@@ -115,6 +115,11 @@ html {
     background-color: var(--bg-100);
     margin: auto;
     line-height: 1.5em;
+    width: 100%;
+}
+
+main {
+    width: 100%;
 }
 
 /*Shake icona carrello quando aggiungi prodotti */
@@ -146,6 +151,7 @@ html {
 
 #main-header {
     background-color: var(--bg-100);
+
 }
 
 /* Text replacement */
@@ -2550,7 +2556,8 @@ input.card-name {
 }
 
 #modificaProdotto,
-#inserisci-prodotto {
+#inserisci-prodotto,
+#aggiungiSconto {
     text-decoration: none;
     background-color: var(--accent-100);
     color: var(--text-100);
@@ -2564,7 +2571,8 @@ input.card-name {
 }
 
 #modificaProdotto:hover,
-#inserisci-prodotto:hover {
+#inserisci-prodotto:hover,
+#aggiungiSconto:hover {
     background-color: var(--primary-200);
     color: var(--text-300);
 }
@@ -2598,4 +2606,31 @@ input.card-name {
     color: #00d828;
     background-color: #baffbc;
     text-align: center;
+}
+
+.fieldProfile #tb1, .fieldProfile #tb2 {
+    border: 1px solid var(--text-100);
+    margin: auto;
+    padding: 1em;
+    border-collapse:collapse;
+}
+
+#tb1 th, #tb2 th, #tb1 tr, #tb2 tr {
+    border: 1px solid var(--text-100);
+    border-collapse:collapse;
+    padding: 1em;
+}
+
+#tb1 caption, #tb2 caption {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 1em 0;
+}
+
+#sconti-desc, #ordini-desc {
+    display: none;
+}
+
+#hamburger {
+    display: none;
 }
