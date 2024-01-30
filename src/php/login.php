@@ -24,25 +24,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user_data = $result->fetch_assoc();
             if (password_verify($password, $user_data["password"])) {
                 $_SESSION["user"] = $user_data["username"];
-                if(isset($_SESSION['user'])) {
+                if (isset($_SESSION['user'])) {
                     header('Location: ../php/profile.php');
                 } else {
                     echo '<p>Non va la sessione</p>';
                 }
                 exit();
             } else {
-                $errormsg="<div class=\"errorDati\">Email o Password non coincidono</div>";
+                $errormsg = "<div class=\"errorDati\">Email o Password non coincidono</div>";
                 $paginaHTML = str_replace('<div id="errorDati"></div>', $errormsg, $paginaHTML);
-                $strReplace=" <a href=\"../pages/signup.html\" class=\"login-btn\">Registrati</a>";
+                $strReplace = " <a href=\"../pages/signup.html\" class=\"login-btn\">Registrati</a>";
                 $paginaHTML = str_replace('<a href="signup.html" class="login-btn">Registrati</a>', $strReplace, $paginaHTML);
-                echo($paginaHTML);
+                echo ($paginaHTML);
             }
         } else {
-            $errormsg="<div class=\"errorDati\">Email o Password non coincidono</div>";
+            $errormsg = "<div class=\"errorDati\">Email o Password non coincidono</div>";
             $paginaHTML = str_replace('<div id="errorDati"></div>', $errormsg, $paginaHTML);
-            $strReplace=" <a href=\"../pages/signup.html\" class=\"login-btn\">Registrati</a>";
+            $strReplace = " <a href=\"../pages/signup.html\" class=\"login-btn\">Registrati</a>";
             $paginaHTML = str_replace('<a href="signup.html" class="login-btn">Registrati</a>', $strReplace, $paginaHTML);
-            echo($paginaHTML);
+            echo ($paginaHTML);
         }
         $connessione->close();
     }

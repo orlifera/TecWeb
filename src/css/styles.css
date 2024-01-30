@@ -1254,7 +1254,7 @@ a.login-btn:hover {
     display: flex;
     position: relative;
     align-items: center;
-    border: 1px solid var(--border);
+    border: 2px solid var(--primary-100);
     padding: 2%;
     margin: auto;
     width: 45%;
@@ -1671,10 +1671,6 @@ fieldset.fieldProfile {
 
 }
 
-.fieldProfile .text-fields {
-    border: 2px solid var(--primary-100);
-}
-
 input.dataHolder {
     color: var(--text-100);
 }
@@ -1905,7 +1901,11 @@ input.card-name {
 }
 
 .headings {
-    padding: 3em;
+    padding: 4em;
+}
+
+.headings.admin {
+    text-align: center;
 }
 
 .wrapper {
@@ -2532,4 +2532,13 @@ input.card-name {
 /* Add a hover effect for the buttons */
 .dropdown-content input[type="button"]:hover {
     background-color: #ddd;
+}
+
+.admin-container {
+    background-color: var(--bg-100);
+}
+
+.admin-container label {
+    background-color: var(--bg-100);
+    color: var(--text-100);
 }
