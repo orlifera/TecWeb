@@ -16,38 +16,6 @@ create table utente (
   primary key(email)
 ) ENGINE = InnoDB default CHARSET = utf8mb4;
 
-INSERT INTO
-  utente
-VALUES
-  (
-    "admin",
-    "admin",
-    "1111-11-11",
-    "Maschio",
-    "admin",
-    "admin@admin.admin",
-    "admin",
-    "+39 1234567890",
-    "Adminlandia",
-    "Via Admin 1",
-    "00000",
-    "A"
-  ),
-  (
-    "user",
-    "user",
-    "1111-11-11",
-    "Altro",
-    "user",
-    "user@user.user",
-    "user",
-    "+39 1234567890",
-    "Userlandia",
-    "Via Cicciogamer 9",
-    "00000",
-    "U"
-  );
-
 drop table if exists Prodotto;
 
 CREATE TABLE Prodotto (
@@ -72,28 +40,8 @@ CREATE TABLE Sconto (
   data_scadenza timestamp not null,
   username varchar(255),
   isUsed boolean default false,
-  valore double not null,
+  valore double not null
 ) Engine = InnoDB default charset = utf8mb4;
-
-INSERT INTO
-  Sconto
-VALUES
-  (
-    "S1C1",
-    "2021-12-01 00:00:00",
-    "2021-12-31 00:00:00",
-    "user",
-    true,
-    100
-  ),
-  (
-    "S2C2",
-    "2021-12-01 00:00:00",
-    "2021-12-31 00:00:00",
-    "admin",
-    false,
-    50
-  );
 
 drop table if exists Carrello;
 
@@ -125,7 +73,6 @@ CREATE TABLE Ordine (
   quantitaOrdinata double not null,
   prezzo double not null
 ) Engine=InnoDB default charset=utf8mb4;
-
 
 INSERT INTO Ordine (nome, email, cognome, numero, indirizzo, citta, cap, quantitaOrdinata, prezzo)
 VALUES (
@@ -176,18 +123,6 @@ INSERT INTO Prodotto VALUES
 ("V2", "Asus ROG RYUO", "Ventola", "Ventola molto molto moooolto bella", 180.00,"Nero, Bianco" , 10, "../../assets/images/acc/V2.jpg", "acc", "pc"),
 
 ("V3", "Be Quiet! BK022 Dark Rock Pro 4", "Ventola", "Ventola molto molto bella", 80.00,"Nero, Bianco" , 10, "../../assets/images/acc/V3.jpg", "acc", "pc");
-
-
-
-INSERT INTO Ordine VALUES
-("OR456D", "admin", 4, "Via Premaore Camponogara", 12),
-("OR423D", "user", 2, "Camponogara", 5);
-
-
-INSERT INTO utente VALUES 
-( "admin", "admin", "1111-11-11", "Maschio", "admin", "admin@admin.admin", "admin", "+39 1234567890", "Adminlandia", "Via Admin 1", "00000", "A"),
-( "user", "user", "1111-11-11", "Altro", "user", "user@user.user", "user", "+39 1234567890", "Userlandia", "Via Cicciogamer 9", "00000", "U");
-
 
 INSERT INTO Sconto VALUES 
 ("S1C1", "2021-12-01 00:00:00", "2021-12-31 00:00:00", "user", true, 100),
