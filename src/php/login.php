@@ -1,13 +1,15 @@
 <?php
 
 session_start();
-// if (isset($_SESSION['user']) && $_SESSION['user'] !== '') {
-//     header('Location: /pages/profile.html');
-//     exit();
-// }
+$paginaHTML = file_get_contents(__DIR__ . "/../pages/login.html");
+
+if (isset($_SESSION['user']) && $_SESSION['user'] !== '') {
+    header('Location: ../php/profile.php');
+    exit();
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['submit'])) {
+    if (isset($_POST['submit']) && isset($_POST['user']) && isset($_POST['password'])) {
         require_once("connessionedb.php");
 
         $username = htmlentities(substr($_POST['user'], 0, 255));
@@ -21,29 +23,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($result->num_rows > 0) {
             $user_data = $result->fetch_assoc();
             if (password_verify($password, $user_data["password"])) {
-                // session_start();
-                // session_regenerate_id();
                 $_SESSION["user"] = $user_data["username"];
-                // print_r($_SESSION);
-                // var_dump($_SESSION);
-                // $_SESSION["password"] = $user_data["password"];
-                if(isset($_SESSION['user'])) {
+                if (isset($_SESSION['user'])) {
                     header('Location: ../php/profile.php');
                 } else {
                     echo '<p>Non va la sessione</p>';
-                    // phpinfo();
                 }
                 exit();
             } else {
-                $error = "Password errata";
+                $errormsg = "<div class=\"errorDati\">Email o Password non coincidono</div>";
+                $paginaHTML = str_replace('<div id="errorDati"></div>', $errormsg, $paginaHTML);
+                $strReplace = " <a href=\"../pages/signup.html\" class=\"login-btn\">Registrati</a>";
+                $paginaHTML = str_replace('<a href="signup.html" class="login-btn">Registrati</a>', $strReplace, $paginaHTML);
+                echo ($paginaHTML);
             }
         } else {
-            $error = "Nome utente non trovato";
+            $errormsg = "<div class=\"errorDati\">Email o Password non coincidono</div>";
+            $paginaHTML = str_replace('<div id="errorDati"></div>', $errormsg, $paginaHTML);
+            $strReplace = " <a href=\"../pages/signup.html\" class=\"login-btn\">Registrati</a>";
+            $paginaHTML = str_replace('<a href="signup.html" class="login-btn">Registrati</a>', $strReplace, $paginaHTML);
+            echo ($paginaHTML);
         }
         $connessione->close();
     }
 }
-
-// UTILIZZO QUESTO PER VEDERE L'ID DELLA SESSIONE SALVATO NEL COOKIE
-// document.cookie
-// document.cookie.split(';')

@@ -179,12 +179,16 @@ a {
     color: var(--text-300);
 }
 
+abbr {
+    text-decoration: none;
+}
+
 #menu a {
     text-decoration: none;
 }
 
 /* posizionamento switch */
-nav#menu #switch {
+nav#menu .switch {
     padding-right: 2em;
     padding-left: 1em;
 }
@@ -308,8 +312,10 @@ nav svg:not(.signup, #sun, #moon) {
 
 #breadcrumb {
     display: block;
-    padding: 1em;
-    color: var(--text-login);
+    padding: 0.5em;
+    margin-left: 1em;
+    color: var(--text-100);
+    background-color: var(--bg-100);
 }
 
 #breadcrumb a {
@@ -328,11 +334,6 @@ nav svg:not(.signup, #sun, #moon) {
     padding-top: 6em;
 }
 
-/* #login,
-#settings {
-    fill: var(--primaryText);
-} */
-
 .signup path {
     stroke: var(--text-300);
     stroke-width: 1.5;
@@ -340,27 +341,12 @@ nav svg:not(.signup, #sun, #moon) {
     stroke-linejoin: round;
 }
 
-
-/* Selettore per screen-reader-only. Classe data al breadcrumb, in modo che sia facile per le persone con cecità orientarsi sul sito. Per persone con vista normale, è stata implementata una classe active per capire in che pagina si trova */
-/* .sr-only {
-    border: 0 !important;
-    clip: rect(1px, 1px, 1px, 1px) !important;
-    clip-path: inset(50%) !important;
-    height: 1px !important;
-    width: 1px !important;
-    position: absolute !important;
-    overflow: hidden !important;
-    white-space: nowrap !important;
-    padding: 0 !important;
-    margin: -1px !important;
-} */
-
 /* index */
 
 #presentation {
     width: 100%;
     background: linear-gradient(-45deg, var(--accent-100), var(--accent-200));
-    height: 100vh;
+    height: 80dvh;
 }
 
 .title {
@@ -380,13 +366,15 @@ nav svg:not(.signup, #sun, #moon) {
 
 #presentation .title {
     position: relative;
-    top: 45vh;
-    font-size: 3em;
+    top: 30dvh;
+    font-size: 5em;
+    text-transform: uppercase;
 }
 
 #presentation .subtitle {
     position: relative;
-    top: 45vh;
+    top: 30dvh;
+    font-size: 2em;
 }
 
 #info {
@@ -456,7 +444,6 @@ nav svg:not(.signup, #sun, #moon) {
 #examples blockquote {
     display: inline-block;
     width: 30%;
-    height: 100%;
     padding: 0 5em;
 }
 
@@ -1246,6 +1233,7 @@ a.login-btn:hover {
     display: flex;
     position: relative;
     align-items: center;
+    border: 2px solid var(--primary-100);
     padding: 2%;
     border: 2px solid var(--primary-100);
     margin: auto;
@@ -1387,68 +1375,6 @@ input.previous:focus {
     font-weight: 500;
 }
 
-/*QTY INPUT*/
-/* 
-.qty-container {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    max-width: 11rem;
-    padding: 0;
-    margin: 0;
-    border: 0;
-}
-
-.qty-container .product-quantity {
-    font-size: 18px;
-    height: 4rem;
-    padding: 0 4rem;
-    border: 0;
-    background: #fff;
-    color: #222;
-    box-shadow: 0 10px 65px -10px rgba(0, 0, 0, 0.25);
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-    font-weight: lighter;
-}
-
-.qty-count {
-    position: relative;
-    width: 2.8rem;
-    height: 2.8rem;
-    top: 0.6rem;
-    margin: auto;
-    display: block;
-    padding: 0;
-    border: 0;
-    background-color: var(--black);
-    background-size: 5.6rem 2.8rem;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-.qty-count--plus {
-    background-color: #0026ff;
-    position: absolute;
-    right: -10em;
-}
-
-input#qty::-webkit-inner-spin-button,
-input#qty::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-input#qty:focus {
-    outline: none;
-    border: none;
-    box-shadow: 0 5px 55px -10px rgba(0, 0, 0, 0.2), 0 0 4px;
-
-}
-*/
-/*CATALOG*/
-
 /*PRODUCT PAGE*/
 .product-display {
     display: flex;
@@ -1490,12 +1416,12 @@ input#qty:focus {
 
 #accessories,
 #addToCart {
-    color: var(--text-login);
-    background-color: var(--bg-200);
+    color: var(--text-100);
+    background-color: var(--bg-300);
     font-size: 1em;
     padding: 0.5em;
     text-align: center;
-    border: 2px solid var(--text-login);
+    border: 2px solid var(--text-100);
     border-radius: 5px;
 }
 
@@ -1526,6 +1452,46 @@ input#qty:focus {
 .product-info dd:not(.dd-description) {
     display: inline-block;
     margin-right: .5em;
+}
+
+.qty-container, .qty-dt {
+    display: inline-block;
+}
+
+#qty {
+    width: 2em;
+    height: 2em;
+    text-align:center;
+    border-radius: none;
+    border-top: 1px solid var(--text-100);
+    border-bottom: 1px solid var(--text-100);
+    margin: unset;
+    padding: unset;
+}
+
+.qty-input {
+    display: flex;
+}
+
+#minus, #add {
+    width: 2em;
+    border: 1px solid var(--text-100);
+}
+
+#minus {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#add {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#minus, #add, #qty {
+    background-color: var(--bg-300);
+    outline: none;
+    color: var(--text-100);
 }
 
 /*CATALOG*/
@@ -1577,7 +1543,7 @@ PROFILE
 
 nav.sidenav {
     width: 30%;
-    background-color: var(--primary-100);
+    background: linear-gradient(to bottom, var(--primary-100) 30%, var(--primary-200));
     position: sticky;
     /* max-height: 100svh; */
     top: 0;
@@ -1893,7 +1859,11 @@ input.card-name {
 }
 
 .headings {
-    padding: 3em;
+    padding: 4em;
+}
+
+.headings.admin {
+    text-align: center;
 }
 
 .wrapper {
@@ -2244,7 +2214,6 @@ input.card-name {
     background-color: #fce4e4;
     border: 1px solid #fcc2c3;
     float: left;
-    padding: 20px 30px;
 }
 
 /*PAGINA 404*/
@@ -2432,6 +2401,17 @@ input.card-name {
     }
 }
 
+.errorDati {
+    border: 1px solid;
+    margin: 10px 0px;
+    padding: 15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    color: #D8000C;
+    background-color: #FFBABA;
+    text-align: center;
+}
+
 /*ADMIN PAGE*/
 
 .fieldProfile ul li {
@@ -2519,6 +2499,86 @@ input.card-name {
     background-color: #ddd;
 }
 
+.cart-container {
+    width: 90%;
+    display: flex;
+    border: 1px solid var(--text-100);
+    padding: 1em;
+    align-items: center;
+    margin: 1em;
+}
+
+.cart-container a {
+    width: 10%;
+    text-align: center;
+}
+
+.cart-container .product-image {
+    width: 80%;
+    height: auto;
+    object-fit:contain;
+}
+
+#cart-main .capsule {
+    border-left: none;
+    margin: unset;
+}
+
+#removeCart, #processOrder, #removeAll {
+    color: var(--text-100);
+    background-color: var(--bg-100);
+    font-size: 1em;
+    padding: 0.5em;
+    text-align: center;
+    border: 2px solid var(--text-100);
+    border-radius: 5px;
+    width: 6em;
+}
+
+#removeCart:hover, #processOrder:hover, #removeAll:hover {
+    background-color: var(--bg-300);
+}
+
+.product-price {
+    text-align: center;
+}
+
+#caps1 {
+    width: 70%;
+    color: var(--text-100);
+}
+
+#caps2 {
+    width: 20%;
+    text-align: center;
+}
+
+#caps2 #removeCart {
+    display: block;
+    margin: 1em auto 0;
+}
+
+#caps2 .qty-input input {
+    font-size: 1em;
+}
+
+#cart-main #product-buttons {
+    margin: 1em 0 4em;
+    text-align: center;
+}
+
+#processOrder, #removeAll {
+    width: unset;
+}
+
+#cart-main #minus, #cart-main #add, #cart-main #qty {
+    background-color: var(--bg-100);
+}
+
+#cart-main p {
+    color: var(--text-100);
+}
+
 .text-fields.prod-description textarea {
     background-color: transparent;
     outline: none;
@@ -2558,4 +2618,30 @@ input.card-name {
 
 .headings {
     color: var(--text-100);
+}
+
+.fieldProfile .sale-description li,
+.fieldProfile .order-description li {
+    border-bottom: unset;
+    display: inline;
+}
+
+.admin-container {
+    background-color: var(--bg-100);
+}
+
+.admin-container label {
+    background-color: var(--bg-100);
+    color: var(--text-100);
+}
+
+.confirmDati {
+    border: 1px solid;
+    margin: 10px 0px;
+    padding: 15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    color: #00d828;
+    background-color: #baffbc;
+    text-align: center;
 }

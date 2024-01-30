@@ -192,7 +192,18 @@ if ($connectionOk) {
 }
 foreach ($codiceSconto as $i => $nome) {
     if ($nome != null) {
-        $prova = "<li>\n<ul>\n" .
+        /*$prova = "<li>\n <ul>" .
+            "<li> " . $nome . " </li>\n" .
+            "<li> " . $nomeUtente[$i] . "</li>\n" .
+            "<li>" . $cognomeUtente[$i] . "</li>\n" .
+            "<li>" . $emailUtente[$i] . "</li>\n" .
+            "<li>" . $phoneUtente[$i] . "</li>\n" .
+            "<li>" . $indirizzo[$i] . "</li>\n" .
+            "<li>" . $cittaUtente[$i] . "</li>\n" .
+            "<li>" . $capUtente[$i] . "</li>\n" .
+            "<li>" . $quantitaOrdinata[$i] . "</li>\n" .
+            "<li>" . $prezzoTotale[$i] . "</li>\n</ul>\n" . */
+        $prova = "<li class=\"product-item\">\n<ul class=\"sale-description\">\n" .
             "<li>" . $nome . "</li>\n" .
             "<li>" . $emissioneSconto[$i] . "</li>\n" .
             "<li>" . $scadenzaSconto[$i] . "</li>\n" .
@@ -200,12 +211,13 @@ foreach ($codiceSconto as $i => $nome) {
             "<li>" . ($isUsedSconto[$i] == 0 ? "Buono non usato" : "Buono usato") . "</li>\n</ul>\n" .
 
             "<div class=\"dropdown-options\">
-                    <button class=\"dropbtn\">⋮</button>
+                    <button class=\"dropbtn\">&#8942;</button>
                     <div class=\"dropdown-content hidden\">
-                    <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\" class=\"removeItem\" data-id=\"" . $nome . "\" data-categoria=\"sconti\">
-                    <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\" class=\"modifyItem\" data-id=\"" . $nome . "\" data-categoria=\"sconti\">
+                    <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\" class=\"removeItem\" data-id=\"" . $nome . "\"
+                    data-categoria=\"prodotti\">
+                    <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\" class=\"modifyItem\" data-id=\"" . $nome . "\" data-categoria=\"prodotti\">
                     </div>
-                </div> " . "
+                </div>" . "
             </li>\n";
         $sconti .= $prova;
     }
@@ -264,7 +276,7 @@ if ($connectionOk) {
 
 foreach ($id as $i => $nome) {
     if ($nome != null) {
-        $prova = "<li>\n <ul>" .
+        $prova = "<li class=\"product-item\">\n <ul class=\"order-description\">" .
             "<li> " . $nome . " </li>\n" .
             "<li> " . $nomeUtente[$i] . "</li>\n" .
             "<li>" . $cognomeUtente[$i] . "</li>\n" .
@@ -277,11 +289,11 @@ foreach ($id as $i => $nome) {
             "<li>" . $prezzoTotale[$i] . "</li>\n</ul>\n" .
 
             "<div class=\"dropdown-options\">
-                    <button class=\"dropbtn\">⋮</button>
+                    <button class=\"dropbtn\">&#8942;</button>
                     <div class=\"dropdown-content hidden\">
                     <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\" class=\"removeItem\" data-id=\"" . $nome . "\"
-                    data-categoria=\"ordini\">
-                    <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\" class=\"modifyItem\" data-id=\"" . $nome . "\"  data-categoria=\"ordini\">
+                    data-categoria=\"prodotti\">
+                    <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\" class=\"modifyItem\" data-id=\"" . $nome . "\" data-categoria=\"prodotti\">
                     </div>
                 </div>" .
             "</li>\n";

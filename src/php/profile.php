@@ -41,7 +41,8 @@ if ($connectionOk) {
             $email = $listaInfo[5];
             $phone = $_POST['phone'];
             $connection->updatePersonalInfo($fname, $lname, $email, $phone);
-            header('Location: profile.php?section=personalInfo');
+            // header('Location: profile.php?section=personalInfo');
+            // echo '<p class="confirmDati">Aggiornamento info avvenute</p>';
         }
     } else if (isset($_POST['changepsw'])) {
         if ($_POST['pwd'] != null && $_POST['password'] != null && $_POST['password-confirm'] != null) {
@@ -52,16 +53,13 @@ if ($connectionOk) {
             if (password_verify($op, $listaInfo[6]) && $np == $cnp) {
                 $np = password_hash($_POST['password'], PASSWORD_DEFAULT);
                 $connection->updatePsw($email, $np);
-                // echo  'Cambio psw avvenuto';
-                // sleep(3);
-                // header('Location: profile.php');
             } else {
-                echo '<p class="error">Nuova password e conferma sono diverse</p>';
-                // $errorpsw = "<p name=\"error\" id=\"error\">Nuova password e conferma sono diverse</p>";
+                echo '<p class="errorDati">Uno dei campi non è corretto</p>';
             }
         } else {
-            echo '<p class="error">compila tutti i dati</p>';
-            // $errorpsw = "<p name=\"error\" id=\"error\">Compila tutti gli errori</p>";
+            $errormsg="<div class=\"errorDati\">Compila tutti i dati</div>";
+            $paginaHTML = str_replace('<div id="stato"></div>', $errormsg, $paginaHTML);
+            echo($paginaHTML);
         }
     } else if (isset($_POST['addressbtn'])) {
         if ($_POST['city'] != null && $_POST['address'] != null && $_POST['cap'] != null) {
@@ -78,11 +76,16 @@ if ($connectionOk) {
         $fname = "<input class=\"dataHolder\" type=\"text\" name=\"fname\" id=\"fname\" value=\"" . $listaInfo[0] . "\" required>";
         $lname = "<input class=\"dataHolder\" type=\"text\" name=\"lname\" id=\"lname\" value=\"" . $listaInfo[1] . "\" required>";
         $email = "<input class=\"dataHolder\" type=\"email\" name=\"email\" id=\"email\" value=\"" . $listaInfo[5] . "\" disabled>";
-        $phone = "<input class=\"dataHolder\" type=\"phone\" name=\"phone\" id=\"phone\" value=\"" . $listaInfo[7] . "\" required>";
+        $phone = "<input class=\"dataHolder\" type=\"tel\" inputmode=\"numeric\" name=\"phone\" id=\"phone\" value=\"" . $listaInfo[7] . "\" required>";
         $dob = "<input class=\"dataHolder\" type=\"date\" name=\"dob\" id=\"dob\" value=\"" . $listaInfo[2] . "\" required>";
         $city = "<input class=\"dataHolder\" type=\"text\" name=\"city\" id=\"city\" value=\"" . $listaInfo[8] . "\" required>";
         $address = "<input class=\"dataHolder\" type=\"text\" name=\"address\" id=\"address\" value=\"" . $listaInfo[9] . "\" required>";
         $cap = "<input class=\"dataHolder\" type=\"text\" name=\"cap\" id=\"cap\" value=\"" . $listaInfo[10] . "\" required>";
+
+        if($listaInfo[11] == "A") {
+            $admin = "<li class=\"\"><a href=\"../../index.html\" target=\"_blank\"><span lang=\"en\">Dashboard</span></a></li>";
+            $paginaHTML = str_replace('<li class="adminListItem"></li>', $admin, $paginaHTML);
+        }
     }
     // print_r($listaInfo);
 }
@@ -98,6 +101,7 @@ if ($connectionOk) {
 8. città
 9. indirzzo
 10 cap
+11. tipo
 */
 
 $paginaHTML = str_replace('{username}', $username, $paginaHTML);
