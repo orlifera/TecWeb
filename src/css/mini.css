@@ -680,7 +680,7 @@ main#login-main {
     color: var(--text-100);
 }
 
-#paymentMethod .card label {
+.card-container .card label {
     color: var(--text1-login);
     width: 100%;
     padding: .5em 0;
