@@ -40,15 +40,14 @@ class DBAccess
         if (mysqli_num_rows($queryResult) != 0) {
             $row = mysqli_fetch_assoc($queryResult);
             mysqli_stmt_close($stmt);
-            return array($row["nome"], $row["cognome"], $row["dataNascita"], $row["genere"], $row["username"], $row["email"],  $row["password"], $row["telefono"], $row["citta"], $row["indirizzo"], $row["CAP"]);
+            return array($row["nome"], $row["cognome"], $row["dataNascita"], $row["genere"], $row["username"], $row["email"],  $row["password"], $row["telefono"], $row["citta"], $row["indirizzo"], $row["CAP"], $row["tipo"]);
         } else {
             mysqli_stmt_close($stmt);
             return null;
         }
     }
 
-    public function updatePersonalInfo($fname, $lname, $email, $phone)
-    {
+    public function updatePersonalInfo($fname, $lname, $email, $phone) {
         $query = "UPDATE utente SET nome = ?, cognome = ?, telefono = ? WHERE email = ?;";
         $stmt = mysqli_prepare($this->connection, $query);
         if ($stmt === false) {
@@ -56,7 +55,9 @@ class DBAccess
         }
         mysqli_stmt_bind_param($stmt, "ssss", $fname, $lname, $phone, $email);
         if (mysqli_stmt_execute($stmt)) {
-            echo "Aggiornamento info avvenuto";
+            // echo "Aggiornamento info avvenuto";
+            echo '<p class="confirmDati">Aggiornamento informazioni avvenute. Ricarica la pagina per vedere le modifiche</p>';
+            
         } else {
             echo "Aggiornamento info non avvenuto: " . mysqli_error($this->connection);
         }
@@ -72,9 +73,10 @@ class DBAccess
         }
         mysqli_stmt_bind_param($stmt, "ss", $psw, $email);
         if (mysqli_stmt_execute($stmt)) {
-            echo "Aggiornamento psw avvenuto";
+            // echo "Aggiornamento psw avvenuto";
+            echo '<p class="confirmDati">Aggiornamento password avvenute</p>';
         } else {
-            echo "Aggiornamento psw non avvenuto: " . mysqli_error($this->connection);
+            echo "Aggiornamento password non avvenuto: " . mysqli_error($this->connection);
         }
         mysqli_stmt_close($stmt);
     }
@@ -88,13 +90,15 @@ class DBAccess
         }
         mysqli_stmt_bind_param($stmt, "ssis", $city, $address, $cap, $email);
         if (mysqli_stmt_execute($stmt)) {
-            echo "Aggiornamento address avvenuto";
+            echo '<p class="confirmDati">Aggiornamento indirizzo avvenute</p>';
         } else {
-            echo "Aggiornamento address non avvenuto: " . mysqli_error($this->connection);
+            echo "Aggiornamento indirizzo non avvenuto: " . mysqli_error($this->connection);
         }
         mysqli_stmt_close($stmt);
     }
 
+    
+    
 
     /************ GESTIONE PRODOTTI ************/
     public function getProduct($categoria, $sku)

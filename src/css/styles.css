@@ -183,6 +183,12 @@ abbr {
     text-decoration: none;
 }
 
+#menu {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
 #menu a {
     text-decoration: none;
 }
@@ -297,19 +303,6 @@ nav svg:not(.signup, #sun, #moon) {
     fill: var(--text-300);
 }
 
-#menu.fixed {
-    position: fixed;
-    top: 0;
-    z-index: 1;
-}
-
-#breadcrumb.fixed {
-    position: fixed;
-    top: 4.3em;
-    z-index: 1;
-    margin-bottom: 4em;
-}
-
 #breadcrumb {
     display: block;
     padding: 0.5em;
@@ -334,11 +327,6 @@ nav svg:not(.signup, #sun, #moon) {
     padding-top: 6em;
 }
 
-/* #login,
-#settings {
-    fill: var(--primaryText);
-} */
-
 .signup path {
     stroke: var(--text-300);
     stroke-width: 1.5;
@@ -346,27 +334,12 @@ nav svg:not(.signup, #sun, #moon) {
     stroke-linejoin: round;
 }
 
-
-/* Selettore per screen-reader-only. Classe data al breadcrumb, in modo che sia facile per le persone con cecità orientarsi sul sito. Per persone con vista normale, è stata implementata una classe active per capire in che pagina si trova */
-/* .sr-only {
-    border: 0 !important;
-    clip: rect(1px, 1px, 1px, 1px) !important;
-    clip-path: inset(50%) !important;
-    height: 1px !important;
-    width: 1px !important;
-    position: absolute !important;
-    overflow: hidden !important;
-    white-space: nowrap !important;
-    padding: 0 !important;
-    margin: -1px !important;
-} */
-
 /* index */
 
 #presentation {
     width: 100%;
     background: linear-gradient(-45deg, var(--accent-100), var(--accent-200));
-    height: 100vh;
+    height: 80dvh;
 }
 
 .title {
@@ -386,13 +359,15 @@ nav svg:not(.signup, #sun, #moon) {
 
 #presentation .title {
     position: relative;
-    top: 45vh;
-    font-size: 3em;
+    top: 30dvh;
+    font-size: 5em;
+    text-transform: uppercase;
 }
 
 #presentation .subtitle {
     position: relative;
-    top: 45vh;
+    top: 30dvh;
+    font-size: 2em;
 }
 
 #info {
@@ -404,11 +379,6 @@ nav svg:not(.signup, #sun, #moon) {
     width: 2em;
     height: 2em;
     fill: var(--text-100)
-}
-
-#cookie-heading .icon {
-    width: 3em;
-    height: 3em;
 }
 
 .info-p {
@@ -462,7 +432,6 @@ nav svg:not(.signup, #sun, #moon) {
 #examples blockquote {
     display: inline-block;
     width: 30%;
-    height: 100%;
     padding: 0 5em;
 }
 
@@ -531,7 +500,7 @@ nav svg:not(.signup, #sun, #moon) {
 #about p {
     width: 70%;
     margin: auto;
-    text-align: justify;
+    text-align: center;
     padding-bottom: 1em;
     font-size: 20px;
     line-height: 2em;
@@ -1056,7 +1025,7 @@ fieldset#termini {
     margin: auto;
 }
 
-#cookie-heading {
+#cookie-header {
     width: 15em;
     display: flex;
     align-items: center;
@@ -1068,7 +1037,7 @@ fieldset#termini {
 }
 
 #cookie-desc {
-    text-align: justify;
+    text-align: left;
     padding: .5em 0;
 }
 
@@ -1252,6 +1221,7 @@ a.login-btn:hover {
     display: flex;
     position: relative;
     align-items: center;
+    border: 2px solid var(--primary-100);
     padding: 2%;
     border: 2px solid var(--primary-100);
     margin: auto;
@@ -1881,7 +1851,11 @@ input.card-name {
 }
 
 .headings {
-    padding: 3em;
+    padding: 4em;
+}
+
+.headings.admin {
+    text-align: center;
 }
 
 .wrapper {
@@ -2232,7 +2206,6 @@ input.card-name {
     background-color: #fce4e4;
     border: 1px solid #fcc2c3;
     float: left;
-    padding: 20px 30px;
 }
 
 /*PAGINA 404*/
@@ -2418,6 +2391,17 @@ input.card-name {
     to {
         transform: translate(calc(-50% - 0.5rem));
     }
+}
+
+.errorDati {
+    border: 1px solid;
+    margin: 10px 0px;
+    padding: 15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    color: #D8000C;
+    background-color: #FFBABA;
+    text-align: center;
 }
 
 /*ADMIN PAGE*/
@@ -2641,4 +2625,24 @@ input.card-name {
 .fieldProfile .order-description li {
     border-bottom: unset;
     display: inline;
+}
+
+.admin-container {
+    background-color: var(--bg-100);
+}
+
+.admin-container label {
+    background-color: var(--bg-100);
+    color: var(--text-100);
+}
+
+.confirmDati {
+    border: 1px solid;
+    margin: 10px 0px;
+    padding: 15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    color: #00d828;
+    background-color: #baffbc;
+    text-align: center;
 }
