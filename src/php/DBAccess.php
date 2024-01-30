@@ -38,12 +38,16 @@ class DBAccess
         if (mysqli_num_rows($queryResult) != 0) {
             $row = mysqli_fetch_assoc($queryResult);
             mysqli_stmt_close($stmt);
-            return array($row["nome"], $row["cognome"], $row["dataNascita"], $row["genere"], $row["username"], $row["email"],  $row["password"], $row["telefono"], $row["citta"], $row["indirizzo"], $row["CAP"]);
+            return array($row["nome"], $row["cognome"], $row["dataNascita"], $row["genere"], $row["username"], $row["email"],  $row["password"], $row["telefono"], $row["citta"], $row["indirizzo"], $row["CAP"], $row["tipo"]);
         } else {
             mysqli_stmt_close($stmt);
             return null;
         }
     }
+
+    // public function getRole($username) {
+    //     $
+    // }
 
     public function updatePersonalInfo($fname, $lname, $email, $phone) {
         $query = "UPDATE utente SET nome = ?, cognome = ?, telefono = ? WHERE email = ?;";
@@ -92,6 +96,8 @@ class DBAccess
         }
         mysqli_stmt_close($stmt);
     }
+
+    
     
 
     /************ GESTIONE PRODOTTI ************/

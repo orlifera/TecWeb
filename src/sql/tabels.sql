@@ -16,38 +16,6 @@ create table utente (
   primary key(email)
 ) ENGINE = InnoDB default CHARSET = utf8mb4;
 
-INSERT INTO
-  utente
-VALUES
-  (
-    "admin",
-    "admin",
-    "1111-11-11",
-    "Maschio",
-    "admin",
-    "admin@admin.admin",
-    "admin",
-    "+39 1234567890",
-    "Adminlandia",
-    "Via Admin 1",
-    "00000",
-    "A"
-  ),
-  (
-    "user",
-    "user",
-    "1111-11-11",
-    "Altro",
-    "user",
-    "user@user.user",
-    "user",
-    "+39 1234567890",
-    "Userlandia",
-    "Via Cicciogamer 9",
-    "00000",
-    "U"
-  );
-
 drop table if exists Prodotto;
 
 CREATE TABLE Prodotto (

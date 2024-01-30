@@ -81,6 +81,11 @@ if ($connectionOk) {
         $city = "<input class=\"dataHolder\" type=\"text\" name=\"city\" id=\"city\" value=\"" . $listaInfo[8] . "\" required>";
         $address = "<input class=\"dataHolder\" type=\"text\" name=\"address\" id=\"address\" value=\"" . $listaInfo[9] . "\" required>";
         $cap = "<input class=\"dataHolder\" type=\"text\" name=\"cap\" id=\"cap\" value=\"" . $listaInfo[10] . "\" required>";
+
+        if($listaInfo[11] == "A") {
+            $admin = "<li class=\"\"><a href=\"../../index.html\" target=\"_blank\"><span lang=\"en\">Dashboard</span></a></li>";
+            $paginaHTML = str_replace('<li class="adminListItem"></li>', $admin, $paginaHTML);
+        }
     }
     // print_r($listaInfo);
 }
@@ -96,6 +101,7 @@ if ($connectionOk) {
 8. città
 9. indirzzo
 10 cap
+11. tipo
 */
 
 $paginaHTML = str_replace('{username}', $username, $paginaHTML);
