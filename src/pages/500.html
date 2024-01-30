@@ -1,0 +1,36 @@
+<!-- Progetto Tecnologie Web -->
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+
+    <head>
+        <meta charset="utf-8">
+        <!-- Viewport adattiva alla larghezza del device -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>404 - ML Tech</title>
+        <!-- Keywords e descrizione del sito in generale -->
+        <meta name="keywords"
+            content="ML Tech, tastiere meccaniche custom, assemblaggio computer gaming, pc assemblati, assemblaggio pc, pc assemblati economici, vendita pc online">
+        <meta name="description" content="Sito ufficiale di ML Tech, vendita di tastiere meccaniche custom">
+        <!-- File CSS per PC, mobile e stampa -->
+        <link rel="stylesheet" href="../css/styles.css" media="screen">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <link rel="stylesheet" href="../css/mini.css" media="screen and (max-width: 600px)">
+        <script>
+            //check local storage for theme and OS preference
+            let localS = localStorage.getItem('theme'),
+                themeToSet = localS
+
+            //if LS not set => check OS preference
+            if (!localS) {
+                //media query with JS
+                themeToSet = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+            }
+
+            //set correct theme
+            document.documentElement.setAttribute('data-theme', themeToSet)
+        </script>
+    </head>
+
+    <body></body>
+
+</html>

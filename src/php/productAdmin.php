@@ -151,7 +151,7 @@ foreach ($nomePc as $i => $nome) {
     }
 }
 $prodottiTotali .=  $prodottiPcKbd .   $prodottiAcc .
-    "<input type=\"button\" name=\"insertProduct\" class=\"insertItem\" value=\"Inserisci nuovo\" data-categoria=\"prodotti\">";
+    "<input id=\"inserisci-prodotto\"type=\"button\" name=\"insertProduct\" class=\"insertItem\" value=\"Crea Prodotto\" data-categoria=\"prodotti\">";
 
 /* sconti */
 $sconti = "";
@@ -221,7 +221,7 @@ foreach ($codiceSconto as $i => $nome) {
     }
 }
 $scontiTotali .=    $sconti .
-    "<input type=\"button\" name=\"insertSconto\" class=\"insertItem\" value=\"Aggiungi sconto\" data-categoria=\"sconti\">";
+    "<input type=\"button\" name=\"insertSconto\" id=\"aggiungiSconto\" class=\"insertItem\" value=\"Aggiungi sconto\" data-categoria=\"sconti\">";
 
 /* ordini */
 $id = "";

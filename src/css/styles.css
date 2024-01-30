@@ -115,6 +115,11 @@ html {
     background-color: var(--bg-100);
     margin: auto;
     line-height: 1.5em;
+    width: 100%;
+}
+
+main {
+    width: 100%;
 }
 
 /*Shake icona carrello quando aggiungi prodotti */
@@ -146,6 +151,7 @@ html {
 
 #main-header {
     background-color: var(--bg-100);
+
 }
 
 /* Text replacement */
@@ -429,60 +435,13 @@ nav svg:not(.signup, #sun, #moon) {
     text-align: center;
 }
 
-#examples blockquote {
+#examples .video-container {
+    margin: 3em;
     display: inline-block;
-    width: 30%;
-    padding: 0 5em;
 }
-
 
 #examples .title {
     padding: 1em 0;
-}
-
-#examples dl {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
-
-#examples .examples-col {
-    text-align: center;
-    width: 18em;
-    padding: 2em 2em;
-    margin: 2em;
-    background-color: var(--accent-200);
-    border-radius: 1%;
-    color: #030303;
-}
-
-.examples-col img {
-    width: 100%;
-    height: auto;
-    margin: auto;
-}
-
-.examples-col dt {
-    font-weight: bold;
-    padding-bottom: 1em;
-}
-
-.examples-col dd {
-    width: 5em;
-    margin: auto;
-    padding: 0.5em;
-}
-
-#examples p {
-    text-align: center;
-    color: var(--text-100);
-    padding-top: 0.5em;
-    font-size: 1.2em;
-}
-
-#examples a {
-    text-decoration: underline;
-    color: var(--text-100);
 }
 
 #about {
@@ -1023,6 +982,7 @@ fieldset#termini {
 .cookie-subcontainer {
     width: 85%;
     margin: auto;
+    text-align: center;
 }
 
 #cookie-header {
@@ -1059,8 +1019,6 @@ fieldset#termini {
 
 .cookie-btn {
     display: inline;
-    align-items: center;
-    justify-content: center;
     padding: .5em;
     border-radius: 10px;
     background-color: var(--primary-100);
@@ -1585,7 +1543,7 @@ nav.sidenav {
     height: var(--border-radius);
     width: var(--border-radius);
     right: 0;
-    background-color: var(--primary-100);
+    background-color: transparent;
 }
 
 .nav-list li.active::before {
@@ -2596,11 +2554,12 @@ input.card-name {
     background-color: var(--bg-100);
 }
 
-#modificaProdotto {
+#modificaProdotto,
+#inserisci-prodotto,
+#aggiungiSconto {
     text-decoration: none;
     background-color: var(--accent-100);
     color: var(--text-100);
-    width: 10%;
     display: inline-block;
     margin: 3em 2em;
     font-size: 1em;
@@ -2610,10 +2569,13 @@ input.card-name {
     padding: 1em;
 }
 
-#modificaProdotto:hover {
+#modificaProdotto:hover,
+#inserisci-prodotto:hover,
+#aggiungiSconto:hover {
     background-color: var(--primary-200);
     color: var(--text-300);
 }
+
 
 .headings {
     color: var(--text-100);
@@ -2643,4 +2605,31 @@ input.card-name {
     color: #00d828;
     background-color: #baffbc;
     text-align: center;
+}
+
+.fieldProfile #tb1, .fieldProfile #tb2 {
+    border: 1px solid var(--text-100);
+    margin: auto;
+    padding: 1em;
+    border-collapse:collapse;
+}
+
+#tb1 th, #tb2 th, #tb1 tr, #tb2 tr {
+    border: 1px solid var(--text-100);
+    border-collapse:collapse;
+    padding: 1em;
+}
+
+#tb1 caption, #tb2 caption {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 1em 0;
+}
+
+#sconti-desc, #ordini-desc {
+    display: none;
+}
+
+#hamburger {
+    display: none;
 }
