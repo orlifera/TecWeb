@@ -1572,8 +1572,6 @@ nav.sidenav {
 
 #profilePage {
     width: 100%;
-    background-color: var(--white);
-    text-align: center;
 }
 
 
@@ -1651,9 +1649,11 @@ input.dataHolder {
 #profilePage legend {
     padding: 1em 0;
     font-size: 1.5em;
-    width: 100%;
+    width: 30%;
     color: var(--text-100);
     background-color: var(--bg-100);
+    margin: auto;
+    text-align: center;
 }
 
 #profilePage label:not(#emailProfile) {
@@ -1682,7 +1682,6 @@ input.dataHolder {
 .card {
     display: flex;
     flex-direction: column;
-    height: 280px;
     width: 420px;
     border-radius: 20px;
     background-color: var(--primary-200);
@@ -1698,16 +1697,13 @@ input.dataHolder {
     margin-bottom: 20px;
 }
 
-.card-number {
-    font-size: 30px;
-    width: 100%;
-    height: 50px;
-    margin-bottom: 40px;
+.card svg {
+    fill: var(--cardLabel);
+    margin-bottom: .5em;
 }
 
-.card-number::placeholder {
-    color: var(--cardPlaceholder);
-    font-size: 30px;
+.card-number {
+    width: 100%;
 }
 
 .card input::placeholder {
@@ -1723,8 +1719,8 @@ input.dataHolder {
 }
 
 .name {
-    padding: 0px 80px 0px 0px;
     margin-right: 40px;
+    margin-top:1em;
     width: 10em;
     position: relative;
     display: inline-block;
@@ -1750,10 +1746,6 @@ input.dataHolder {
 .card input {
     border: none;
     background-color: transparent;
-    height: 1em;
-    color: var(--text-100);
-    width: 100%;
-    border-bottom: 1px solid var(--cardLabel);
 }
 
 .card label {
@@ -1764,7 +1756,7 @@ input.dataHolder {
     padding-bottom: 2px;
 }
 
-input.card-name {
+input.card-name, input.card-number {
     color: var(--background-link);
     font-size: 16px;
     height: 26px;
@@ -1776,23 +1768,20 @@ input.card-name {
 .card-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     height: 100%;
     width: 100%;
 }
 
 #card-main {
-    position: relative;
     display: block;
-    align-items: center;
-    justify-content: center;
+    padding-top: 5em;
 }
 
 #orderBtn {
     display: block;
-    padding: 2em;
-    margin: 5em auto;
+    padding: .5em;
+    margin: 2em auto;
 }
 
 /* payments e animation */

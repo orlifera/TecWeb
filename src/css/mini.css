@@ -636,6 +636,10 @@ main#login-main {
     width: 10em;
 }
 
+.card-container .card svg {
+    fill: var(--text-100);
+}
+
 .card {
     display: flex;
     flex-direction: column;
@@ -648,15 +652,6 @@ main#login-main {
     border-width: 1px;
     box-shadow: 0 1em 2em -0.9em rgba(0, 0, 0, 0.7);
     padding: 1em 0;
-}
-
-#paymentMethod .card-number {
-    font-size: 1.2em;
-    margin-bottom: 1em;
-    margin-top: 0.3em;
-    width: 100%;
-    text-align: center;
-    padding-bottom: .2em;
 }
 
 #paymentMethod .container2 div {
@@ -681,11 +676,8 @@ main#login-main {
     padding: 0;
 }
 
-.card input {
-    width: 100%;
-    height: 1em;
-    margin: auto;
-    border-bottom: 1px solid var(--text1-login);
+.card input.card-name::placeholder, .card-container .card input.card-number, .card-container .card input.card-number::placeholder  {
+    color: var(--text-100);
 }
 
 #paymentMethod .card label {
