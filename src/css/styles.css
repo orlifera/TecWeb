@@ -145,7 +145,6 @@ html {
 }
 
 #main-header {
-    padding: 1em;
     background-color: var(--bg-100);
 }
 
@@ -156,7 +155,7 @@ html {
     background-repeat: no-repeat;
     background-position: center;
     background-image: url(../../assets/images/logoNoBg.png);
-    font-size: 6em;
+    font-size: 5em;
     line-height: 1.5em;
 }
 
@@ -688,13 +687,6 @@ footer dt {
     border-bottom: none;
 }
 
-.dropdown-content {
-    display: none;
-    background-color: #f9f9f9;
-    padding: 10px;
-    border-top: 1px solid #030303;
-}
-
 .question {
     cursor: pointer;
     padding: 1em;
@@ -1010,7 +1002,7 @@ fieldset#termini {
 
 /*Theme Switcher*/
 #theme-switcher {
-    background-color: var(--accent-200);
+    background-color: var(--bg-100);
     border-radius: 50px;
     display: flex;
     align-items: center;
@@ -1183,11 +1175,6 @@ fieldset#stage3 {
     text-align: center;
 }
 
-/* #connect {
-    width: 120%;
-    border: 1px solid var(--border);
-} */
-
 a.login-btn {
     text-decoration: none;
     color: var(--textP-login);
@@ -1259,8 +1246,8 @@ a.login-btn:hover {
     display: flex;
     position: relative;
     align-items: center;
-    border: 1px solid var(--border);
     padding: 2%;
+    border: 2px solid var(--primary-100);
     margin: auto;
     width: 45%;
     border-radius: 10px;
@@ -1674,10 +1661,6 @@ fieldset.fieldProfile {
     color: var(--text-100);
     background-color: var(--bg-100);
 
-}
-
-.fieldProfile .text-fields {
-    border: 2px solid var(--primary-100);
 }
 
 input.dataHolder {
@@ -2498,10 +2481,8 @@ input.card-name {
     display: none;
     position: absolute;
     right: 0;
-    /* Align to the right side of dropbtn */
     background-color: var(--bg-100);
     min-width: 160px;
-    /* Set a minimum width */
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
@@ -2516,7 +2497,16 @@ input.card-name {
     background: none;
     text-align: left;
     width: 100%;
-    /* Make the buttons expand to the width of the container */
+}
+
+.product-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-item a {
+    text-align: center;
 }
 
 /* Show the dropdown menu on hover */
@@ -2527,4 +2517,45 @@ input.card-name {
 /* Add a hover effect for the buttons */
 .dropdown-content input[type="button"]:hover {
     background-color: #ddd;
+}
+
+.text-fields.prod-description textarea {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    text-align: center;
+    resize: none;
+}
+
+.mod-prod {
+    background-color: var(--bg-100);
+    text-align: center;
+}
+
+.mod-prod label {
+    color: var(--text-100);
+    background-color: var(--bg-100);
+}
+
+#modificaProdotto {
+    text-decoration: none;
+    background-color: var(--accent-100);
+    color: var(--text-100);
+    width: 10%;
+    display: inline-block;
+    margin: 3em 2em;
+    font-size: 1em;
+    text-align: center;
+    border: 2px solid var(--primary-200);
+    border-radius: 10px;
+    padding: 1em;
+}
+
+#modificaProdotto:hover {
+    background-color: var(--primary-200);
+    color: var(--text-300);
+}
+
+.headings {
+    color: var(--text-100);
 }

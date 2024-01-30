@@ -58,15 +58,41 @@ if ($connectionOk) {
 
             foreach ($stringaPC as $i => $stringa) {
                 if ($stringa !== null) {
-                    $prova = "<label>{$stringa}</label><br>" .
-                        "<input type=\"text\" id=\"nome\" placeholder=\"{$stringa}\">\n" .
-                        "<input type=\"text\" id=\"tipo\" placeholder=\"{$tipoPC[$i]}\">\n" .
-                        "<input type=\"text\" id=\"descrizione\" placeholder=\"{$descrizione[$i]}\">\n" .
-                        "<input type=\"text\" id=\"prezzo\" placeholder=\"{$prezzoPc[$i]}\">\n<br>" .
-                        "<input type=\"text\" id=\"colore\" placeholder=\"{$colorePc[$i]}\">\n" .
-                        "<input type=\"text\" id=\"disponibilita\" placeholder=\"{$disponibilita[$i]}\">\n" .
-                        "<input type=\"text\" id=\"path_image\" placeholder=\"{$path_image[$i]}\">\n" .
-                        "<input type=\"text\" id=\"categoria\" placeholder=\"{$categoria[$i]}\">\n <br><br>";
+                    $prova = "<h2 class=\"headings\">{$stringa}</h2>" .
+                        "<div class=\"info-container\">" .
+                        "<div class=\"text-fields\">
+                            <label for=\"nome\">Nome</label>
+                            <input type=\"text\" id=\"nome\" placeholder=\"{$stringa}\">
+                        </div>\n" .
+                        "<div class=\"text-fields\">
+                            <label for=\"tipo\">Tipo</label>
+                            <input type=\"text\" id=\"tipo\" placeholder=\"{$tipoPC[$i]}\">
+                        </div>\n" .
+                        "</div>" .
+                        "<div class=\"info-container\" >" .
+                        "<div class=\"text-fields\">
+                                <label for=\"path_image\">Immagine (path)</label><input type=\"text\" id=\"path_image\" placeholder=\"{$path_image[$i]}\">
+                            </div>\n" .
+                        "<div class=\"text-fields\">
+                            <label for=\"prezzo\">Prezzo</label>
+                            <input type=\"text\" id=\"prezzo\" placeholder=\"{$prezzoPc[$i]}\">
+                            </div>\n" .
+                        "</div>" .
+                        "<div class=\"info-container\" >" .
+                        "<div class=\"text-fields\">
+                        <label for=\"colore\">Colore</label>
+                        <input type=\"text\" id=\"colore\" placeholder=\"{$colorePc[$i]}\">
+                        </div>\n" .
+                        "<div class=\"text-fields\">
+                        <label for=\"disponibilità\">Disponibilità</label>
+                        <input type=\"text\" id=\"disponibilita\" placeholder=\"{$disponibilita[$i]}\">
+                        </div>\n" .
+                        "</div>" .
+                        "<div class=\"info-container\" >" .
+
+                        "<div class=\"text-fields prod-category\"><label for=\"categoria\">Categoria</label><input type=\"text\" id=\"categoria\" placeholder=\"{$categoria[$i]}\"></div>\n" . "</div>" .
+                        "<div class=\"text-fields prod-description\"><label for=\"descrizione\">Descrizione</label>
+                                <textarea id=\"descrizione\" rows=\"10\" cols=\"100\"  placeholder=\"{$descrizione[$i]}\"></textarea></div>\n";
 
                     $htmlProdotti .= $prova;
                 }
@@ -107,12 +133,14 @@ if ($connectionOk) {
 
         foreach ($result as $code => $data) {
             if (isset($data['codice'])) {
-                $prova = "<label>{$data['codice']}</label><br>" .
-                    "<input type=\"text\" id=\"data_emissione\" placeholder=\"{$data['data_emissione']}\">\n" .
-                    "<input type=\"text\" id=\"data_scadenza\" placeholder=\"{$data['data_scadenza']}\">\n" .
-                    "<input type=\"text\" id=\"username\" placeholder=\"{$data['username']}\">\n<br>" .
-                    "<input type=\"text\" id=\"isUsed\" placeholder=\"" . ($data['isUsed'] == 0 ? "Buono non usato" : "Buono usato") . "\">\n" .
-                    "<input type=\"text\" id=\"valore\" placeholder=\"{$data['valore']}\">\n<br><br>";
+                $prova = "<h2 class=\"headings\">{$data['codice']}</h2>" . "<div class=\"info-container\">" .
+                    "<div class=\"text-fields\"><label for=\"data_emissione\">Data Inizio</label> <input type=\"text\" id=\"data_emissione\" placeholder=\"{$data['data_emissione']}\"></div>\n" .
+                    "<div class=\"text-fields\"><label for=\"data_scadenza\">Data Scadenza</label> <input type=\"text\" id=\"data_scadenza\" placeholder=\"{$data['data_scadenza']}\"></div>\n" .
+                    "</div>" . "<div class=\"info-container\">" .
+                    "<div class=\"text-fields\"><label for=\"username\">Data Inizio</label> <input type=\"text\" id=\"username\" placeholder=\"{$data['username']}\"></div>\n" .
+                    "<div class=\"text-fields\"><label for=\"data_emissione\">Data Inizio</label> <input type=\"text\" id=\"isUsed\" placeholder=\"" . ($data['isUsed'] == 0 ? "Buono non usato" : "Buono usato") . "\"></div>\n" .
+                    "</div>" .
+                    "<div class=\"text-fields\"><label for=\"data_emissione\">Data Inizio</label> <input type=\"text\" id=\"valore\" placeholder=\"{$data['valore']}\"></div>\n";
                 $htmlProdotti .= $prova;
             }
         }
@@ -146,11 +174,13 @@ if ($connectionOk) {
 
         foreach ($result as $code => $data) {
             if (isset($data['id'])) {
-                $prova = "<label>{$data['id']}</label><br>" .
-                    "<input type=\"text\" id=\"utente\" placeholder=\"{$data['utente']}\">\n" .
-                    "<input type=\"text\" id=\"quantitaOrdinata\" placeholder=\"{$data['quantitaOrdinata']}\">\n" .
-                    "<input type=\"text\" id=\"indirizzo\" placeholder=\"{$data['indirizzo']}\">\n" .
-                    "<input type=\"text\" id=\"prezzo\" placeholder=\"{$data['prezzo']}\">\n<br><br>";
+                $prova = "<h2 class=\"headings\">{$data['id']}</h2>" . "<div class=\"info-container\">" .
+                    "<div class=\"text-fields\"><label for=\"utente\">Utente</label> <input type=\"text\" id=\"utente\" placeholder=\"{$data['utente']}\"></div>\n" .
+                    "<div class=\"text-fields\"><label for=\"quantitaOrdinata\">Quantità</label> <input type=\"text\" id=\"quantitaOrdinata\" placeholder=\"{$data['quantitaOrdinata']}\"></div>\n" . "</div>" .
+                    "<div class=\"info-container\">" .
+                    "<div class=\"text-fields\"><label for=\"indirizzo\">Indirizzo</label> <input type=\"text\" id=\"indirizzo\" placeholder=\"{$data['indirizzo']}\"></div>\n" .
+                    "<div class=\"text-fields\"><label for=\"prezzo\">Prezzo</label> <input type=\"text\" id=\"prezzo\" placeholder=\"{$data['prezzo']}\"></div>\n" . "</div>";
+
                 $htmlProdotti .= $prova;
             }
         }
