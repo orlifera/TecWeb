@@ -95,7 +95,7 @@ if ($connectionOk) {
         $cap = "<input class=\"dataHolder\" type=\"text\" name=\"cap\" id=\"cap\" value=\"" . $listaInfo[10] . "\" required>";
 
         if($listaInfo[11] == "A") {
-            $admin = "<li class=\"\"><a href=\"../../index.html\" target=\"_blank\"><span lang=\"en\">Dashboard</span></a></li>";
+            $admin = "<li class=\"\"><a href=\"productAdmin.php\" target=\"_blank\"><span lang=\"en\">Dashboard</span></a></li>";
             $paginaHTML = str_replace('<li class="adminListItem"></li>', $admin, $paginaHTML);
         }
     }
