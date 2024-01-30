@@ -821,30 +821,30 @@ div.page-btns {
 
 /*PAGINA 404*/
 #error404 {
-    height: 100%;
-    justify-content: center;
     width: 80%;
-    margin: auto;
     padding: 1em;
     font-size: 95px;
     text-align: center;
-    text-shadow: 0 0 80px red, 0 0 30px FireBrick, 0 0 6px DarkRed;
     color: red;
+    font-family: "Prompt", sans-serif;
+    /* background-color: #111111; */
 }
 
-#error404 p {
-    display: none;
-}
 
 #error {
-    display: none;
+    color: black;
+    text-transform: uppercase;
+}
+
+#error404 #goHome {
+    font-family: "Prompt", sans-serif;
+    margin: 2em, 20em, 2em, 20em;
+    text-align: center;
+    font-size: .18em;
+    color: black;
 }
 
 #error404 a {
     color: red;
     text-decoration: underline;
-}
-
-#print_cover {
-    text-transform: uppercase;
 }

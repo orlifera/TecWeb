@@ -12,7 +12,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 setlocale(LC_ALL, 'it_IT');
 
-$paginaHTML = file_get_contents(__DIR__ . "/../pages/payments.html");
+$paginaHTML = file_get_contents(__DIR__ . "/../pages/checkout.html");
 
 $listaPC = "";
 $sku = $_GET["id"];
