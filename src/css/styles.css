@@ -334,11 +334,6 @@ nav svg:not(.signup, #sun, #moon) {
     padding-top: 6em;
 }
 
-/* #login,
-#settings {
-    fill: var(--primaryText);
-} */
-
 .signup path {
     stroke: var(--text-300);
     stroke-width: 1.5;
@@ -346,27 +341,12 @@ nav svg:not(.signup, #sun, #moon) {
     stroke-linejoin: round;
 }
 
-
-/* Selettore per screen-reader-only. Classe data al breadcrumb, in modo che sia facile per le persone con cecità orientarsi sul sito. Per persone con vista normale, è stata implementata una classe active per capire in che pagina si trova */
-/* .sr-only {
-    border: 0 !important;
-    clip: rect(1px, 1px, 1px, 1px) !important;
-    clip-path: inset(50%) !important;
-    height: 1px !important;
-    width: 1px !important;
-    position: absolute !important;
-    overflow: hidden !important;
-    white-space: nowrap !important;
-    padding: 0 !important;
-    margin: -1px !important;
-} */
-
 /* index */
 
 #presentation {
     width: 100%;
     background: linear-gradient(-45deg, var(--accent-100), var(--accent-200));
-    height: 100vh;
+    height: 80dvh;
 }
 
 .title {
@@ -386,13 +366,15 @@ nav svg:not(.signup, #sun, #moon) {
 
 #presentation .title {
     position: relative;
-    top: 45vh;
-    font-size: 3em;
+    top: 30dvh;
+    font-size: 5em;
+    text-transform: uppercase;
 }
 
 #presentation .subtitle {
     position: relative;
-    top: 45vh;
+    top: 30dvh;
+    font-size: 2em;
 }
 
 #info {
