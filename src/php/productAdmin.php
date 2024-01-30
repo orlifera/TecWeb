@@ -76,13 +76,13 @@ if ($connectionOk) {
 //$nome contiene il valore corrente mentre $i contiene l'indice corrente, $nomePc è l'array dove itero
 foreach ($nomePc as $i => $nome) {
     if ($nome != null) {
-        $prova = "<li>\n" .
+        $prova = "<li class=\"product-item\">\n" .
             "<a class=\"\" href=\"getProduct.php?categoria=" . $categoria[$i] . "&id=" . $sku[$i] . "\">" .
 
             "<label for=\"" . $sku[$i] . "\">" . $nome . "</label>\n" .
             "</a>\n" .
             "<div class=\"dropdown-options\">
-                        <button class=\"dropbtn\">⋮</button>
+                        <button class=\"dropbtn\">&#8942;</button>
                         <div class=\"dropdown-content hidden\">
                             <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\" class=\"removeItem\" data-id=\"" . $sku[$i] . "\" data-categoria=\"prodotti\">
                             <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\" class=\"modifyItem\" data-id=\"" . $sku[$i] . "\" data-categoria=\"prodotti\">
@@ -134,12 +134,12 @@ if ($connectionOk) {
 
 foreach ($nomePc as $i => $nome) {
     if ($nome != null) {
-        $prova = "<li>\n" .
+        $prova = "<li class=\"product-item\">\n" .
             "<a class=\"\" href=\"getProduct.php?categoria=" . $categoria[$i] . "&id=" . $sku[$i] . "\">" .
             "<label for=\"" . $sku[$i] . "\">" . $nome . "</label>\n" .
             "</a>\n" .
             "<div class=\"dropdown-options\">
-                    <button class=\"dropbtn\">⋮</button>
+                    <button class=\"dropbtn\">&#8942;</button>
                     <div class=\"dropdown-content hidden\">
                     <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\" class=\"removeItem\" data-id=\"" . $sku[$i] . "\"
                     data-categoria=\"prodotti\">
@@ -192,15 +192,15 @@ if ($connectionOk) {
 }
 foreach ($codiceSconto as $i => $nome) {
     if ($nome != null) {
-        $prova = "<li>\n" .
-            "<label for=\"" . $nome . "\">" . $nome . " " . $emissioneSconto[$i] . " " . $scadenzaSconto[$i] . " " . $usernameSconto[$i] . " " . ($isUsedSconto[$i] == 0 ? "Buono non usato" : "Buono usato") . " " . $valoreSconto[$i] . "</label>\n .
+        $prova = "<li class=\"product-item\">\n" .
+            "<label for=\"" . $nome . "\">" . $nome . " " . $emissioneSconto[$i] . " " . $scadenzaSconto[$i] . " " . $usernameSconto[$i] . " " . ($isUsedSconto[$i] == 0 ? "Buono non usato" : "Buono usato") . " " . $valoreSconto[$i] . "</label>\n " . "
             <div class=\"dropdown-options\">
-                    <button class=\"dropbtn\">⋮</button>
+                    <button class=\"dropbtn\">&#8942;</button>
                     <div class=\"dropdown-content hidden\">
                     <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\" class=\"removeItem\" data-id=\"" . $nome . "\" data-categoria=\"sconti\">
                     <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\" class=\"modifyItem\" data-id=\"" . $nome . "\" data-categoria=\"sconti\">
                     </div>
-                </div>.
+                </div> " . "
             </li>\n";
         $sconti .= $prova;
     }

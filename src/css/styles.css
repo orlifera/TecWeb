@@ -145,7 +145,6 @@ html {
 }
 
 #main-header {
-    padding: 1em;
     background-color: var(--bg-100);
 }
 
@@ -156,7 +155,7 @@ html {
     background-repeat: no-repeat;
     background-position: center;
     background-image: url(../../assets/images/logoNoBg.png);
-    font-size: 6em;
+    font-size: 5em;
     line-height: 1.5em;
 }
 
@@ -686,13 +685,6 @@ footer dt {
 .dropdown:last-child {
     margin-bottom: 5em;
     border-bottom: none;
-}
-
-.dropdown-content {
-    display: none;
-    background-color: #f9f9f9;
-    padding: 10px;
-    border-top: 1px solid #030303;
 }
 
 .question {
@@ -2489,10 +2481,8 @@ input.card-name {
     display: none;
     position: absolute;
     right: 0;
-    /* Align to the right side of dropbtn */
     background-color: var(--bg-100);
     min-width: 160px;
-    /* Set a minimum width */
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
@@ -2507,7 +2497,16 @@ input.card-name {
     background: none;
     text-align: left;
     width: 100%;
-    /* Make the buttons expand to the width of the container */
+}
+
+.product-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-item a {
+    text-align: center;
 }
 
 /* Show the dropdown menu on hover */
@@ -2555,4 +2554,8 @@ input.card-name {
 #modificaProdotto:hover {
     background-color: var(--primary-200);
     color: var(--text-300);
+}
+
+.headings {
+    color: var(--text-100);
 }
