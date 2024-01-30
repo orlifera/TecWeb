@@ -29,43 +29,43 @@
     </script>
 </head>
 
-<body>
-    <main id="login-main">
-        <div class="container">
-            <div class="login-link">
-                <div class="login-logo">
-                    <a href="../../index.html"><img id="login-logo" src="../../assets/images/logoNoBg.png"
-                            alt="logo ML Tech"></a>
+    <body>
+        <main id="login-main">
+            <div class="container">
+                <div class="login-link">
+                    <div class="login-logo">
+                        <a href="../../index.html"><img id="login-logo" src="../../assets/images/logoNoBg.png"
+                                alt="logo ML Tech"></a>
+                    </div>
+                    <h2 class="side-heading">Sei gi&agrave; registrato&quest;</h2>
+                    <p class="login-side-text">Accedi per saltare questa parte.</p>
+                    <a href="../php/sendToLogin.php" class="login-btn">Accedi</a>
+                    <p class="link-to-home">Torna al <a href="../php/cart.php">Carrello</a></p>
                 </div>
-                <h2 class="side-heading">Sei gi&agrave; registrato&quest;</h2>
-                <p class="login-side-text">Accedi per saltare questa parte.</p>
-                <a href="../php/sendToLogin.php" class="login-btn">Accedi</a>
-                <p class="link-to-home">Torna al <a href="../php/cart.php">Carrello</a></p>
-            </div>
-            <form action="../php/signup.php" method="post" class="signup-container">
-                <h1 class="big-h">Checkout Ordine</h1>
-                <div class="progress-bar">
-                    <div class="stage">
-                        <p class="tool-tip">Generalità</p>
-                        <p class="stageno stageno-1">1</p>
+                <form action="../php/signup.php" method="post" class="signup-container">
+                    <h1 class="big-h"><span lang="en">Checkout</span> Ordine</h1>
+                    <div class="progress-bar">
+                        <div class="stage">
+                            <p class="tool-tip">Generalità</p>
+                            <p class="stageno stageno-1">1</p>
+                        </div>
+                        <div class="stage">
+                            <p class="tool-tip">Contatti</p>
+                            <p class="stageno stageno-2">2</p>
+                        </div>
+                        <div class="stage">
+                            <p class="tool-tip">Indirizzo</p>
+                            <p class="stageno stageno-3">3</p>
+                        </div>
                     </div>
-                    <div class="stage">
-                        <p class="tool-tip">Contatti</p>
-                        <p class="stageno stageno-2">2</p>
-                    </div>
-                    <div class="stage">
-                        <p class="tool-tip">Indirizzo</p>
-                        <p class="stageno stageno-3">3</p>
-                    </div>
-                </div>
-                <div class="signup-content">
-                    <fieldset id="stage1">
-                        <div class="stage1-content">
-                            <div class="button-container">
-                                <div class="text-fields fname">
-                                    <svg class="login-icon" xmlns="http://www.w3.org/2000/svg" version="1.0" width="24"
-                                        height="24" viewBox="0 0 128.000000 128.000000"
-                                        preserveAspectRatio="xMidYMid meet">
+                    <div class="signup-content">
+                        <fieldset id="stage1">
+                            <div class="stage1-content">
+                                <div class="button-container">
+                                    <div class="text-fields fname">
+                                        <svg class="login-icon"  version="1.0"
+                                            width="24" height="24" viewBox="0 0 128.000000 128.000000"
+                                            preserveAspectRatio="xMidYMid meet">
 
                                         <g transform="translate(0.000000,128.000000) scale(0.100000,-0.100000)"
                                             stroke="none">
@@ -80,10 +80,10 @@
                                 </div>
 
 
-                                <div class="text-fields lname">
-                                    <svg class="login-icon" xmlns="http://www.w3.org/2000/svg" version="1.0" width="24"
-                                        height="24" viewBox="0 0 128.000000 128.000000"
-                                        preserveAspectRatio="xMidYMid meet">
+                                    <div class="text-fields lname">
+                                        <svg class="login-icon"  version="1.0"
+                                            width="24" height="24" viewBox="0 0 128.000000 128.000000"
+                                            preserveAspectRatio="xMidYMid meet">
 
                                         <g transform="translate(0.000000,128.000000) scale(0.100000,-0.100000)"
                                             stroke="none">
@@ -102,104 +102,103 @@
                                 <input type="button" value="Avanti" class="next stagebtn1b">
                             </div>
 
-                        </div>
-                    </fieldset>
-                    <fieldset id="stage2">
-                        <div class="stage2-content">
-                            <div class="button-container">
-                                <div class="text-fields email">
-                                    <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-                                    <svg width="24px" height="24px" viewBox="0 0 1920 1920"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M1920 428.266v1189.54l-464.16-580.146-88.203 70.585 468.679 585.904H83.684l468.679-585.904-88.202-70.585L0 1617.805V428.265l959.944 832.441L1920 428.266ZM1919.932 226v52.627l-959.943 832.44L.045 278.628V226h1919.887Z"
-                                            fill-rule="evenodd" />
-                                    </svg>
-                                    <label for="email">Email</label>
-                                    <input type="email" name="email" id="email" placeholder="La Tua email" required>
-                                </div>
-                                <div class="text-fields phone">
-                                    <?xml version="1.0" encoding="utf-8"?>
-                                    <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-                                    <svg height="24px" width="24px" version="1.1" id="_x32_"
-                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        viewBox="0 0 512 512" xml:space="preserve">
-                                        <g>
-                                            <path class="st0"
-                                                d="M94.811,21.696c-35.18,22.816-42.091,94.135-28.809,152.262c10.344,45.266,32.336,105.987,69.42,163.165
+                            </div>
+                        </fieldset>
+                        <fieldset id="stage2">
+                            <div class="stage2-content">
+                                <div class="button-container">
+                                    <div class="text-fields email">
+                                        
+                                        <svg width="24px" height="24px" viewBox="0 0 1920 1920"
+                                            >
+                                            <path
+                                                d="M1920 428.266v1189.54l-464.16-580.146-88.203 70.585 468.679 585.904H83.684l468.679-585.904-88.202-70.585L0 1617.805V428.265l959.944 832.441L1920 428.266ZM1919.932 226v52.627l-959.943 832.44L.045 278.628V226h1919.887Z"
+                                                fill-rule="evenodd" />
+                                        </svg>
+                                        <label for="email">Email</label>
+                                        <input type="email" name="email" id="email" placeholder="La Tua email" required>
+                                    </div>
+                                    <div class="text-fields phone">
+                                        
+                                        
+                                        <svg height="24px" width="24px" version="1.1" id="_x32_"
+                                            
+                                             viewBox="0 0 512 512"
+                                            xml:space="preserve">
+                                            <g>
+                                                <path class="st0"
+                                                    d="M94.811,21.696c-35.18,22.816-42.091,94.135-28.809,152.262c10.344,45.266,32.336,105.987,69.42,163.165
                                                                                 		c34.886,53.79,83.557,102.022,120.669,129.928c47.657,35.832,115.594,58.608,150.774,35.792
                                                                                 		c17.789-11.537,44.218-43.058,45.424-48.714c0,0-15.498-23.896-18.899-29.14l-51.972-80.135
                                                                                 		c-3.862-5.955-28.082-0.512-40.386,6.457c-16.597,9.404-31.882,34.636-31.882,34.636c-11.38,6.575-20.912,0.024-40.828-9.142
                                                                                 		c-24.477-11.262-51.997-46.254-73.9-77.947c-20.005-32.923-40.732-72.322-41.032-99.264c-0.247-21.922-2.341-33.296,8.304-41.006
                                                                                 		c0,0,29.272-3.666,44.627-14.984c11.381-8.392,26.228-28.286,22.366-34.242l-51.972-80.134c-3.401-5.244-18.899-29.14-18.899-29.14
                                                                                 		C152.159-1.117,112.6,10.159,94.811,21.696z" />
-                                        </g>
-                                    </svg>
-                                    <label for="phone">Telefono</label>
-                                    <input type="phone" name="phone" id="phone" placeholder="Il tuo Telefono" required>
+                                            </g>
+                                        </svg>
+                                        <label for="phone">Telefono</label>
+                                        <input type="tel" inputmode="numeric" name="phone" id="phone" placeholder="Il tuo Telefono"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="page-btns">
+                                    <input type="button" value="Indietro" class="previous stagebtn2a">
+                                    <input type="button" value="Avanti" class="next stagebtn2b">
                                 </div>
                             </div>
-                            <div class="page-btns">
-                                <input type="button" value="Indietro" class="previous stagebtn2a">
-                                <input type="button" value="Avanti" class="next stagebtn2b">
-                            </div>
-                        </div>
-                    </fieldset>
-                    <fieldset id="stage3">
-                        <div class="stage3-content">
-                            <div class="button-container">
-                                <div class="text-fields address">
-                                    <?xml version="1.0" ?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-                                    <svg width="24px" height="24px" viewBox="0 0 128 128" data-name="Layer 4"
-                                        id="Layer_4" xmlns="http://www.w3.org/2000/svg">
-                                        <path class="cls-1"
-                                            d="M64,30.17,96.64,62.81V102H31.36V62.81L64,30.17M64,16,21.36,58.67V112h85.28V58.67L64,16Z" />
-                                        <rect class="cls-1" height="38.37" width="19.19" x="54.41" y="73.59" />
-                                    </svg>
-                                    <label for="address">Indirizzo</label>
-                                    <input type="text" name="address" id="address" placeholder="Il tuo indirizzo"
-                                        required>
+                        </fieldset>
+                        <fieldset id="stage3">
+                            <div class="stage3-content">
+                                <div class="button-container">
+                                    <div class="text-fields address">
+                                        
+                                        <svg width="24px" height="24px" viewBox="0 0 128 128">
+                                            <path class="cls-1"
+                                                d="M64,30.17,96.64,62.81V102H31.36V62.81L64,30.17M64,16,21.36,58.67V112h85.28V58.67L64,16Z" />
+                                            <rect class="cls-1" height="38.37" width="19.19" x="54.41" y="73.59" />
+                                        </svg>
+                                        <label for="address">Indirizzo</label>
+                                        <input type="text" name="address" id="address" placeholder="Il tuo indirizzo"
+                                            required>
+                                    </div>
+                                    <div class="text-fields city">
+                                        
+                                        <svg width="24px" height="24px" viewBox="0 0 128 128">
+                                            <path class="cls-1"
+                                                d="M64,30.17,96.64,62.81V102H31.36V62.81L64,30.17M64,16,21.36,58.67V112h85.28V58.67L64,16Z" />
+                                            <rect class="cls-1" height="38.37" width="19.19" x="54.41" y="73.59" />
+                                        </svg>
+                                        <label for="city">Città</label>
+                                        <input type="text" name="city" id="city" placeholder="La tua città, provincia"
+                                            required>
+                                    </div>
                                 </div>
-                                <div class="text-fields city">
-                                    <?xml version="1.0" ?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-                                    <svg width="24px" height="24px" viewBox="0 0 128 128" data-name="Layer 4"
-                                        id="Layer_4" xmlns="http://www.w3.org/2000/svg">
-                                        <path class="cls-1"
-                                            d="M64,30.17,96.64,62.81V102H31.36V62.81L64,30.17M64,16,21.36,58.67V112h85.28V58.67L64,16Z" />
-                                        <rect class="cls-1" height="38.37" width="19.19" x="54.41" y="73.59" />
-                                    </svg>
-                                    <label for="city">Città</label>
-                                    <input type="text" name="city" id="city" placeholder="La tua città, provincia"
-                                        required>
+                                <div class="button-container">
+                                    <div class="text-fields cap">
+                                        
+                                        <svg width="24px" height="24px" viewBox="0 0 128 128">
+                                            <path class="cls-1"
+                                                d="M64,30.17,96.64,62.81V102H31.36V62.81L64,30.17M64,16,21.36,58.67V112h85.28V58.67L64,16Z" />
+                                            <rect class="cls-1" height="38.37" width="19.19" x="54.41" y="73.59" />
+                                        </svg>
+                                        <label for="cap">CAP</label>
+                                        <input type="text" name="cap" id="cap" placeholder="Il tuo CAP" required>
+                                    </div>
+                                </div>
+                                <label id="tos" for="terms">
+                                    <input class="loginTos" id="terms" type="checkbox" name="terms" required >
+                                    Accetto i <a id="tosLink" href="tos.html"> Termini e le Condizioni</a>
+                                </label>
+                                <div class="page-btns">
+                                    <input type="button" value="Indietro" class="previous stagebtn3a">
+                                    <input type="button" value="Vai al Pagamento" class="next stagebtn3b">
                                 </div>
                             </div>
-                            <div class="button-container">
-                                <div class="text-fields cap">
-                                    <?xml version="1.0" ?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-                                    <svg width="24px" height="24px" viewBox="0 0 128 128" data-name="Layer 4"
-                                        id="Layer_4" xmlns="http://www.w3.org/2000/svg">
-                                        <path class="cls-1"
-                                            d="M64,30.17,96.64,62.81V102H31.36V62.81L64,30.17M64,16,21.36,58.67V112h85.28V58.67L64,16Z" />
-                                        <rect class="cls-1" height="38.37" width="19.19" x="54.41" y="73.59" />
-                                    </svg>
-                                    <label for="cap">CAP</label>
-                                    <input type="text" name="cap" id="cap" placeholder="Il tuo CAP" required>
-                                </div>
-                            </div>
-                            <label id="tos" for="terms">
-                                <input class="loginTos" id="terms" type="checkbox" name="terms" required />
-                                Accetto i <a id="tosLink" href="tos.html"> Termini e le Condizioni</a>
-                            </label>
-                            <div class="page-btns">
-                                <input type="button" value="Indietro" class="previous stagebtn3a">
-                                <input type="button" id="proceed" value="Vai al Pagamento" class="next stagebtn3b">
-                            </div>
-                        </div>
-                    </fieldset>
-                </div>
-            </form>
-        </div>
-    </main>
+                        </fieldset>
+                    </div>
+                </form>
+            </div>
+        </main>
 
     <script src="../JS/signup.js"></script>
     <script src="../JS/checkout.js"></script>

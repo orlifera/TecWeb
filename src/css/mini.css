@@ -389,6 +389,13 @@ div#presentation {
     right: calc((100dvw - 20em)/2);
 }
 
+.cross {
+    position: absolute;
+    top: .5em;
+    right: .5em;
+    stroke: var(--text-100);
+}
+
 #mobile #drop-catalogo li {
     width: 40%;
     padding: 0.5em;
@@ -435,6 +442,7 @@ div#presentation {
     margin: auto;
     padding: 2em 0 1em;
     font-size: 1.5em;
+    color: var(--text-100);
 }
 
 .obscured {
@@ -704,4 +712,16 @@ section#cookie-section {
 
 #cookie-section #cookie-header #cookie-icon {
     font-size: 1em;
+}
+
+main#cart-main .cart-container a {
+    width: 30%;
+}
+
+#cart-main #caps1 {
+    width: 40%;
+}
+
+#cart-main #caps2 {
+    width: 30%
 }

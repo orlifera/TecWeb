@@ -78,7 +78,7 @@ if ($connectionOk) {
         $fname = "<input class=\"dataHolder\" type=\"text\" name=\"fname\" id=\"fname\" value=\"" . $listaInfo[0] . "\" required>";
         $lname = "<input class=\"dataHolder\" type=\"text\" name=\"lname\" id=\"lname\" value=\"" . $listaInfo[1] . "\" required>";
         $email = "<input class=\"dataHolder\" type=\"email\" name=\"email\" id=\"email\" value=\"" . $listaInfo[5] . "\" disabled>";
-        $phone = "<input class=\"dataHolder\" type=\"phone\" name=\"phone\" id=\"phone\" value=\"" . $listaInfo[7] . "\" required>";
+        $phone = "<input class=\"dataHolder\" type=\"tel\" inputmode=\"numeric\" name=\"phone\" id=\"phone\" value=\"" . $listaInfo[7] . "\" required>";
         $dob = "<input class=\"dataHolder\" type=\"date\" name=\"dob\" id=\"dob\" value=\"" . $listaInfo[2] . "\" required>";
         $city = "<input class=\"dataHolder\" type=\"text\" name=\"city\" id=\"city\" value=\"" . $listaInfo[8] . "\" required>";
         $address = "<input class=\"dataHolder\" type=\"text\" name=\"address\" id=\"address\" value=\"" . $listaInfo[9] . "\" required>";

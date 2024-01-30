@@ -51,19 +51,20 @@ $connection->closeDBConnection();
 foreach ($nomeProdottoCompleto as $i => $nome) {
     if ($nome != null) {
         $prova =
-            "<a class=\"\" href=\"getProduct.php?categoria=" . $categoria[$i] . "&id=" . $sku[$i] . "\">\n" .
-            "<img src=\"" . $path[$i] . "\" alt=\"image\">\n" .
-            "<dt class=\"productName\">" . $nome . "</dt>\n" .
-            "<dd class=\"productPrice\">" . $prezzo[$i] . "</dd>\n" .
-
-            "</a>\n" .
-            "<dd>Quantità</dd><div class=\"qty-container\"><div class=\"qty-input\">
+            "<div class=\"cart-container\">" .
+            "<a href=\"getProduct.php?categoria=" . $categoria[$i] . "&id=" . $sku[$i] . "\">\n" .
+            "<img class=\"product-image\" src=\"" . $path[$i] . "\" alt=\"" . $nome . "\">\n" . "</a>\n" .
+            "<div id=\"caps1\" class=\"capsule\">" .
+            "<dt class=\"product-name\">" . $nome . "</dt>\n" .
+            "<dd class=\"product-price\">" . $prezzo[$i] . "</dd>\n</div>" .
+            "<div id=\"caps2\" class=\"capsule\">" .
+            "<div class=\"qty-container\"><div class=\"qty-input\">
             <input id=\"minus\" type=\"button\" value=\"-\" class=\"qty-count qty-count--minus \">
             <input id=\"qty\" type=\"number\" max=\"" . $disponibilita[$i] . "\" value=\"" . $quantita[$i] . "\" inputmode=\"numeric\" class=\"product-quantity quantity\" disabled>
 
             <input id=\"add\" type=\"button\" value=\"+\" class=\" qty-count qty-count--plus \">
             </div></div>" .
-            "<input type=\"button\" value=\"Rimuovi dal carrello\" class=\"removeCart\"name=\"removeCart" . $sku[$i] . "\">";
+            "<input type=\"button\" value=\"Rimuovi\" id=\"removeCart\"name=\"removeCart" . $sku[$i] . "\">" . "</div></div>";
 
         $htmlProdotti .= $prova;
         $counter++;
