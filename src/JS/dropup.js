@@ -11,11 +11,16 @@ function hideDrop(q) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  document.addEventListener('click', function(event) {
-    var trigger1 = document.getElementById("trigger1");
-    var trigger2 = document.getElementById("trigger2");
-    var drop1 = document.getElementById("drop-catalogo");
-    var drop2 = document.getElementById("profile-dropup");
+  var trigger1 = document.getElementById("trigger1");
+  var trigger2 = document.getElementById("trigger2");
+  var drop1 = document.getElementById("drop-catalogo");
+  var drop2 = document.getElementById("profile-dropup");
+  var cross = document.querySelectorAll(".cross");
+  closeAllDropUp(drop1, drop2); 
+    document.addEventListener('click', function(event) {
+    cross.forEach(cross => {
+      if (cross.contains(event.target)) closeAllDropUp;
+    });
     if (trigger1.contains(event.target)) { 
       if (drop1.classList.contains("show")) {
         hideDrop(drop1);
