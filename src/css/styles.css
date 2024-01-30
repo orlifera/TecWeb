@@ -1577,7 +1577,7 @@ PROFILE
 
 nav.sidenav {
     width: 30%;
-    background-color: var(--primary-100);
+    background: linear-gradient(to bottom, var(--primary-100) 30%, var(--primary-200));
     position: sticky;
     /* max-height: 100svh; */
     top: 0;
@@ -2558,4 +2558,10 @@ input.card-name {
 
 .headings {
     color: var(--text-100);
+}
+
+.fieldProfile .sale-description li,
+.fieldProfile .order-description li {
+    border-bottom: unset;
+    display: inline;
 }
