@@ -22,12 +22,14 @@ class DBAccess
 
     /************ GESTIONE LOGIN E REGISTRAZIONE ************/
     // FINIRE QUA 
-    public function getUsername($username) {
+    public function getUsername($username)
+    {
         $query = "SELECT * FROM utente WHERE username = ?;";
-    } 
+    }
 
     /************ GESTIONE PROFILO ************/
-    public function getProfileInfo($username) {
+    public function getProfileInfo($username)
+    {
         $query = "SELECT * FROM utente WHERE username = ?;";
         $stmt = mysqli_prepare($this->connection, $query);
         mysqli_stmt_bind_param($stmt, "s", $username);
@@ -45,7 +47,8 @@ class DBAccess
         }
     }
 
-    public function updatePersonalInfo($fname, $lname, $email, $phone) {
+    public function updatePersonalInfo($fname, $lname, $email, $phone)
+    {
         $query = "UPDATE utente SET nome = ?, cognome = ?, telefono = ? WHERE email = ?;";
         $stmt = mysqli_prepare($this->connection, $query);
         if ($stmt === false) {
@@ -60,7 +63,8 @@ class DBAccess
         mysqli_stmt_close($stmt);
     }
 
-    public function updatePsw($email, $psw) {
+    public function updatePsw($email, $psw)
+    {
         $query = "UPDATE utente SET password = ? WHERE email = ?;";
         $stmt = mysqli_prepare($this->connection, $query);
         if ($stmt === false) {
@@ -75,7 +79,8 @@ class DBAccess
         mysqli_stmt_close($stmt);
     }
 
-    public function updateAddressInfo($email, $city, $address, $cap) {
+    public function updateAddressInfo($email, $city, $address, $cap)
+    {
         $query = "UPDATE utente SET citta = ?, indirizzo = ?, CAP = ? WHERE email = ?;";
         $stmt = mysqli_prepare($this->connection, $query);
         if ($stmt === false) {
@@ -89,7 +94,7 @@ class DBAccess
         }
         mysqli_stmt_close($stmt);
     }
-    
+
 
     /************ GESTIONE PRODOTTI ************/
     public function getProduct($categoria, $sku)
@@ -440,9 +445,10 @@ class DBAccess
         return $rowsAffected > 0;
     }
 
-    public function insertNewOrder($codice, $utente, $quantitaOrdinata, $indirizzo, $prezzo)
+    /*insertNewOrder($sku, $quantitaOrdinata, $nomeUtente, $cognomeUtente, $emailUtente, $phoneUtente, $indirizzoUtente, $cittaUtente, $capUtente, $prezzo); */
+    public function insertNewOrder($quantitaOrdinata, $nomeUtente, $cognomeUtente, $emailUtente, $phoneUtente, $indirizzoUtente, $cittaUtente, $capUtente, $prezzo)
     {
-        $queryInsert = "INSERT INTO Ordine (id, utente, quantitaOrdinata, indirizzo, prezzo) VALUES (\"$codice\", \"$utente\", $quantitaOrdinata, \"$indirizzo\", $prezzo)";
+        $queryInsert = "INSERT INTO Ordine (nome, cognome, email, numero, indirizzo, citta, cap, quantitaOrdinata, prezzo) VALUES (\"$nomeUtente\", \"$cognomeUtente\", \"$emailUtente\", $phoneUtente, \"$indirizzoUtente\",   \"$cittaUtente\", $capUtente,$quantitaOrdinata,  $prezzo)";
         mysqli_query($this->connection, $queryInsert) or die("errore in DBaccess" . mysqli_error($this->connection));
         return mysqli_affected_rows($this->connection) > 0;
     }

@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="it" data-theme="light">
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title lang="en">Checkout - ML Tech</title> <!-- da cambiare nei vari file -->
-        <meta name="keywords"
-            content="Computer assemblati, pc da gaming assemblati, tastiere meccaniche, tastiere custom, pc gaming economici">
-        <!-- da cambiare nei vari file -->
-        <meta name="description" content="Catalogo PC ML Tech, catalogo Tastiere ML Tech">
-        <!-- da cambiare nei vari file -->
-        <link rel="stylesheet" href="../css/styles.css" media="screen">
-        <link rel="stylesheet" href="../css/print.css" media="print">
-        <link rel="stylesheet" href="../css/mini.css" media="screen and (max-width: 600px)">
-        <script>
-            //check local storage for theme and OS preference
-            let localS = localStorage.getItem('theme'),
-                themeToSet = localS
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title lang="en">Checkout - ML Tech</title> <!-- da cambiare nei vari file -->
+    <meta name="keywords"
+        content="Computer assemblati, pc da gaming assemblati, tastiere meccaniche, tastiere custom, pc gaming economici">
+    <!-- da cambiare nei vari file -->
+    <meta name="description" content="Catalogo PC ML Tech, catalogo Tastiere ML Tech">
+    <!-- da cambiare nei vari file -->
+    <link rel="stylesheet" href="../css/styles.css" media="screen">
+    <link rel="stylesheet" href="../css/print.css" media="print">
+    <link rel="stylesheet" href="../css/mini.css" media="screen and (max-width: 600px)">
+    <script>
+        //check local storage for theme and OS preference
+        let localS = localStorage.getItem('theme'),
+            themeToSet = localS
 
-            //if LS not set => check OS preference
-            if (!localS) {
-                //media query with JS
-                themeToSet = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-            }
+        //if LS not set => check OS preference
+        if (!localS) {
+            //media query with JS
+            themeToSet = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        }
 
-            //set correct theme
-            document.documentElement.setAttribute('data-theme', themeToSet)
-        </script>
-    </head>
+        //set correct theme
+        document.documentElement.setAttribute('data-theme', themeToSet)
+    </script>
+</head>
 
     <body>
         <main id="login-main">
@@ -67,17 +67,17 @@
                                             width="24" height="24" viewBox="0 0 128.000000 128.000000"
                                             preserveAspectRatio="xMidYMid meet">
 
-                                            <g transform="translate(0.000000,128.000000) scale(0.100000,-0.100000)"
-                                                stroke="none">
-                                                <path
-                                                    d="M543 1266 c-199 -63 -281 -290 -167 -462 122 -184 390 -183 512 1 36 55 57 141 48 202 -26 189 -216 314 -393 259z m214 -100 c63 -42 96 -99 101 -173 5 -76 -10 -124 -57 -176 -86 -96 -229 -104 -323 -19 -124 111 -98 302 52 383 55 30 171 23 227 -15z" />
-                                                <path
-                                                    d="M296 645 c-53 -19 -102 -69 -136 -140 -35 -74 -50 -153 -50 -265 0 -110 23 -161 95 -205 l48 -30 363 -3 c240 -2 377 1 404 8 51 14 108 63 131 115 48 105 5 357 -78 456 -31 37 -115 79 -158 79 -16 0 -71 -20 -121 -46 -77 -39 -99 -46 -150 -46 -64 -1 -120 18 -195 64 -51 31 -93 35 -153 13z m154 -101 c57 -37 144 -57 219 -51 51 4 84 15 151 49 72 37 90 43 120 37 81 -17 143 -135 156 -297 7 -97 -8 -147 -55 -179 -34 -23 -35 -23 -400 -23 -349 0 -367 1 -399 20 -50 31 -66 78 -59 180 10 135 53 244 111 280 53 34 84 30 156 -16z" />
-                                            </g>
-                                        </svg>
-                                        <label for="fname">Nome</label>
-                                        <input type="text" name="fname" id="fname" placeholder="Il tuo nome" required>
-                                    </div>
+                                        <g transform="translate(0.000000,128.000000) scale(0.100000,-0.100000)"
+                                            stroke="none">
+                                            <path
+                                                d="M543 1266 c-199 -63 -281 -290 -167 -462 122 -184 390 -183 512 1 36 55 57 141 48 202 -26 189 -216 314 -393 259z m214 -100 c63 -42 96 -99 101 -173 5 -76 -10 -124 -57 -176 -86 -96 -229 -104 -323 -19 -124 111 -98 302 52 383 55 30 171 23 227 -15z" />
+                                            <path
+                                                d="M296 645 c-53 -19 -102 -69 -136 -140 -35 -74 -50 -153 -50 -265 0 -110 23 -161 95 -205 l48 -30 363 -3 c240 -2 377 1 404 8 51 14 108 63 131 115 48 105 5 357 -78 456 -31 37 -115 79 -158 79 -16 0 -71 -20 -121 -46 -77 -39 -99 -46 -150 -46 -64 -1 -120 18 -195 64 -51 31 -93 35 -153 13z m154 -101 c57 -37 144 -57 219 -51 51 4 84 15 151 49 72 37 90 43 120 37 81 -17 143 -135 156 -297 7 -97 -8 -147 -55 -179 -34 -23 -35 -23 -400 -23 -349 0 -367 1 -399 20 -50 31 -66 78 -59 180 10 135 53 244 111 280 53 34 84 30 156 -16z" />
+                                        </g>
+                                    </svg>
+                                    <label for="fname">Nome</label>
+                                    <input type="text" name="fname" id="fname" placeholder="Il tuo nome" required>
+                                </div>
 
 
                                     <div class="text-fields lname">
@@ -85,23 +85,22 @@
                                             width="24" height="24" viewBox="0 0 128.000000 128.000000"
                                             preserveAspectRatio="xMidYMid meet">
 
-                                            <g transform="translate(0.000000,128.000000) scale(0.100000,-0.100000)"
-                                                stroke="none">
-                                                <path
-                                                    d="M543 1266 c-199 -63 -281 -290 -167 -462 122 -184 390 -183 512 1 36 55 57 141 48 202 -26 189 -216 314 -393 259z m214 -100 c63 -42 96 -99 101 -173 5 -76 -10 -124 -57 -176 -86 -96 -229 -104 -323 -19 -124 111 -98 302 52 383 55 30 171 23 227 -15z" />
-                                                <path
-                                                    d="M296 645 c-53 -19 -102 -69 -136 -140 -35 -74 -50 -153 -50 -265 0 -110 23 -161 95 -205 l48 -30 363 -3 c240 -2 377 1 404 8 51 14 108 63 131 115 48 105 5 357 -78 456 -31 37 -115 79 -158 79 -16 0 -71 -20 -121 -46 -77 -39 -99 -46 -150 -46 -64 -1 -120 18 -195 64 -51 31 -93 35 -153 13z m154 -101 c57 -37 144 -57 219 -51 51 4 84 15 151 49 72 37 90 43 120 37 81 -17 143 -135 156 -297 7 -97 -8 -147 -55 -179 -34 -23 -35 -23 -400 -23 -349 0 -367 1 -399 20 -50 31 -66 78 -59 180 10 135 53 244 111 280 53 34 84 30 156 -16z" />
-                                            </g>
-                                        </svg>
-                                        <label for="lname">Cognome</label>
-                                        <input type="text" name="lname" id="lname" placeholder="Il tuo cognome"
-                                            required>
+                                        <g transform="translate(0.000000,128.000000) scale(0.100000,-0.100000)"
+                                            stroke="none">
+                                            <path
+                                                d="M543 1266 c-199 -63 -281 -290 -167 -462 122 -184 390 -183 512 1 36 55 57 141 48 202 -26 189 -216 314 -393 259z m214 -100 c63 -42 96 -99 101 -173 5 -76 -10 -124 -57 -176 -86 -96 -229 -104 -323 -19 -124 111 -98 302 52 383 55 30 171 23 227 -15z" />
+                                            <path
+                                                d="M296 645 c-53 -19 -102 -69 -136 -140 -35 -74 -50 -153 -50 -265 0 -110 23 -161 95 -205 l48 -30 363 -3 c240 -2 377 1 404 8 51 14 108 63 131 115 48 105 5 357 -78 456 -31 37 -115 79 -158 79 -16 0 -71 -20 -121 -46 -77 -39 -99 -46 -150 -46 -64 -1 -120 18 -195 64 -51 31 -93 35 -153 13z m154 -101 c57 -37 144 -57 219 -51 51 4 84 15 151 49 72 37 90 43 120 37 81 -17 143 -135 156 -297 7 -97 -8 -147 -55 -179 -34 -23 -35 -23 -400 -23 -349 0 -367 1 -399 20 -50 31 -66 78 -59 180 10 135 53 244 111 280 53 34 84 30 156 -16z" />
+                                        </g>
+                                    </svg>
+                                    <label for="lname">Cognome</label>
+                                    <input type="text" name="lname" id="lname" placeholder="Il tuo cognome" required>
 
-                                    </div>
                                 </div>
-                                <div class="page-btns">
-                                    <input type="button" value="Avanti" class="next stagebtn1b">
-                                </div>
+                            </div>
+                            <div class="page-btns">
+                                <input type="button" value="Avanti" class="next stagebtn1b">
+                            </div>
 
                             </div>
                         </fieldset>
@@ -201,7 +200,8 @@
             </div>
         </main>
 
-        <script src="../JS/signup.js"></script>
-    </body>
+    <script src="../JS/signup.js"></script>
+    <script src="../JS/checkout.js"></script>
+</body>
 
 </html>

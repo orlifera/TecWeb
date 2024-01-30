@@ -92,8 +92,8 @@ function switchStage(toHide, toShow, forward = true) {
 
 function start() {
   if (window.innerWidth <= 600) {
-      hideNumber(stageno2);
-      hideNumber(stageno3);
+    hideNumber(stageno2);
+    hideNumber(stageno3);
   }
 }
 
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
   showStage(signupContent1);
   hideStage(signupContent2, signupContent3);
   stageno1.classList.add("completed");
-  
+
   start();
 
   document.addEventListener('resize', start);
@@ -150,5 +150,10 @@ document.addEventListener('DOMContentLoaded', function () {
         showNumber(stageno2);
       }
     }
+  });
+
+  let proceedButton = document.getElementById('proceed');
+  proceedButton.addEventListener('click', function () {
+    window.location.href = 'payments.html'; // Replace with your desired URL
   });
 });

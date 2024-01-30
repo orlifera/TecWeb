@@ -23,7 +23,6 @@ $connectionOk = $connection->openDBConnection();
 
 if ($connectionOk) {
     $listaPC = $connection->getProductCart();
-    // $prova = $connection->getProduct($categoria, $sku);
 
     if (!empty($listaPC)) {
         $nomeProdottoCompleto = $prezzo = $path = $sku = $categoria = $quantita = $colore = $disponibilita = [];
