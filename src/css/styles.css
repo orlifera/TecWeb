@@ -1005,7 +1005,7 @@ fieldset#termini {
 
 /*Theme Switcher*/
 #theme-switcher {
-    background-color: var(--accent-200);
+    background-color: var(--bg-100);
     border-radius: 50px;
     display: flex;
     align-items: center;
@@ -2535,6 +2535,7 @@ input.card-name {
 
 #modificaProdotto {
     text-decoration: none;
+    background-color: var(--accent-100);
     color: var(--text-100);
     width: 10%;
     display: inline-block;
