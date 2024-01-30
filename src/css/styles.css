@@ -457,7 +457,6 @@ nav svg:not(.signup, #sun, #moon) {
 #examples blockquote {
     display: inline-block;
     width: 30%;
-    height: 100%;
     padding: 0 5em;
 }
 
@@ -2541,4 +2540,15 @@ input.card-name {
 .admin-container label {
     background-color: var(--bg-100);
     color: var(--text-100);
+}
+
+.confirmDati {
+    border: 1px solid;
+    margin: 10px 0px;
+    padding: 15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    color: #00d828;
+    background-color: #baffbc;
+    text-align: center;
 }
