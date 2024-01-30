@@ -1442,14 +1442,15 @@ input.previous:focus {
     margin-right: .5em;
 }
 
-.qty-container, .qty-dt {
+.qty-container,
+.qty-dt {
     display: inline-block;
 }
 
 #qty {
     width: 2em;
     height: 2em;
-    text-align:center;
+    text-align: center;
     border-radius: none;
     border-top: 1px solid var(--text-100);
     border-bottom: 1px solid var(--text-100);
@@ -1461,7 +1462,8 @@ input.previous:focus {
     display: flex;
 }
 
-#minus, #add {
+#minus,
+#add {
     width: 2em;
     border: 1px solid var(--text-100);
 }
@@ -1476,7 +1478,9 @@ input.previous:focus {
     border-bottom-right-radius: 5px;
 }
 
-#minus, #add, #qty {
+#minus,
+#add,
+#qty {
     background-color: var(--bg-300);
     outline: none;
     color: var(--text-100);
@@ -2504,7 +2508,7 @@ input.card-name {
 .cart-container .product-image {
     width: 80%;
     height: auto;
-    object-fit:contain;
+    object-fit: contain;
 }
 
 #cart-main .capsule {
@@ -2512,7 +2516,9 @@ input.card-name {
     margin: unset;
 }
 
-#removeCart, #processOrder, #removeAll {
+#removeCart,
+#processOrder,
+#removeAll {
     color: var(--text-100);
     background-color: var(--bg-100);
     font-size: 1em;
@@ -2523,7 +2529,9 @@ input.card-name {
     width: 6em;
 }
 
-#removeCart:hover, #processOrder:hover, #removeAll:hover {
+#removeCart:hover,
+#processOrder:hover,
+#removeAll:hover {
     background-color: var(--bg-300);
 }
 
@@ -2555,11 +2563,14 @@ input.card-name {
     text-align: center;
 }
 
-#processOrder, #removeAll {
+#processOrder,
+#removeAll {
     width: unset;
 }
 
-#cart-main #minus, #cart-main #add, #cart-main #qty {
+#cart-main #minus,
+#cart-main #add,
+#cart-main #qty {
     background-color: var(--bg-100);
 }
 

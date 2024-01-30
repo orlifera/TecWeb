@@ -2,7 +2,7 @@
 
 require_once "DBAccess.php";
 session_start();
-$cartCounter =  0;
+$cartCounter = 0;
 $_SESSION['cart_counter'] = $cartCounter;
 
 use DB\DBAccess;
@@ -26,19 +26,35 @@ $indirizzoUtente = $_GET["indirizzo"];
 $cittaUtente = $_GET["citta"];
 $capUtente = $_GET["cap"];
 $prezzo = $_GET["prezzo"];
+$oggettiOrdinati = $_GET["oggetti"];
+echo $oggettiOrdinati;
 
 $quantitaRimanente = "";
 
 $skuArray = explode(',', $sku);
 $quantitaArray = explode(',', $quantitaOrdinata);
+$oggettiArray = explode(',', $oggettiOrdinati);
+
+// Accumula tutti gli oggetti ordinati in una variabile
+$oggettiOrdinatiTotale = "";
 
 foreach ($skuArray as $i => $id) {
     $skuProdotto[] = $id;
+    echo ($skuProdotto[$i]);
 }
 
 foreach ($quantitaArray as $i => $id) {
     $quantita[] = $id;
 }
+
+foreach ($oggettiArray as $i => $id) {
+    $oggetti[] = $id;
+    // Accumula gli oggetti ordinati in una variabile
+    $oggettiOrdinatiTotale .= $id . ",";
+}
+
+$oggettiOrdinatiTotale = implode(",", array_unique($oggettiArray));
+
 
 $connection = new DBAccess();
 $connectionOk = "";
@@ -51,12 +67,26 @@ if ($connectionOk) {
         if (!empty($listaPC)) {
             $quantitaRimanente = $listaPC[0] - $quantitaOrdinata;
             $listaPC = $connection->updateDisponibilitaProdotto($sku, $quantitaRimanente);
-            $listaPC = $connection->insertNewOrder($quantitaOrdinata, $nomeUtente, $cognomeUtente, $emailUtente, $phoneUtente, $indirizzoUtente, $cittaUtente, $capUtente, $prezzo);
-            $listaPC = $connection->deleteFromCart($sku);
         } else {
             $htmlProdotti = "<p>Errore</p>";
         }
     }
+
+    $listaPC = $connection->insertNewOrder(
+        $nomeUtente,
+        $cognomeUtente,
+        $emailUtente,
+        $phoneUtente,
+        $indirizzoUtente,
+        $cittaUtente,
+        $capUtente,
+        $quantitaOrdinata,
+        $prezzo,
+        $oggettiOrdinatiTotale
+    );
+
+    // Cancella tutti gli oggetti ordinati dal carrello
+    $listaPC = $connection->deleteFromCart($sku);
 } else {
     $nomeProdottoCompleto = $prezzo = $path = $sku = [];
     header("HTTP/1.0 404 Not Found");
@@ -67,18 +97,7 @@ $connection->closeDBConnection();
 
 $paginaHTML = str_replace('src/pages/cart.html', 'cart.php', $paginaHTML);
 
-$paginaHTML = str_replace('catalog.html?categoria=kbd', 'getCatalog.php?categoria=kbd', $paginaHTML);
-$paginaHTML = str_replace('catalog.html?categoria=pc', 'getCatalog.php?categoria=pc', $paginaHTML);
-$paginaHTML = str_replace('{count_cart}', $cartCounter, $paginaHTML);
-$paginaHTML = str_replace('contacts.html', '../pages/contacts.html', $paginaHTML);
-$paginaHTML = str_replace('faq.html', '../pages/faq.html', $paginaHTML);
-$paginaHTML = str_replace('news.html', '../pages/news.html', $paginaHTML);
-$paginaHTML = str_replace('profile.html', '../pages/profile.html', $paginaHTML);
-$paginaHTML = str_replace('tos.html', '../pages/tos.html', $paginaHTML);
-$paginaHTML = str_replace('privacy.html', '../pages/privacy.html', $paginaHTML);
-$paginaHTML = str_replace('cookies.html', '../pages/cookies.html', $paginaHTML);
-
-
+// Altri sostituzioni rimaste
 
 //sistemazione tutti collegamenti footer
 echo $paginaHTML;

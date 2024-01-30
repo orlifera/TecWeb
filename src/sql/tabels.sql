@@ -29,8 +29,18 @@ CREATE TABLE Prodotto (
   path_immagine varchar(256) not null,
   categoria varchar(6) not null,
   riferimento varchar(6) null,
-  primary key(sku)
+  primary key(sku),
+  unique key(nome)
 ) Engine = InnoDB default charset = utf8mb4;
+
+drop table if exists OrdineProdotto;
+CREATE TABLE OrdineProdotto (
+  id_ordine int(10) not null,
+  sku_prodotto varchar(6) not null,
+  primary key(id_ordine, sku_prodotto),
+  foreign key(id_ordine) references Ordine(id),
+  foreign key(sku_prodotto) references Prodotto(sku)
+) Engine=InnoDB default charset=utf8mb4;
 
 drop table if exists Sconto;
 
@@ -66,26 +76,15 @@ CREATE TABLE Ordine (
   nome varchar(256) not null,
   cognome varchar(256) not null,
   email varchar(256) not null,
-  numero int(10) not null,
+  numero varchar(256) not null,
   indirizzo varchar(256) not null,
   citta varchar(256) not null,
   cap int(5) not null,
-  quantitaOrdinata double not null,
-  prezzo double not null
+  quantitaOrdinata int not null,
+  prezzo double not null,
+  oggetti_ordinati varchar(256) not null
 ) Engine=InnoDB default charset=utf8mb4;
 
-INSERT INTO Ordine (nome, email, cognome, numero, indirizzo, citta, cap, quantitaOrdinata, prezzo)
-VALUES (
-  'Cicciogamer',
-  'ciao@gmail.com',  
-  'Cicciogamer',     
-  472673,
-  'Via Premaore',
-  'Camponogara',
-  30010,
-  2,
-  100
-);
 
 INSERT INTO Prodotto VALUES 
 ("P1", "Bull's Eye", "Gaming", "Il pc è composto da un Ryzen 5 5600,16GB di RAM a 3200Mhz e 1TB di SSD. Ha una RTX 3050 ed è alimentato da una PSU 650W. Il sistema raffreddato da un dissipatore a liquido Itek RGB a 240mm. Include il sistema operativo Windows 10 PRO.", 1320, "Nero, Bianco", 10, "../../assets/images/pc/P1.jpg", "pc", null),
@@ -127,3 +126,5 @@ INSERT INTO Prodotto VALUES
 INSERT INTO Sconto VALUES 
 ("S1C1", "2021-12-01 00:00:00", "2021-12-31 00:00:00", "user", true, 100),
 ("S2C2", "2021-12-01 00:00:00", "2021-12-31 00:00:00", "admin", false, 50);
+
+INSERT INTO Ordine (nome, cognome, email, numero, indirizzo, citta, cap, quantitaOrdinata, prezzo, oggetti_ordinati) VALUES ("ciao", "ciao","ciaociao@gmail.com", "837283728", "nucenuec", "ciidw", 25412, 6, 736362, "Bull's Eye, Elite");

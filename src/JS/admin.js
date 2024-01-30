@@ -73,6 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
   for (let i = 0; i < insert.length; i++) {
     insert[i].addEventListener("click", insertItem);
   }
+
   for (let i = 0; i < remove.length; i++) {
     remove[i].addEventListener("click", removeItem);
   }

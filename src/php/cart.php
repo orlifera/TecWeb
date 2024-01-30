@@ -86,19 +86,22 @@ $paginaHTML = str_replace('tos.html', '../pages/tos.html', $paginaHTML);
 $paginaHTML = str_replace('privacy.html', '../pages/privacy.html', $paginaHTML);
 $paginaHTML = str_replace('cookies.html', '../pages/cookies.html', $paginaHTML);
 
-$scriptReplacement = '<script src="../js/orderHandler.js" data-id="{SKU}" data-quantita="{QUANTITA}">';
+$scriptReplacement = '<script src="../js/orderHandler.js" data-id="{SKU}" data-quantita="{QUANTITA}" data-oggetti="{OGGETTI}">';
 $scripts = '';
 
 $skuValues = array();
 $quantitaValues = array();
+$oggettiValues = array();
 
 foreach ($sku as $i => $value) {
     $skuValues[] = $sku[$i];
     $quantitaValues[] = $quantita[$i];
+    $oggettiValues[] = $nomeProdottoCompleto[$i];
 }
 
 $script = str_replace('{SKU}', implode(',', $skuValues), $scriptReplacement);
 $script = str_replace('{QUANTITA}', implode(',', $quantitaValues), $script);
+$script = str_replace('{OGGETTI}', implode(',', $oggettiValues), $script);
 $scripts .= $script;
 
 $paginaHTML = str_replace('<script src="../js/orderHandler.js">', $scripts, $paginaHTML);

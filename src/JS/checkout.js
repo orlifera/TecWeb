@@ -15,6 +15,7 @@ function order() {
   var id = urlRiferimento.searchParams.get("id");
   var quantitaOrdinata = urlRiferimento.searchParams.get("quantitaOrdinata");
   var prezzo = urlRiferimento.searchParams.get("prezzo");
+  var oggetti = urlRiferimento.searchParams.get("oggetti");
 
   if (id) {
     var url =
@@ -37,8 +38,9 @@ function order() {
       "&cap=" +
       cap.value +
       "&prezzo=" +
-      prezzo;
-
+      prezzo +
+      "&oggetti=" +
+      oggetti;
     window.location.href = url;
   } else {
     alert("Carrello vuoto!");
