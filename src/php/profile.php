@@ -57,9 +57,9 @@ if ($connectionOk) {
                 echo '<p class="errorDati">Uno dei campi non è corretto</p>';
             }
         } else {
-            $errormsg="<div class=\"errorDati\">Compila tutti i dati</div>";
+            $errormsg = "<div class=\"errorDati\">Compila tutti i dati</div>";
             $paginaHTML = str_replace('<div id="stato"></div>', $errormsg, $paginaHTML);
-            echo($paginaHTML);
+            echo ($paginaHTML);
         }
     } else if (isset($_POST['addressbtn'])) {
         if ($_POST['city'] != null && $_POST['address'] != null && $_POST['cap'] != null) {
@@ -82,8 +82,8 @@ if ($connectionOk) {
         $address = "<input class=\"dataHolder\" type=\"text\" name=\"address\" id=\"address\" value=\"" . $listaInfo[9] . "\" required>";
         $cap = "<input class=\"dataHolder\" type=\"text\" name=\"cap\" id=\"cap\" value=\"" . $listaInfo[10] . "\" required>";
 
-        if($listaInfo[11] == "A") {
-            $admin = "<li class=\"\"><a href=\"../../index.html\" target=\"_blank\"><span lang=\"en\">Dashboard</span></a></li>";
+        if ($listaInfo[11] == "A") {
+            $admin = "<li class=\"\"><a href=\"productAdmin.php\" target=\"_blank\"><span lang=\"en\">Dashboard</span></a></li>";
             $paginaHTML = str_replace('<li class="adminListItem"></li>', $admin, $paginaHTML);
         }
     }

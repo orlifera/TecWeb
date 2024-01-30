@@ -435,6 +435,9 @@ nav svg:not(.signup, #sun, #moon) {
     padding: 0 5em;
 }
 
+#examples section {
+    color: var(--text-100);
+}
 
 #examples .title {
     padding: 1em 0;
