@@ -444,7 +444,6 @@ nav svg:not(.signup, #sun, #moon) {
 #examples blockquote {
     display: inline-block;
     width: 30%;
-    height: 100%;
     padding: 0 5em;
 }
 
@@ -1234,6 +1233,7 @@ a.login-btn:hover {
     display: flex;
     position: relative;
     align-items: center;
+    border: 2px solid var(--primary-100);
     padding: 2%;
     border: 2px solid var(--primary-100);
     margin: auto;
@@ -1859,7 +1859,11 @@ input.card-name {
 }
 
 .headings {
-    padding: 3em;
+    padding: 4em;
+}
+
+.headings.admin {
+    text-align: center;
 }
 
 .wrapper {
@@ -2210,7 +2214,6 @@ input.card-name {
     background-color: #fce4e4;
     border: 1px solid #fcc2c3;
     float: left;
-    padding: 20px 30px;
 }
 
 /*PAGINA 404*/
@@ -2396,6 +2399,17 @@ input.card-name {
     to {
         transform: translate(calc(-50% - 0.5rem));
     }
+}
+
+.errorDati {
+    border: 1px solid;
+    margin: 10px 0px;
+    padding: 15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    color: #D8000C;
+    background-color: #FFBABA;
+    text-align: center;
 }
 
 /*ADMIN PAGE*/
@@ -2610,4 +2624,24 @@ input.card-name {
 .fieldProfile .order-description li {
     border-bottom: unset;
     display: inline;
+}
+
+.admin-container {
+    background-color: var(--bg-100);
+}
+
+.admin-container label {
+    background-color: var(--bg-100);
+    color: var(--text-100);
+}
+
+.confirmDati {
+    border: 1px solid;
+    margin: 10px 0px;
+    padding: 15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    color: #00d828;
+    background-color: #baffbc;
+    text-align: center;
 }
