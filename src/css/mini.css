@@ -213,6 +213,19 @@
         font-size: 1em;
         padding: 1em 0;
     }
+
+    section#cookie-section {
+        padding: .2em;
+        width: unset;
+    }
+
+    div.cookie-container div.cookie-subcontainer {
+       margin: unset;
+    }
+
+    div.cookie-container {
+        width: unset;
+    }
 }
 
 :root {
@@ -699,10 +712,12 @@ section#cookie-section {
     width: 100%;
     left: 0;
     padding-top: 0.2;
+    border-radius: 0;
 }
 
 #cookie-section #cookie-heading {
     font-size: 1.8em;
+    margin-left: .5em;
 }
 
 #cookie-section #cookie-desc {
@@ -712,6 +727,10 @@ section#cookie-section {
 
 #cookie-section #cookie-header #cookie-icon {
     font-size: 1em;
+}
+
+div.cookie-subcontainer {
+    padding-bottom: 4em;
 }
 
 main#cart-main .cart-container a {

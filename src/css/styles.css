@@ -183,6 +183,12 @@ abbr {
     text-decoration: none;
 }
 
+#menu {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
 #menu a {
     text-decoration: none;
 }
@@ -297,19 +303,6 @@ nav svg:not(.signup, #sun, #moon) {
     fill: var(--text-300);
 }
 
-#menu.fixed {
-    position: fixed;
-    top: 0;
-    z-index: 1;
-}
-
-#breadcrumb.fixed {
-    position: fixed;
-    top: 4.3em;
-    z-index: 1;
-    margin-bottom: 4em;
-}
-
 #breadcrumb {
     display: block;
     padding: 0.5em;
@@ -386,11 +379,6 @@ nav svg:not(.signup, #sun, #moon) {
     width: 2em;
     height: 2em;
     fill: var(--text-100)
-}
-
-#cookie-heading .icon {
-    width: 3em;
-    height: 3em;
 }
 
 .info-p {
@@ -513,7 +501,7 @@ nav svg:not(.signup, #sun, #moon) {
 #about p {
     width: 70%;
     margin: auto;
-    text-align: justify;
+    text-align: center;
     padding-bottom: 1em;
     font-size: 20px;
     line-height: 2em;
@@ -1038,7 +1026,7 @@ fieldset#termini {
     margin: auto;
 }
 
-#cookie-heading {
+#cookie-header {
     width: 15em;
     display: flex;
     align-items: center;
@@ -1050,7 +1038,7 @@ fieldset#termini {
 }
 
 #cookie-desc {
-    text-align: justify;
+    text-align: left;
     padding: .5em 0;
 }
 
