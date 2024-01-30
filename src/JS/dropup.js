@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var drop1 = document.getElementById("drop-catalogo");
   var drop2 = document.getElementById("profile-dropup");
   var cross = document.querySelectorAll(".cross");
+
   closeAllDropUp(drop1, drop2); 
     document.addEventListener('click', function(event) {
     cross.forEach(cross => {

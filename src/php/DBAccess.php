@@ -55,11 +55,7 @@ class DBAccess
         }
         mysqli_stmt_bind_param($stmt, "ssss", $fname, $lname, $phone, $email);
         if (mysqli_stmt_execute($stmt)) {
-            // echo "Aggiornamento info avvenuto";
-            echo '<p class="confirmDati banner">Aggiornamento informazioni avvenute. Ricarica la pagina per vedere le modifiche</p><svg id="succ" class="cross" width="30" height="30" viewBox="0 0 24 24" fill="none">
-            <path d="M19 5L4.99998 19M5.00001 5L19 19" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>';
-            
+            $_SESSION['confirmation_message'] = true;
         } else {
             echo "Aggiornamento info non avvenuto: " . mysqli_error($this->connection);
         }
@@ -75,8 +71,7 @@ class DBAccess
         }
         mysqli_stmt_bind_param($stmt, "ss", $psw, $email);
         if (mysqli_stmt_execute($stmt)) {
-            // echo "Aggiornamento psw avvenuto";
-            echo '<p class="confirmDati">Aggiornamento password avvenute</p>';
+            $_SESSION['confirmation_message'] = true;
         } else {
             echo "Aggiornamento password non avvenuto: " . mysqli_error($this->connection);
         }
@@ -92,7 +87,7 @@ class DBAccess
         }
         mysqli_stmt_bind_param($stmt, "ssis", $city, $address, $cap, $email);
         if (mysqli_stmt_execute($stmt)) {
-            echo '<p class="confirmDati">Aggiornamento indirizzo avvenute</p>';
+            $_SESSION['confirmation_message'] = true;
         } else {
             echo "Aggiornamento indirizzo non avvenuto: " . mysqli_error($this->connection);
         }

@@ -2407,8 +2407,19 @@ input.card-name {
     padding: 15px 10px 15px 50px;
     background-repeat: no-repeat;
     background-position: 10px center;
-    color: #D8000C;
+    color: #ac030b;
     background-color: #FFBABA;
+    text-align: center;
+}
+
+.confirmDati {
+    border: 1px solid;
+    margin: 10px 0px;
+    padding: 15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    color: #3c670f;
+    background-color: #baffbc;
     text-align: center;
 }
 
@@ -2423,7 +2434,7 @@ input.card-name {
 }
 
 #err {
-    stroke: #D8000C;
+    stroke: #ac030b;
 }
 
 /*ADMIN PAGE*/
@@ -2647,15 +2658,4 @@ input.card-name {
 .admin-container label {
     background-color: var(--bg-100);
     color: var(--text-100);
-}
-
-.confirmDati {
-    border: 1px solid;
-    margin: 10px 0px;
-    padding: 15px 10px 15px 50px;
-    background-repeat: no-repeat;
-    background-position: 10px center;
-    color: #00d828;
-    background-color: #baffbc;
-    text-align: center;
 }
