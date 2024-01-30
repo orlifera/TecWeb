@@ -26,14 +26,6 @@ if ($category == "product") {
     <input type=\"text\" id=\"riferimento\" placeholder=\"Riferimento\" required>" . "\n
     <input type=\"button\" class=\"inserisciProdotto\" value=\"Inserisci\">";
     $paginaHTML = str_replace('<script src="../js/insertProductAdmin.js"></script>', '<script src="../js/insertProductAdmin.js" data-categoria="product"></script>', $paginaHTML);
-} else if ($category == "order") {
-    $lista = "<input type=\"text\" id=\"id\" placeholder=\"id\" required>" . "\n
-    <input type=\"text\" id=\"utente\" placeholder=\"utente\" required>" . "\n
-    <input type=\"text\" id=\"quantitaOrdinata\" placeholder=\"Quantità ordinata\" required>" . "\n
-    <input type=\"textarea\" id=\"indirizzo\" placeholder=\"indirizzo\" required>" . "\n
-    <input type=\"text\" id=\"prezzo\" placeholder=\"prezzo\" required>" . "\n
-    <input type=\"submit\" class=\"inserisciProdotto\" value=\"Inserisci\">";
-    $paginaHTML = str_replace('<script src="../js/insertProductAdmin.js"></script>', '<script src="../js/insertProductAdmin.js" data-categoria="order"></script>', $paginaHTML);
 } else {
     $lista = "<input type=\"text\" id=\"codice\" placeholder=\"codice\" required>" . "\n
     <input type=\"text\" id=\"data_emissione\" placeholder=\"data_emissione\" required>" . "\n
