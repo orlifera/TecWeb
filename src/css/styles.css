@@ -2412,6 +2412,20 @@ input.card-name {
     text-align: center;
 }
 
+#succ, #err {
+    position: absolute;
+    right: .5em;
+    top: 1.4em;
+}
+
+#succ {
+    stroke: #4F8A10;
+}
+
+#err {
+    stroke: #D8000C;
+}
+
 /*ADMIN PAGE*/
 
 .fieldProfile ul li {

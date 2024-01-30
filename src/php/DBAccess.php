@@ -56,7 +56,9 @@ class DBAccess
         mysqli_stmt_bind_param($stmt, "ssss", $fname, $lname, $phone, $email);
         if (mysqli_stmt_execute($stmt)) {
             // echo "Aggiornamento info avvenuto";
-            echo '<p class="confirmDati">Aggiornamento informazioni avvenute. Ricarica la pagina per vedere le modifiche</p>';
+            echo '<p class="confirmDati banner">Aggiornamento informazioni avvenute. Ricarica la pagina per vedere le modifiche</p><svg id="succ" class="cross" width="30" height="30" viewBox="0 0 24 24" fill="none">
+            <path d="M19 5L4.99998 19M5.00001 5L19 19" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>';
             
         } else {
             echo "Aggiornamento info non avvenuto: " . mysqli_error($this->connection);
