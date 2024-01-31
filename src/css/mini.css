@@ -1,3 +1,4 @@
+/* media query per telefono con schermo inferiore a 420px */
 @media (max-width: 420px) {
     #main-header #logo {
         font-size: 3em;
@@ -10,7 +11,7 @@
     #info h2.info-title {
         font-size: 1.3em;
     }
-    
+
     #contact-info {
         padding: unset;
     }
@@ -69,15 +70,16 @@
         justify-content: center;
     }
 
-    #contact-form #tos a, #contact-form #tos {
+    #contact-form #tos a,
+    #contact-form #tos {
         font-size: 0.8em;
     }
 
-    #contact-form #tos a{
+    #contact-form #tos a {
         margin-left: 0.3em;
     }
 
-    #contact-form input#terms{
+    #contact-form input#terms {
         margin-right: 0.3em;
     }
 
@@ -131,12 +133,13 @@
     }
 }
 
+/* media query per telefono con schermo inferiore a 376px */
 @media (max-width: 376px) {
-    
+
     #mobile ul li {
         padding: 0 1em;
     }
-    
+
     #mobile ul li svg {
         width: 20px;
         height: 20px;
@@ -174,7 +177,8 @@
         height: 200px;
     }
 
-    input#accessories, input#addToCart {
+    input#accessories,
+    input#addToCart {
         font-size: 0.8em;
         padding: 0.3em;
     }
@@ -188,6 +192,7 @@
     }
 }
 
+/* media query per telefono con schermo inferiore a 300px */
 @media (max-width: 300px) {
     #mobile ul li {
         padding: 0 0.5em;
@@ -197,7 +202,8 @@
         font-size: 0.5em;
     }
 
-    #mobile div#drop-catalogo, #mobile div#profile-dropup {
+    #mobile div#drop-catalogo,
+    #mobile div#profile-dropup {
         width: 15em;
         right: calc((100dvw - 15em)/2);
     }
@@ -242,10 +248,7 @@
     --moon-display: block;
 }
 
-.spacer {
-    height: 100dvh;
-}
-
+/* nascondo footer computer */
 footer {
     display: none;
 }
@@ -260,21 +263,25 @@ footer {
     filter: invert(1);
 }
 
+/* nascondo bredcrumb */
 #breadcrumb {
     display: none;
 }
 
+/* nascondo menu */
 nav#menu {
     display: none;
 }
 
+/* navbar mobile */
 #mobile {
     display: block;
     width: 100%;
     bottom: -1px;
     margin: auto;
     position: fixed;
-    background: linear-gradient(to top right, var(--primary-100), var(--primary-200));}
+    background: linear-gradient(to top right, var(--primary-100), var(--primary-200));
+}
 
 #mobile ul {
     padding: 0.8em 0;
@@ -287,6 +294,8 @@ nav#menu {
     display: inline-block;
     padding: 0 1.5em;
 }
+
+/* Index */
 
 div#presentation {
     height: 85dvh;
@@ -306,20 +315,15 @@ div#presentation {
     padding: 1em;
 }
 
-#examples .title, #about .title, #review .title {
+#examples .title,
+#about .title,
+#review .title {
     font-size: 2em;
 }
 
 #about p {
     font-size: 1em;
 }
-
-/* div#examples blockquote.tiktok-embed {
-    display: block;
-    width: 3em;
-    padding: 0 1em;
-    margin: unset;
-} */
 
 #last {
     padding: 4em 0;
@@ -330,6 +334,7 @@ div#presentation {
     width: 70%;
 }
 
+/* footer mobile */
 #mobile-footer {
     display: block;
     margin-bottom: 4.1em;
@@ -359,6 +364,8 @@ div#presentation {
     width: 70%;
 }
 
+/* Contatti */
+
 #contact-info {
     padding-top: 2em;
 }
@@ -385,6 +392,7 @@ div#presentation {
     font-size: 1.8em;
 }
 
+/* dropup */
 #mobile {
     z-index: 999;
 }
@@ -398,7 +406,8 @@ div#presentation {
     padding: 1em;
 }
 
-#mobile #drop-catalogo, #mobile #profile-dropup {
+#mobile #drop-catalogo,
+#mobile #profile-dropup {
     width: 20em;
     margin: auto;
     bottom: 35dvh;
@@ -461,11 +470,13 @@ div#presentation {
     color: var(--text-100);
 }
 
+/* oscura il background */
 .obscured {
     filter: blur(5px);
     position: fixed;
 }
 
+/* theme switcher per mobile */
 #mob-theme-switcher {
     background-color: var(--bg-100);
     border-radius: 50%;
@@ -502,6 +513,8 @@ div#presentation {
     fill: var(--icon-moon);
     display: var(--moon-display);
 }
+
+/* Login Signup Checkout */
 
 main#login-main {
     height: unset;
@@ -571,6 +584,7 @@ main#login-main {
     margin: unset;
 }
 
+/* Product e Catalog */
 .product-display {
     flex-direction: column;
 }
@@ -587,11 +601,13 @@ main#login-main {
     margin-bottom: 0;
 }
 
-.capsule dt, .capsule label {
+.capsule dt,
+.capsule label {
     font-size: 1.2em;
 }
 
-#accessories, #addToCart {
+#accessories,
+#addToCart {
     font-size: 1em;
     padding: 0.3em;
 }
@@ -604,6 +620,8 @@ main#login-main {
 #product .container {
     margin-bottom: 3em;
 }
+
+/* Profile */
 
 .info-container {
     flex-direction: column;
@@ -640,6 +658,7 @@ main#login-main {
     fill: var(--text-100);
 }
 
+/* car e payments */
 .card {
     display: flex;
     flex-direction: column;
@@ -676,7 +695,9 @@ main#login-main {
     padding: 0;
 }
 
-.card input.card-name::placeholder, .card-container .card input.card-number, .card-container .card input.card-number::placeholder  {
+.card input.card-name::placeholder,
+.card-container .card input.card-number,
+.card-container .card input.card-number::placeholder {
     color: var(--text-100);
 }
 
@@ -699,6 +720,7 @@ main#login-main {
     padding: 0.8em;
 }
 
+/* cookie popup */
 section#cookie-section {
     width: 100%;
     left: 0;
@@ -729,6 +751,8 @@ div.cookie-subcontainer {
     padding: 1em 0 4em;
 }
 
+/* Cart */
+
 main#cart-main .cart-container a {
     width: 30%;
 }
@@ -741,6 +765,7 @@ main#cart-main .cart-container a {
     width: 30%
 }
 
+/* sidenav */
 #side div#profileDiv {
     justify-content: flex-start;
 }
@@ -795,6 +820,13 @@ nav.sidenav #hamburger {
     margin-top: 1em;
 }
 
-#side #nav-header, .nav-list {
+#side #nav-header,
+.nav-list {
     overflow: hidden;
+}
+
+.container.order dd {
+    display: block;
+    text-align: center;
+    padding: 0.5em 1em;
 }

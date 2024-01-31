@@ -1,4 +1,4 @@
-/*PER PAGINA 404*/
+/* Pagina 404 */
 @font-face {
     font-family: "Monoton";
     src: url(../../assets/fonts/Prompt/Monoton-Regular.ttf) format('truetype');
@@ -35,7 +35,7 @@
     transition: var(--default-transition);
 }
 
-/* Variabili indipendenti dalla modalità del sito */
+/* variabili indipendenti dalla modalità del sito */
 :root {
     --default-transition: color .3s ease-in-out, background-color .3s ease-in-out, fill .3s ease-in-out,
         border-color .3s ease-in-out, transform .3s ease-in-out, linear-gradient .3s ease-in-out;
@@ -59,7 +59,7 @@
 
 }
 
-/* Variabili per la modalità chiara*/
+/* variabili per la modalità chiara*/
 :root[data-theme="light"] {
     --primary-100: #511d7e;
     --primary-200: #9a5bc4;
@@ -89,7 +89,7 @@
     --placeholder: #989898;
 }
 
-/* Variabili per la palette scura */
+/* variabili per la palette scura */
 [data-theme="dark"] {
     --primary-100: #563763;
     --primary-200: #915ba9;
@@ -126,7 +126,7 @@ main {
     width: 100%;
 }
 
-/*Shake icona carrello quando aggiungi prodotti */
+/* shake icona carrello quando aggiungi prodotti */
 @keyframes shake {
     0% {
         transform: translateX(0);
@@ -153,12 +153,12 @@ main {
     animation: shake 0.5s ease-in-out;
 }
 
+/* header contenente il logo */
 #main-header {
     background-color: var(--bg-100);
-
 }
 
-/* Text replacement */
+/* text replacement */
 #logo {
     text-indent: -999em;
     background-size: contain;
@@ -173,6 +173,7 @@ main {
     filter: invert(1);
 }
 
+/* navbar principale fissa allo scroll */
 #menu {
     background: linear-gradient(to top, var(--primary-100), var(--primary-200));
     justify-content: center;
@@ -182,6 +183,9 @@ main {
     justify-content: space-between;
     width: 100%;
     color: var(--text-300);
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
 a {
@@ -191,12 +195,6 @@ a {
 
 abbr {
     text-decoration: none;
-}
-
-#menu {
-    position: sticky;
-    top: 0;
-    z-index: 999;
 }
 
 #menu a {
@@ -209,10 +207,6 @@ nav#menu .switch {
     padding-left: 1em;
 }
 
-nav#menu a {
-    text-decoration: none;
-}
-
 #left li {
     font-size: 1.2em;
     text-transform: uppercase;
@@ -220,7 +214,7 @@ nav#menu a {
 
 /* spaziatura uguale */
 #left li:nth-child(3) {
-    padding: unset;
+    padding-left: unset;
 }
 
 #left {
@@ -238,6 +232,14 @@ nav#menu a {
     display: none;
 }
 
+#left p {
+    padding: .5em 0 1em;
+}
+
+#right p {
+    padding: 1em 0;
+}
+
 #menu li {
     display: inline-block;
     list-style-type: none;
@@ -251,7 +253,7 @@ nav#menu a {
     margin: 1em 0;
 }
 
-/*DROPDOWN*/
+/* Classi importanti per funzioni js */
 .hidden {
     display: none !important;
     /*Usato important di modo che quando viene aggiunta classe show o hidden da js, non venga sovrascritta da classi con maggior specificità*/
@@ -260,6 +262,8 @@ nav#menu a {
 .show {
     display: block !important;
 }
+
+/* Dropdown */
 
 #menu ul.dropdown-list li {
     width: 7em;
@@ -282,12 +286,12 @@ nav#menu a {
 
 #menu .dropdown-list {
     left: -1em;
-    top: 2em;
+    top: 3.4em;
 }
 
 #menu .dropdown-list#profile-drop {
     left: -4em;
-    top: 2em;
+    top: 4.2em;
 }
 
 #menu .dropdown-list#profile-drop li {
@@ -306,7 +310,6 @@ ul.dropdown-list a {
 
 ul li:hover ul.dropdown-list {
     display: block !important;
-    /*DA RIVEDERE*/
 }
 
 nav svg:not(.signup, #sun, #moon) {
@@ -317,6 +320,7 @@ nav svg:not(.signup, #sun, #moon) {
     transform: scaleX(-1);
 }
 
+/* breadcrumb */
 #breadcrumb {
     display: block;
     padding: 0.5em;
@@ -337,19 +341,16 @@ nav svg:not(.signup, #sun, #moon) {
     margin-right: 8px;
 }
 
-.float {
-    padding-top: 6em;
-}
-
-.signup path{
+.signup path {
     stroke: var(--text-300);
     stroke-width: 1.5;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 
-/* index */
+/* Index */
 
+/* presentation */
 #presentation {
     width: 100%;
     background: linear-gradient(-45deg, var(--accent-100), var(--accent-200));
@@ -384,6 +385,7 @@ nav svg:not(.signup, #sun, #moon) {
     font-size: 2em;
 }
 
+/* informazioni */
 #info {
     width: 100%;
     margin: 2em 0 5em;
@@ -403,6 +405,7 @@ nav svg:not(.signup, #sun, #moon) {
     color: var(--text-100)
 }
 
+/* reviews in index */
 #ref-rew {
     font-size: 1em;
     color: var(--primary-200);
@@ -436,6 +439,7 @@ nav svg:not(.signup, #sun, #moon) {
     box-shadow: 0 1em 2em -0.9em rgba(0, 0, 0, 0.7);
 }
 
+/* video examples */
 #examples {
     width: 100%;
     margin-bottom: 5em;
@@ -457,10 +461,10 @@ nav svg:not(.signup, #sun, #moon) {
     padding: 1em 0;
 }
 
+/* about us */
 #about {
     width: 100%;
     padding: 4em 0 10em 0;
-    /* background: linear-gradient(-45deg, var(--accent-100), var(--accent-200)); */
     background-color: var(--accent-100);
     color: var(--text-100);
 }
@@ -478,6 +482,7 @@ nav svg:not(.signup, #sun, #moon) {
     line-height: 2em;
 }
 
+/* newsletter */
 #last {
     display: flex;
     justify-content: center;
@@ -488,7 +493,6 @@ nav svg:not(.signup, #sun, #moon) {
     color: var(--text-300);
     border-bottom: 1px solid var(--text-300);
 }
-
 
 #last div {
     width: 30%;
@@ -515,8 +519,6 @@ nav svg:not(.signup, #sun, #moon) {
     padding: 2px;
 }
 
-/* NON MI PIACE QUESTO FLEX PERCHE' DOVREBBE FARSI SENZA MA NON SO PERCHE' NON MI VA 
-   NE USANDO DISPLAY INLINE NE ALTRI METODI - VA RIVISTO PERCHE' LEI NON VUOLE FLEX A CASO */
 #newsletter #label-form-terms {
     display: flex;
     align-items: center;
@@ -530,6 +532,7 @@ nav svg:not(.signup, #sun, #moon) {
     width: 20%;
 }
 
+/* footer */
 footer {
     background: linear-gradient(to right, var(--primary-100), var(--primary-200));
 }
@@ -551,7 +554,7 @@ footer {
     fill: var(--text-300);
 }
 
-/* Flexbox per il footer */
+/* flexbox per il footer */
 footer dl#footdef {
     display: flex;
     justify-content: space-evenly;
@@ -606,6 +609,14 @@ footer li,
 footer dd,
 footer dt {
     color: var(--text-300);
+}
+
+/* News */
+
+.spacer p {
+    font-size: 2em;
+    text-align: center;
+    padding:4em;
 }
 
 /* Review */
@@ -688,7 +699,6 @@ p.heading {
     justify-content: left;
 }
 
-
 .intdef .dl-title {
     font-size: 1.3em;
     font-weight: bold;
@@ -707,7 +717,7 @@ p.heading {
     font-size: .5em;
 }
 
-/*CONTACTS*/
+/* Contatti */
 
 #contact-info .info-col {
     background-color: var(--accent-100);
@@ -780,7 +790,6 @@ p.heading {
 }
 
 /*contact form*/
-
 .info-title {
     font-size: 2em;
     padding-top: 1em;
@@ -947,7 +956,7 @@ fieldset#termini {
     background-color: var(--accent-100);
 }
 
-/*Theme Switcher*/
+/* theme switcher */
 #theme-switcher {
     background-color: var(--bg-100);
     border-radius: 50px;
@@ -986,8 +995,7 @@ fieldset#termini {
     fill: var(--icon-moon);
 }
 
-/*COOKIE POPUP*/
-
+/* cookies pop-up */
 .cookie-container {
     width: 100%;
 }
@@ -1045,8 +1053,7 @@ fieldset#termini {
     cursor: pointer;
 }
 
-
-/*LOGIN*/
+/* Login Signup Checkout */
 
 main#login-main {
     display: flex;
@@ -1340,7 +1347,8 @@ input.previous:focus {
     font-weight: 500;
 }
 
-/*PRODUCT PAGE*/
+/* Profuct Page*/
+
 .product-display {
     display: flex;
     flex-wrap: wrap;
@@ -1419,6 +1427,7 @@ input.previous:focus {
     margin-right: .5em;
 }
 
+/* input vari */
 .qty-container,
 .qty-dt {
     display: inline-block;
@@ -1463,7 +1472,7 @@ input.previous:focus {
     color: var(--text-100);
 }
 
-/*CATALOG*/
+/* Catalog */
 
 #product-list {
     display: grid;
@@ -1499,9 +1508,7 @@ input.previous:focus {
     color: #000;
 }
 
-/*****
-PROFILE
-*****/
+/* Profile ProductAdmin  Payments*/
 
 #profileDiv {
     height: calc(100dvh - 15em);
@@ -1514,7 +1521,6 @@ nav.sidenav {
     width: 30%;
     background: linear-gradient(to bottom, var(--primary-100) 30%, var(--primary-200));
     position: sticky;
-    /* max-height: 100svh; */
     top: 0;
 }
 
@@ -1541,15 +1547,10 @@ nav.sidenav {
 }
 
 .sidenav li.active {
-    /* view-transition-name: activeNavTab; */
     background-color: var(--bg-100);
     border-left: 10px solid var(--primary-200);
     position: relative;
 }
-
-/* ::view-transition-group(activeNavTab) {
-    animation-duration: 1.5s;
-} */
 
 .nav-list li.active a {
     color: var(--active-link);
@@ -1582,7 +1583,6 @@ nav.sidenav {
     width: 100%;
 }
 
-
 fieldset.fieldProfile {
     height: 100%;
     border: unset;
@@ -1611,7 +1611,6 @@ input.dataHolder {
 .fieldProfile .card-container input:hover {
     cursor: not-allowed;
 }
-
 
 #genderSelector {
     width: 30%;
@@ -1687,6 +1686,7 @@ input.dataHolder {
     text-align: center;
 }
 
+/* card per pagamento */
 .card {
     display: flex;
     flex-direction: column;
@@ -1793,7 +1793,7 @@ input.card-number {
     margin: 2em auto;
 }
 
-/* payments e animation */
+/* Payments e animation */
 
 .center {
     margin: 0 auto;
@@ -1826,6 +1826,9 @@ input.card-number {
 
 .headings.admin {
     text-align: center;
+    padding: 2em;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .wrapper {
@@ -1960,9 +1963,6 @@ input.card-number {
 
 .checkmark-check {
     stroke: var(--bg);
-    /* stroke-dasharray: 100px;
-    stroke-dashoffset: 100px;
-    transform-origin: 50% 50%; */
 }
 
 #processing.uncomplete .gear-wrapper-1 {
@@ -2021,10 +2021,6 @@ input.card-number {
 #processing.complete .checkmark.checkmark-success .checkmark-circle {
     stroke: var(--success);
 }
-
-/* #processing.complete .checkmark.checkmark-error {
-    animation: fillCheckError 0.4s cubic-bezier(0.65, 0, 0.45, 1) 1s forwards, beatCheck 0.2s ease-out 1.5s forwards, echoError 1.25s ease-out 1.5s forwards;
-} */
 
 #processing.complete .checkmark.checkmark-error .checkmark-circle {
     stroke: var(--error);
@@ -2178,7 +2174,7 @@ input.card-number {
     float: left;
 }
 
-/*PAGINA 404*/
+/* Pagina 404 */
 #error404 {
     height: 100%;
     width: 100%;
@@ -2188,7 +2184,6 @@ input.card-number {
     text-align: center;
     text-shadow: 0 0 80px red, 0 0 30px FireBrick, 0 0 6px DarkRed;
     color: red;
-    /* background-color: #111111; */
 }
 
 #error404 p {
@@ -2385,7 +2380,8 @@ input.card-number {
     text-align: center;
 }
 
-#succ, #err {
+#succ,
+#err {
     position: absolute;
     right: .5em;
     top: 1.4em;
@@ -2399,7 +2395,7 @@ input.card-number {
     stroke: #ac030b;
 }
 
-/*ADMIN PAGE*/
+/* Admin Page */
 
 .fieldProfile ul li {
     display: flex;
@@ -2428,7 +2424,7 @@ input.card-number {
     background: #555;
 }
 
-/* Style the drop-down menu */
+/* stile kebab */
 .dropdown-options {
     position: relative;
     display: inline-block;
@@ -2440,7 +2436,6 @@ input.card-number {
     border: none;
     font-size: 24px;
     color: var(--text-100);
-    /* Adjust size as needed */
     cursor: pointer;
 }
 
@@ -2454,7 +2449,6 @@ input.card-number {
     z-index: 1;
 }
 
-/* Style the buttons inside the dropdown */
 .dropdown-content input[type="button"] {
     color: var(--text-100);
     padding: 12px 16px;
@@ -2476,15 +2470,12 @@ input.card-number {
     text-align: center;
 }
 
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* Add a hover effect for the buttons */
+/* effetto hover */
 .dropdown-content input[type="button"]:hover {
     background-color: #ddd;
 }
+
+/* Cart */
 
 .cart-container {
     width: 90%;
@@ -2585,6 +2576,8 @@ input.card-number {
     resize: none;
 }
 
+/* Modify Porduct e Sconto */
+
 div.mod-prod {
     background-color: var(--bg-100);
     text-align: center;
@@ -2595,6 +2588,10 @@ div.mod-prod {
 .mod-prod label {
     color: var(--text-100);
     background-color: var(--bg-100);
+}
+
+#changepsw, #personalInfo {
+    text-align: center;
 }
 
 #modificaProdotto,
@@ -2610,6 +2607,10 @@ div.mod-prod {
     border: 2px solid var(--primary-200);
     border-radius: 10px;
     padding: 1em;
+}
+
+#inserisci-prodotto {
+    margin-bottom: 7em;
 }
 
 #modificaProdotto:hover,
@@ -2646,6 +2647,7 @@ div.mod-prod {
     color: var(--text-100);
 }
 
+/* altre regole per profile */
 .confirmDati {
     border: 1px solid;
     margin: 10px 0px;
@@ -2657,6 +2659,7 @@ div.mod-prod {
     text-align: center;
 }
 
+/* tabelle per Admin */
 .fieldProfile #tb1,
 .fieldProfile #tb2 {
     border: 1px solid var(--text-100);
@@ -2665,13 +2668,15 @@ div.mod-prod {
     border-collapse: collapse;
 }
 
-#tb1 th,
-#tb2 th,
-#tb1 tr,
-#tb2 tr {
+table th,
+table tr,
+table td {
     border: 1px solid var(--text-100);
-    border-collapse: collapse;
     padding: 1em;
+}
+
+#tb1 .product-item, #tb2 .product-item {
+    border: none;
 }
 
 #tb1 caption,
@@ -2690,7 +2695,8 @@ div.mod-prod {
     display: none;
 }
 
-/*500*/
+/* Pagina 500 */
+
 #spaghetti.title {
     position: relative;
     top: 4em;
@@ -2832,4 +2838,54 @@ div.mod-prod {
 
 #return a {
     color: var(--primary-200);
+}
+
+/*ORDER DETAILS*/
+
+#details {
+    font-size: 1.2em;
+    text-align: center;
+    color: var(--text-100);
+
+}
+
+.container.order {
+    display: block;
+    height: unset;
+}
+
+#last-container:last-of-type {
+    margin-bottom: 6em;
+}
+
+#order-details,
+#product-details {
+    width: 100%;
+}
+
+.order dt,
+.order dd {
+    display: inline-block;
+    padding: 0 1em;
+    text-align: left;
+    width: 50%;
+    font-size: 1.2em;
+}
+
+.order dt {
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--primary-200);
+    padding: 1em 2em;
+}
+
+.order dd {
+    font-size: 18px;
+    color: text-100;
+}
+
+#order-details {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1em;
 }
