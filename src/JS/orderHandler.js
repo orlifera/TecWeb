@@ -24,6 +24,7 @@ function order() {
     window.location.href = url;
   } else {
     alert("Carrello vuoto!");
+    ordine.disabled = true;
   }
 }
 
