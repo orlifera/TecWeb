@@ -1,6 +1,7 @@
 let insert = document.getElementsByClassName("insertItem");
 let remove = document.getElementsByClassName("removeItem");
 let modify = document.getElementsByClassName("modifyItem");
+let viewDetails = document.getElementsByClassName("viewDetails");
 
 var scriptElement = document.querySelector('script[src$="admin.js"]');
 
@@ -57,6 +58,10 @@ function modifyItem() {
   }
 }
 
+function viewDetailsItem() {
+  window.location.href = "../php/viewDetails.php";
+}
+
 function callphp(url) {
   window.location.href = url;
 }
@@ -73,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
   for (let i = 0; i < insert.length; i++) {
     insert[i].addEventListener("click", insertItem);
   }
+
   for (let i = 0; i < remove.length; i++) {
     remove[i].addEventListener("click", removeItem);
   }
@@ -80,5 +86,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // Iterate through modifyButtons and attach event listener to each button
   for (let i = 0; i < modify.length; i++) {
     modify[i].addEventListener("click", modifyItem);
+  }
+
+  for (let i = 0; i < viewDetails.length; i++) {
+    viewDetails[i].addEventListener("click", viewDetailsItem);
   }
 });

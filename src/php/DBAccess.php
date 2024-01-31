@@ -47,7 +47,8 @@ class DBAccess
         }
     }
 
-    public function updatePersonalInfo($fname, $lname, $email, $phone) {
+    public function updatePersonalInfo($fname, $lname, $email, $phone)
+    {
         $query = "UPDATE utente SET nome = ?, cognome = ?, telefono = ? WHERE email = ?;";
         $stmt = mysqli_prepare($this->connection, $query);
         if ($stmt === false) {
@@ -57,7 +58,6 @@ class DBAccess
         if (mysqli_stmt_execute($stmt)) {
             // echo "Aggiornamento info avvenuto";
             echo '<p class="confirmDati">Aggiornamento informazioni avvenute. Ricarica la pagina per vedere le modifiche</p>';
-            
         } else {
             echo "Aggiornamento info non avvenuto: " . mysqli_error($this->connection);
         }
@@ -97,8 +97,8 @@ class DBAccess
         mysqli_stmt_close($stmt);
     }
 
-    
-    
+
+
 
     /************ GESTIONE PRODOTTI ************/
     public function getProduct($categoria, $sku)
@@ -246,7 +246,7 @@ class DBAccess
         mysqli_stmt_execute($stmt);
         $rowsAffected = mysqli_stmt_affected_rows($stmt);
         mysqli_stmt_close($stmt);
-
+        
         return $rowsAffected > 0;
     }
 
@@ -343,7 +343,7 @@ class DBAccess
 
     public function getOrdini()
     {
-        $query = "SELECT * FROM Ordine ;";
+        $query = "SELECT * FROM Ordine;";
 
         $queryResult = mysqli_query($this->connection, $query) or die("Errore in DBAccess" . mysqli_error($this->connection));
         if (mysqli_num_rows($queryResult) != 0) {
@@ -352,10 +352,29 @@ class DBAccess
                 $result[] = $row;
             }
             $queryResult->free();
+
             return $result;
         } else {
             return null;
         }
+        /* $query = "SELECT Ordine.*, GROUP_CONCAT(Prodotto.nome SEPARATOR ', ') as oggetti_ordinati
+              FROM Ordine
+              LEFT JOIN OrdineProdotto ON Ordine.id = OrdineProdotto.id_ordine
+              LEFT JOIN Prodotto ON OrdineProdotto.sku_prodotto = Prodotto.sku
+              GROUP BY Ordine.id;";
+
+        $queryResult = mysqli_query($this->connection, $query) or die("Errore in DBAccess" . mysqli_error($this->connection));
+        if (mysqli_num_rows($queryResult) != 0) {
+            $result = array();
+            while ($row = mysqli_fetch_array($queryResult)) {
+                $result[] = $row;
+            }
+            $queryResult->free();
+
+            return $result;
+        } else {
+            return null;
+        } */
     }
 
     public function insertNewProduct($sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_immagine, $categoria, $riferimento)
@@ -450,12 +469,43 @@ class DBAccess
     }
 
     /*insertNewOrder($sku, $quantitaOrdinata, $nomeUtente, $cognomeUtente, $emailUtente, $phoneUtente, $indirizzoUtente, $cittaUtente, $capUtente, $prezzo); */
-    public function insertNewOrder($quantitaOrdinata, $nomeUtente, $cognomeUtente, $emailUtente, $phoneUtente, $indirizzoUtente, $cittaUtente, $capUtente, $prezzo)
+    public function insertNewOrder($nomeUtente, $cognomeUtente, $emailUtente, $phoneUtente, $indirizzoUtente, $cittaUtente, $capUtente, $quantitaOrdinata, $prezzo, $oggettiOrdinati)
     {
-        $queryInsert = "INSERT INTO Ordine (nome, cognome, email, numero, indirizzo, citta, cap, quantitaOrdinata, prezzo) VALUES (\"$nomeUtente\", \"$cognomeUtente\", \"$emailUtente\", $phoneUtente, \"$indirizzoUtente\",   \"$cittaUtente\", $capUtente,$quantitaOrdinata,  $prezzo)";
-        mysqli_query($this->connection, $queryInsert) or die("errore in DBaccess" . mysqli_error($this->connection));
-        return mysqli_affected_rows($this->connection) > 0;
+        $queryInsertOrdine = "INSERT INTO Ordine (nome, cognome, email, numero, indirizzo, citta, cap, quantitaOrdinata, prezzo, oggetti_ordinati) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        $stmtOrdine = mysqli_prepare($this->connection, $queryInsertOrdine);
+
+        if (!$stmtOrdine) {
+            die("Errore nella preparazione della query: " . mysqli_error($this->connection));
+        }
+
+        mysqli_stmt_bind_param($stmtOrdine, "ssssssiids", $nomeUtente, $cognomeUtente, $emailUtente, $phoneUtente, $indirizzoUtente, $cittaUtente, $capUtente, $quantitaOrdinata, $prezzo, $oggettiOrdinati);
+
+        mysqli_stmt_execute($stmtOrdine);
+
+        $idOrdine = mysqli_insert_id($this->connection);
+
+        mysqli_stmt_close($stmtOrdine);
+
+        // Inserisci gli oggetti ordinati nella tabella di collegamento OrdineProdotto
+        $queryInsertOrdineProdotto = "INSERT INTO OrdineProdotto (id_ordine, sku_prodotto) VALUES (?, ?)";
+        $stmtOrdineProdotto = mysqli_prepare($this->connection, $queryInsertOrdineProdotto);
+
+        if (!$stmtOrdineProdotto) {
+            die("Errore nella preparazione della query: " . mysqli_error($this->connection));
+        }
+
+        foreach ($oggettiOrdinati as $skuProdotto) {
+            mysqli_stmt_bind_param($stmtOrdineProdotto, "is", $idOrdine, $skuProdotto);
+            mysqli_stmt_execute($stmtOrdineProdotto);
+        }
+
+        mysqli_stmt_close($stmtOrdineProdotto);
+
+        return true;
     }
+
+
 
     public function deleteOrder($codice)
     {

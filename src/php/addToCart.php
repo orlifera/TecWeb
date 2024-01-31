@@ -31,6 +31,11 @@ $_SESSION['cart_counter'] = $cartCounter;
 
 if ($connectionOk) {
     $listaPC = $connection->insertToCart($sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_image, $categoria);
+    if ($listaPC) {
+        echo '<p class="confirmDati">Prodotto aggiunto al carrello!</p>';
+    } else {
+        echo '<p class="errorDati">Prodotto non inserito, ti preghiamo di riprovare</p>';
+    }
 } else {
     header("HTTP/1.0 404 Not Found");
     include("../pages/404.html");

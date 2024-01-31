@@ -16,21 +16,27 @@ html {
 
 ***********************************/
 /*Logo in header*/
-header #logo {
-    content: url("../../assets/images/logo.png");
+#logo {
+    content: url("../../assets/images/logoNoBg.png");
     width: 5cm;
     height: 4cm;
     margin: auto;
+    margin-bottom: -20%;
 }
 
-#menu {
+[data-theme="dark"] #logo {
+    filter: invert(1);
+}
+
+#menu,
+#trigger1,
+#trigger2 {
     display: none;
 }
 
 /*Breadcrumb*/
 #breadcrumb {
     padding: 0.5em 0 0.5em 0;
-    margin-top: 0.5em;
     border-top: 1px solid #DDD;
     border-bottom: 1px solid #DDD;
     font-weight: bold;
@@ -119,11 +125,7 @@ footer {
 }
 
 #icons {
-    /* border: 1px solid black; */
-    width: 60%;
-    height: auto;
     margin: auto;
-
 }
 
 #icons ul {
@@ -135,8 +137,11 @@ footer {
 
 #icons li {
     text-align: center;
-    padding: auto;
     margin: auto;
+}
+
+#icons li svg {
+    width: 1cm;
 }
 
 
@@ -170,6 +175,10 @@ footer ul#footunor li {
 
 #rights {
     display: block;
+}
+
+#mobile-footer {
+    display: none;
 }
 
 /***********************************
@@ -847,4 +856,14 @@ div.page-btns {
 #error404 a {
     color: red;
     text-decoration: underline;
+}
+
+/********************
+
+        CART
+
+*********************/
+#product-buttons {
+    display: flex;
+    justify-content: center;
 }

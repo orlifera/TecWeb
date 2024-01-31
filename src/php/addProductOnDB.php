@@ -36,14 +36,6 @@ if ($connectionOk) {
         $valore = $_GET['valore'];
 
         $listaPC = $connection->insertNewSale($codice, $data_emissione, $data_scadenza, $username, $isUsed, $valore);
-    } else {
-        $codice = $_GET['id'];
-        $utente = $_GET['utente'];
-        $quantitaOrdinata = $_GET['quantitaOrdinata'];
-        $indirizzo = $_GET['indirizzo'];
-        $prezzo = $_GET['prezzo'];
-
-        $listaPC = $connection->insertNewOrder($codice, $utente, $quantitaOrdinata, $indirizzo, $prezzo);
     }
 } else {
     header("HTTP/1.0 404 Not Found");
