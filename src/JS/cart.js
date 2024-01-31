@@ -21,8 +21,9 @@ function addToCart() {
   var coloreProdotto = document.getElementById("colore").value;
   var splitValori = prezzoProdotto.split("€");
   var prezzo = splitValori[1];
-
   splitValori = disponibilita.split(":");
+  var utente = scriptTag.getAttribute("data-utente");
+
   var url =
     "../php/addToCart.php?id=" +
     id +
@@ -41,7 +42,9 @@ function addToCart() {
     "&path=" +
     imageFilePath +
     "&categoria=" +
-    categoria;
+    categoria +
+    "&utente=" +
+    utente;
   window.location.href = url;
 }
 

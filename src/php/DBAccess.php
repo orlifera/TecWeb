@@ -207,6 +207,37 @@ class DBAccess
 
 
     /************ PRODOTTI CARRELLO ************/
+    public function getProductCartReg($username)
+    {
+        $query = "SELECT 
+        Carrello.sku AS sku,
+        Carrello.nome AS nome,
+        Carrello.tipo AS tipo,
+        Carrello.descrizione AS descrizione,
+        Carrello.prezzo AS prezzo,
+        Carrello.colore AS colore,
+        Carrello.quantitaScelta AS quantitaScelta,
+        Carrello.path_immagine AS path_immagine,
+        Carrello.categoria AS categoria,
+        Prodotto.disponibilita AS disponibilita
+    FROM Carrello
+    JOIN Prodotto ON Carrello.sku = Prodotto.sku
+    JOIN utente ON Carrello.utente = utente.username
+    WHERE utente.username = '$username';";
+
+        $queryResult = mysqli_query($this->connection, $query) or die("Errore in DBAccess" . mysqli_error($this->connection));
+
+        $data = array();
+
+        if (mysqli_num_rows($queryResult) != 0) {
+            while ($row = mysqli_fetch_assoc($queryResult)) {
+                $data[] = $row;
+            }
+        }
+
+        return $data;
+    }
+
     public function getProductCart()
     {
         $query = "SELECT 
@@ -221,7 +252,7 @@ class DBAccess
         Carrello.categoria AS categoria,
         Prodotto.disponibilita AS disponibilita
     FROM Carrello
-    JOIN Prodotto ON Carrello.sku = Prodotto.sku; ";
+    JOIN Prodotto ON Carrello.sku = Prodotto.sku;";
 
         $queryResult = mysqli_query($this->connection, $query) or die("Errore in DBAccess" . mysqli_error($this->connection));
 
@@ -232,8 +263,19 @@ class DBAccess
                 $data[] = $row;
             }
         }
-
         return $data;
+    }
+
+    public function insertToCartReg($sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_immagine, $categoria, $utente)
+    {
+        $queryInsert = "INSERT INTO Carrello (sku, nome, tipo, descrizione, prezzo, colore, quantitaScelta, path_immagine, categoria, utente) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = mysqli_prepare($this->connection, $queryInsert);
+        mysqli_stmt_bind_param($stmt, "sssdssisss", $sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_immagine, $categoria, $utente);
+        mysqli_stmt_execute($stmt);
+        $rowsAffected = mysqli_stmt_affected_rows($stmt);
+        mysqli_stmt_close($stmt);
+
+        return $rowsAffected > 0;
     }
 
     public function insertToCart($sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_immagine, $categoria)
