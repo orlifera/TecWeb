@@ -90,8 +90,6 @@ function modifyProduct() {
 
     var quantitaOrdinata = getValueOrPlaceholder("quantitaOrdinata");
 
-    var prezzo = getValueOrPlaceholder("prezzo");
-    prezzo = prezzo.replace("€", "");
     if (!/^\d+$/.test(quantitaOrdinata) && !/^\d+$/.test(prezzo)) {
       alert("Errore: inserimento valori non corretto");
       return;
@@ -114,8 +112,6 @@ function modifyProduct() {
       quantitaOrdinata +
       "&indirizzo=" +
       indirizzo +
-      "&prezzo=" +
-      prezzo +
       "&variabile_decisionale=" +
       category;
   }

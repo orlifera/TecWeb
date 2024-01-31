@@ -203,8 +203,7 @@ if ($connectionOk) {
                  </div></div>" . "<div class=\"info-container\" >" .
                     "<div class=\"text-fields\">
                                 <label for=\"quantitaOrdinata\">Quantita</label><input type=\"text\" id=\"quantitaOrdinata\" placeholder=\"{$data['quantitaOrdinata']}\"></div>\n" . "</div>" . "<div class=\"info-container\" >" .
-                    "<div class=\"text-fields\">
-                                <label for=\"prezzo\">Prezzo</label><input type=\"text\" id=\"prezzo\" placeholder=\"{$data['prezzo']}\"></div>\n" . "</div>";
+                     "</div>";
                 $htmlProdotti .= $prova;
             }
         }

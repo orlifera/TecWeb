@@ -285,6 +285,18 @@ class DBAccess
 
     public function insertToCart($sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_immagine, $categoria)
     {
+        // Verifico se il record esiste già
+        $queryCheckExistence = "SELECT COUNT(*) FROM Carrello WHERE sku = ?";
+        $stmtCheck = mysqli_prepare($this->connection, $queryCheckExistence);
+        mysqli_stmt_bind_param($stmtCheck, "s", $sku);
+        mysqli_stmt_execute($stmtCheck);
+        mysqli_stmt_bind_result($stmtCheck, $count);
+        mysqli_stmt_fetch($stmtCheck);
+        mysqli_stmt_close($stmtCheck);
+        if ($count > 0) {
+            return false;
+        }
+
         $queryInsert = "INSERT INTO Carrello (sku, nome, tipo, descrizione, prezzo, colore, quantitaScelta, path_immagine, categoria) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($this->connection, $queryInsert);
         mysqli_stmt_bind_param($stmt, "sssdssiss", $sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_immagine, $categoria);
@@ -294,6 +306,7 @@ class DBAccess
 
         return $rowsAffected > 0;
     }
+
 
 
     public function deleteFromCart($sku)
@@ -513,7 +526,7 @@ class DBAccess
         return $rowsAffected > 0;
     }
 
-    /*insertNewOrder($sku, $quantitaOrdinata, $nomeUtente, $cognomeUtente, $emailUtente, $phoneUtente, $indirizzoUtente, $cittaUtente, $capUtente, $prezzo); */
+
     public function insertNewOrder($nomeUtente, $cognomeUtente, $emailUtente, $phoneUtente, $indirizzoUtente, $cittaUtente, $capUtente, $quantitaOrdinata, $prezzo, $oggettiOrdinati)
     {
         $queryInsertOrdine = "INSERT INTO Ordine (nome, cognome, email, numero, indirizzo, citta, cap, quantitaOrdinata, prezzo, oggetti_ordinati) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -537,11 +550,6 @@ class DBAccess
 
         if (!$stmtOrdineProdotto) {
             die("Errore nella preparazione della query: " . mysqli_error($this->connection));
-        }
-
-        foreach ($oggettiOrdinati as $skuProdotto) {
-            mysqli_stmt_bind_param($stmtOrdineProdotto, "is", $idOrdine, $skuProdotto);
-            mysqli_stmt_execute($stmtOrdineProdotto);
         }
 
         mysqli_stmt_close($stmtOrdineProdotto);
@@ -591,7 +599,7 @@ class DBAccess
     }
 
 
-    public function updateOrder($codice, $nome, $cognome, $email, $numero, $citta, $quantitaOrdinata, $indirizzo, $prezzo)
+    public function updateOrder($codice, $nome, $cognome, $email, $numero, $citta, $quantitaOrdinata, $indirizzo)
     {
         $queryUpdate = "UPDATE Ordine 
                     SET 
@@ -601,8 +609,7 @@ class DBAccess
                         numero = '$numero',
                         indirizzo = '$indirizzo', 
                         citta = '$citta',
-                        quantitaOrdinata = $quantitaOrdinata, 
-                        prezzo = $prezzo
+                        quantitaOrdinata = $quantitaOrdinata
                     WHERE id = '$codice'";
 
         mysqli_query($this->connection, $queryUpdate) or die("Errore in DBAccess: " . mysqli_error($this->connection));

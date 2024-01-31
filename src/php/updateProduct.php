@@ -47,9 +47,7 @@ if ($connectionOk) {
         $citta = $_GET['citta'];
         $quantitaOrdinata = $_GET['quantitaOrdinata'];
         $indirizzo = $_GET['indirizzo'];
-        $prezzo = $_GET['prezzo'];
-
-        $listaSconti = $connection->updateOrder($codice, $nome, $cognome, $email, $numero, $citta, $quantitaOrdinata, $indirizzo, $prezzo);
+        $listaSconti = $connection->updateOrder($codice, $nome, $cognome, $email, $numero, $citta, $quantitaOrdinata, $indirizzo);
     }
 } else {
     header("HTTP/1.0 404 Not Found");

@@ -17,7 +17,7 @@ function order() {
   var quantitaOrdinata = urlRiferimento.searchParams.get("quantitaOrdinata");
   var prezzo = urlRiferimento.searchParams.get("prezzo");
   var oggetti = urlRiferimento.searchParams.get("oggetti");
-  alert(prezzo);
+
   if (id) {
     var url =
       "../php/order.php?id=" +
