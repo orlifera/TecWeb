@@ -6,7 +6,7 @@ function fetchDataWithFetch() {
     .then(response => response.text())
     .then(data => {
         // Gestisci la risposta
-        document.getElementById("loginout").innerHTML = data;
+        document.querySelectorAll(".loginout").forEach(item => item.innerHTML = data);
     })
     .catch(error => console.error('Errore:', error));
     
@@ -16,7 +16,7 @@ function fetchDataWithFetch() {
     .then(response => response.text())
     .then(data => {
         // Gestisci la risposta
-        document.getElementById("loginoutaltro").innerHTML = data;
+        document.querySelectorAll(".loginoutaltro").forEach(item => item.innerHTML = data);
     })
     .catch(error => console.error('Errore:', error));
 }
