@@ -197,15 +197,14 @@ foreach ($codiceSconto as $i => $nome) {
             "<td><time>" . $emissioneSconto[$i] . "</time></td>\n" .
             "<td><time>" . $scadenzaSconto[$i] . "</time></td>\n" .
             "<td lang=\"en\">" . $usernameSconto[$i] . "</td>\n" .
-            "<td>" . ($isUsedSconto[$i] == 0 ? "Buono non usato" : "Buono usato") . "</td>\n</tr>\n"  /*</ul>*/ .
-
+            "<td class=\"product-item\">" . ($isUsedSconto[$i] == 0 ? "Buono non usato" : "Buono usato") .
             "<div class=\"dropdown-options\">
                     <button class=\"dropbtn\">&#8942;</button>
                     <div class=\"dropdown-content hidden\">
                     <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\" class=\"removeItem\" data-id=\"" . $nome . "\" data-categoria=\"sconti\">
                     <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\" class=\"modifyItem\" data-id=\"" . $nome . "\" data-categoria=\"sconti\">
                     </div>
-                </div>";
+                </div></td></tr>\n";
         $sconti .= $prova;
     }
 }
@@ -274,7 +273,7 @@ foreach ($id as $i => $nome) {
             "<td> " . $nome . " </td>\n" .
             "<td> " . $nomeUtente[$i] . "</td>\n" .
             "<td>" . $cognomeUtente[$i] . "</td>\n" .
-            "<td>" . $emailUtente[$i] . "</td>\n" .
+            "<td class=\"product-item\">" . $emailUtente[$i]  .
 
 
             "<div class=\"dropdown-options\">
@@ -285,7 +284,7 @@ foreach ($id as $i => $nome) {
                     <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\" class=\"modifyItem\" data-id=\"" . $nome . "\" data-categoria=\"ordini\">
                     <input type=\"button\" name=\"viewDetails\" value=\"Dettagli ordine\" class=\"viewDetails\" data-id=\"" . $nome . "\" data-categoria=\"ordini\">
                     </div>
-                </div>";
+                </div></td></tr>\n";
 
         $ordini .= $prova;
     }
