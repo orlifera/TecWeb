@@ -65,6 +65,8 @@ CREATE TABLE Carrello (
   quantitaScelta int not null,
   path_immagine varchar(256) not null,
   categoria varchar(6) not null,
+  utente varchar(255) unique,
+  foreign key (utente) references utente(username),
   primary key(sku),
   foreign key (sku) references Prodotto(sku)
 ) Engine = InnoDB default charset = utf8mb4;
