@@ -313,6 +313,10 @@ nav svg:not(.signup, #sun, #moon) {
     fill: var(--text-300);
 }
 
+.logout {
+    transform: scaleX(-1);
+}
+
 #breadcrumb {
     display: block;
     padding: 0.5em;
@@ -337,7 +341,7 @@ nav svg:not(.signup, #sun, #moon) {
     padding-top: 6em;
 }
 
-.signup path {
+.signup path{
     stroke: var(--text-300);
     stroke-width: 1.5;
     stroke-linecap: round;
