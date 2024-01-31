@@ -341,7 +341,7 @@ nav svg:not(.signup, #sun, #moon) {
     padding-top: 6em;
 }
 
-.signup path{
+.signup path {
     stroke: var(--text-300);
     stroke-width: 1.5;
     stroke-linecap: round;
@@ -2385,7 +2385,8 @@ input.card-number {
     text-align: center;
 }
 
-#succ, #err {
+#succ,
+#err {
     position: absolute;
     right: .5em;
     top: 1.4em;
