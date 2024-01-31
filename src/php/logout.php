@@ -8,7 +8,7 @@ if (isset($_COOKIE[session_name()])){
 }
 session_unset();
 session_destroy();
-header('Location: index.html');
+header('Location: ../../index.html');
 exit;
 
 ?>
