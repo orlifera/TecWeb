@@ -41,29 +41,29 @@
                         </svg>
 
                         <!-- Card Number -->
-                        <label>Card Number</label>
-                        <input class="card-number" placeholder="5225 XXXX XXXX XXXX" type="text" required readonly
+                        <label for="card-number" lang="en">Card Number</label>
+                        <input class="card-number" name="card-number" placeholder="5225 XXXX XXXX XXXX" type="text" required readonly
                             maxlength="16" >
 
                         <div class="container2">
 
                             <!-- Card Holder -->
                             <div class="name">
-                                <label lang="en">Card Holder</label>
-                                <input class="card-name" placeholder="Mr. WorldWide" type="text" required readonly >
+                                <label lang="en" for="card-name">Card Holder</label>
+                                <input class="card-name" name="card-name" placeholder="Mr. WorldWide" type="text" required readonly >
                             </div>
 
                             <!-- Date -->
                             <div class="expiration-date">
-                                <label><abbr lang="en" title="Expiration Date">Exp. Date</abbr></label>
-                                <input id="expiry-date" class="card-name" placeholder="10/25" type="text" maxlength="5"
+                                <label for="expiry-date"><abbr lang="en" title="Expiration Date">Exp. Date</abbr></label>
+                                <input id="expiry-date" name="expiry-date" class="card-name" placeholder="10/25" type="text" maxlength="5"
                                     required readonly >
                             </div>
 
                             <!-- Cvv -->
                             <div class="ccv">
-                                <label><abbr lang="en" title="Card Code Verification">CCV</abbr></label>
-                                <input class="card-name" placeholder="628" type="text" maxlength="3" required
+                                <label for="card-ccv"><abbr lang="en" title="Card Code Verification">CCV</abbr></label>
+                                <input class="card-name" name="card-ccv" placeholder="628" type="text" maxlength="3" required
                                     readonly >
                             </div>
                         </div>
