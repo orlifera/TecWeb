@@ -1,12 +1,22 @@
 <?php
 
 require_once "DBAccess.php";
-// require_once "sendToLogin.php";
 
 use DB\DBAccess;
 
 session_start();
 $user = $_SESSION['user'];
+
+if (isset($_SESSION['confirmation_message']) && $_SESSION['confirmation_message']) {
+    echo '<p class="confirmDati banner">Aggiornamento dei dati avvenuto.</p><svg id="succ" class="cross-msg" width="30" height="30" viewBox="0 0 24 24" fill="none"> <path d="M19 5L4.99998 19M5.00001 5L19 19" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>';
+    // Resetta la variabile di sessione per evitare la visualizzazione ripetuta
+    $_SESSION['confirmation_message'] = false;
+}
+if (isset($_SESSION['error_message']) && $_SESSION['error_message']) {
+    echo '<p class="banner errorDati">Uno dei campi non è corretto</p><svg id="err" class="cross-msg" width="30" height="30" viewBox="0 0 24 24" fill="none"> <path d="M19 5L4.99998 19M5.00001 5L19 19" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>';
+    // Resetta la variabile di sessione per evitare la visualizzazione ripetuta
+    $_SESSION['error_message'] = false;
+}
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -25,8 +35,6 @@ $city = "";
 $address = "";
 $cap = "";
 
-// $errorpsw = "";
-
 $connection = new DBAccess();
 $connectionOk = $connection->openDBConnection();
 
@@ -41,8 +49,7 @@ if ($connectionOk) {
             $email = $listaInfo[5];
             $phone = $_POST['phone'];
             $connection->updatePersonalInfo($fname, $lname, $email, $phone);
-            // header('Location: profile.php?section=personalInfo');
-            // echo '<p class="confirmDati">Aggiornamento info avvenute</p>';
+            header('Location: profile.php?section=personalInfo');
         }
     } else if (isset($_POST['changepsw'])) {
         if ($_POST['pwd'] != null && $_POST['password'] != null && $_POST['password-confirm'] != null) {
@@ -53,13 +60,14 @@ if ($connectionOk) {
             if (password_verify($op, $listaInfo[6]) && $np == $cnp) {
                 $np = password_hash($_POST['password'], PASSWORD_DEFAULT);
                 $connection->updatePsw($email, $np);
+                header('Location: profile.php?section=changepsw');
             } else {
-                echo '<p class="errorDati">Uno dei campi non è corretto</p>';
+                $_SESSION['error_message'] = true;
+                header('Location: profile.php?section=changepsw');
             }
         } else {
-            $errormsg = "<div class=\"errorDati\">Compila tutti i dati</div>";
-            $paginaHTML = str_replace('<div id="stato"></div>', $errormsg, $paginaHTML);
-            echo ($paginaHTML);
+            echo '<p class="banner errorDati">Compila tutti i dati</p><svg id="err" class="cross-msg" width="30" height="30" viewBox="0 0 24 24" fill="none"> <path d="M19 5L4.99998 19M5.00001 5L19 19" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>';
+
         }
     } else if (isset($_POST['addressbtn'])) {
         if ($_POST['city'] != null && $_POST['address'] != null && $_POST['cap'] != null) {
@@ -68,7 +76,7 @@ if ($connectionOk) {
             $address = $_POST['address'];
             $cap = $_POST['cap'];
             $connection->updateAddressInfo($email, $city, $address, $cap);
-            header('Location: profile.php');
+            header('Location: profile.php?section=change-address');
         }
     }
 
@@ -82,12 +90,11 @@ if ($connectionOk) {
         $address = "<input class=\"dataHolder\" type=\"text\" name=\"address\" id=\"address\" value=\"" . $listaInfo[9] . "\" required>";
         $cap = "<input class=\"dataHolder\" type=\"text\" name=\"cap\" id=\"cap\" value=\"" . $listaInfo[10] . "\" required>";
 
-        if ($listaInfo[11] == "A") {
+        if($listaInfo[11] == "A") {
             $admin = "<li class=\"\"><a href=\"productAdmin.php\" target=\"_blank\"><span lang=\"en\">Dashboard</span></a></li>";
             $paginaHTML = str_replace('<li class="adminListItem"></li>', $admin, $paginaHTML);
         }
     }
-    // print_r($listaInfo);
 }
 /*
 0. nome
@@ -113,7 +120,6 @@ $paginaHTML = str_replace('{dob}', $dob, $paginaHTML);
 $paginaHTML = str_replace('{city}', $city, $paginaHTML);
 $paginaHTML = str_replace('{address}', $address, $paginaHTML);
 $paginaHTML = str_replace('{cap}', $cap, $paginaHTML);
-// $paginaHTML = str_replace('{errorpsw}', $error, $paginaHTML);
 
 
 echo ($paginaHTML);

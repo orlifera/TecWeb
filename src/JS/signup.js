@@ -41,20 +41,6 @@ function showNumber(...n1) {
   });
 }
 
-// function areFieldsCompleted(stageContent) {
-//   let inputs = stageContent.querySelectorAll("input");
-//   for (let input of inputs) {
-//     if (
-//       input.type !== "submit" &&
-//       input.type !== "button" &&
-//       input.value.trim() === ""
-//     ) {
-//       return false; // Found an empty field, return false.
-//     }
-//   }
-//   return true; // All fields are filled.
-// }
-
 function areFieldsCompleted(stageContent) {
   let inputs = stageContent.querySelectorAll("input, select");
   for (let input of inputs) {
@@ -74,10 +60,10 @@ function areFieldsCompleted(stageContent) {
 function switchStage(toHide, toShow, forward = true) {
   if (toHide === signupContent2 && forward) {
     var emailInput = signupContent2.querySelector('input[type="email"]');
-    // if (emailInput && !emailInput.checkValidity()) {
-    //     alert('Per favore, inserie un indirizzo email valido.');
-    //     return false; // Prevents moving to the next stage if email is invalid
-    // }
+    if (emailInput && !emailInput.checkValidity()) {
+      alert('Per favore, inserie un indirizzo email valido.');
+      return false;
+    }
   }
   if (forward && !areFieldsCompleted(toHide)) {
     alert(

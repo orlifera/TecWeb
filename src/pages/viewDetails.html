@@ -2,11 +2,15 @@
 <html lang="it" data-theme="light">
 
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <!-- Viewport adattiva alla larghezza del device -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Admin - ML Tech</title>
-        <meta name="keywords" content="ML-TECH products, gaming, workstation, technology ">
-        <meta name="description" content="Sito ufficiale ml-tech, gruppo fondato da Orlando Ferazzani">
+        <!-- Keywords e descrizione del sito in generale -->
+        <meta name="keywords"
+            content="ML Tech, tastiere meccaniche custom, assemblaggio computer gaming, pc assemblati, assemblaggio pc, pc assemblati economici, vendita pc online">
+        <meta name="description" content="Sito ufficiale di ML Tech, vendita di tastiere meccaniche custom">
+        <!-- File CSS per PC, mobile e stampa -->
         <link rel="stylesheet" href="../css/styles.css" media="screen">
         <link rel="stylesheet" href="../css/print.css" media="print">
         <link rel="stylesheet" href="../css/mini.css" media="screen and (max-width: 600px)">
@@ -24,7 +28,6 @@
             //set correct theme
             document.documentElement.setAttribute('data-theme', themeToSet)
         </script>
-
     </head>
 
     <body>
@@ -224,79 +227,17 @@
         <nav id="breadcrumb" class="sr-only">
             <p>Ti trovi in: <span lang="en"><a href="../../index.html">Home</a> &gt; &gt; Product Admin</span></p>
         </nav>
-        <main id="side">
-            <div id="profileDiv">
-                <nav class="sidenav open">
-                    <ul class="nav-list">
-                        <li id="firstNav" class="nav-item"><a href="#" data-target="personalInfo">Prodotti</a>
-                        </li>
-                        <li class="nav-item"><a href="#" data-target="changepsw">Sconti</a></li>
-                        <li class="nav-item"><a href="#" data-target="change-address">Ordini</a></li>
-                    </ul>
-                    <svg id="hamburger" class="visible" width="30" height="30" viewBox="-0.5 0 25 25" fill="none">
-                        <path d="M2 12.32H22" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M2 18.32H22" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M2 6.32001H22" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </nav>
 
-                <form id="profilePage" method="post">
-                    <fieldset class="fieldProfile show" id="personalInfo">
-                        <legend>Prodotti</legend>
-                        <ul id="admin-product">
-                            {prodotti}
-                        </ul>
-
-                    </fieldset>
-
-                    <fieldset class="fieldProfile hidden" id="changepsw">
-                        <p id="sconti-desc">Questa tabella descrive i buoni sconto disponibili</p>
-                        <table id="tb1" aria-describedby="sconti-desc">
-                            <caption>Sconti</caption>
-                            <thead>
-                                <tr>
-                                    <th scope="col" abbr="Identificativo">ID</th>
-                                    <th scope="col">Data Emissione</th>
-                                    <th scope="col">Data Scadenza</th>
-                                    <th scope="col">Utente</th>
-                                    <th scope="col">Stato</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {sconti}
-                            </tbody>
-                        </table>
-                    </fieldset>
-
-                    <fieldset class="fieldProfile hidden" id="change-address">
-                        <p id="ordini-desc">Questa tabella descrive gli ordini</p>
-                        <table id="tb2" aria-describedby="ordini-desc">
-                            <caption>Ordini</caption>
-                            <thead>
-                                <tr>
-                                    <th scope="col" abbr="Identificativo">ID</th>
-                                    <th scope="col">Nome</th>
-                                    <th scope="col">Cognome</th>
-                                    <th scope="col" lang="en">Email</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {ordini}
-                            </tbody>
-                        </table>
-                    </fieldset>
-                </form>
-
-            </div>
-        </main>
-        <script src="../JS/switch-handler.js"></script>
-        <script src="../JS/admin.js"></script>
-        <script src="../JS/profile.js"></script>
-        <script src="../JS/kebab.js"></script>
-        <script src="../JS/dropup.js"></script>
-        <script src="../JS/dropdown.js"></script>
-        <script src="../JS/hamburger.js"></script>
+        <ul id="order-details">
+            {dettagli}
+        </ul>
 
     </body>
+    <script src="../JS/switch-handler.js"></script>
+    <script src="../JS/admin.js"></script>
+    <script src="../JS/profile.js"></script>
+    <script src="../JS/dropup.js"></script>
+    <script src="../JS/dropdown.js"></script>
+    <script src="../JS/hamburger.js"></script>
 
 </html>

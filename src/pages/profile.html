@@ -102,7 +102,7 @@
 
                         </p>
                         <ul id="profile-drop" class="dropdown-list show">
-                            <li>
+                            <!-- <li>
                                 <a href="../php/sendToLogin.php">
                                     
                                     <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none"
@@ -130,6 +130,23 @@
                                             stroke-linejoin="round" />
                                     </svg>
                                     REGISTRATI
+                                </a>
+                            </li> -->
+                            <li>
+                                <a href="../php/logout.php">
+                                    
+                                    <svg class="signup" width="30px" height="30px" viewBox="0 0 24 24" fill="none"
+                                        >
+                                        <path
+                                            d="M21.2799 6.40005L11.7399 15.94C10.7899 16.89 7.96987 17.33 7.33987 16.7C6.70987 16.07 7.13987 13.25 8.08987 12.3L17.6399 2.75002C17.8754 2.49308 18.1605 2.28654 18.4781 2.14284C18.7956 1.99914 19.139 1.92124 19.4875 1.9139C19.8359 1.90657 20.1823 1.96991 20.5056 2.10012C20.8289 2.23033 21.1225 2.42473 21.3686 2.67153C21.6147 2.91833 21.8083 3.21243 21.9376 3.53609C22.0669 3.85976 22.1294 4.20626 22.1211 4.55471C22.1128 4.90316 22.0339 5.24635 21.8894 5.5635C21.7448 5.88065 21.5375 6.16524 21.2799 6.40005V6.40005Z"
+                                            stroke="#000000" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M11 4H6C4.93913 4 3.92178 4.42142 3.17163 5.17157C2.42149 5.92172 2 6.93913 2 8V18C2 19.0609 2.42149 20.0783 3.17163 20.8284C3.92178 21.5786 4.93913 22 6 22H17C19.21 22 20 20.2 20 18V13"
+                                            stroke="#000000" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    LOGOUT
                                 </a>
                             </li>
                             <li>  
@@ -294,7 +311,6 @@
             <nav class="sidenav open">
                 <header id="nav-header">
                     <form action="../php/profile.php">
-                        <!-- <h2 id="nav-title">Ciao, {username}!</h2> -->
                         {username}
                     </form>
                 </header>
@@ -367,13 +383,7 @@
                                  
                                 viewBox="0 0 512 512" xml:space="preserve">
                                 <g>
-                                    <path class="st0" d="M94.811,21.696c-35.18,22.816-42.091,94.135-28.809,152.262c10.344,45.266,32.336,105.987,69.42,163.165
-                                            		c34.886,53.79,83.557,102.022,120.669,129.928c47.657,35.832,115.594,58.608,150.774,35.792
-                                            		c17.789-11.537,44.218-43.058,45.424-48.714c0,0-15.498-23.896-18.899-29.14l-51.972-80.135
-                                            		c-3.862-5.955-28.082-0.512-40.386,6.457c-16.597,9.404-31.882,34.636-31.882,34.636c-11.38,6.575-20.912,0.024-40.828-9.142
-                                            		c-24.477-11.262-51.997-46.254-73.9-77.947c-20.005-32.923-40.732-72.322-41.032-99.264c-0.247-21.922-2.341-33.296,8.304-41.006
-                                            		c0,0,29.272-3.666,44.627-14.984c11.381-8.392,26.228-28.286,22.366-34.242l-51.972-80.134c-3.401-5.244-18.899-29.14-18.899-29.14
-                                            		C152.159-1.117,112.6,10.159,94.811,21.696z" />
+                                    <path class="st0" d="M94.811,21.696c-35.18,22.816-42.091,94.135-28.809,152.262c10.344,45.266,32.336,105.987,69.42,163.165 c34.886,53.79,83.557,102.022,120.669,129.928c47.657,35.832,115.594,58.608,150.774,35.792 c17.789-11.537,44.218-43.058,45.424-48.714c0,0-15.498-23.896-18.899-29.14l-51.972-80.135 c-3.862-5.955-28.082-0.512-40.386,6.457c-16.597,9.404-31.882,34.636-31.882,34.636c-11.38,6.575-20.912,0.024-40.828-9.142 c-24.477-11.262-51.997-46.254-73.9-77.947c-20.005-32.923-40.732-72.322-41.032-99.264c-0.247-21.922-2.341-33.296,8.304-41.006 c0,0,29.272-3.666,44.627-14.984c11.381-8.392,26.228-28.286,22.366-34.242l-51.972-80.134c-3.401-5.244-18.899-29.14-18.899-29.14 C152.159-1.117,112.6,10.159,94.811,21.696z" />
                                 </g>
                             </svg>
                             <label for="phone">Telefono</label>
@@ -381,7 +391,7 @@
                         </div>
                     </div>
                     <div class="page-btns">
-                        <input type="submit" name="personalInfo" value="Aggiorna dati" class="next stagebtn1b">
+                        <input type="submit" name="personalInfo" value="Aggiorna dati" class="next stagebtn1b" form="profilePage">
                     </div>
                 </fieldset>
 
@@ -446,7 +456,7 @@
                         </div>
                     </div>
                     <div class="page-btns">
-                        <input type="submit" name="changepsw" value="Aggiorna dati" class="next stagebtn1b">
+                        <input type="submit" name="changepsw" value="Aggiorna dati" class="next stagebtn1b" form="profilePage">
                     </div>
                 </fieldset>
 
@@ -493,7 +503,7 @@
                         </div>
                     </div>
                     <div class="page-btns">
-                        <input type="submit" name="addressbtn" value="Aggiorna dati" class="next stagebtn1b">
+                        <input type="submit" name="addressbtn" value="Aggiorna dati" class="next stagebtn1b" form="profilePage">
                     </div>
                 </fieldset>
 
@@ -552,6 +562,7 @@
         <script src="../JS/dropdown.js"></script>
         <script src="../JS/dropup.js"></script>
         <script src="../JS/hamburger.js"></script>
+        <script src="../JS/cross.js"></script>
     </body>
 
 </html>

@@ -56,8 +56,7 @@ class DBAccess
         }
         mysqli_stmt_bind_param($stmt, "ssss", $fname, $lname, $phone, $email);
         if (mysqli_stmt_execute($stmt)) {
-            // echo "Aggiornamento info avvenuto";
-            echo '<p class="confirmDati">Aggiornamento informazioni avvenute. Ricarica la pagina per vedere le modifiche</p>';
+            $_SESSION['confirmation_message'] = true;
         } else {
             echo "Aggiornamento info non avvenuto: " . mysqli_error($this->connection);
         }
@@ -73,8 +72,7 @@ class DBAccess
         }
         mysqli_stmt_bind_param($stmt, "ss", $psw, $email);
         if (mysqli_stmt_execute($stmt)) {
-            // echo "Aggiornamento psw avvenuto";
-            echo '<p class="confirmDati">Aggiornamento password avvenute</p>';
+            $_SESSION['confirmation_message'] = true;
         } else {
             echo "Aggiornamento password non avvenuto: " . mysqli_error($this->connection);
         }
@@ -90,7 +88,7 @@ class DBAccess
         }
         mysqli_stmt_bind_param($stmt, "ssis", $city, $address, $cap, $email);
         if (mysqli_stmt_execute($stmt)) {
-            echo '<p class="confirmDati">Aggiornamento indirizzo avvenute</p>';
+            $_SESSION['confirmation_message'] = true;
         } else {
             echo "Aggiornamento indirizzo non avvenuto: " . mysqli_error($this->connection);
         }
