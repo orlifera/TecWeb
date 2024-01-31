@@ -187,23 +187,20 @@ if ($connectionOk) {
                 $prova = "<h2 class=\"headings admin\">Ordine {$data['id']}</h2>" .
                     "<div class=\"info-container\">" .
                     "<div class=\"text-fields\">
-                    <label for=\"nome\">Nome</label><input type=\"text\" id=\"nome\" placeholder=\"{$data['nome']}\">
-                 </div>" .
+                    <label for=\"nome\">Nome</label><input type=\"text\" id=\"nome\" placeholder=\"{$data['nome']}\"></div>\n" . 
                     "<div class=\"text-fields\">
                     <label for=\"cognome\">Cognome</label><input type=\"text\" id=\"cognome\" placeholder=\"{$data['cognome']}\">
-                 </div>" .
+                 </div>" . "</div>" . "<div class=\"info-container\">" .
                     "<div class=\"text-fields\">
                     <label for=\"email\">Email</label><input type=\"text\" id=\"email\" placeholder=\"{$data['email']}\">
                  </div>" .
                     "<div class=\"text-fields\">
-                    <label for=\"numero\">Numero</label><input type=\"text\" id=\"numero\" placeholder=\"{$data['numero']}\">
-                 </div>" .
+                    <label for=\"numero\">Numero</label><input type=\"text\" id=\"numero\" placeholder=\"{$data['numero']}\"></div></div>" . "<div class=\"info-container\" >" .
                     "<div class=\"text-fields\">
-                    <label for=\"indirizzo\">Indirizzo</label><input type=\"text\" id=\"indirizzo\" placeholder=\"{$data['indirizzo']}\">
-                 </div>" .
+                    <label for=\"indirizzo\">Indirizzo</label><input type=\"text\" id=\"indirizzo\" placeholder=\"{$data['indirizzo']}\"></div>". 
                     "<div class=\"text-fields\">
                     <label for=\"citta\">Città</label><input type=\"text\" id=\"citta\" placeholder=\"{$data['citta']}\">
-                 </div>" .
+                 </div></div>" . "<div class=\"info-container\" >" .
                     "<div class=\"text-fields\">
                                 <label for=\"utente\">Utente</label><input type=\"text\" id=\"utente\" placeholder=\"{$data['utente']}\"></div>\n" .
                     "<div class=\"text-fields\">

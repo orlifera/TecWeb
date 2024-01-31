@@ -193,18 +193,19 @@ if ($connectionOk) {
 foreach ($codiceSconto as $i => $nome) {
     if ($nome != null) {
         $prova = "<tr>\n" . /* product-item <ul class=\"sale-description\">\n" .*/
-            "<td>" . $nome . "</td>\n" .
-            "<td><time>" . $emissioneSconto[$i] . "</time></td>\n" .
-            "<td><time>" . $scadenzaSconto[$i] . "</time></td>\n" .
-            "<td lang=\"en\">" . $usernameSconto[$i] . "</td>\n" .
-            "<td class=\"product-item\">" . ($isUsedSconto[$i] == 0 ? "Buono non usato" : "Buono usato") .
-            "<div class=\"dropdown-options\">
+            "<td class=\"product-item\"><div class=\"dropdown-options\">
                     <button class=\"dropbtn\">&#8942;</button>
                     <div class=\"dropdown-content hidden\">
                     <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\" class=\"removeItem\" data-id=\"" . $nome . "\" data-categoria=\"sconti\">
                     <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\" class=\"modifyItem\" data-id=\"" . $nome . "\" data-categoria=\"sconti\">
                     </div>
-                </div></td></tr>\n";
+                </div></td>" .
+            "<td>" . $nome . "</td>\n" .
+            "<td><time>" . $emissioneSconto[$i] . "</time></td>\n" .
+            "<td><time>" . $scadenzaSconto[$i] . "</time></td>\n" .
+            "<td lang=\"en\">" . $usernameSconto[$i] . "</td>\n" .
+            "<td>" . ($isUsedSconto[$i] == 0 ? "Buono non usato" : "Buono usato") .
+            "</td></tr>\n";
         $sconti .= $prova;
     }
 }
@@ -270,21 +271,17 @@ if ($connectionOk) {
 foreach ($id as $i => $nome) {
     if ($nome != null) {
         $prova = "<tr>" . /*class=\"product-item\">\n <ul class=\"order-description\">" .*/
+            "<td class=\"product-item\"><div class=\"dropdown-options\">
+                    <button class=\"dropbtn\">&#8942;</button>
+                    <div class=\"dropdown-content hidden\">
+                    <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\" class=\"removeItem\" data-id=\"" . $nome . "\" data-categoria=\"sconti\">
+                    <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\" class=\"modifyItem\" data-id=\"" . $nome . "\" data-categoria=\"sconti\">
+                    </div>
+                </div></td>" .
             "<td> " . $nome . " </td>\n" .
             "<td> " . $nomeUtente[$i] . "</td>\n" .
             "<td>" . $cognomeUtente[$i] . "</td>\n" .
-            "<td class=\"product-item\">" . $emailUtente[$i]  .
-
-
-            "<div class=\"dropdown-options\">
-                    <button class=\"dropbtn\">&#8942;</button>
-                    <div class=\"dropdown-content hidden\">
-                    <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\" class=\"removeItem\" data-id=\"" . $nome . "\"
-                    data-categoria=\"ordini\">
-                    <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\" class=\"modifyItem\" data-id=\"" . $nome . "\" data-categoria=\"ordini\">
-                    <input type=\"button\" name=\"viewDetails\" value=\"Dettagli ordine\" class=\"viewDetails\" data-id=\"" . $nome . "\" data-categoria=\"ordini\">
-                    </div>
-                </div></td></tr>\n";
+            "<td class=\"product-item\">" . $emailUtente[$i] . "</td></tr>\n";
 
         $ordini .= $prova;
     }
