@@ -71,8 +71,8 @@ if ($connectionOk) {
                         "</div>" .
                         "<div class=\"info-container\" >" .
                         "<div class=\"text-fields prod-description\">
-                                <label for=\"descrizione\">Descrizione</label>
-                                <textarea  rowz=\"100\" cols=\"80\" id=\"descrizione\" name=\"descrizione\" placeholder=\"{$descrizione[$i]}\"></textarea>
+                                <label for=\"path_image\">Percorso Immagine</label>
+                                <textarea  rowz=\"100\" cols=\"80\" id=\"path_image\" name=\"path_image\" placeholder=\"{$path_image[$i]}\"></textarea>
                             </div>\n" .
                         "<div class=\"text-fields prod-price\">
                             <label for=\"prezzo\">Prezzo</label>
@@ -187,7 +187,7 @@ if ($connectionOk) {
                 $prova = "<h2 class=\"headings admin\">Ordine {$data['id']}</h2>" .
                     "<div class=\"info-container\">" .
                     "<div class=\"text-fields\">
-                    <label for=\"nome\">Nome</label><input type=\"text\" id=\"nome\" placeholder=\"{$data['nome']}\"></div>\n" . 
+                    <label for=\"nome\">Nome</label><input type=\"text\" id=\"nome\" placeholder=\"{$data['nome']}\"></div>\n" .
                     "<div class=\"text-fields\">
                     <label for=\"cognome\">Cognome</label><input type=\"text\" id=\"cognome\" placeholder=\"{$data['cognome']}\">
                  </div>" . "</div>" . "<div class=\"info-container\">" .
@@ -197,16 +197,12 @@ if ($connectionOk) {
                     "<div class=\"text-fields\">
                     <label for=\"numero\">Numero</label><input type=\"text\" id=\"numero\" placeholder=\"{$data['numero']}\"></div></div>" . "<div class=\"info-container\" >" .
                     "<div class=\"text-fields\">
-                    <label for=\"indirizzo\">Indirizzo</label><input type=\"text\" id=\"indirizzo\" placeholder=\"{$data['indirizzo']}\"></div>". 
+                    <label for=\"indirizzo\">Indirizzo</label><input type=\"text\" id=\"indirizzo\" placeholder=\"{$data['indirizzo']}\"></div>" .
                     "<div class=\"text-fields\">
                     <label for=\"citta\">Città</label><input type=\"text\" id=\"citta\" placeholder=\"{$data['citta']}\">
                  </div></div>" . "<div class=\"info-container\" >" .
                     "<div class=\"text-fields\">
-                                <label for=\"utente\">Utente</label><input type=\"text\" id=\"utente\" placeholder=\"{$data['utente']}\"></div>\n" .
-                    "<div class=\"text-fields\">
                                 <label for=\"quantitaOrdinata\">Quantita</label><input type=\"text\" id=\"quantitaOrdinata\" placeholder=\"{$data['quantitaOrdinata']}\"></div>\n" . "</div>" . "<div class=\"info-container\" >" .
-                    "<div class=\"text-fields\">
-                                <label for=\"indirizzo\">Indirizzo</label><input type=\"text\" id=\"indirizzo\" placeholder=\"{$data['indirizzo']}\"></div>\n" .
                     "<div class=\"text-fields\">
                                 <label for=\"prezzo\">Prezzo</label><input type=\"text\" id=\"prezzo\" placeholder=\"{$data['prezzo']}\"></div>\n" . "</div>";
                 $htmlProdotti .= $prova;

@@ -586,13 +586,17 @@ class DBAccess
     }
 
 
-    public function updateOrder($codice, $utente, $quantitaOrdinata, $indirizzo, $prezzo)
+    public function updateOrder($codice, $nome, $cognome, $email, $numero, $citta, $quantitaOrdinata, $indirizzo, $prezzo)
     {
         $queryUpdate = "UPDATE Ordine 
                     SET 
-                        utente = '$utente', 
-                        quantitaOrdinata = $quantitaOrdinata, 
+                        nome = '$nome', 
+                        cognome = '$cognome',
+                        email = '$email',
+                        numero = '$numero',
                         indirizzo = '$indirizzo', 
+                        citta = '$citta',
+                        quantitaOrdinata = $quantitaOrdinata, 
                         prezzo = $prezzo
                     WHERE id = '$codice'";
 

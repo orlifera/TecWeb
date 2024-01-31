@@ -85,7 +85,7 @@ $percorsoSostituzione = array(
     'src/php/getProduct.php', 'src/pages/contacts.html', '{count_cart}', 'cart.html',
     'catalog.html?categoria=kbd', 'catalog.html?categoria=pc', 'faq.html', 'news.html', 'profile.html',
     'tos.html', 'privacy.html', 'cookies.html', 'login.html', 'signup.html', 'src/php/getCatalog.php?categoria=kbd&riferimento=',
-    'src/php/getCatalog.php?categoria=pc&riferimento=', '<script src="../js/accessoriesHandler.js">', '<script src="../js/cart.js">'
+    'src/php/getCatalog.php?categoria=pc&riferimento='
 );
 
 $percorsoSostituzioneRelativo = array(
@@ -94,8 +94,19 @@ $percorsoSostituzioneRelativo = array(
     'getCatalog.php?categoria=kbd&riferimento=', 'getCatalog.php?categoria=pc&riferimento=', '../pages/faq.html',
     '../pages/news.html', '../pages/profile.html', '../pages/tos.html', '../pages/privacy.html', '../pages/cookies.html',
     '../pages/login.html', '../pages/signup.html', 'getCatalog.php?categoria=kbd&riferimento=',
-    'getCatalog.php?categoria=pc&riferimento=', '<script src="../js/accessoriesHandler.js" data-categoria="' . $_GET['categoria'] . '" data-riferimento="' . $_GET['categoria'] . '" >',
-    '<script src="../js/cart.js" data-id="' . $_GET['id'] . '" data-categoria="' . $_GET['categoria'] . '" . data-utente="' . (isset($_SESSION['user']) ? $_SESSION['user'] : 'non registrato') . '">'
+    'getCatalog.php?categoria=pc&riferimento='
+);
+
+$paginaHTML = str_replace(
+    "<script src=\"../js/accessoriesHandler.js\">",
+    "<script src=\"../js/accessoriesHandler.js\" data-categoria=\"" . $_GET['categoria'] . "\" data-riferimento=\"" . $_GET['categoria'] . "\">",
+    $paginaHTML
+);
+
+$paginaHTML = str_replace(
+    "<script src=\"../js/cart.js\">",
+    "<script src=\"../js/cart.js\" data-id=\"" . $_GET['id'] . "\" data-categoria=\"" . $_GET['categoria'] . "\" data-utente=\"" . (isset($_SESSION['user']) ? $_SESSION['user'] : 'non registrato') . "\">",
+    $paginaHTML
 );
 
 $paginaHTML = str_replace($percorsoSostituzione, $percorsoSostituzioneRelativo, $paginaHTML);

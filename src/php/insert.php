@@ -34,7 +34,7 @@ if ($category == "product") {
     <div class=\"text-fields\"><label for=\"data_scadenza\">Data Scadenza</label><input type=\"text\" name=\"data_scadenza\" id=\"data_scadenza\" placeholder=\"Inserire data di scadenza\" required></div></div>" . "\n
     <div class=\"info-container\"><div class=\"text-fields\"><label for=\"username\" lang=\"en\">Username</label><input type=\"text\" name=\"username\" id=\"username\" placeholder=\"Inserire username\" required></div>" . "\n
     <div class=\"text-fields\"><label for=\"valore\">Valore</label><input type=\"text\" name=\"valore\" id=\"valore\" placeholder=\"Inserire valore\" required></div></div>" . "\n
-    <input type=\"button\" name=\"inserisciSconto\" id=\"aggiungiSconto\" class=\"inserisciSconto\" value=\"Inserisci Sconto\">";
+    <input type=\"button\" name=\"inserisciSconto\" id=\"aggiungiSconto\" class=\"inserisciProdotto\" value=\"Inserisci Sconto\">";
     $paginaHTML = str_replace('<script src="../js/insertProductAdmin.js"></script>', '<script src="../js/insertProductAdmin.js" data-categoria="sale"></script>', $paginaHTML);
 }
 

@@ -40,12 +40,16 @@ if ($connectionOk) {
         $listaSconti = $connection->updateSale($codice, $data_emissione, $data_scadenza, $username, $isUsed, $valore);
     } else {
         $codice = $_GET['id'];
-        $utente = $_GET['utente'];
+        $nome = $_GET['nome'];
+        $cognome = $_GET['cognome'];
+        $email = $_GET['email'];
+        $numero = $_GET['numero'];
+        $citta = $_GET['citta'];
         $quantitaOrdinata = $_GET['quantitaOrdinata'];
         $indirizzo = $_GET['indirizzo'];
         $prezzo = $_GET['prezzo'];
 
-        $listaSconti = $connection->updateOrder($codice, $utente, $quantitaOrdinata, $indirizzo, $prezzo);
+        $listaSconti = $connection->updateOrder($codice, $nome, $cognome, $email, $numero, $citta, $quantitaOrdinata, $indirizzo, $prezzo);
     }
 } else {
     header("HTTP/1.0 404 Not Found");
