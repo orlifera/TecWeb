@@ -1,3 +1,4 @@
+// gestione del checkout
 let ordine = document.getElementById("proceed");
 
 function order() {

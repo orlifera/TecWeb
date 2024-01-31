@@ -1,3 +1,4 @@
+// croce per togliere banner
 var banner = document.querySelectorAll(".banner");
 var cross_msg = document.querySelectorAll(".cross-msg");
 document.addEventListener('click', function (event) {

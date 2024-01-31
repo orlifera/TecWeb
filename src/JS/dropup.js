@@ -1,3 +1,4 @@
+// controlla funzionalità di dropup
 var main = document.querySelector('main');
 
 function showDrop(q) { 
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   closeAllDropUp(drop1, drop2); 
     document.addEventListener('click', function(event) {
+    // click su croce
     cross.forEach(cross => {
       if (cross.contains(event.target)) closeAllDropUp;
     });
@@ -50,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+// chiude tutti i dropup
 function closeAllDropUp(drop1, drop2) {
   hideDrop(drop1);
   hideDrop(drop2);

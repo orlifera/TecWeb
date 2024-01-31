@@ -1,3 +1,4 @@
+// popup dei cookies
 document.addEventListener('DOMContentLoaded', function () {
 
     if (getCookie("MLTech") != null) {   // se il cookie è già stato impostato

@@ -1,3 +1,4 @@
+// inserisci prodotto in ProductAdmin
 let aggiungiProdotto = document.querySelector(".inserisciProdotto");
 
 let variabile_decisionale = "";

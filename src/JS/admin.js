@@ -1,3 +1,4 @@
+// gestione delle funzionalità date in ProductAdmin
 let insert = document.getElementsByClassName("insertItem");
 let remove = document.getElementsByClassName("removeItem");
 let modify = document.getElementsByClassName("modifyItem");
