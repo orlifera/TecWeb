@@ -56,6 +56,7 @@
     --height: 180px;
     --spaghetti-border: #DEA631;
     --spaghetti-bg: #EED269;
+    --visited: #c87af8;
 
 }
 
@@ -193,11 +194,11 @@ a {
     color: var(--text-300);
 }
 
-abbr {
-    text-decoration: none;
+a:visited {
+    color: var(--visited);
 }
 
-#menu a {
+abbr {
     text-decoration: none;
 }
 
@@ -616,7 +617,7 @@ footer dt {
 .spacer p {
     font-size: 2em;
     text-align: center;
-    padding:4em;
+    padding: 4em;
 }
 
 /* Review */
@@ -2549,7 +2550,8 @@ input.card-number {
     text-align: center;
 }
 
-#product-buttons form, #removeAll {
+#product-buttons form,
+#removeAll {
     display: inline-block;
 }
 
@@ -2590,7 +2592,8 @@ div.mod-prod {
     background-color: var(--bg-100);
 }
 
-#changepsw, #personalInfo {
+#changepsw,
+#personalInfo {
     text-align: center;
 }
 
@@ -2675,7 +2678,8 @@ table td {
     padding: 1em;
 }
 
-#tb1 .product-item, #tb2 .product-item {
+#tb1 .product-item,
+#tb2 .product-item {
     border: none;
 }
 

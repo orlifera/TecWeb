@@ -1,3 +1,4 @@
+// gestione del prodotto
 let minusButtons = document.querySelectorAll(".qty-count--minus");
 let plusButtons = document.querySelectorAll(".qty-count--plus");
 let selectColore = document.getElementById("colore");

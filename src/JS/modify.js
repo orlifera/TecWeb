@@ -1,3 +1,4 @@
+// gestione della modifica di prodotti o sconti
 let mod = document.getElementById("modificaProdotto");
 
 function modifyProduct() {

@@ -1,3 +1,4 @@
+// gestione degli ordini
 let ordine = document.getElementById("processOrder");
 
 function order() {
@@ -22,6 +23,7 @@ function order() {
     window.location.href = url;
   } else {
     alert("Carrello vuoto!");
+    ordine.disabled = true;
   }
 }
 

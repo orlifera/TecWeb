@@ -1,3 +1,4 @@
+// gestione dell'hamburger per la sidenav
 var ham = document.getElementById("hamburger");
 var side = document.querySelector(".sidenav");
 var link = document.querySelectorAll(".nav-item");

@@ -22,9 +22,13 @@ class DBAccess
 
     /************ GESTIONE LOGIN E REGISTRAZIONE ************/
     // FINIRE QUA 
-    public function getUsername($username)
-    {
-        $query = "SELECT * FROM utente WHERE username = ?;";
+    public function login($username, $password) {
+        $query = "SELECT COUNT(*) FROM utente WHERE username = ? AND password = ?;";
+        $stmt = mysqli_prepare($this->connection, $query);
+        mysqli_stmt_bind_param($stmt, "ss", $username, $password);
+
+        mysqli_stmt_execute($stmt);
+        return mysqli_stmt_get_result($stmt);
     }
 
     /************ GESTIONE PROFILO ************/

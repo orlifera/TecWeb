@@ -1,4 +1,9 @@
 <?php
+// use DB\DBAccess;
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+setlocale(LC_ALL, 'it_IT');
 
 session_start();
 $paginaHTML = file_get_contents(__DIR__ . "/../pages/login.html");
@@ -11,7 +16,9 @@ if (isset($_SESSION['user']) && $_SESSION['user'] !== '') {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['submit']) && isset($_POST['user']) && isset($_POST['password'])) {
         require_once("connessionedb.php");
-
+        // require_once("DBAccess.php");
+        
+        
         $username = htmlentities(substr($_POST['user'], 0, 255));
         $password = substr($_POST['password'], 0, 255);
 

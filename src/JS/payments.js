@@ -1,3 +1,4 @@
+// funcionamento di payments
 let processHeading = document.querySelector(".process-headings"),
   completeHeading = document.querySelector(".complete-headings"),
   progressBar = document.querySelector(".loading-bar span"),

@@ -1,3 +1,4 @@
+// differenzia accessori tastiere e computer
 let acc = document.getElementById("accessories");
 
 function showAccessories() {

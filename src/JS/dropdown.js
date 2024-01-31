@@ -1,21 +1,19 @@
+
 document.addEventListener('DOMContentLoaded', function () {
     
     const menu = document.getElementById('menu');
     closeAllDropdowns();
-    // Function to open or close a specific dropdown
     function toggleDropdown(dropdownList) {
         if (dropdownList.classList.contains('hidden')) {
-            // Open the dropdown
             dropdownList.classList.remove('hidden');
             dropdownList.classList.add('show');
         } else {
-            // Close the dropdown
             dropdownList.classList.remove('show');
             dropdownList.classList.add('hidden');
         }
     }
 
-    // Close all dropdowns
+    // chiude tutti i dropdown
     function closeAllDropdowns() {
         menu.querySelectorAll('.show').forEach(dropdown => {
             dropdown.classList.remove('show');
@@ -23,19 +21,17 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Handle keydown events for dropdown triggers
     const dropdownTriggers = menu.querySelectorAll('.dropdown-trigger');
     dropdownTriggers.forEach(trigger => {
         trigger.addEventListener('keydown', function (event) {
             if (event.key === 'Enter' || event.key === ' ') {
                 console.log("primo if")
-                event.preventDefault(); // Prevent the default action
+                event.preventDefault(); 
                 const dropdownList = this.nextElementSibling;
                 toggleDropdown(dropdownList);
             }
         });
 
-        // Close dropdown when reverse tabbing from the trigger
         trigger.addEventListener('keydown', function (event) {
             if (event.key === 'Tab' && event.shiftKey) {
                 const dropdownList = this.nextElementSibling;
@@ -46,14 +42,14 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Close dropdowns when clicking outside
+    // chiude dropdown se clicco fuori
     document.addEventListener('click', function (event) {
         if (!event.target.matches('#menu .dropdown-trigger, .dropdown-list, .dropdown-list *')) {
             closeAllDropdowns();
         }
     });
 
-    // Manage focus within dropdown lists
+    // reso accessibile con tab
     document.querySelectorAll('.dropdown-list').forEach(function (list) {
         list.addEventListener('keydown', function (event) {
             if (event.key === 'Tab') {
@@ -62,12 +58,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 const firstElement = visibleElements[0];
                 const lastElement = visibleElements[visibleElements.length - 1];
 
-                if (event.shiftKey && document.activeElement === firstElement) {
-                    // Close dropdown and move focus to the dropdown trigger
+                if (event.shiftKey && document.activeElement === firstElement) { 
                     toggleDropdown(this, false);
                     this.previousElementSibling.focus();
-                } else if (!event.shiftKey && document.activeElement === lastElement) {
-                    // Close dropdown when tabbing forward from the last element
+                } else if (!event.shiftKey && document.activeElement === lastElement) { // chiudi dropdown se si fa tab fuori dalla lista
                     toggleDropdown(this, false);
                 }
             }
