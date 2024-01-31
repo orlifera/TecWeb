@@ -255,8 +255,15 @@
             {ciao}
         </dl>
         <div id="product-buttons">
-            <input type="button" value="Procedi con l'ordine" id="processOrder" name="processOrder"
-                class="processOrder">
+
+
+
+            <form action="sendToPayment.php" method="post">
+                <input type="submit" value="Procedi con l'ordine" id="processOrder" name="processOrder" class="processOrder">
+            </form>
+
+
+
             <input type="button" value="Rimuovi tutto" id="removeAll" name="removeAll" class="removeAll">
         </div>
     </main>
