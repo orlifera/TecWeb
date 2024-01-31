@@ -1,3 +1,4 @@
+// gestione del kebab dropdown
 document.addEventListener('DOMContentLoaded', function () {
     var dropdownButtons = document.querySelectorAll('.dropbtn');
 

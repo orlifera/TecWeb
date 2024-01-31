@@ -1,3 +1,4 @@
+// gestione di signup login e checkout, nell passaggio tra stadi
 let signupContent = document.querySelector(".signup-container"),
   stagebtn1a = document.querySelector(".stagebtn1a"),
   stagebtn1b = document.querySelector(".stagebtn1b"),

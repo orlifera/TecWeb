@@ -1,3 +1,4 @@
+// rimozione dal cart
 let remCart = document.getElementsByClassName("removeItemCart");
 let remAllCart = document.getElementById("removeAll");
 
