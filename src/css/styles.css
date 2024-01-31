@@ -1079,7 +1079,6 @@ main#login-main {
     width: 80%;
     display: flex;
     margin: 3% auto;
-    height: 40em;
     box-shadow: 0 12px 18px rgba(54, 176, 138, .05);
     border-radius: 10px;
     background-color: var(--white);
