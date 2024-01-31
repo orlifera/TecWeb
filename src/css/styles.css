@@ -2558,6 +2558,10 @@ input.card-number {
     text-align: center;
 }
 
+#product-buttons form, #removeAll {
+    display: inline-block;
+}
+
 #processOrder,
 #removeAll {
     width: unset;
