@@ -34,7 +34,7 @@ $quantitaRimanente = "";
 $skuArray = explode(',', $sku);
 $quantitaArray = explode(',', $quantitaOrdinata);
 $oggettiArray = explode(',', $oggettiOrdinati);
-$prezzoArray = explode(',', $prezzoTotale);
+
 
 // Accumula tutti gli oggetti ordinati in una variabile
 $oggettiOrdinatiTotale = "";
@@ -52,13 +52,9 @@ foreach ($oggettiArray as $i => $id) {
     $oggettiOrdinatiTotale .= $id . ",";
 }
 
-foreach ($prezzoArray as $i => $id) {
-    $prezzoProva[] = $id;
-}
+
 
 $oggettiOrdinatiTotale = implode(",", array_unique($oggettiArray));
-$prezzo = implode(",", array_unique($prezzoProva));
-echo ($prezzo);
 
 $connection = new DBAccess();
 $connectionOk = "";
@@ -86,12 +82,9 @@ if ($connectionOk) {
         $cittaUtente,
         $capUtente,
         $quantitaOrdinata,
-        $prezzo,
+        $prezzoTotale,
         $oggettiOrdinatiTotale
     );
-
-    // Cancella tutti gli oggetti ordinati dal carrello
-
 } else {
     $nomeProdottoCompleto = $prezzo = $path = $sku = [];
     header("HTTP/1.0 404 Not Found");

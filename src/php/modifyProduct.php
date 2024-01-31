@@ -149,7 +149,7 @@ if ($connectionOk) {
             }
         }
         $paginaHTML = str_replace('<script src="../js/modify.js">', '<script src="../js/modify.js" data-categoria="sale" data-id="' . $codice . '" >', $paginaHTML);
-    } else {
+    } else if ($category == "order") {
         //SE È UN ORDINE SONO QUI
         $codice = $_GET['id'];
         $ids = explode(",", $codice);
@@ -163,22 +163,47 @@ if ($connectionOk) {
                 if ($listaordini !== null) {
                     $result[$code] = [
                         'id' => $listaordini[0],
-                        'utente' => $listaordini[1],
-                        'quantitaOrdinata' => $listaordini[2],
-                        'indirizzo' => $listaordini[3],
-                        'prezzo' => $listaordini[4],
+                        'nome' => $listaordini[1],
+                        'cognome' => $listaordini[2],
+                        'email' => $listaordini[3],
+                        'numero' => $listaordini[4],
+                        'indirizzo' => $listaordini[5],
+                        'citta' => $listaordini[6],
+                        'cap' => $listaordini[7],
+                        'quantitaOrdinata' => $listaordini[8],
+                        'prezzo' => $listaordini[9],
+                        'oggetti_ordinati' => $listaordini[10],
                     ];
                 } else {
                     $result[$code] = ['id' => "<p>Errore</p>"];
                 }
             } catch (Exception $e) {
-                echo 'Errore durante l\'ottenimento degli sconti.';
+                echo 'Errore durante l\'ottenimento degli ordini.';
             }
         }
 
         foreach ($result as $code => $data) {
             if (isset($data['id'])) {
-                $prova = "<h2 class=\"headings admin\">{$data['id']}</h2>" . "<div class=\"info-container\" >" .
+                $prova = "<h2 class=\"headings admin\">Ordine {$data['id']}</h2>" .
+                    "<div class=\"info-container\">" .
+                    "<div class=\"text-fields\">
+                    <label for=\"nome\">Nome</label><input type=\"text\" id=\"nome\" placeholder=\"{$data['nome']}\">
+                 </div>" .
+                    "<div class=\"text-fields\">
+                    <label for=\"cognome\">Cognome</label><input type=\"text\" id=\"cognome\" placeholder=\"{$data['cognome']}\">
+                 </div>" .
+                    "<div class=\"text-fields\">
+                    <label for=\"email\">Email</label><input type=\"text\" id=\"email\" placeholder=\"{$data['email']}\">
+                 </div>" .
+                    "<div class=\"text-fields\">
+                    <label for=\"numero\">Numero</label><input type=\"text\" id=\"numero\" placeholder=\"{$data['numero']}\">
+                 </div>" .
+                    "<div class=\"text-fields\">
+                    <label for=\"indirizzo\">Indirizzo</label><input type=\"text\" id=\"indirizzo\" placeholder=\"{$data['indirizzo']}\">
+                 </div>" .
+                    "<div class=\"text-fields\">
+                    <label for=\"citta\">Città</label><input type=\"text\" id=\"citta\" placeholder=\"{$data['citta']}\">
+                 </div>" .
                     "<div class=\"text-fields\">
                                 <label for=\"utente\">Utente</label><input type=\"text\" id=\"utente\" placeholder=\"{$data['utente']}\"></div>\n" .
                     "<div class=\"text-fields\">
@@ -190,6 +215,7 @@ if ($connectionOk) {
                 $htmlProdotti .= $prova;
             }
         }
+
         $paginaHTML = str_replace('<script src="../js/modify.js">', '<script src="../js/modify.js" data-categoria="order" data-id="' . $codice . '" >', $paginaHTML);
     }
 } else {

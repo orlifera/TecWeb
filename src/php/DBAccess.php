@@ -244,7 +244,7 @@ class DBAccess
         mysqli_stmt_execute($stmt);
         $rowsAffected = mysqli_stmt_affected_rows($stmt);
         mysqli_stmt_close($stmt);
-        
+
         return $rowsAffected > 0;
     }
 
@@ -477,7 +477,7 @@ class DBAccess
             die("Errore nella preparazione della query: " . mysqli_error($this->connection));
         }
 
-        mysqli_stmt_bind_param($stmtOrdine, "ssssssiids", $nomeUtente, $cognomeUtente, $emailUtente, $phoneUtente, $indirizzoUtente, $cittaUtente, $capUtente, $quantitaOrdinata, $prezzo, $oggettiOrdinati);
+        mysqli_stmt_bind_param($stmtOrdine, "ssssssiiss", $nomeUtente, $cognomeUtente, $emailUtente, $phoneUtente, $indirizzoUtente, $cittaUtente, $capUtente, $quantitaOrdinata, $prezzo, $oggettiOrdinati);
 
         mysqli_stmt_execute($stmtOrdine);
 
@@ -485,7 +485,6 @@ class DBAccess
 
         mysqli_stmt_close($stmtOrdine);
 
-        // Inserisci gli oggetti ordinati nella tabella di collegamento OrdineProdotto
         $queryInsertOrdineProdotto = "INSERT INTO OrdineProdotto (id_ordine, sku_prodotto) VALUES (?, ?)";
         $stmtOrdineProdotto = mysqli_prepare($this->connection, $queryInsertOrdineProdotto);
 
@@ -503,8 +502,6 @@ class DBAccess
         return true;
     }
 
-
-
     public function deleteOrder($codice)
     {
         $queryDelete = "DELETE FROM Ordine WHERE id = ?";
@@ -519,20 +516,33 @@ class DBAccess
 
     public function getOrdiniAdmin($codice)
     {
-        $query = "SELECT id, utente, quantitaOrdinata, indirizzo, prezzo FROM Ordine WHERE id = ?";
+        $query = "SELECT id, nome, cognome, email, numero, indirizzo, citta, cap, quantitaOrdinata, prezzo, oggetti_ordinati FROM Ordine WHERE id = ?";
         $stmt = mysqli_prepare($this->connection, $query);
-        mysqli_stmt_bind_param($stmt, "s", $codice);
+        mysqli_stmt_bind_param($stmt, "i", $codice);
         mysqli_stmt_execute($stmt);
         $queryResult = mysqli_stmt_get_result($stmt);
         if (mysqli_num_rows($queryResult) != 0) {
             $row = mysqli_fetch_assoc($queryResult);
             mysqli_stmt_close($stmt);
-            return array($row["id"], $row["utente"], $row["quantitaOrdinata"], $row["indirizzo"], $row["prezzo"]);
+            return array(
+                $row["id"],
+                $row["nome"],
+                $row["cognome"],
+                $row["email"],
+                $row["numero"],
+                $row["indirizzo"],
+                $row["citta"],
+                $row["cap"],
+                $row["quantitaOrdinata"],
+                $row["prezzo"],
+                $row["oggetti_ordinati"]
+            );
         } else {
             mysqli_stmt_close($stmt);
             return null;
         }
     }
+
 
     public function updateOrder($codice, $utente, $quantitaOrdinata, $indirizzo, $prezzo)
     {
