@@ -59,7 +59,8 @@ function modifyItem() {
 }
 
 function viewDetailsItem() {
-  window.location.href = "../php/viewDetails.php";
+  var id = this.getAttribute("data-id");
+  window.location.href = "../php/viewDetails.php?id=" + id;
 }
 
 function callphp(url) {
