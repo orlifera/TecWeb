@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
             event.stopPropagation();
 
             // Close all dropdowns before toggling the current one
-            document.querySelectorAll(".dropdown-content.show").forEach(function (openDropdown) {
+            document.querySelectorAll(".dropdown-kebab.show").forEach(function (openDropdown) {
                 openDropdown.classList.remove('show');
             });
 
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Close all dropdowns if the user clicks outside of them
     window.addEventListener('click', function (event) {
-        document.querySelectorAll(".dropdown-content.show").forEach(function (openDropdown) {
+        document.querySelectorAll(".dropdown-kebab.show").forEach(function (openDropdown) {
             openDropdown.classList.remove('show');
         });
     });

@@ -83,7 +83,7 @@ if ($nomePc) {
                 "</a>\n" .
                 "<div class=\"dropdown-options\">
                         <button class=\"dropbtn\">&#8942;</button>
-                        <div class=\"dropdown-content hidden\">
+                        <div class=\"dropdown-kebab hidden\">
                             <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\" class=\"removeItem\" data-id=\"" . $sku[$i] . "\" data-categoria=\"prodotti\">
                             <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\" class=\"modifyItem\" data-id=\"" . $sku[$i] . "\" data-categoria=\"prodotti\">
                         </div>
@@ -143,7 +143,7 @@ if ($nomePc) {
                 "</a>\n" .
                 "<div class=\"dropdown-options\">
                     <button class=\"dropbtn\">&#8942;</button>
-                    <div class=\"dropdown-content hidden\">
+                    <div class=\"dropdown-kebab hidden\">
                     <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\" class=\"removeItem\" data-id=\"" . $sku[$i] . "\"
                     data-categoria=\"prodotti\">
                     <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\" class=\"modifyItem\" data-id=\"" . $sku[$i] . "\" data-categoria=\"prodotti\">
@@ -202,7 +202,7 @@ if ($codiceSconto) {
             $prova = "<tr>\n" . /* product-item <ul class=\"sale-description\">\n" .*/
                 "<td class=\"product-item\"><div class=\"dropdown-options\">
                     <button class=\"dropbtn\">&#8942;</button>
-                    <div class=\"dropdown-content hidden\">
+                    <div class=\"dropdown-kebab hidden\">
                     <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\" class=\"removeItem\" data-id=\"" . $nome . "\" data-categoria=\"sconti\">
                     <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\" class=\"modifyItem\" data-id=\"" . $nome . "\" data-categoria=\"sconti\">
                     </div>
@@ -282,7 +282,7 @@ if ($id) {
             $prova = "<tr>" .
                 "<td class=\"product-item\"><div class=\"dropdown-options\">
                     <button class=\"dropbtn\">&#8942;</button>
-                    <div class=\"dropdown-content hidden\">
+                    <div class=\"dropdown-kebab hidden\">
                     <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\" class=\"removeItem\" data-id=\"" . $nome . "\" data-categoria=\"order\">
                     <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\" class=\"modifyItem\" data-id=\"" . $nome . "\" data-categoria=\"order\">
                     </div>
