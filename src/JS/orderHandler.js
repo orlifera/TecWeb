@@ -10,7 +10,6 @@ function order() {
 
   prezzoTotale = prezzo.split(",");
 
-  alert(prezzoTotale);
   if (id) {
     var url =
       "../pages/checkout.html?id=" +
@@ -24,6 +23,7 @@ function order() {
     window.location.href = url;
   } else {
     alert("Carrello vuoto!");
+    ordine.disabled = true;
   }
 }
 

@@ -33,15 +33,6 @@ CREATE TABLE Prodotto (
   unique key(nome)
 ) Engine = InnoDB default charset = utf8mb4;
 
-drop table if exists OrdineProdotto;
-CREATE TABLE OrdineProdotto (
-  id_ordine int(10) not null,
-  sku_prodotto varchar(6) not null,
-  primary key(id_ordine, sku_prodotto),
-  foreign key(id_ordine) references Ordine(id),
-  foreign key(sku_prodotto) references Prodotto(sku)
-) Engine=InnoDB default charset=utf8mb4;
-
 drop table if exists Sconto;
 
 CREATE TABLE Sconto (
@@ -59,13 +50,12 @@ CREATE TABLE Carrello (
   sku varchar(6) not null,
   nome varchar(256) not null,
   tipo varchar(256) not null,
-  descrizione varchar(256) not null,
   prezzo double not null,
   colore varchar(256) not null,
   quantitaScelta int not null,
   path_immagine varchar(256) not null,
   categoria varchar(6) not null,
-  utente varchar(255) unique,
+  utente varchar(255),
   foreign key (utente) references utente(username),
   primary key(sku),
   foreign key (sku) references Prodotto(sku)
@@ -87,6 +77,14 @@ CREATE TABLE Ordine (
   oggetti_ordinati varchar(256) not null
 ) Engine=InnoDB default charset=utf8mb4;
 
+drop table if exists OrdineProdotto;
+CREATE TABLE OrdineProdotto (
+  id_ordine int(10) not null,
+  sku_prodotto varchar(6) not null,
+  primary key(id_ordine, sku_prodotto),
+  foreign key(id_ordine) references Ordine(id),
+  foreign key(sku_prodotto) references Prodotto(sku)
+) Engine=InnoDB default charset=utf8mb4;
 
 INSERT INTO Prodotto VALUES 
 ("P1", "Bull's Eye", "Gaming", "Il pc è composto da un Ryzen 5 5600,16GB di RAM a 3200Mhz e 1TB di SSD. Ha una RTX 3050 ed è alimentato da una PSU 650W. Il sistema raffreddato da un dissipatore a liquido Itek RGB a 240mm. Include il sistema operativo Windows 10 PRO.", 1320, "Nero, Bianco", 10, "../../assets/images/pc/P1.jpg", "pc", null),

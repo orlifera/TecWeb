@@ -81,11 +81,17 @@ function modifyProduct() {
       category;
   } else {
     var codice = scriptTag.getAttribute("data-id");
-    var utente = getValueOrPlaceholder("utente");
-    var quantitaOrdinata = getValueOrPlaceholder("quantitaOrdinata");
+    var nome = getValueOrPlaceholder("nome");
+    var cognome = getValueOrPlaceholder("cognome");
+    var email = getValueOrPlaceholder("email");
+    var numero = getValueOrPlaceholder("numero");
     var indirizzo = getValueOrPlaceholder("indirizzo");
-    var prezzo = getValueOrPlaceholder("prezzo");
+    var citta = getValueOrPlaceholder("citta");
 
+    var quantitaOrdinata = getValueOrPlaceholder("quantitaOrdinata");
+
+    var prezzo = getValueOrPlaceholder("prezzo");
+    prezzo = prezzo.replace("€", "");
     if (!/^\d+$/.test(quantitaOrdinata) && !/^\d+$/.test(prezzo)) {
       alert("Errore: inserimento valori non corretto");
       return;
@@ -94,8 +100,16 @@ function modifyProduct() {
     var url =
       "../php/updateProduct.php?id=" +
       codice +
-      "&utente=" +
-      utente +
+      "&nome=" +
+      nome +
+      "&cognome=" +
+      cognome +
+      "&email=" +
+      email +
+      "&numero=" +
+      numero +
+      "&citta=" +
+      citta +
       "&quantitaOrdinata=" +
       quantitaOrdinata +
       "&indirizzo=" +

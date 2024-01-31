@@ -39,7 +39,6 @@ $connectionOk = "";
 $connectionOk = $connection->openDBConnection();
 if ($connectionOk) {
     $listaPC = $connection->getProductPcKbd();
-    $length = count($listaPC);
     if ($listaPC != null) {
         foreach ($listaPC as $pc) {
             $sku .=  $pc['sku'] . ",";
@@ -74,23 +73,27 @@ if ($connectionOk) {
 }
 
 //$nome contiene il valore corrente mentre $i contiene l'indice corrente, $nomePc è l'array dove itero
-foreach ($nomePc as $i => $nome) {
-    if ($nome != null) {
-        $prova = "<li class=\"product-item\">\n" .
-            "<a class=\"\" href=\"getProduct.php?categoria=" . $categoria[$i] . "&id=" . $sku[$i] . "\">" .
+if ($nomePc) {
+    foreach ($nomePc as $i => $nome) {
+        if ($nome != null) {
+            $prova = "<li class=\"product-item\">\n" .
+                "<a class=\"\" href=\"getProduct.php?categoria=" . $categoria[$i] . "&id=" . $sku[$i] . "\">" .
 
-            "<label for=\"" . $sku[$i] . "\">" . $nome . "</label>\n" .
-            "</a>\n" .
-            "<div class=\"dropdown-options\">
+                "<label for=\"" . $sku[$i] . "\">" . $nome . "</label>\n" .
+                "</a>\n" .
+                "<div class=\"dropdown-options\">
                         <button class=\"dropbtn\">&#8942;</button>
-                        <div class=\"dropdown-content hidden\">
+                        <div class=\"dropdown-kebab hidden\">
                             <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\" class=\"removeItem\" data-id=\"" . $sku[$i] . "\" data-categoria=\"prodotti\">
                             <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\" class=\"modifyItem\" data-id=\"" . $sku[$i] . "\" data-categoria=\"prodotti\">
                         </div>
                     </div>" .
-            "</li>\n";
-        $prodottiPcKbd .= $prova;
+                "</li>\n";
+            $prodottiPcKbd .= $prova;
+        }
     }
+} else {
+    $prova = "<li>Nessun prodotto</li>";
 }
 unset($sku, $nomePc, $tipoPC, $descrizionePC, $prezzoPc, $colorePc, $disponibilita, $path_image, $categoria, $riferimento);
 $sku = $nomePc = $tipoPC = $descrizionePC = $prezzoPc = $colorePc = $disponibilita = $path_image = $categoria = $riferimento = "";
@@ -98,7 +101,6 @@ $sku = $nomePc = $tipoPC = $descrizionePC = $prezzoPc = $colorePc = $disponibili
 $connectionOk = $connection->openDBConnection();
 if ($connectionOk) {
     $listaPC = $connection->getProductAcc();
-    $length = count($listaPC);
     if ($listaPC != null) {
         foreach ($listaPC as $pc) {
             $sku .=  $pc['sku'] . ",";
@@ -132,23 +134,27 @@ if ($connectionOk) {
     exit;
 }
 
-foreach ($nomePc as $i => $nome) {
-    if ($nome != null) {
-        $prova = "<li class=\"product-item\">\n" .
-            "<a class=\"\" href=\"getProduct.php?categoria=" . $categoria[$i] . "&id=" . $sku[$i] . "\">" .
-            "<label for=\"" . $sku[$i] . "\">" . $nome . "</label>\n" .
-            "</a>\n" .
-            "<div class=\"dropdown-options\">
+if ($nomePc) {
+    foreach ($nomePc as $i => $nome) {
+        if ($nome != null) {
+            $prova = "<li class=\"product-item\">\n" .
+                "<a class=\"\" href=\"getProduct.php?categoria=" . $categoria[$i] . "&id=" . $sku[$i] . "\">" .
+                "<label for=\"" . $sku[$i] . "\">" . $nome . "</label>\n" .
+                "</a>\n" .
+                "<div class=\"dropdown-options\">
                     <button class=\"dropbtn\">&#8942;</button>
-                    <div class=\"dropdown-content hidden\">
+                    <div class=\"dropdown-kebab hidden\">
                     <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\" class=\"removeItem\" data-id=\"" . $sku[$i] . "\"
                     data-categoria=\"prodotti\">
                     <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\" class=\"modifyItem\" data-id=\"" . $sku[$i] . "\" data-categoria=\"prodotti\">
                     </div>
                 </div>" .
-            "</li>\n";
-        $prodottiAcc .= $prova;
+                "</li>\n";
+            $prodottiAcc .= $prova;
+        }
     }
+} else {
+    $prova = "<li>Nessun prodotto</li>";
 }
 $prodottiTotali .=  $prodottiPcKbd .   $prodottiAcc .
     "<input id=\"inserisci-prodotto\"type=\"button\" name=\"insertProduct\" class=\"insertItem\" value=\"Crea Prodotto\" data-categoria=\"prodotti\">";
@@ -165,7 +171,6 @@ $valoreSconto = "";
 $connectionOk = $connection->openDBConnection();
 if ($connectionOk) {
     $listaPC = $connection->getSconti();
-    $length = count($listaPC);
     if ($listaPC != null) {
         foreach ($listaPC as $pc) {
             $codiceSconto .=  $pc['codice'] . ",";
@@ -190,24 +195,29 @@ if ($connectionOk) {
     include("../pages/404.html");
     exit;
 }
-foreach ($codiceSconto as $i => $nome) {
-    if ($nome != null) {
-        $prova = "<tr>\n" . /* product-item <ul class=\"sale-description\">\n" .*/
-            "<td class=\"product-item\"><div class=\"dropdown-options\">
+
+if ($codiceSconto) {
+    foreach ($codiceSconto as $i => $nome) {
+        if ($nome != null) {
+            $prova = "<tr>\n" . /* product-item <ul class=\"sale-description\">\n" .*/
+                "<td class=\"product-item\"><div class=\"dropdown-options\">
                     <button class=\"dropbtn\">&#8942;</button>
-                    <div class=\"dropdown-content hidden\">
+                    <div class=\"dropdown-kebab hidden\">
                     <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\" class=\"removeItem\" data-id=\"" . $nome . "\" data-categoria=\"sconti\">
                     <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\" class=\"modifyItem\" data-id=\"" . $nome . "\" data-categoria=\"sconti\">
                     </div>
                 </div></td>" .
-            "<td>" . $nome . "</td>\n" .
-            "<td><time>" . $emissioneSconto[$i] . "</time></td>\n" .
-            "<td><time>" . $scadenzaSconto[$i] . "</time></td>\n" .
-            "<td lang=\"en\">" . $usernameSconto[$i] . "</td>\n" .
-            "<td>" . ($isUsedSconto[$i] == 0 ? "Buono non usato" : "Buono usato") .
-            "</td></tr>\n";
-        $sconti .= $prova;
+                "<td>" . $nome . "</td>\n" .
+                "<td><time>" . $emissioneSconto[$i] . "</time></td>\n" .
+                "<td><time>" . $scadenzaSconto[$i] . "</time></td>\n" .
+                "<td lang=\"en\">" . $usernameSconto[$i] . "</td>\n" .
+                "<td>" . ($isUsedSconto[$i] == 0 ? "Buono non usato" : "Buono usato") .
+                "</td></tr>\n";
+            $sconti .= $prova;
+        }
     }
+} else {
+    $prova = "<tr>" . "Nessuno sconto" . "</tr>";
 }
 $scontiTotali .=    $sconti .
     "<input type=\"button\" name=\"insertSconto\" id=\"aggiungiSconto\" class=\"insertItem\" value=\"Aggiungi sconto\" data-categoria=\"sconti\">";
@@ -228,7 +238,6 @@ $connectionOk = $connection->openDBConnection();
 
 if ($connectionOk) {
     $listaPC = $connection->getOrdini();
-    $length = count($listaPC);
     if ($listaPC != null) {
         foreach ($listaPC as $pc) {
             $oggettiOrdinati = null;
@@ -252,7 +261,7 @@ if ($connectionOk) {
         $cognomeUtente = explode(",", $cognomeUtente);
         $emailUtente = explode(",", $emailUtente);
         $phoneUtente = explode(",", $phoneUtente);
-        $indirizzo = explode(",", $indirizzoUtente);
+        $indirizzoUtente = explode(",", $indirizzoUtente);
         $cittaUtente = explode(",", $cittaUtente);
         $capUtente = explode(",", $capUtente);
         $quantitaOrdinata = explode(",", $quantitaOrdinata);
@@ -267,24 +276,26 @@ if ($connectionOk) {
     include("../pages/404.html");
     exit;
 }
-
-foreach ($id as $i => $nome) {
-    if ($nome != null) {
-        $prova = "<tr>" . /*class=\"product-item\">\n <ul class=\"order-description\">" .*/
-            "<td class=\"product-item\"><div class=\"dropdown-options\">
+if ($id) {
+    foreach ($id as $i => $nome) {
+        if ($nome != null) {
+            $prova = "<tr>" .
+                "<td class=\"product-item\"><div class=\"dropdown-options\">
                     <button class=\"dropbtn\">&#8942;</button>
-                    <div class=\"dropdown-content hidden\">
-                    <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\" class=\"removeItem\" data-id=\"" . $nome . "\" data-categoria=\"sconti\">
-                    <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\" class=\"modifyItem\" data-id=\"" . $nome . "\" data-categoria=\"sconti\">
+                    <div class=\"dropdown-kebab hidden\">
+                    <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\" class=\"removeItem\" data-id=\"" . $nome . "\" data-categoria=\"order\">
+                    <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\" class=\"modifyItem\" data-id=\"" . $nome . "\" data-categoria=\"order\">
                     </div>
                 </div></td>" .
-            "<td> " . $nome . " </td>\n" .
-            "<td> " . $nomeUtente[$i] . "</td>\n" .
-            "<td>" . $cognomeUtente[$i] . "</td>\n" .
-            "<td class=\"product-item\">" . $emailUtente[$i] . "</td></tr>\n";
-
-        $ordini .= $prova;
+                "<td> " . $nome . " </td>\n" .
+                "<td> " . $nomeUtente[$i] . "</td>\n" .
+                "<td>" . $cognomeUtente[$i] . "</td>\n" .
+                "<td class=\"product-item\">" . $emailUtente[$i] . "</td></tr>\n";
+            $ordini .= $prova;
+        }
     }
+} else {
+    $prova = "<tr>" . "Nessun ordine effettuato" . "</tr>";
 }
 $ordiniTotali .= $ordini;
 

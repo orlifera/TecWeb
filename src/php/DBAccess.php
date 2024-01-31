@@ -22,9 +22,13 @@ class DBAccess
 
     /************ GESTIONE LOGIN E REGISTRAZIONE ************/
     // FINIRE QUA 
-    public function getUsername($username)
-    {
-        $query = "SELECT * FROM utente WHERE username = ?;";
+    public function login($username, $password) {
+        $query = "SELECT COUNT(*) FROM utente WHERE username = ? AND password = ?;";
+        $stmt = mysqli_prepare($this->connection, $query);
+        mysqli_stmt_bind_param($stmt, "ss", $username, $password);
+
+        mysqli_stmt_execute($stmt);
+        return mysqli_stmt_get_result($stmt);
     }
 
     /************ GESTIONE PROFILO ************/
@@ -586,13 +590,17 @@ class DBAccess
     }
 
 
-    public function updateOrder($codice, $utente, $quantitaOrdinata, $indirizzo, $prezzo)
+    public function updateOrder($codice, $nome, $cognome, $email, $numero, $citta, $quantitaOrdinata, $indirizzo, $prezzo)
     {
         $queryUpdate = "UPDATE Ordine 
                     SET 
-                        utente = '$utente', 
-                        quantitaOrdinata = $quantitaOrdinata, 
+                        nome = '$nome', 
+                        cognome = '$cognome',
+                        email = '$email',
+                        numero = '$numero',
                         indirizzo = '$indirizzo', 
+                        citta = '$citta',
+                        quantitaOrdinata = $quantitaOrdinata, 
                         prezzo = $prezzo
                     WHERE id = '$codice'";
 

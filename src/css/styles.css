@@ -56,6 +56,7 @@
     --height: 180px;
     --spaghetti-border: #DEA631;
     --spaghetti-bg: #EED269;
+    --visited: #c87af8;
 
 }
 
@@ -193,11 +194,11 @@ a {
     color: var(--text-300);
 }
 
-abbr {
-    text-decoration: none;
+a:visited {
+    color: var(--visited);
 }
 
-#menu a {
+abbr {
     text-decoration: none;
 }
 
@@ -616,7 +617,7 @@ footer dt {
 .spacer p {
     font-size: 2em;
     text-align: center;
-    padding:4em;
+    padding: 4em;
 }
 
 /* Review */
@@ -1078,7 +1079,6 @@ main#login-main {
     width: 80%;
     display: flex;
     margin: 3% auto;
-    height: 40em;
     box-shadow: 0 12px 18px rgba(54, 176, 138, .05);
     border-radius: 10px;
     background-color: var(--white);
@@ -2424,7 +2424,7 @@ input.card-number {
     background: #555;
 }
 
-/* stile kebab */
+/* stile content */
 .dropdown-options {
     position: relative;
     display: inline-block;
@@ -2439,8 +2439,7 @@ input.card-number {
     cursor: pointer;
 }
 
-.dropdown-content {
-    display: none;
+.dropdown-kebab {
     position: absolute;
     right: 0;
     background-color: var(--bg-100);
@@ -2449,7 +2448,7 @@ input.card-number {
     z-index: 1;
 }
 
-.dropdown-content input[type="button"] {
+.dropdown-kebab input[type="button"] {
     color: var(--text-100);
     padding: 12px 16px;
     text-decoration: none;
@@ -2471,7 +2470,7 @@ input.card-number {
 }
 
 /* effetto hover */
-.dropdown-content input[type="button"]:hover {
+.dropdown-kebab input[type="button"]:hover {
     background-color: #ddd;
 }
 
@@ -2549,7 +2548,8 @@ input.card-number {
     text-align: center;
 }
 
-#product-buttons form, #removeAll {
+#product-buttons form,
+#removeAll {
     display: inline-block;
 }
 
@@ -2590,7 +2590,8 @@ div.mod-prod {
     background-color: var(--bg-100);
 }
 
-#changepsw, #personalInfo {
+#changepsw,
+#personalInfo {
     text-align: center;
 }
 
@@ -2675,7 +2676,8 @@ table td {
     padding: 1em;
 }
 
-#tb1 .product-item, #tb2 .product-item {
+#tb1 .product-item,
+#tb2 .product-item {
     border: none;
 }
 

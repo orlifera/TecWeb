@@ -53,7 +53,6 @@ foreach ($oggettiArray as $i => $id) {
 }
 
 
-
 $oggettiOrdinatiTotale = implode(",", array_unique($oggettiArray));
 
 $connection = new DBAccess();
