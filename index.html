@@ -89,7 +89,7 @@
                         </svg>
                     </p>
                     <ul id="profile-drop" class="dropdown-list show">
-                        <li>
+                        <!-- <li>
                             <a href="src/php/sendToLogin.php" aria-label="accesso">
                                 <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none">
                                     <path
@@ -114,10 +114,48 @@
                                 </svg>
                                 REGISTRATI
                             </a>
-                        </li>
-                        <!-- <form action="src/php/navbar.php">
-                                <li class="loginout"></li>
-                            </form> -->
+                        </li> -->
+
+
+                        <div id="loginout"></div>
+                        <!-- <script>
+                            // Funzione per caricare dinamicamente il contenuto del file PHP
+                            function loadLoginout() {
+                                var xhttp = new XMLHttpRequest();
+                                xhttp.onreadystatechange = function() {
+                                    if (this.readyState == 4 && this.status == 200) {
+                                        document.getElementById("loginout").innerHTML = this.responseText;
+                                    }
+                                };
+                                xhttp.open("GET", "src/php/navbar.php", true);
+                                xhttp.send();
+                            }
+                        
+                            // Chiama la funzione al caricamento della pagina
+                            window.onload = function() {
+                                loadLoginout();
+                            };
+                        </script> -->
+                        <!-- <script>
+                            // Funzione per la richiesta Fetch
+                            function fetchDataWithFetch() {
+                              // Effettua la richiesta GET al tuo file PHP
+                              fetch('src/php/navbar.php')
+                                .then(response => response.text())
+                                .then(data => {
+                                  // Gestisci la risposta
+                                  document.getElementById("loginout").innerHTML = data;
+                                })
+                                .catch(error => console.error('Errore:', error));
+                            }
+                          
+                            // Chiamata alla funzione al caricamento della pagina
+                            fetchDataWithFetch();
+                          </script> -->
+
+
+
+
                             <li>
                                 <a href="src/php/sendToLogin.php" aria-label="impostazioni">
                                     <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none">
@@ -621,6 +659,7 @@
     <script src="src/JS/cookie-handler.js"></script>
     <script src="src/JS/dropdown.js"></script>
     <script src="src/JS/dropup.js"></script>
+    <script src="src/JS/navbar.js"></script>
 </body>
 
 </html>

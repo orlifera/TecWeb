@@ -12,7 +12,8 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 setlocale(LC_ALL, 'it_IT');
 
-$paginaHTML = file_get_contents(__DIR__ . "../../index.html");
+$paginaHTML = file_get_contents(__DIR__ . "/../../index.html");
+$li = "<li>Fallito</li>";
 
 if(!isset($_SESSION['user'])) {
     $li ="<li>
@@ -58,5 +59,5 @@ if(!isset($_SESSION['user'])) {
         </li>";
 }
 
-$paginaHTML = str_replace('<li class="loginout"></li>', $li, $paginaHTML);
-echo($paginaHTML);
+// $paginaHTML = str_replace('<li class="loginout"></li>', $li, $paginaHTML);
+echo($li);
