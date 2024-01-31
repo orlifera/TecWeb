@@ -10,7 +10,7 @@
     #info h2.info-title {
         font-size: 1.3em;
     }
-    
+
     #contact-info {
         padding: unset;
     }
@@ -69,15 +69,16 @@
         justify-content: center;
     }
 
-    #contact-form #tos a, #contact-form #tos {
+    #contact-form #tos a,
+    #contact-form #tos {
         font-size: 0.8em;
     }
 
-    #contact-form #tos a{
+    #contact-form #tos a {
         margin-left: 0.3em;
     }
 
-    #contact-form input#terms{
+    #contact-form input#terms {
         margin-right: 0.3em;
     }
 
@@ -132,11 +133,11 @@
 }
 
 @media (max-width: 376px) {
-    
+
     #mobile ul li {
         padding: 0 1em;
     }
-    
+
     #mobile ul li svg {
         width: 20px;
         height: 20px;
@@ -174,7 +175,8 @@
         height: 200px;
     }
 
-    input#accessories, input#addToCart {
+    input#accessories,
+    input#addToCart {
         font-size: 0.8em;
         padding: 0.3em;
     }
@@ -197,7 +199,8 @@
         font-size: 0.5em;
     }
 
-    #mobile div#drop-catalogo, #mobile div#profile-dropup {
+    #mobile div#drop-catalogo,
+    #mobile div#profile-dropup {
         width: 15em;
         right: calc((100dvw - 15em)/2);
     }
@@ -274,7 +277,8 @@ nav#menu {
     bottom: -1px;
     margin: auto;
     position: fixed;
-    background: linear-gradient(to top right, var(--primary-100), var(--primary-200));}
+    background: linear-gradient(to top right, var(--primary-100), var(--primary-200));
+}
 
 #mobile ul {
     padding: 0.8em 0;
@@ -306,7 +310,9 @@ div#presentation {
     padding: 1em;
 }
 
-#examples .title, #about .title, #review .title {
+#examples .title,
+#about .title,
+#review .title {
     font-size: 2em;
 }
 
@@ -398,7 +404,8 @@ div#presentation {
     padding: 1em;
 }
 
-#mobile #drop-catalogo, #mobile #profile-dropup {
+#mobile #drop-catalogo,
+#mobile #profile-dropup {
     width: 20em;
     margin: auto;
     bottom: 35dvh;
@@ -587,11 +594,13 @@ main#login-main {
     margin-bottom: 0;
 }
 
-.capsule dt, .capsule label {
+.capsule dt,
+.capsule label {
     font-size: 1.2em;
 }
 
-#accessories, #addToCart {
+#accessories,
+#addToCart {
     font-size: 1em;
     padding: 0.3em;
 }
@@ -676,7 +685,9 @@ main#login-main {
     padding: 0;
 }
 
-.card input.card-name::placeholder, .card-container .card input.card-number, .card-container .card input.card-number::placeholder  {
+.card input.card-name::placeholder,
+.card-container .card input.card-number,
+.card-container .card input.card-number::placeholder {
     color: var(--text-100);
 }
 
@@ -795,6 +806,13 @@ nav.sidenav #hamburger {
     margin-top: 1em;
 }
 
-#side #nav-header, .nav-list {
+#side #nav-header,
+.nav-list {
     overflow: hidden;
+}
+
+.container.order dd {
+    display: block;
+    text-align: center;
+    padding: 0.5em 1em;
 }

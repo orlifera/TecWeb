@@ -341,7 +341,7 @@ nav svg:not(.signup, #sun, #moon) {
     padding-top: 6em;
 }
 
-.signup path{
+.signup path {
     stroke: var(--text-300);
     stroke-width: 1.5;
     stroke-linecap: round;
@@ -1826,6 +1826,9 @@ input.card-number {
 
 .headings.admin {
     text-align: center;
+    padding: 2em;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .wrapper {
@@ -2385,7 +2388,8 @@ input.card-number {
     text-align: center;
 }
 
-#succ, #err {
+#succ,
+#err {
     position: absolute;
     right: .5em;
     top: 1.4em;
@@ -2828,4 +2832,54 @@ div.mod-prod {
 
 #return a {
     color: var(--primary-200);
+}
+
+/*ORDER DETAILS*/
+
+#details {
+    font-size: 1.2em;
+    text-align: center;
+    color: var(--text-100);
+
+}
+
+.container.order {
+    display: block;
+    height: unset;
+}
+
+#last-container:last-of-type {
+    margin-bottom: 6em;
+}
+
+#order-details,
+#product-details {
+    width: 100%;
+}
+
+.order dt,
+.order dd {
+    display: inline-block;
+    padding: 0 1em;
+    text-align: left;
+    width: 50%;
+    font-size: 1.2em;
+}
+
+.order dt {
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--primary-200);
+    padding: 1em 2em;
+}
+
+.order dd {
+    font-size: 18px;
+    color: text-100;
+}
+
+#order-details {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1em;
 }

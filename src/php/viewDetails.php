@@ -60,17 +60,22 @@ $connection->closeDBConnection();
 
 foreach ($result as $code => $data) {
     if (isset($data['id'])) {
-        $prova = "<h2 class=\"headings admin\">Ordine {$data['id']}</h2>" .
-            "<li>" . $data['nome'] . "</li>" .
-            "<li>" . $data['cognome'] . "</li>" .
-            "<li>" . $data['email'] . "</li>" .
-            "<li>" . $data['numero'] . "</li>" .
-            "<li>" . $data['indirizzo'] . "</li>" .
-            "<li>" . $data['citta'] . "</li>" .
-            "<li>" . $data['cap'] . "</li>" .
-            "<li>" . $data['quantitaOrdinata'] . "</li>" .
-            "<li>" . $data['prezzo'] . "</li>" .
-            "<li>" . $data['oggetti_ordinati'] . "</li>";
+        $prova = "<h2 class=\"headings admin\">Dettagli ordine {$data['id']}</h2>" . "<p id=\"details\">Gestisci l'ordine e visualizzane i dettagli</p>" .
+            "<div class=\"container order\">" .
+            "<dt>Nome:</dt><dd>" . $data['nome'] . "</dd>" .
+            "<dt>Cognome:</dt><dd> " . $data['cognome'] . "</dd>" .
+            "<dt>Email:</dt><dd> " . $data['email'] . "</dd>" .
+            "<dt>Numero Ordine:</dt><dd> " . $data['numero'] . "</dd>" .
+            "<dt>Indirizzo:</dt><dd> " . $data['indirizzo'] . "</dd>" .
+            "<dt>Città:</dt><dd> " . $data['citta'] . "</dd>" .
+            "<dt>CAP:</dt><dd> " . $data['cap'] . "</dd>" .
+            "<dt>Quantità: </dt><dd>" . $data['quantitaOrdinata'] . "</dd>" .
+            "</div>". "</dl>" . "<dl id=\"product-details\">" .
+            "<h2 class=\"headings admin\">Articoli ordinati</h2>" .
+            "<div id=\"last-container\" class=\"container order\">" . 
+            "<dt>Articoli:</dt><dd> " . $data['oggetti_ordinati'] . "</dd>".
+            "<dt>Prezzi: </dt><dd>" . $data['prezzo'] . "</dd></div>" ; 
+
         $htmlProdotti .= $prova;
     }
 }
