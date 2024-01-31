@@ -1,4 +1,4 @@
-
+// gestione della pagina 500
 const error = document.querySelector(".error-500");
 let i = 0, data = "", text = error.getAttribute("data-text");
 

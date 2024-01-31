@@ -1,3 +1,4 @@
+// gestisce funzionalitò disponibili in cart
 let addCart = document.getElementById("addToCart");
 
 function addToCart() {
