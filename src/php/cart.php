@@ -13,6 +13,8 @@ setlocale(LC_ALL, 'it_IT');
 
 $paginaHTML = file_get_contents(__DIR__ . "/../pages/cart.html");
 
+$username = isset($_SESSION['user']) ? $_SESSION['user'] : 'non registrato';
+
 $listaPC = "";
 $htmlProdotti = "";
 $nomeProdottoCompleto = $prezzo = $path = $sku = $categoria = $quantita = $colore = $disponibilita =  [];
@@ -22,8 +24,11 @@ $connection = new DBAccess();
 $connectionOk = $connection->openDBConnection();
 
 if ($connectionOk) {
-    $listaPC = $connection->getProductCart();
-
+    if ($username == "non registrato") {
+        $listaPC = $connection->getProductCart();
+    } else {
+        $listaPC = $connection->getProductCartReg($username);
+    }
     if (!empty($listaPC)) {
         $nomeProdottoCompleto = $prezzo = $path = $sku = $categoria = $quantita = $colore = $disponibilita = [];
 

@@ -2,7 +2,7 @@
 
 require_once "DBAccess.php";
 session_start();
-$cartCounter = isset($_SESSION['cart_counter']) ? $_SESSION['cart_counter'] + 1 : 0;
+$username = isset($_SESSION['user']) ? $_SESSION['user'] : 'non registrato';
 
 use DB\DBAccess;
 
@@ -22,15 +22,18 @@ $colore = $_GET['colore'];
 $quantita = $_GET['quantita'];
 $path_image = $_GET['path'];
 $categoria = $_GET['categoria'];
+$utente = $_GET['utente'];
 
 $connection = new DBAccess();
 $connectionOk = "";
 $connectionOk = $connection->openDBConnection();
 
-$_SESSION['cart_counter'] = $cartCounter;
 
 if ($connectionOk) {
-    $listaPC = $connection->insertToCart($sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_image, $categoria);
+    if (isset($_SESSION['user']))
+        $listaPC = $connection->insertToCartReg($sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_image, $categoria, $utente);
+    else
+        $listaPC = $connection->insertToCart($sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_image, $categoria);
     if ($listaPC) {
         echo '<p class="confirmDati">Prodotto aggiunto al carrello!</p>';
     } else {
@@ -44,4 +47,4 @@ if ($connectionOk) {
 $connection->closeDBConnection();
 
 
-header("Location: getProduct.php?id=$sku&categoria=$categoria");
+header("Location: cart.php");

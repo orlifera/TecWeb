@@ -4,8 +4,8 @@ require_once "DBAccess.php";
 use DB\DBAccess;
 
 session_start();
-$_SESSION['cart_counter'] = isset($_SESSION['cart_counter']) ? $_SESSION['cart_counter'] : 0;
-$cartCounter = $_SESSION['cart_counter'];
+$username = isset($_SESSION['user']) ? $_SESSION['user'] : 'non registrato';
+
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -90,12 +90,12 @@ $percorsoSostituzione = array(
 
 $percorsoSostituzioneRelativo = array(
     $stringaPC, $tipoPC, $prezzoPc, $colori, $disponibilita, $quantita, $descrizione, $path_image,
-    'getProduct.php', '../pages/contacts.html', $cartCounter, 'cart.php',
+    'getProduct.php', '../pages/contacts.html', 'cart.php',
     'getCatalog.php?categoria=kbd&riferimento=', 'getCatalog.php?categoria=pc&riferimento=', '../pages/faq.html',
     '../pages/news.html', '../pages/profile.html', '../pages/tos.html', '../pages/privacy.html', '../pages/cookies.html',
     '../pages/login.html', '../pages/signup.html', 'getCatalog.php?categoria=kbd&riferimento=',
     'getCatalog.php?categoria=pc&riferimento=', '<script src="../js/accessoriesHandler.js" data-categoria="' . $_GET['categoria'] . '" data-riferimento="' . $_GET['categoria'] . '" >',
-    '<script src="../js/cart.js" data-id="' . $_GET['id'] . '" data-categoria="' . $_GET['categoria'] . '">'
+    '<script src="../js/cart.js" data-id="' . $_GET['id'] . '" data-categoria="' . $_GET['categoria'] . '" . data-utente="' . (isset($_SESSION['user']) ? $_SESSION['user'] : 'non registrato') . '">'
 );
 
 $paginaHTML = str_replace($percorsoSostituzione, $percorsoSostituzioneRelativo, $paginaHTML);
