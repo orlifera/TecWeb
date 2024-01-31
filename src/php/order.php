@@ -25,22 +25,22 @@ $phoneUtente = $_GET["phone"];
 $indirizzoUtente = $_GET["indirizzo"];
 $cittaUtente = $_GET["citta"];
 $capUtente = $_GET["cap"];
-$prezzo = $_GET["prezzo"];
+$prezzoTotale = $_GET["prezzo"];
 $oggettiOrdinati = $_GET["oggetti"];
-echo $oggettiOrdinati;
+
 
 $quantitaRimanente = "";
 
 $skuArray = explode(',', $sku);
 $quantitaArray = explode(',', $quantitaOrdinata);
 $oggettiArray = explode(',', $oggettiOrdinati);
+$prezzoArray = explode(',', $prezzoTotale);
 
 // Accumula tutti gli oggetti ordinati in una variabile
 $oggettiOrdinatiTotale = "";
 
 foreach ($skuArray as $i => $id) {
     $skuProdotto[] = $id;
-    echo ($skuProdotto[$i]);
 }
 
 foreach ($quantitaArray as $i => $id) {
@@ -49,12 +49,16 @@ foreach ($quantitaArray as $i => $id) {
 
 foreach ($oggettiArray as $i => $id) {
     $oggetti[] = $id;
-    // Accumula gli oggetti ordinati in una variabile
     $oggettiOrdinatiTotale .= $id . ",";
 }
 
-$oggettiOrdinatiTotale = implode(",", array_unique($oggettiArray));
+foreach ($prezzoArray as $i => $id) {
+    $prezzoProva[] = $id;
+}
 
+$oggettiOrdinatiTotale = implode(",", array_unique($oggettiArray));
+$prezzo = implode(",", array_unique($prezzoProva));
+echo ($prezzo);
 
 $connection = new DBAccess();
 $connectionOk = "";
@@ -70,6 +74,7 @@ if ($connectionOk) {
         } else {
             $htmlProdotti = "<p>Errore</p>";
         }
+        $listaPC = $connection->deleteFromCart($sku);
     }
 
     $listaPC = $connection->insertNewOrder(
@@ -86,7 +91,7 @@ if ($connectionOk) {
     );
 
     // Cancella tutti gli oggetti ordinati dal carrello
-    $listaPC = $connection->deleteFromCart($sku);
+
 } else {
     $nomeProdottoCompleto = $prezzo = $path = $sku = [];
     header("HTTP/1.0 404 Not Found");

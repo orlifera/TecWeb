@@ -64,7 +64,7 @@ foreach ($nomeProdottoCompleto as $i => $nome) {
 
             <input id=\"add\" type=\"button\" value=\"+\" class=\" qty-count qty-count--plus \">
             </div></div>" .
-            "<input type=\"button\" value=\"Rimuovi\" id=\"removeCart\"name=\"removeCart" . $sku[$i] . "\">" . "</div></div>";
+            "<input type=\"button\" value=\"Rimuovi\" class=\"removeItemCart\" id=\"removeCart\"name=\"removeCart" . $sku[$i] . "\">" . "</div></div>";
 
         $htmlProdotti .= $prova;
         $counter++;
@@ -86,22 +86,26 @@ $paginaHTML = str_replace('tos.html', '../pages/tos.html', $paginaHTML);
 $paginaHTML = str_replace('privacy.html', '../pages/privacy.html', $paginaHTML);
 $paginaHTML = str_replace('cookies.html', '../pages/cookies.html', $paginaHTML);
 
-$scriptReplacement = '<script src="../js/orderHandler.js" data-id="{SKU}" data-quantita="{QUANTITA}" data-oggetti="{OGGETTI}">';
+$scriptReplacement = '<script src="../js/orderHandler.js" data-id="{SKU}" data-quantita="{QUANTITA}" data-oggetti="{OGGETTI}" data-prezzo="{PREZZO}">';
 $scripts = '';
 
 $skuValues = array();
 $quantitaValues = array();
 $oggettiValues = array();
+$prezzoValues = array();
 
 foreach ($sku as $i => $value) {
     $skuValues[] = $sku[$i];
     $quantitaValues[] = $quantita[$i];
     $oggettiValues[] = $nomeProdottoCompleto[$i];
+    $prezzoValues[] = $prezzo[$i];
 }
 
 $script = str_replace('{SKU}', implode(',', $skuValues), $scriptReplacement);
 $script = str_replace('{QUANTITA}', implode(',', $quantitaValues), $script);
 $script = str_replace('{OGGETTI}', implode(',', $oggettiValues), $script);
+$script = str_replace('{PREZZO}', implode(',', $prezzoValues), $script);
+
 $scripts .= $script;
 
 $paginaHTML = str_replace('<script src="../js/orderHandler.js">', $scripts, $paginaHTML);

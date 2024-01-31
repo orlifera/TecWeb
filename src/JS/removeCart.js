@@ -1,4 +1,4 @@
-let remCart = document.getElementsByClassName("removeCart");
+let remCart = document.getElementsByClassName("removeItemCart");
 let remAllCart = document.getElementById("removeAll");
 
 function removeFromCart() {

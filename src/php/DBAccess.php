@@ -246,7 +246,7 @@ class DBAccess
         mysqli_stmt_execute($stmt);
         $rowsAffected = mysqli_stmt_affected_rows($stmt);
         mysqli_stmt_close($stmt);
-
+        
         return $rowsAffected > 0;
     }
 
@@ -357,6 +357,24 @@ class DBAccess
         } else {
             return null;
         }
+        /* $query = "SELECT Ordine.*, GROUP_CONCAT(Prodotto.nome SEPARATOR ', ') as oggetti_ordinati
+              FROM Ordine
+              LEFT JOIN OrdineProdotto ON Ordine.id = OrdineProdotto.id_ordine
+              LEFT JOIN Prodotto ON OrdineProdotto.sku_prodotto = Prodotto.sku
+              GROUP BY Ordine.id;";
+
+        $queryResult = mysqli_query($this->connection, $query) or die("Errore in DBAccess" . mysqli_error($this->connection));
+        if (mysqli_num_rows($queryResult) != 0) {
+            $result = array();
+            while ($row = mysqli_fetch_array($queryResult)) {
+                $result[] = $row;
+            }
+            $queryResult->free();
+
+            return $result;
+        } else {
+            return null;
+        } */
     }
 
     public function insertNewProduct($sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_immagine, $categoria, $riferimento)

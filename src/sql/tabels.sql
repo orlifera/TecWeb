@@ -81,7 +81,7 @@ CREATE TABLE Ordine (
   citta varchar(256) not null,
   cap int(5) not null,
   quantitaOrdinata int not null,
-  prezzo double not null,
+  prezzo varchar(256) not null,
   oggetti_ordinati varchar(256) not null
 ) Engine=InnoDB default charset=utf8mb4;
 
