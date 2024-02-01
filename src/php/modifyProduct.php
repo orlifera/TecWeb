@@ -1,4 +1,6 @@
 <?php
+/* Visualizza i campi per modificare un prodotto, sconto oppure ordine per l'admin */
+
 require_once "DBAccess.php";
 
 

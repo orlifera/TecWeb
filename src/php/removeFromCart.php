@@ -1,4 +1,5 @@
 <?php
+/* Rimuove un singolo prodotto dal carrello */
 
 require_once "DBAccess.php";
 

@@ -1,4 +1,6 @@
 <?php
+/* Gestisce gli ordini  */
+
 
 require_once "DBAccess.php";
 session_start();

@@ -1,4 +1,5 @@
 <?php
+/* Raccolta di query al database */
 
 namespace DB;
 

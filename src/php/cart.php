@@ -1,4 +1,5 @@
 <?php
+/* Visualizza gli elementi presenti nel carrello dell'utente */
 
 require_once "DBAccess.php";
 
