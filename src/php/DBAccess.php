@@ -218,7 +218,6 @@ class DBAccess
         Carrello.sku AS sku,
         Carrello.nome AS nome,
         Carrello.tipo AS tipo,
-        Carrello.descrizione AS descrizione,
         Carrello.prezzo AS prezzo,
         Carrello.colore AS colore,
         Carrello.quantitaScelta AS quantitaScelta,
@@ -249,7 +248,6 @@ class DBAccess
         Carrello.sku AS sku,
         Carrello.nome AS nome,
         Carrello.tipo AS tipo,
-        Carrello.descrizione AS descrizione,
         Carrello.prezzo AS prezzo,
         Carrello.colore AS colore,
         Carrello.quantitaScelta AS quantitaScelta,
@@ -271,11 +269,21 @@ class DBAccess
         return $data;
     }
 
-    public function insertToCartReg($sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_immagine, $categoria, $utente)
+    public function insertToCartReg($sku, $nome, $tipo, $prezzo, $colore, $quantita, $path_immagine, $categoria, $utente)
     {
-        $queryInsert = "INSERT INTO Carrello (sku, nome, tipo, descrizione, prezzo, colore, quantitaScelta, path_immagine, categoria, utente) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $queryCheckExistence = "SELECT COUNT(*) FROM Carrello WHERE sku = ?";
+        $stmtCheck = mysqli_prepare($this->connection, $queryCheckExistence);
+        mysqli_stmt_bind_param($stmtCheck, "s", $sku);
+        mysqli_stmt_execute($stmtCheck);
+        mysqli_stmt_bind_result($stmtCheck, $count);
+        mysqli_stmt_fetch($stmtCheck);
+        mysqli_stmt_close($stmtCheck);
+        if ($count > 0) {
+            return false;
+        }
+        $queryInsert = "INSERT INTO Carrello (sku, nome, tipo, prezzo, colore, quantitaScelta, path_immagine, categoria, utente) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($this->connection, $queryInsert);
-        mysqli_stmt_bind_param($stmt, "sssdssisss", $sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_immagine, $categoria, $utente);
+        mysqli_stmt_bind_param($stmt, "sssdsisss", $sku, $nome, $tipo, $prezzo, $colore, $quantita, $path_immagine, $categoria, $utente);
         mysqli_stmt_execute($stmt);
         $rowsAffected = mysqli_stmt_affected_rows($stmt);
         mysqli_stmt_close($stmt);
@@ -283,7 +291,7 @@ class DBAccess
         return $rowsAffected > 0;
     }
 
-    public function insertToCart($sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_immagine, $categoria)
+    public function insertToCart($sku, $nome, $tipo, $prezzo, $colore, $quantita, $path_immagine, $categoria)
     {
         // Verifico se il record esiste già
         $queryCheckExistence = "SELECT COUNT(*) FROM Carrello WHERE sku = ?";
@@ -297,9 +305,9 @@ class DBAccess
             return false;
         }
 
-        $queryInsert = "INSERT INTO Carrello (sku, nome, tipo, descrizione, prezzo, colore, quantitaScelta, path_immagine, categoria) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $queryInsert = "INSERT INTO Carrello (sku, nome, tipo, prezzo, colore, quantitaScelta, path_immagine, categoria) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($this->connection, $queryInsert);
-        mysqli_stmt_bind_param($stmt, "sssdssiss", $sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_immagine, $categoria);
+        mysqli_stmt_bind_param($stmt, "sssdsiss", $sku, $nome, $tipo, $prezzo, $colore, $quantita, $path_immagine, $categoria,);
         mysqli_stmt_execute($stmt);
         $rowsAffected = mysqli_stmt_affected_rows($stmt);
         mysqli_stmt_close($stmt);

@@ -31,9 +31,9 @@ $connectionOk = $connection->openDBConnection();
 
 if ($connectionOk) {
     if (isset($_SESSION['user']))
-        $listaPC = $connection->insertToCartReg($sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_image, $categoria, $utente);
+        $listaPC = $connection->insertToCartReg($sku, $nome, $tipo, $prezzo, $colore, $quantita, $path_image, $categoria, $utente);
     else
-        $listaPC = $connection->insertToCart($sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_image, $categoria);
+        $listaPC = $connection->insertToCart($sku, $nome, $tipo, $prezzo, $colore, $quantita, $path_image, $categoria);
     if ($listaPC) {
         echo '<p class="confirmDati">Prodotto aggiunto al carrello!</p>';
     } else {
