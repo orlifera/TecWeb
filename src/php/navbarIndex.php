@@ -1,7 +1,7 @@
 <?php
+// codice per navbar solo per index, differisce dall'altra per il percorso
 
 require_once "DBAccess.php";
-// require_once "sendToLogin.php";
 
 use DB\DBAccess;
 

@@ -14,17 +14,17 @@
     <link rel="stylesheet" href="../css/print.css" media="print">
     <link rel="stylesheet" href="../css/mini.css" media="screen and (max-width: 600px)">
     <script>
-        //check local storage for theme and OS preference
+        // controlla la preferenza del tema dell'utente
         let localS = localStorage.getItem('theme'),
             themeToSet = localS
 
-        //if LS not set => check OS preference
+        // se LS (local storage) non è settato => controlla la preferenza del sistema operativo
         if (!localS) {
             //media query with JS
             themeToSet = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
         }
 
-        //set correct theme
+        // imposta il corretto tema
         document.documentElement.setAttribute('data-theme', themeToSet)
     </script>
 </head>
