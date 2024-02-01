@@ -22,7 +22,8 @@ class DBAccess
 
     /************ GESTIONE LOGIN E REGISTRAZIONE ************/
     // FINIRE QUA 
-    public function login($username, $password) {
+    public function login($username, $password)
+    {
         $query = "SELECT COUNT(*) FROM utente WHERE username = ? AND password = ?;";
         $stmt = mysqli_prepare($this->connection, $query);
         mysqli_stmt_bind_param($stmt, "ss", $username, $password);
@@ -217,7 +218,6 @@ class DBAccess
         Carrello.sku AS sku,
         Carrello.nome AS nome,
         Carrello.tipo AS tipo,
-        Carrello.descrizione AS descrizione,
         Carrello.prezzo AS prezzo,
         Carrello.colore AS colore,
         Carrello.quantitaScelta AS quantitaScelta,
@@ -248,7 +248,6 @@ class DBAccess
         Carrello.sku AS sku,
         Carrello.nome AS nome,
         Carrello.tipo AS tipo,
-        Carrello.descrizione AS descrizione,
         Carrello.prezzo AS prezzo,
         Carrello.colore AS colore,
         Carrello.quantitaScelta AS quantitaScelta,
@@ -270,11 +269,21 @@ class DBAccess
         return $data;
     }
 
-    public function insertToCartReg($sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_immagine, $categoria, $utente)
+    public function insertToCartReg($sku, $nome, $tipo, $prezzo, $colore, $quantita, $path_immagine, $categoria, $utente)
     {
-        $queryInsert = "INSERT INTO Carrello (sku, nome, tipo, descrizione, prezzo, colore, quantitaScelta, path_immagine, categoria, utente) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $queryCheckExistence = "SELECT COUNT(*) FROM Carrello WHERE sku = ?";
+        $stmtCheck = mysqli_prepare($this->connection, $queryCheckExistence);
+        mysqli_stmt_bind_param($stmtCheck, "s", $sku);
+        mysqli_stmt_execute($stmtCheck);
+        mysqli_stmt_bind_result($stmtCheck, $count);
+        mysqli_stmt_fetch($stmtCheck);
+        mysqli_stmt_close($stmtCheck);
+        if ($count > 0) {
+            return false;
+        }
+        $queryInsert = "INSERT INTO Carrello (sku, nome, tipo, prezzo, colore, quantitaScelta, path_immagine, categoria, utente) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($this->connection, $queryInsert);
-        mysqli_stmt_bind_param($stmt, "sssdssisss", $sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_immagine, $categoria, $utente);
+        mysqli_stmt_bind_param($stmt, "sssdsisss", $sku, $nome, $tipo, $prezzo, $colore, $quantita, $path_immagine, $categoria, $utente);
         mysqli_stmt_execute($stmt);
         $rowsAffected = mysqli_stmt_affected_rows($stmt);
         mysqli_stmt_close($stmt);
@@ -282,17 +291,30 @@ class DBAccess
         return $rowsAffected > 0;
     }
 
-    public function insertToCart($sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_immagine, $categoria)
+    public function insertToCart($sku, $nome, $tipo, $prezzo, $colore, $quantita, $path_immagine, $categoria)
     {
-        $queryInsert = "INSERT INTO Carrello (sku, nome, tipo, descrizione, prezzo, colore, quantitaScelta, path_immagine, categoria) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        // Verifico se il record esiste già
+        $queryCheckExistence = "SELECT COUNT(*) FROM Carrello WHERE sku = ?";
+        $stmtCheck = mysqli_prepare($this->connection, $queryCheckExistence);
+        mysqli_stmt_bind_param($stmtCheck, "s", $sku);
+        mysqli_stmt_execute($stmtCheck);
+        mysqli_stmt_bind_result($stmtCheck, $count);
+        mysqli_stmt_fetch($stmtCheck);
+        mysqli_stmt_close($stmtCheck);
+        if ($count > 0) {
+            return false;
+        }
+
+        $queryInsert = "INSERT INTO Carrello (sku, nome, tipo, prezzo, colore, quantitaScelta, path_immagine, categoria) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($this->connection, $queryInsert);
-        mysqli_stmt_bind_param($stmt, "sssdssiss", $sku, $nome, $tipo, $descrizione, $prezzo, $colore, $quantita, $path_immagine, $categoria);
+        mysqli_stmt_bind_param($stmt, "sssdsiss", $sku, $nome, $tipo, $prezzo, $colore, $quantita, $path_immagine, $categoria,);
         mysqli_stmt_execute($stmt);
         $rowsAffected = mysqli_stmt_affected_rows($stmt);
         mysqli_stmt_close($stmt);
 
         return $rowsAffected > 0;
     }
+
 
 
     public function deleteFromCart($sku)
@@ -512,7 +534,7 @@ class DBAccess
         return $rowsAffected > 0;
     }
 
-    /*insertNewOrder($sku, $quantitaOrdinata, $nomeUtente, $cognomeUtente, $emailUtente, $phoneUtente, $indirizzoUtente, $cittaUtente, $capUtente, $prezzo); */
+
     public function insertNewOrder($nomeUtente, $cognomeUtente, $emailUtente, $phoneUtente, $indirizzoUtente, $cittaUtente, $capUtente, $quantitaOrdinata, $prezzo, $oggettiOrdinati)
     {
         $queryInsertOrdine = "INSERT INTO Ordine (nome, cognome, email, numero, indirizzo, citta, cap, quantitaOrdinata, prezzo, oggetti_ordinati) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -536,11 +558,6 @@ class DBAccess
 
         if (!$stmtOrdineProdotto) {
             die("Errore nella preparazione della query: " . mysqli_error($this->connection));
-        }
-
-        foreach ($oggettiOrdinati as $skuProdotto) {
-            mysqli_stmt_bind_param($stmtOrdineProdotto, "is", $idOrdine, $skuProdotto);
-            mysqli_stmt_execute($stmtOrdineProdotto);
         }
 
         mysqli_stmt_close($stmtOrdineProdotto);
@@ -590,14 +607,17 @@ class DBAccess
     }
 
 
-    public function updateOrder($codice, $utente, $quantitaOrdinata, $indirizzo, $prezzo)
+    public function updateOrder($codice, $nome, $cognome, $email, $numero, $citta, $quantitaOrdinata, $indirizzo)
     {
         $queryUpdate = "UPDATE Ordine 
                     SET 
-                        utente = '$utente', 
-                        quantitaOrdinata = $quantitaOrdinata, 
+                        nome = '$nome', 
+                        cognome = '$cognome',
+                        email = '$email',
+                        numero = '$numero',
                         indirizzo = '$indirizzo', 
-                        prezzo = $prezzo
+                        citta = '$citta',
+                        quantitaOrdinata = $quantitaOrdinata
                     WHERE id = '$codice'";
 
         mysqli_query($this->connection, $queryUpdate) or die("Errore in DBAccess: " . mysqli_error($this->connection));

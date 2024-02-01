@@ -60,7 +60,7 @@ $connection->closeDBConnection();
 if ($nomePc != null) {
     foreach ($nomePc as $i => $nome) {
         if ($nome != null) {
-            $prova = "<a class=\"product-card\" href=\"getProduct.php?categoria=" . $categoria . "&id=" . $sku1[$i] . "\">\n" . "<img src=\"" . $path[$i] . "\"" . "alt=\"image\">\n"  .  $nome .   $prezzo[$i]  . "</a>\n";
+            $prova = "<a class=\"product-card\" href=\"getProduct.php?categoria=" . $categoria . "&id=" . $sku1[$i] . "\">\n" . "<img src=\"" . $path[$i] . "\"" . " alt=\"image\">\n"  .  $nome .   $prezzo[$i]  . "</a>\n";
             $htmlProdotti .= $prova;
         }
     }

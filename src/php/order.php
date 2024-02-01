@@ -27,16 +27,12 @@ $cittaUtente = $_GET["citta"];
 $capUtente = $_GET["cap"];
 $prezzoTotale = $_GET["prezzo"];
 $oggettiOrdinati = $_GET["oggetti"];
-
-
 $quantitaRimanente = "";
 
 $skuArray = explode(',', $sku);
 $quantitaArray = explode(',', $quantitaOrdinata);
 $oggettiArray = explode(',', $oggettiOrdinati);
 
-
-// Accumula tutti gli oggetti ordinati in una variabile
 $oggettiOrdinatiTotale = "";
 
 foreach ($skuArray as $i => $id) {
@@ -51,7 +47,6 @@ foreach ($oggettiArray as $i => $id) {
     $oggetti[] = $id;
     $oggettiOrdinatiTotale .= $id . ",";
 }
-
 
 
 $oggettiOrdinatiTotale = implode(",", array_unique($oggettiArray));
@@ -95,7 +90,4 @@ $connection->closeDBConnection();
 
 $paginaHTML = str_replace('src/pages/cart.html', 'cart.php', $paginaHTML);
 
-// Altri sostituzioni rimaste
-
-//sistemazione tutti collegamenti footer
 echo $paginaHTML;
