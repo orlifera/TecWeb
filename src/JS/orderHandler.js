@@ -7,8 +7,7 @@ function order() {
   var quantita = scriptTag.getAttribute("data-quantita");
   var oggetti = scriptTag.getAttribute("data-oggetti");
   var prezzo = scriptTag.getAttribute("data-prezzo");
-
-  prezzoTotale = prezzo.split(",");
+  console.log(id);
 
   if (id) {
     var url =
