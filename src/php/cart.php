@@ -51,7 +51,7 @@ if ($connectionOk) {
     include("../pages/404.html");
     exit;
 }
-$connection->closeDBConnection();
+
 
 foreach ($nomeProdottoCompleto as $i => $nome) {
     if ($nome != null) {
@@ -91,27 +91,75 @@ $paginaHTML = str_replace('tos.html', '../pages/tos.html', $paginaHTML);
 $paginaHTML = str_replace('privacy.html', '../pages/privacy.html', $paginaHTML);
 $paginaHTML = str_replace('cookies.html', '../pages/cookies.html', $paginaHTML);
 
-$scriptReplacement = '<script src="../js/orderHandler.js" data-id="{SKU}" data-quantita="{QUANTITA}" data-oggetti="{OGGETTI}" data-prezzo="{PREZZO}">';
-$scripts = '';
+if (isset($_SESSION['user'])) {
+    $scriptReplacement = '<script src="../js/orderHandler.js" data-id="{SKU}" data-quantita="{QUANTITA}" data-oggetti="{OGGETTI}" data-prezzo="{PREZZO}" data-sessione="{SESSIONE}" data-nome="{NOME}" data-cognome="{COGNOME}" data-email="{EMAIL}" data-phone="{PHONE}" data-indirizzo="{INDIRIZZO}" data-citta="{CITTA}" data-cap="{CAP}">';
+    $scripts = '';
 
-$skuValues = array();
-$quantitaValues = array();
-$oggettiValues = array();
-$prezzoValues = array();
+    $skuValues = array();
+    $quantitaValues = array();
+    $oggettiValues = array();
+    $prezzoValues = array();
 
-foreach ($sku as $i => $value) {
-    $skuValues[] = $sku[$i];
-    $quantitaValues[] = $quantita[$i];
-    $oggettiValues[] = $nomeProdottoCompleto[$i];
-    $prezzoValues[] = $prezzo[$i];
+
+
+    foreach ($sku as $i => $value) {
+        $skuValues[] = $sku[$i];
+        $quantitaValues[] = $quantita[$i];
+        $oggettiValues[] = $nomeProdottoCompleto[$i];
+        $prezzoValues[] = $prezzo[$i];
+    }
+
+    $listaInfo = $connection->getProfileInfo($username);
+    if ($listaInfo != null) {
+        $nome = $listaInfo[0];
+        $cognome = $listaInfo[1];
+        $email = $listaInfo[5];
+        $phone = $listaInfo[7];
+        $indirizzo = $listaInfo[9];
+        $citta = $listaInfo[8];
+        $cap = $listaInfo[10];
+    }
+
+    $script = str_replace('{SKU}', implode(',', $skuValues), $scriptReplacement);
+    $script = str_replace('{QUANTITA}', implode(',', $quantitaValues), $script);
+    $script = str_replace('{OGGETTI}', implode(',', $oggettiValues), $script);
+    $script = str_replace('{PREZZO}', implode(',', $prezzoValues), $script);
+    $script = str_replace('{SESSIONE}', $username, $script);
+    $script = str_replace('{NOME}', $nome, $script);
+    $script = str_replace('{COGNOME}', $cognome, $script);
+    $script = str_replace('{EMAIL}', $email, $script);
+    $script = str_replace('{PHONE}', $phone, $script);
+    $script = str_replace('{INDIRIZZO}', $indirizzo, $script);
+    $script = str_replace('{CITTA}', $citta, $script);
+    $script = str_replace('{CAP}', $cap, $script);
+
+
+    $scripts .= $script;
+} else {
+    $scriptReplacement = '<script src="../js/orderHandler.js" data-id="{SKU}" data-quantita="{QUANTITA}" data-oggetti="{OGGETTI}" data-prezzo="{PREZZO}" data-sessione="{SESSIONE}">';
+    $scripts = '';
+
+    $skuValues = array();
+    $quantitaValues = array();
+    $oggettiValues = array();
+    $prezzoValues = array();
+
+    foreach ($sku as $i => $value) {
+        $skuValues[] = $sku[$i];
+        $quantitaValues[] = $quantita[$i];
+        $oggettiValues[] = $nomeProdottoCompleto[$i];
+        $prezzoValues[] = $prezzo[$i];
+    }
+
+    $script = str_replace('{SKU}', implode(',', $skuValues), $scriptReplacement);
+    $script = str_replace('{QUANTITA}', implode(',', $quantitaValues), $script);
+    $script = str_replace('{OGGETTI}', implode(',', $oggettiValues), $script);
+    $script = str_replace('{PREZZO}', implode(',', $prezzoValues), $script);
+    $script = str_replace('{SESSIONE}', 'non registrato', $script);
+    $scripts .= $script;
 }
 
-$script = str_replace('{SKU}', implode(',', $skuValues), $scriptReplacement);
-$script = str_replace('{QUANTITA}', implode(',', $quantitaValues), $script);
-$script = str_replace('{OGGETTI}', implode(',', $oggettiValues), $script);
-$script = str_replace('{PREZZO}', implode(',', $prezzoValues), $script);
-
-$scripts .= $script;
+$connection->closeDBConnection();
 
 $paginaHTML = str_replace('<script src="../js/orderHandler.js">', $scripts, $paginaHTML);
 

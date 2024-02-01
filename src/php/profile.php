@@ -103,7 +103,6 @@ if ($connectionOk) {
 3. genere
 4. username
 5. email
-6. password
 7. telefono
 8. città
 9. indirzzo

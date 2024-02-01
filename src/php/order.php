@@ -16,8 +16,8 @@ $paginaHTML = file_get_contents(__DIR__ . "/../pages/payments.html");
 
 $listaPC = "";
 
-$sku = $_GET["id"];
-$quantitaOrdinata = $_GET["quantitaOrdinata"];
+$sku = $_GET["id"]; 
+$quantitaOrdinata = $_GET["quantitaOrdinata"]; 
 $nomeUtente = $_GET["nome"];
 $cognomeUtente = $_GET["cognome"];
 $emailUtente = $_GET["email"];
@@ -25,8 +25,8 @@ $phoneUtente = $_GET["phone"];
 $indirizzoUtente = $_GET["indirizzo"];
 $cittaUtente = $_GET["citta"];
 $capUtente = $_GET["cap"];
-$prezzoTotale = $_GET["prezzo"];
-$oggettiOrdinati = $_GET["oggetti"];
+$prezzoTotale = $_GET["prezzo"]; 
+$oggettiOrdinati = $_GET["oggetti"]; 
 $quantitaRimanente = "";
 
 $skuArray = explode(',', $sku);
