@@ -1,4 +1,5 @@
 <?php
+/* Rimuove tutti i prodotti dal database */
 
 require_once "DBAccess.php";
 

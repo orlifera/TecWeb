@@ -1,4 +1,6 @@
 <?php
+/* Visualizza i dettagli del singolo prodotto selezionato dal catalogo */
+
 require_once "DBAccess.php";
 
 use DB\DBAccess;

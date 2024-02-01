@@ -1,4 +1,5 @@
 <?php
+/* Visualizza dettagli di un singolo ordine */
 
 require_once "DBAccess.php";
 
@@ -70,11 +71,11 @@ foreach ($result as $code => $data) {
             "<dt>Città:</dt><dd> " . $data['citta'] . "</dd>" .
             "<dt>CAP:</dt><dd> " . $data['cap'] . "</dd>" .
             "<dt>Quantità: </dt><dd>" . $data['quantitaOrdinata'] . "</dd>" .
-            "</div>". "</dl>" . "<dl id=\"product-details\">" .
+            "</div>" . "</dl>" . "<dl id=\"product-details\">" .
             "<h2 class=\"headings admin\">Articoli ordinati</h2>" .
-            "<div id=\"last-container\" class=\"container order\">" . 
-            "<dt>Articoli:</dt><dd> " . $data['oggetti_ordinati'] . "</dd>".
-            "<dt>Prezzi: </dt><dd>" . $data['prezzo'] . "</dd></div>" ; 
+            "<div id=\"last-container\" class=\"container order\">" .
+            "<dt>Articoli:</dt><dd> " . $data['oggetti_ordinati'] . "</dd>" .
+            "<dt>Prezzi: </dt><dd>" . $data['prezzo'] . "</dd></div>";
 
         $htmlProdotti .= $prova;
     }

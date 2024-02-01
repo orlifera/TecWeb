@@ -1,4 +1,6 @@
 <?php
+/* Visualizza l'iterfaccia admin */
+
 require_once "DBAccess.php";
 
 
