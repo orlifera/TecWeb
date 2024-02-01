@@ -56,5 +56,4 @@ if(!isset($_SESSION['user'])) {
         </li>";
 }
 
-// $paginaHTML = str_replace('<li class="loginout"></li>', $li, $paginaHTML);
 echo($li);
