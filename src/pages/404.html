@@ -2,26 +2,35 @@
 <!DOCTYPE html>
 <html lang="it" data-theme="light">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - ML Tech</title>
-    <meta name="keywords"
-        content="ML Tech, tastiere meccaniche custom, assemblaggio computer gaming, pc assemblati, assemblaggio pc, pc assemblati economici, vendita pc online">
-    <meta name="description" content="Sito ufficiale di ML Tech, vendita di tastiere meccaniche custom">
-    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon.ico">
-    <link rel="stylesheet" href="../css/styles.css" media="screen">
-    <link rel="stylesheet" href="../css/print.css" media="print">
-    <link rel="stylesheet" href="../css/mini.css" media="screen and (max-width: 600px)">
-    <script>
-        let localS = localStorage.getItem('theme'),
-            themeToSet = localS
-        if (!localS) {
-            themeToSet = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-        }
-        document.documentElement.setAttribute('data-theme', themeToSet)
-    </script>
-</head>
+    <head>
+        <meta charset="utf-8">
+        <!-- Viewport adattiva alla larghezza del device -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>404 - ML Tech</title>
+        <!-- Keywords e descrizione del sito in generale -->
+        <meta name="keywords"
+            content="ML Tech, tastiere meccaniche custom, assemblaggio computer gaming, pc assemblati, assemblaggio pc, pc assemblati economici, vendita pc online">
+        <meta name="description" content="Ci scusiamo per il disagio.">
+        <!-- File CSS per PC, mobile e stampa -->
+        <link rel="icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+        <link rel="stylesheet" href="../css/styles.css" media="screen">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <link rel="stylesheet" href="../css/mini.css" media="screen and (max-width: 600px)">
+        <script>
+            // controlla la preferenza del tema dell'utente
+            let localS = localStorage.getItem('theme'),
+                themeToSet = localS
+
+            // se LS (local storage) non è settato => controlla la preferenza del sistema operativo
+            if (!localS) {
+                // media query con JS
+                themeToSet = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+            }
+
+            // imposta il corretto tema
+            document.documentElement.setAttribute('data-theme', themeToSet)
+        </script>
+    </head>
 
 <body>
     <div id="error404">

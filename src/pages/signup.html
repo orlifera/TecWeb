@@ -6,22 +6,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Signup - ML Tech</title>
         <meta name="keywords" content="ML-TECH products, gaming, workstation, technology ">
-        <meta name="description" content="Sito ufficiale ml-tech, gruppo fondato da Orlando Ferazzani">
+        <meta name="description" content="Registrati per rimanere sempre aggiornato">
         <link rel="stylesheet" href="../css/styles.css" media="screen">
         <link rel="stylesheet" href="../css/print.css" media="print">
         <link rel="stylesheet" href="../css/mini.css" media="screen and (max-width: 600px)">
         <script>
-            //check local storage for theme and OS preference
+            // controlla la preferenza del tema dell'utente
             let localS = localStorage.getItem('theme'),
                 themeToSet = localS
 
-            //if LS not set => check OS preference
+            // se LS (local storage) non è settato => controlla la preferenza del sistema operativo
             if (!localS) {
-                //media query with JS
+                // media query con JS
                 themeToSet = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
             }
 
-            //set correct theme
+            // imposta il corretto tema
             document.documentElement.setAttribute('data-theme', themeToSet)
         </script>
     </head>
@@ -103,7 +103,7 @@
                                         </svg>
 
                                         <label for="dob">Data Di Nascita</label>
-                                        <input type="date" name="dob" id="dob" class="dob" min="1900-01-01" required>
+                                        <input type="date" name="dob" id="dob" class="dob" required>
                                     </div>
                                     <div class="text-fields gender">
                                         <label for="gender">Genere:</label>
@@ -259,7 +259,8 @@
                                 </div>
                                 <label id="tos" for="terms">
                                     <input class="loginTos" id="terms" type="checkbox" name="terms" required>
-                                    Accetto i <a id="tosLink" href="tos.html" target="_blank"> Termini e le Condizioni</a>
+                                    Accetto i <a id="tosLink" href="tos.html" target="_blank"> Termini e le
+                                        Condizioni</a>
                                 </label>
                                 <div class="page-btns">
                                     <input type="button" value="Indietro" class="previous stagebtn3a">

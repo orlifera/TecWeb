@@ -6,22 +6,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pagamento - ML Tech</title>
         <meta name="keywords" content="ML-TECH products, gaming, workstation, technology ">
-        <meta name="description" content="Sito ufficiale ml-tech, gruppo fondato da Orlando Ferazzani">
+        <meta name="description" content="Pagina del pagamento">
         <link rel="stylesheet" href="../css/styles.css" media="screen">
         <link rel="stylesheet" href="../css/print.css" media="print">
         <link rel="stylesheet" href="../css/mini.css" media="screen and (max-width: 600px)">
         <script>
-            //check local storage for theme and OS preference
+            // controlla la preferenza del tema dell'utente
             let localS = localStorage.getItem('theme'),
                 themeToSet = localS
 
-            //if LS not set => check OS preference
+            // se LS (local storage) non è settato => controlla la preferenza del sistema operativo
             if (!localS) {
-                //media query with JS
+                // media query con JS
                 themeToSet = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
             }
 
-            //set correct theme
+            // imposta il corretto tema
             document.documentElement.setAttribute('data-theme', themeToSet)
         </script>
     </head>
@@ -34,28 +34,28 @@
 
                     <!-- Card -->
                     <div class="card">
-                        <svg width="30px" height="30px" viewBox="0 0 24 24" >
+                        <svg width="30px" height="30px" viewBox="0 0 24 24">
                             <path
                                 d="M21.75 5H2.25A1.251 1.251 0 0 0 1 6.25v12.5A1.251 1.251 0 0 0 2.25 20h19.5A1.251 1.251 0 0 0 23 18.75V6.25A1.251 1.251 0 0 0 21.75 5zM22 18.75a.25.25 0 0 1-.25.25H2.25a.25.25 0 0 1-.25-.25V10h20zM22 8H2V6.25A.25.25 0 0 1 2.25 6h19.5a.25.25 0 0 1 .25.25zM8 18H3v-1h5zm13 0h-2v-1h2zm-3 0h-2v-1h2zm-6-2H3v-1h9z" />
                             <path fill="none" d="M0 0h24v24H0z" />
                         </svg>
 
-                        <!-- Card Number -->
-                        <label for="card-number" lang="en">Card Number</label>
+                        <!-- Numero carta -->
+                        <label for="card-number">Numero carta</label>
                         <input class="card-number" name="card-number" placeholder="5225 XXXX XXXX XXXX" type="text" required readonly
                             maxlength="16" >
 
                         <div class="container2">
 
-                            <!-- Card Holder -->
+                            <!-- Possessore carta -->
                             <div class="name">
-                                <label lang="en" for="card-name">Card Holder</label>
+                                <label for="card-name">Propietario</label>
                                 <input class="card-name" name="card-name" placeholder="Mr. WorldWide" type="text" required readonly >
                             </div>
 
-                            <!-- Date -->
+                            <!-- Data scadenza -->
                             <div class="expiration-date">
-                                <label for="expiry-date"><abbr lang="en" title="Expiration Date">Exp. Date</abbr></label>
+                                <label for="expiry-date">Scadenza</label>
                                 <input id="expiry-date" name="expiry-date" class="card-name" placeholder="10/25" type="text" maxlength="5"
                                     required readonly >
                             </div>
@@ -63,8 +63,8 @@
                             <!-- Cvv -->
                             <div class="ccv">
                                 <label for="card-ccv"><abbr lang="en" title="Card Code Verification">CCV</abbr></label>
-                                <input class="card-name" name="card-ccv" placeholder="628" type="text" maxlength="3" required
-                                    readonly >
+                                <input class="card-name" name="card-ccv" placeholder="628" type="text" maxlength="3"
+                                    required readonly>
                             </div>
                         </div>
                     </div>
@@ -85,8 +85,7 @@
                 <div class="wrapper">
                     <div class="gears">
                         <div class="gear-wrapper gear-wrapper-1">
-                            <svg version="1.1" class="gear gear-1" 
-                                 x="0px" y="0px" viewBox="0 0 512 512"
+                            <svg version="1.1" class="gear gear-1" x="0px" y="0px" viewBox="0 0 512 512"
                                 style="enable-background:new 0 0 512 512;" xml:space="preserve">
                                 <path class="st0" d="M507.6,232.1c0,0-9.3-3.5-36.2-6c-32.9-3-42.8-15.4-53.7-30.7h-0.2c-1.4-3.6-2.8-7.2-4.4-10.8l0.1-0.1
                             		c-3.1-18.6-4.8-34.3,16.3-59.7C446.7,104,450.8,95,450.8,95c-4-10.3-13.8-20-13.8-20s-9.7-9.7-20-13.8c0,0-9.1,4.1-29.8,21.4
@@ -105,8 +104,7 @@
                             </svg>
                         </div>
                         <div class="gear-wrapper gear-wrapper-2">
-                            <svg version="1.1" class="gear gear-2" 
-                                 x="0px" y="0px" viewBox="0 0 512 512"
+                            <svg version="1.1" class="gear gear-2" x="0px" y="0px" viewBox="0 0 512 512"
                                 style="enable-background:new 0 0 512 512;" xml:space="preserve">
                                 <path class="st0" d="M507.6,232.1c0,0-9.3-3.5-36.2-6c-32.9-3-42.8-15.4-53.7-30.7h-0.2c-1.4-3.6-2.8-7.2-4.4-10.8l0.1-0.1
                             		c-3.1-18.6-4.8-34.3,16.3-59.7C446.7,104,450.8,95,450.8,95c-4-10.3-13.8-20-13.8-20s-9.7-9.7-20-13.8c0,0-9.1,4.1-29.8,21.4
@@ -125,8 +123,7 @@
                             </svg>
                         </div>
                         <div class="gear-wrapper gear-wrapper-3">
-                            <svg version="1.1" class="gear gear-3" 
-                                 x="0px" y="0px" viewBox="0 0 512 512"
+                            <svg version="1.1" class="gear gear-3" x="0px" y="0px" viewBox="0 0 512 512"
                                 style="enable-background:new 0 0 512 512;" xml:space="preserve">
                                 <path class="st0" d="M507.6,232.1c0,0-9.3-3.5-36.2-6c-32.9-3-42.8-15.4-53.7-30.7h-0.2c-1.4-3.6-2.8-7.2-4.4-10.8l0.1-0.1
                             		c-3.1-18.6-4.8-34.3,16.3-59.7C446.7,104,450.8,95,450.8,95c-4-10.3-13.8-20-13.8-20s-9.7-9.7-20-13.8c0,0-9.1,4.1-29.8,21.4
@@ -145,8 +142,7 @@
                             </svg>
                         </div>
                         <div class="gear-wrapper gear-wrapper-4">
-                            <svg version="1.1" class="gear gear-4" 
-                                 x="0px" y="0px" viewBox="0 0 512 512"
+                            <svg version="1.1" class="gear gear-4" x="0px" y="0px" viewBox="0 0 512 512"
                                 style="enable-background:new 0 0 512 512;" xml:space="preserve">
                                 <path class="st0" d="M507.6,232.1c0,0-9.3-3.5-36.2-6c-32.9-3-42.8-15.4-53.7-30.7h-0.2c-1.4-3.6-2.8-7.2-4.4-10.8l0.1-0.1
                             		c-3.1-18.6-4.8-34.3,16.3-59.7C446.7,104,450.8,95,450.8,95c-4-10.3-13.8-20-13.8-20s-9.7-9.7-20-13.8c0,0-9.1,4.1-29.8,21.4
@@ -166,8 +162,7 @@
                         </div>
                     </div>
                     <div class="loading-bar" data-progress="0"><span></span></div>
-                    <svg id="checkmark" class="checkmark checkmark-success hidden" 
-                        viewBox="0 0 50 50">
+                    <svg id="checkmark" class="checkmark checkmark-success hidden" viewBox="0 0 50 50">
                         <circle class="checkmark-circle" cx="25" cy="25" r="25" fill="none" />
                         <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
                     </svg>

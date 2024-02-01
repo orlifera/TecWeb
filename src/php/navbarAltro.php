@@ -1,7 +1,6 @@
 <?php
-
+// codice per navbar in tutte le pagine escluso l'index
 require_once "DBAccess.php";
-// require_once "sendToLogin.php";
 
 use DB\DBAccess;
 
