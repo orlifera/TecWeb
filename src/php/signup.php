@@ -32,6 +32,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $citta = htmlentities(substr($_POST['city'], 0, 255));
             $indirizzo = htmlentities(substr($_POST['address'], 0, 255));
             $cap = htmlentities(substr($_POST['cap'], 0, 5));
+
+            // Aggiungi un controllo per verificare se il CAP è un intero
+            $capInt = intval($cap);
+
+            if (!is_int($capInt) || $capInt <= 0) {
+                echo '<p class="error">Il CAP deve essere un numero intero valido.</p>';
+                exit();  // Interrompi l'esecuzione dello script in caso di errore
+            }
             
             // controlla se esiste già un utente con quel nome utente e quella mail
             $stmt = $connessione->prepare("SELECT * FROM utente WHERE username = ? OR email = ? LIMIT 1");
