@@ -91,16 +91,15 @@ $paginaHTML = str_replace('tos.html', '../pages/tos.html', $paginaHTML);
 $paginaHTML = str_replace('privacy.html', '../pages/privacy.html', $paginaHTML);
 $paginaHTML = str_replace('cookies.html', '../pages/cookies.html', $paginaHTML);
 
+
 if (isset($_SESSION['user'])) {
-    $scriptReplacement = '<script src="../js/orderHandler.js" data-id="{SKU}" data-quantita="{QUANTITA}" data-oggetti="{OGGETTI}" data-prezzo="{PREZZO}" data-sessione="{SESSIONE}" data-nome="{NOME}" data-cognome="{COGNOME}" data-email="{EMAIL}" data-phone="{PHONE}" data-indirizzo="{INDIRIZZO}" data-citta="{CITTA}" data-cap="{CAP}">';
+    $scriptReplacementUser = '<script src="../JS/orderHandler.js" data-id="{SKU}" data-quantita="{QUANTITA}" data-oggetti="{OGGETTI}" data-prezzo="{PREZZO}" data-sessione="{SESSIONE}" data-nome="{NOME}" data-cognome="{COGNOME}" data-email="{EMAIL}" data-phone="{PHONE}" data-indirizzo="{INDIRIZZO}" data-citta="{CITTA}" data-cap="{CAP}">';
     $scripts = '';
 
     $skuValues = array();
     $quantitaValues = array();
     $oggettiValues = array();
     $prezzoValues = array();
-
-
 
     foreach ($sku as $i => $value) {
         $skuValues[] = $sku[$i];
@@ -120,7 +119,7 @@ if (isset($_SESSION['user'])) {
         $cap = $listaInfo[10];
     }
 
-    $script = str_replace('{SKU}', implode(',', $skuValues), $scriptReplacement);
+    $script = str_replace('{SKU}', implode(',', $skuValues), $scriptReplacementUser);
     $script = str_replace('{QUANTITA}', implode(',', $quantitaValues), $script);
     $script = str_replace('{OGGETTI}', implode(',', $oggettiValues), $script);
     $script = str_replace('{PREZZO}', implode(',', $prezzoValues), $script);
@@ -132,11 +131,11 @@ if (isset($_SESSION['user'])) {
     $script = str_replace('{INDIRIZZO}', $indirizzo, $script);
     $script = str_replace('{CITTA}', $citta, $script);
     $script = str_replace('{CAP}', $cap, $script);
-
-
     $scripts .= $script;
+    $paginaHTML = str_replace('<script src="../js/orderHandler.js">', $scripts, $paginaHTML);
 } else {
-    $scriptReplacement = '<script src="../js/orderHandler.js" data-id="{SKU}" data-quantita="{QUANTITA}" data-oggetti="{OGGETTI}" data-prezzo="{PREZZO}" data-sessione="{SESSIONE}">';
+
+    $scriptReplacement = '<script src="../JS/orderHandler.js" data-id="{SKU}" data-quantita="{QUANTITA}" data-oggetti="{OGGETTI}" data-prezzo="{PREZZO}" data-sessione="{SESSIONE}">';
     $scripts = '';
 
     $skuValues = array();
@@ -157,10 +156,10 @@ if (isset($_SESSION['user'])) {
     $script = str_replace('{PREZZO}', implode(',', $prezzoValues), $script);
     $script = str_replace('{SESSIONE}', 'non registrato', $script);
     $scripts .= $script;
+    $paginaHTML = str_replace('<script src="../js/orderHandler.js">', $scripts, $paginaHTML);
 }
 
 $connection->closeDBConnection();
 
-$paginaHTML = str_replace('<script src="../js/orderHandler.js">', $scripts, $paginaHTML);
 
 echo $paginaHTML;

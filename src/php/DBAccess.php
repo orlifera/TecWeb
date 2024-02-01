@@ -255,7 +255,9 @@ class DBAccess
         Carrello.categoria AS categoria,
         Prodotto.disponibilita AS disponibilita
     FROM Carrello
-    JOIN Prodotto ON Carrello.sku = Prodotto.sku;";
+    JOIN Prodotto ON Carrello.sku = Prodotto.sku
+    WHERE Carrello.utente IS NULL
+    ;";
 
         $queryResult = mysqli_query($this->connection, $query) or die("Errore in DBAccess" . mysqli_error($this->connection));
 
