@@ -92,7 +92,7 @@ $paginaHTML = str_replace('privacy.html', '../pages/privacy.html', $paginaHTML);
 $paginaHTML = str_replace('cookies.html', '../pages/cookies.html', $paginaHTML);
 
 if (isset($_SESSION['user'])) {
-    $scriptReplacement = '<script src="../js/orderHandler.js" data-id="{SKU}" data-quantita="{QUANTITA}" data-oggetti="{OGGETTI}" data-prezzo="{PREZZO}" data-sessione="{SESSIONE}" data-nome="{NOME}" data-cognome="{COGNOME}" data-email="{EMAIL}" data-phone="{PHONE}" data-indirizzo="{INDIRIZZO}" data-citta="{CITTA}" data-cap="{CAP}">';
+    $scriptReplacement = '<script src="../JS/orderHandler.js" data-id="{SKU}" data-quantita="{QUANTITA}" data-oggetti="{OGGETTI}" data-prezzo="{PREZZO}" data-sessione="{SESSIONE}" data-nome="{NOME}" data-cognome="{COGNOME}" data-email="{EMAIL}" data-phone="{PHONE}" data-indirizzo="{INDIRIZZO}" data-citta="{CITTA}" data-cap="{CAP}">';
     $scripts = '';
 
     $skuValues = array();
@@ -136,7 +136,7 @@ if (isset($_SESSION['user'])) {
 
     $scripts .= $script;
 } else {
-    $scriptReplacement = '<script src="../js/orderHandler.js" data-id="{SKU}" data-quantita="{QUANTITA}" data-oggetti="{OGGETTI}" data-prezzo="{PREZZO}" data-sessione="{SESSIONE}">';
+    $scriptReplacement = '<script src="../JS/orderHandler.js" data-id="{SKU}" data-quantita="{QUANTITA}" data-oggetti="{OGGETTI}" data-prezzo="{PREZZO}" data-sessione="{SESSIONE}">';
     $scripts = '';
 
     $skuValues = array();
