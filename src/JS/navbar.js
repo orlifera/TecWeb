@@ -2,7 +2,7 @@
 function fetchDataWithFetch() {
     // Per Index
     // Effettua la richiesta GET al tuo file PHP
-    fetch('src/php/navbar.php')
+    fetch('src/php/navbarIndex.php')
     .then(response => response.text())
     .then(data => {
         // Gestisci la risposta
@@ -12,7 +12,7 @@ function fetchDataWithFetch() {
     
     // Per le altre pagine
     // Effettua la richiesta GET al tuo file PHP
-    fetch('../php/navbar.php')
+    fetch('../php/navbarAltro.php')
     .then(response => response.text())
     .then(data => {
         // Gestisci la risposta
