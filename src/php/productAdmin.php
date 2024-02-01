@@ -285,6 +285,7 @@ if ($id) {
                     <div class=\"dropdown-kebab hidden\">
                     <input type=\"button\" name=\"removeProduct\" value=\"Rimuovi\" class=\"removeItem\" data-id=\"" . $nome . "\" data-categoria=\"order\">
                     <input type=\"button\" name=\"modifyProduct\" value=\"Modifica\" class=\"modifyItem\" data-id=\"" . $nome . "\" data-categoria=\"order\">
+                    <input type=\"button\" name=\"detailProduct\" value=\"Dettagli\" class=\"viewDetails\" data-id=\"" . $nome . "\" data-categoria=\"order\">
                     </div>
                 </div></td>" .
                 "<td> " . $nome . " </td>\n" .
