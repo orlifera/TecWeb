@@ -97,6 +97,7 @@ if ($connectionOk) {
     }
 }
 /*
+valori di listaInfo:
 0. nome
 1. cognome
 2. data
