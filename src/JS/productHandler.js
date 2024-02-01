@@ -5,7 +5,6 @@ let selectColore = document.getElementById("colore");
 let immagine = document.querySelector("img");
 var idValue = getParameterByName("id", window.location.href);
 var categoriaValue = getParameterByName("categoria", window.location.href);
-
 let imageFilePath =
   "../../assets/images/" + categoriaValue + "/" + idValue + ".jpg";
 
