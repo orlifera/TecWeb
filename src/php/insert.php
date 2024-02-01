@@ -27,7 +27,7 @@ if ($category == "product") {
     <div class=\"text-fields\"><label for=\"categoria\">Categoria</label><input type=\"text\" id=\"categoria\" placeholder=\"Categoria\" required></div>" . "</div>"  . "<div class=\"text-fields prod-description\"><label for=\"descrizione\">Descrizione</label>
                                 <textarea id=\"descrizione\" rows=\"10\" cols=\"100\"  placeholder=\"Descrizione Prodotto\"></textarea></div>\n" . "\n
 <input id=\"inserisci-prodotto\" type=\"button\" class=\"inserisciProdotto\" value=\"Inserisci\">";
-    $paginaHTML = str_replace('<script src="../js/insertProductAdmin.js"></script>', '<script src="../js/insertProductAdmin.js" data-categoria="product"></script>', $paginaHTML);
+    $paginaHTML = str_replace('<script src="../js/insertProductAdmin.js"></script>', '<script src="../JS/insertProductAdmin.js" data-categoria="product"></script>', $paginaHTML);
 } else {
     $lista = "<div class=\"info-container\"><div class=\"text-fields\"><label for=\"codice\">Codice</label><input type=\"text\" name=\"codice\" id=\"codice\" placeholder=\"Inserire ccodice\" required></div></div>" . "\n
     <div class=\"info-container\"><div class=\"text-fields\"><label for=\"data_emissione\">Data Emissione</label><input type=\"text\" name=\"data_emissione\" id=\"data_emissione\" placeholder=\"Inserire data di emissione\" required></div>" . "\n
@@ -35,7 +35,7 @@ if ($category == "product") {
     <div class=\"info-container\"><div class=\"text-fields\"><label for=\"username\" lang=\"en\">Username</label><input type=\"text\" name=\"username\" id=\"username\" placeholder=\"Inserire username\" required></div>" . "\n
     <div class=\"text-fields\"><label for=\"valore\">Valore</label><input type=\"text\" name=\"valore\" id=\"valore\" placeholder=\"Inserire valore\" required></div></div>" . "\n
     <input type=\"button\" name=\"inserisciSconto\" id=\"aggiungiSconto\" class=\"inserisciProdotto\" value=\"Inserisci Sconto\">";
-    $paginaHTML = str_replace('<script src="../js/insertProductAdmin.js"></script>', '<script src="../js/insertProductAdmin.js" data-categoria="sale"></script>', $paginaHTML);
+    $paginaHTML = str_replace('<script src="../js/insertProductAdmin.js"></script>', '<script src="../JS/insertProductAdmin.js" data-categoria="sale"></script>', $paginaHTML);
 }
 
 $paginaHTML = str_replace('{prova}', $lista, $paginaHTML);

@@ -387,11 +387,12 @@
 
                     <fieldset class="fieldProfile show" id="changepsw">
                         <legend>Cambia <span lang="en">password</span></legend>
-
+    
                         <div class="pwd-container">
                             <div class="text-fields oldPwd">
-
-                                <svg class="icon" width="24px" height="24px" viewBox="0 0 48 48">
+                                
+                                <svg class="icon" width="24px" height="24px" viewBox="0 0 48 48"
+                                    >
                                     <g>
                                         <g id="invisible_box" data-name="invisible box">
                                             <rect width="48" height="48" fill="none" />
@@ -408,8 +409,9 @@
                         </div>
                         <div class="pwd-container">
                             <div class="text-fields password">
-
-                                <svg class="icon" width="24px" height="24px" viewBox="0 0 48 48">
+                                
+                                <svg class="icon" width="24px" height="24px" viewBox="0 0 48 48"
+                                    >
                                     <g>
                                         <g>
                                             <rect width="48" height="48" fill="none" />
@@ -421,16 +423,14 @@
                                     </g>
                                 </svg>
                                 <label for="password" id="newPwd">Nuova Password</label>
-                                <input type="password" name="password" id="password" placeholder="La Nuova password"
-                                    minlength="4" maxlength="12" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                                    required>
+                                <input type="password" name="password" id="password" placeholder="La tua password">
                             </div>
                         </div>
                         <div class="pwd-container">
                             <div class="text-fields confirm">
-
-                                <svg class="icon" width="24px" height="24px" viewBox="0 0 48 48">
+                                
+                                <svg class="icon" width="24px" height="24px" viewBox="0 0 48 48"
+                                    >
                                     <g>
                                         <g>
                                             <rect width="48" height="48" fill="none" />
@@ -442,13 +442,11 @@
                                     </g>
                                 </svg>
                                 <label for="password-confirm" id="confirmPwd">Conferma password</label>
-                                <input type="password" name="password" id="password" placeholder="Conferma la password"
-                                    required>
+                                <input type="password" name="password-confirm" id="password-confirm" placeholder="Conferma la password">
                             </div>
                         </div>
                         <div class="page-btns">
-                            <input type="submit" name="changepsw" value="Aggiorna dati" class="next stagebtn1b"
-                                form="profilePage">
+                            <input type="submit" name="changepsw" value="Aggiorna dati" class="next stagebtn1b" form="profilePage">
                         </div>
                     </fieldset>
 

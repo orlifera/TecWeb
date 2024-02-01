@@ -2668,6 +2668,7 @@ div.mod-prod {
     margin: auto;
     padding: 1em;
     border-collapse: collapse;
+    color: var(--text-100);
 }
 
 table th,

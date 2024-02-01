@@ -99,13 +99,13 @@ $percorsoSostituzioneRelativo = array(
 
 $paginaHTML = str_replace(
     "<script src=\"../js/accessoriesHandler.js\">",
-    "<script src=\"../js/accessoriesHandler.js\" data-categoria=\"" . $_GET['categoria'] . "\" data-riferimento=\"" . $_GET['categoria'] . "\">",
+    "<script src=\"../JS/accessoriesHandler.js\" data-categoria=\"" . $_GET['categoria'] . "\" data-riferimento=\"" . $_GET['categoria'] . "\">",
     $paginaHTML
 );
 
 $paginaHTML = str_replace(
     "<script src=\"../js/cart.js\">",
-    "<script src=\"../js/cart.js\" data-id=\"" . $_GET['id'] . "\" data-categoria=\"" . $_GET['categoria'] . "\" data-utente=\"" . (isset($_SESSION['user']) ? $_SESSION['user'] : 'non registrato') . "\">",
+    "<script src=\"../JS/cart.js\" data-id=\"" . $_GET['id'] . "\" data-categoria=\"" . $_GET['categoria'] . "\" data-utente=\"" . (isset($_SESSION['user']) ? $_SESSION['user'] : 'non registrato') . "\">",
     $paginaHTML
 );
 
