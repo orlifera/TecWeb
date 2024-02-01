@@ -92,7 +92,7 @@ $paginaHTML = str_replace('tos.html', '../pages/tos.html', $paginaHTML);
 $paginaHTML = str_replace('privacy.html', '../pages/privacy.html', $paginaHTML);
 $paginaHTML = str_replace('cookies.html', '../pages/cookies.html', $paginaHTML);
 
-$scriptReplacement = '<script src="../js/orderHandler.js" data-id="{SKU}" data-quantita="{QUANTITA}" data-oggetti="{OGGETTI}" data-prezzo="{PREZZO}">';
+$scriptReplacement = '<script src="../JS/orderHandler.js" data-id="{SKU}" data-quantita="{QUANTITA}" data-oggetti="{OGGETTI}" data-prezzo="{PREZZO}">';
 $scripts = '';
 
 echo $paginaHTML;
