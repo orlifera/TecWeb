@@ -121,7 +121,9 @@ INSERT INTO Prodotto VALUES
 
 ("V2", "Asus ROG RYUO", "Ventola", "Ventola molto molto moooolto bella", 180.00,"Nero, Bianco" , 10, "../../assets/images/acc/V2.jpg", "acc", "pc"),
 
-("V3", "Be Quiet! BK022 Dark Rock Pro 4", "Ventola", "Ventola molto molto bella", 80.00,"Nero, Bianco" , 10, "../../assets/images/acc/V3.jpg", "acc", "pc");
+("V3", "Be Quiet! BK022 Dark Rock Pro 4", "Ventola", "Ventola molto molto bella", 80.00,"Nero, Bianco" , 10, "../../assets/images/acc/V3.jpg", "acc", "pc"),
+
+("KB1", "Keyboard Desk", "Accessori tastiere", "Descrizione del porta tastiera", 80.00,"Bianco" , 10, "../../assets/images/acc/KB1.jpg", "acc", "kbd");
 
 INSERT INTO Sconto VALUES 
 ("S1C1", "2021-12-01 00:00:00", "2021-12-31 00:00:00", "user", true, 100),
