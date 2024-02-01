@@ -1,5 +1,5 @@
 <?php
-
+/* Inserisce un nuovo prodotto o sconto nel database */
 require_once "DBAccess.php";
 
 use DB\DBAccess;

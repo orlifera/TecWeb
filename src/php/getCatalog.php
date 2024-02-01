@@ -1,4 +1,6 @@
 <?php
+/* Visualizza tutti i prodotti di una determinata categoria */
+
 require_once "DBAccess.php";
 
 use DB\DBAccess;

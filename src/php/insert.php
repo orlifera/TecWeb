@@ -1,4 +1,6 @@
 <?php
+/* Visualizza i campi per inserire un prodotto o uno sconto */
+
 require_once "DBAccess.php";
 
 

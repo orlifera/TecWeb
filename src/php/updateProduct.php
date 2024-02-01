@@ -1,4 +1,6 @@
 <?php
+/* Modifica un prodotto, sconto oppure ordine nel database */
+
 
 require_once "DBAccess.php";
 
