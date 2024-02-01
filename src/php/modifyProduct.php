@@ -99,7 +99,7 @@ if ($connectionOk) {
                 }
             }
 
-            $paginaHTML = str_replace('<script src="../js/modify.js">', '<script src="../js/modify.js" data-id="' . $id . '" data-categoria="product" data-riferimento="' . $riferimento[0] . '" >', $paginaHTML);
+            $paginaHTML = str_replace('<script src="../js/modify.js">', '<script src="../JS/modify.js" data-id="' . $id . '" data-categoria="product" data-riferimento="' . $riferimento[0] . '" >', $paginaHTML);
         } else {
             echo ("Errore: l'ID non è un array. Risolvi questo problema su modifyProduct.php, riga 76 circa");
         }
@@ -148,7 +148,7 @@ if ($connectionOk) {
                 $htmlProdotti .= $prova;
             }
         }
-        $paginaHTML = str_replace('<script src="../js/modify.js">', '<script src="../js/modify.js" data-categoria="sale" data-id="' . $codice . '" >', $paginaHTML);
+        $paginaHTML = str_replace('<script src="../js/modify.js">', '<script src="../JS/modify.js" data-categoria="sale" data-id="' . $codice . '" >', $paginaHTML);
     } else if ($category == "order") {
         //SE È UN ORDINE SONO QUI
         $codice = $_GET['id'];
@@ -208,7 +208,7 @@ if ($connectionOk) {
             }
         }
 
-        $paginaHTML = str_replace('<script src="../js/modify.js">', '<script src="../js/modify.js" data-categoria="order" data-id="' . $codice . '" >', $paginaHTML);
+        $paginaHTML = str_replace('<script src="../js/modify.js">', '<script src="../JS/modify.js" data-categoria="order" data-id="' . $codice . '" >', $paginaHTML);
     }
 } else {
     header("HTTP/1.0 404 Not Found");
